@@ -46,7 +46,7 @@ def view_form(request, form_id):
     # if os is windows, replace the backslashes with forward slashes
     if os.name == 'nt':
         file_path = file_path.replace('\\', '/')
-    file_path = "static/" + file_path
+    file_path = "static/Companies/" + file_path
     if not file_path.startswith('static/'):
         raise SuspiciousOperation('Attempted directory traversal')
 

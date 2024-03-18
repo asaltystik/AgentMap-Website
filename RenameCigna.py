@@ -10,4 +10,4 @@ def rename_files(directory):
             print(f"Renamed {filename} to {new_filename}")
 
 # Call the function with the directory path
-rename_files("C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Cigna")
+rename_files("C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies\\Cigna")
