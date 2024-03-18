@@ -1,0 +1,55 @@
+import os
+from django.core.exceptions import SuspiciousOperation
+from django.views.decorators.clickjacking import xframe_options_exempt
+from django.shortcuts import get_object_or_404
+from django.shortcuts import render
+from django.http import FileResponse
+from django.conf import settings
+from .models import Form
+
+StateDict = {
+    "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
+    "CA": "California", "CO": "Colorado", "CT": "Connecticut",
+    "DC": "District of Columbia", "DE": "Delaware", "FL": "Florida",
+    "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho", "IL": "Illinois",
+    "IN": "Indiana", "IA": "Iowa", "KS": "Kansas", "KY": "Kentucky",
+    "LA": "Louisiana", "ME": "Maine", "MD": "Maryland", "MA": "Massachusetts",
+    "MI": "Michigan", "MN": "Minnesota", "MS": "Mississippi", "MO": "Missouri",
+    "MT": "Montana", "NE": "Nebraska", "NV": "Nevada",
+    "NH": "New Hampshire", "NJ": "New Jersey", "NM": "New Mexico",
+    "NY": "New York", "NC": "North Carolina", "ND": "North Dakota",
+    "OH": "Ohio", "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania",
+    "RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota",
+    "TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VT": "Vermont",
+    "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
+    "WI": "Wisconsin", "WY": "Wyoming",
+}
+
+
+# This function will render the index.html page
+def index(request):
+    return render(request, 'index.html')
+
+
+# This function will get all the companies in the given state
+def get_companies(request, state_code):
+    forms = Form.objects.filter(state=state_code).order_by('company')
+    # print("Forms: ", forms)
+    state = StateDict[state_code]
+    return render(request, "companies.html", {"state": state, "forms": forms})
+
+
+@xframe_options_exempt
+def view_form(request, form_id):
+    form = get_object_or_404(Form, id=form_id)
+    file_path = form.file_path
+    # if os is windows, replace the backslashes with forward slashes
+    if os.name == 'nt':
+        file_path = file_path.replace('\\', '/')
+    file_path = "static/" + file_path
+    if not file_path.startswith('static/'):
+        raise SuspiciousOperation('Attempted directory traversal')
+
+    response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
+    response['Content-Disposition'] = f'inline; filename="{os.path.basename(file_path)}"'
+    return response

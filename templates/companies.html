@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Info-Box</title>
+</head>
+<style>
+</style>
+<body>
+<!-- This is the info-box that will be displayed when the user clicks a state -->
+<div id="{{ state }}" class="info-box-contents">
+    <span style="font-family: lucida sans unicode,serif; ">
+    <h1>{{ state }}</h1>
+    <h2>Medicare Supplements: </h2>
+    {% regroup forms by full_company as company_list %}
+    <!-- This is the container for the filtered company forms -->
+    <div class="new-company-container">
+    {% for full_company in company_list %}
+        <!-- Full Company Name -->
+        <div class="new-company" id="{{ full_company.grouper }}" style="border: 2px black solid; border-radius: 12px">
+            <h2 style="text-align: center">{{ full_company.grouper }}</h2>
+            <!-- This is the button-matrix that will display the forms for the company -->
+            <div class="button-matrix">
+            {% for form in full_company.list %}
+                <div>
+                    <!-- This is the button that will open the modal for the form -->
+                    <button 
+                            id="{{ form.full_form_type }}"
+                            style="font-family: 'lucida sans unicode','serif'"
+                            _="on click call openModal('{% url 'view_form' form.id %}')"
+                            title="{{ full_company.grouper }} {{ form.full_form_type }}">
+                        <!-- This is the non-abbreviated form type -->
+                        {{ form.full_form_type }}
+                        {% if form.date != "None" %}
+                            <br> valid for {{ form.date }}
+                        {% endif %}
+                    </button>
+                </div>
+            {% endfor %}
+            </div>
+        </div>
+    {% endfor %}
+    </div>
+    </span>
+</div>
+<h2>Ancillaries: </h2>
+</body>
+</html>
