@@ -4,7 +4,6 @@ import django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')  # replace 'myproject.settings' with your project's settings
 django.setup()
 from AgentMap.models import Form
-import RenameCigna
 
 
 FORM_TYPE_DICT = {
@@ -71,7 +70,7 @@ def parse_filenames(directory):
                         date = "None"
                     file_path = os.path.join(root, file)
                     # print(f"Company: {company}, State: {state}, Form Type: {form_type}, File Path: {file_path}")
-                    file_path = os.path.relpath(file_path, 'C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static')
+                    file_path = os.path.relpath(file_path, 'C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies')
                     file_path = file_path.replace('\\', '/')
                     # print("relative path: ", file_path)
                     full_form_type = FORM_TYPE_DICT[form_type] if form_type in FORM_TYPE_DICT else "N"
@@ -95,4 +94,4 @@ def parse_filenames(directory):
     print(f"Total forms Parsed: {Form.objects.count()}")
 
 
-parse_filenames('C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static')
+parse_filenames('C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies')
