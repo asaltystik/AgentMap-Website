@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <title>Agent Map</title>
 </head>
 <style>
-    /* Container for the map and the info box */
+     /* Container for the map and the info box */
     .container{
         display: flex;
         flex-direction: row;
@@ -17,7 +18,7 @@
         background-clip: border-box;
         padding: 3px;
     }
-    
+
     /* The Map Content */
     .map{
         flex: 1;
@@ -25,7 +26,7 @@
         height: 90.8%;
         border-right: 4px solid #000;
     }
-    
+
     /* The Info Box Content */
     .info-box-container{
         flex: 1;
@@ -34,7 +35,7 @@
         overflow-y: auto;
         height: 92.6%;
     }
-    
+
     /* The Modal (background) */
     .modal {
         display: none; /* Hidden by default */
@@ -49,7 +50,7 @@
         background-color: rgb(0,0,0); /* Fallback color */
         background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
-    
+
     /* Modal Content */
     .modal-content {
         position: relative;
@@ -59,7 +60,7 @@
         height: 100%;
         max-width: 1200px;
         }
-    
+
     /* The Close Button */
     .close {
         color: white;
@@ -67,15 +68,15 @@
         font-size: 28px;
         font-weight: bold;
         }
-    
+
     /* the Close Button Hover Effect */
     .close:hover, .close:focus {
         color: #000;
         text-decoration: none;
         cursor: pointer;
         }
-        
-    /* The Hover effect for the states */    
+
+    /* The Hover effect for the states */
     path:hover, circle:hover {
         display: inline-block;
         stroke-width:2px;
@@ -83,7 +84,7 @@
         fill: #065988 !important;
         cursor: pointer;
         }
-    
+
     /* Change the font of the state names */
     .stateName {
         font-family: lucida sans unicode, serif;
@@ -92,7 +93,7 @@
         fill: rgba(16, 15, 15, 0.8);
         cursor: pointer;
         }
-        
+
     /* Container for the List of Companies */
     .new-company-container {
         display: grid;
@@ -101,8 +102,8 @@
         justify-items: center;
         align-items: center;
         }
-    
-    
+
+
     /* Styling for the button matrix */
     .button-matrix {
         display: grid;
@@ -112,7 +113,7 @@
         align-items: center;
         padding: 5px;
         }
-    
+
     /* Styling for the buttons */
     .button-matrix button {
         text-align: center;
@@ -120,13 +121,13 @@
         border: 2px solid #000;
         border-radius: 10px;
         }
-    
+
     /*Styling for the buttons hover effect */
     .button-matrix button:hover {
         background-color: #065887;
         color: #fff;
         }
-   
+
     /* Styling for the color key container */
     .color-key-container {
         display: grid;
@@ -136,7 +137,7 @@
         align-items: center;
         padding: 10px;
         }
-    
+
     /* Styling for the color key */
     .color-key {
             word-wrap: break-word;
