@@ -8,8 +8,7 @@
 </style>
 <body>
 <!-- This is the info-box that will be displayed when the user clicks a state -->
-<div id="{{ state }}" class="info-box-contents">
-    <span style="font-family: lucida sans unicode,serif; ">
+<div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
     <h1>{{ state }}</h1>
     <h2>Medicare Supplements: </h2>
     {% regroup forms by full_company as company_list %}
@@ -41,8 +40,9 @@
         </div>
     {% endfor %}
     </div>
-    </span>
+    <div id="Ancillaries" style="font-family: lucida sans unicode,serif; ">
+        <h2>Ancillaries: </h2>
+    </div>
 </div>
-<h2>Ancillaries: </h2>
 </body>
 </html>
