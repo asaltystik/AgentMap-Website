@@ -30,11 +30,11 @@
                             id="{{ form.full_form_type }}"
                             style="font-family: 'lucida sans unicode','serif'"
                             _="on click call openModal('{% url 'view_form' form.id %}')"
-                            title="{{ full_company.grouper }} {{ form.full_form_type }}">
+                            title="{{ full_company.grouper }} {{ form.full_form_type }} {% if form.date != "None" %}{{ form.date }} {% endif %}">
                         <!-- This is the non-abbreviated form type -->
                         {{ form.full_form_type }}
                         {% if form.date != "None" %}
-                            <br> valid for {{ form.date }}
+                            {{ form.date }}
                         {% endif %}
                     </button>
                 </div>
