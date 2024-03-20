@@ -10,13 +10,15 @@
 <!-- This is the info-box that will be displayed when the user clicks a state -->
 <div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
 {% if not forms %}
-    <h1>There are no forms for {{ state }}</h1>
+    <h1 style="margin-top: 1px; margin-bottom: 1px;">There are no forms for {{ state }}</h1>
 {% else %}
-    <h1>{{ state }}</h1>
-    <h2>Medicare Supplements: </h2>
+    <h1 style="margin-top: 1px; margin-bottom: 1px;">{{ state }}</h1>
+    <h2 style="margin-top: 1px; margin-bottom: 1px;">Medicare Supplements: </h2>
+    <!-- groups the forms by full_company and stores them in company_list -->
     {% regroup forms by full_company as company_list %}
     <!-- This is the container for the filtered company forms -->
     <div class="new-company-container">
+    <!-- this is the loop that will display the forms for each company -->
     {% for full_company in company_list %}
         <!-- Full Company Name -->
         <div class="new-company" id="{{ full_company.grouper }}" style="border: 2px black solid; border-radius: 12px">
