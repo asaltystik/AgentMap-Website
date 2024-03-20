@@ -28,5 +28,4 @@ def scrape():
             print("File Saved")
 
 
-
 scrape()
