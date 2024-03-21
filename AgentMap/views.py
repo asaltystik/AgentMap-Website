@@ -1,14 +1,13 @@
-import os
-from django.core.exceptions import SuspiciousOperation
 from django.views.decorators.clickjacking import xframe_options_exempt
-from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required
+from django.core.exceptions import SuspiciousOperation
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.http import FileResponse
-from django.conf import settings
-from .models import Form, LicensedState
 from .forms import LoginForm, UserRegistrationForm
+from .models import Form, LicensedState
+import os
 
 StateDict = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
@@ -64,7 +63,7 @@ def agent_map(request):
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
     return render(request, 'map.html', {'licensed_states': licensed_states})
 
-
+@login_required
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
     forms = Form.objects.filter(state=state_code).order_by('company')
