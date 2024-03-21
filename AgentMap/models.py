@@ -1,4 +1,5 @@
 from django.db import models
+from django.contrib.auth.models import User
 
 
 # Create your models here.
@@ -13,3 +14,19 @@ class Form(models.Model):
 
     def __str__(self):
         return self.company + " - " + self.state + " - " + self.form_type
+
+
+class Agent(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user.username
+
+
+class LicensedState(models.Model):
+    agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
+    state = models.CharField(max_length=2)
+    color = models.CharField(max_length=7, default="#0692e1")
+
+    def __str__(self):
+        return self.agent.user.username + " - " + self.state + " - " + self.color
