@@ -8,7 +8,7 @@ from django.shortcuts import render, redirect
 from django.http import FileResponse
 from django.conf import settings
 from .models import Form, LicensedState
-from .forms import LoginForm
+from .forms import LoginForm, UserRegistrationForm
 
 StateDict = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
@@ -28,6 +28,16 @@ StateDict = {
     "WI": "Wisconsin", "WY": "Wyoming",
 }
 
+
+def register_view(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('Login')
+    else:
+        form = UserRegistrationForm()
+    return render(request, 'register.html', {'form': form})
 
 def login_view(request):
     if request.method == 'POST':
