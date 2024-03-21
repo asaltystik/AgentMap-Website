@@ -39,6 +39,7 @@ def register_view(request):
         form = UserRegistrationForm()
     return render(request, 'register.html', {'form': form})
 
+
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -58,6 +59,7 @@ def logout_view(request):
 
 
 # This function will render the map.html page
+@login_required
 def agent_map(request):
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
     return render(request, 'map.html', {'licensed_states': licensed_states})
