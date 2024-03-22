@@ -1,9 +1,11 @@
 import os
 import django
-
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')  # replace 'myproject.settings' with your project's settings
-django.setup()
 from AgentMap.models import Form
+
+
+# replace 'myproject.settings' with your project's settings
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')
+django.setup()
 
 
 FORM_TYPE_DICT = {

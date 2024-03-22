@@ -63,6 +63,7 @@ def agent_map(request):
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
     return render(request, 'map.html', {'licensed_states': licensed_states})
 
+
 @login_required
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
