@@ -1397,6 +1397,8 @@
                     else {
                         // Darken the default color by 20% on hover
                         element.style.fill = darkenColor("#CCCCCC", -16);
+                        element.style.strokeWidth = '2px';
+                        element.style.strokeLinejoin = 'round';
                     }
                 });
                 element.addEventListener('mouseout', function() {
