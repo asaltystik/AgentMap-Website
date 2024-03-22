@@ -91,6 +91,7 @@
         cursor: pointer;
         }
     */
+     
     /* Change the font of the state names */
     .stateName {
         font-family: lucida sans unicode, serif;
@@ -1306,126 +1307,126 @@
         return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
         }
         
-// on window load, update the state colors
-window.onload = function () {
-    // Get all the path, circle, and text elements
-    let elements = document.querySelectorAll('#states path, #states circle, #states text');
+        // on window load, update the state colors
+        window.onload = function () {
+            // Get all the path, circle, and text elements
+            let elements = document.querySelectorAll('#states path, #states circle, #states text');
 
-    // Convert the licensed_states to a dictionary for faster lookup
-    let licensedStates = {};
-    {% for license in licensed_states %}
-        licensedStates["{{ license.state }}"] = "{{ license.color }}";
-    {% endfor %}
+            // Convert the licensed_states to a dictionary for faster lookup
+            let licensedStates = {};
+            {% for license in licensed_states %}
+                licensedStates["{{ license.state }}"] = "{{ license.color }}";
+            {% endfor %}
 
-    // Loop through each path, circle, and text element
-    elements.forEach(function(element) {
-        let state = element.id;
-        let color = licensedStates[state];
+            // Loop through each path, circle, and text element
+            elements.forEach(function(element) {
+                let state = element.id;
+                let color = licensedStates[state];
 
-        // Check if the state is in the list of licensed states
-        if (color) {
-            console.log("Licensed State: " + state)
-            // If it is, apply the licensed state color and hover effect
-            console.log("Updated Color: " + color)
-            element.style.fill = color;
-            element.addEventListener('mouseover', function() {
-                console.log("Mouseover Licensed State: " + element.id + " - " + color);
-                // Darken the color by 20% on hover
-                element.style.fill = darkenColor(color, -16);
-                element.style.strokeWidth = '2px';
-                element.style.strokeLinejoin = 'round';
-                // If the element has class "stateName", also change the style of the corresponding path
-                if (element.classList.contains('stateName')) {
-                    console.log("Mouseover Licensed State Name: " + element.id + " - " + color);
-                    let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                    let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                    if (path || circle) {
-                        let target = path ? path : circle;
-                        target.style.strokeWidth = '2px';
-                        target.style.strokeLinejoin = 'round';
-                        target.style.fill = darkenColor(color, -16);
+                // Check if the state is in the list of licensed states
+                if (color) {
+                    console.log("Licensed State: " + state)
+                    // If it is, apply the licensed state color and hover effect
+                    console.log("Updated Color: " + color)
+                    element.style.fill = color;
+                    element.addEventListener('mouseover', function() {
+                    console.log("Mouseover Licensed State: " + element.id + " - " + color);
+                    // Darken the color by 20% on hover
+                    element.style.fill = darkenColor(color, -16);
+                    element.style.strokeWidth = '2px';
+                    element.style.strokeLinejoin = 'round';
+                    // If the element has class "stateName", also change the style of the corresponding path
+                    if (element.classList.contains('stateName')) {
+                        console.log("Mouseover Licensed State Name: " + element.id + " - " + color);
+                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                        if (path || circle) {
+                            let target = path ? path : circle;
+                            target.style.strokeWidth = '2px';
+                            target.style.strokeLinejoin = 'round';
+                            target.style.fill = darkenColor(color, -16);
+                        }
+                        // Keep the color of the text black on hover
+                        element.style.fill = '#000000';
                     }
-                    // Keep the color of the text black on hover
-                    element.style.fill = '#000000';
-                }
-            });
-            element.addEventListener('mouseout', function() {
-                console.log("Mouseout Licensed State: " + element.id + " - " + color);
-                // Reset the color on mouseout
-                element.style.fill = color;
-                element.style.strokeWidth = '';
-                element.style.strokeLinejoin = '';
-                // If the element has class "stateName", also reset the style of the corresponding path
-                if (element.classList.contains('stateName')) {
-                    console.log("Mouseout Licensed State Name: " + element.id + " - " + color)
-                    let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                    let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                    if (path || circle) {
-                        let target = path ? path : circle;
-                        target.style.strokeWidth = '';
-                        target.style.strokeLinejoin = '';
-                        target.style.fill = color;
+                });
+                element.addEventListener('mouseout', function() {
+                    console.log("Mouseout Licensed State: " + element.id + " - " + color);
+                    // Reset the color on mouseout
+                    element.style.fill = color;
+                    element.style.strokeWidth = '';
+                    element.style.strokeLinejoin = '';
+                    // If the element has class "stateName", also reset the style of the corresponding path
+                    if (element.classList.contains('stateName')) {
+                        console.log("Mouseout Licensed State Name: " + element.id + " - " + color)
+                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                        if (path || circle) {
+                            let target = path ? path : circle;
+                            target.style.strokeWidth = '';
+                            target.style.strokeLinejoin = '';
+                            target.style.fill = color;
+                        }
+                        // Keep the color of the text black when the mouse is no longer hovering over it
+                        element.style.fill = '#000000';
                     }
-                    // Keep the color of the text black when the mouse is no longer hovering over it
-                    element.style.fill = '#000000';
+                });
+            } else {
+                console.log("Non-Licensed State: " + state)
+                // If it's not, apply a default color and hover effect
+                if (!element.classList.contains('stateName')) {
+                    element.style.fill = "#CCCCCC";
+                    element.style.strokeWidth = "2px";
+                    element.style.strokeLinejoin = "round";
                 }
-            });
-        } else {
-            console.log("Non-Licensed State: " + state)
-            // If it's not, apply a default color and hover effect
-            if (!element.classList.contains('stateName')) {
-                element.style.fill = "#CCCCCC";
-                element.style.strokeWidth = "2px";
-                element.style.strokeLinejoin = "round";
+                element.addEventListener('mouseover', function() {
+                    console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
+                    // If the element has class "stateName", keep its color black on hover
+                    if (element.classList.contains('stateName')) {
+                        console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
+                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                        if (path || circle) {
+                            let target = path ? path : circle;
+                            target.style.strokeWidth = '2px';
+                            target.style.strokeLinejoin = 'round';
+                            target.style.fill = darkenColor("#CCCCCC", -16);
+                        }
+                        element.style.fill = '#000000';
+                    }
+                    else {
+                        // Darken the default color by 20% on hover
+                        element.style.fill = darkenColor("#CCCCCC", -16);
+                    }
+                });
+                element.addEventListener('mouseout', function() {
+                    // Reset the color on mouseout
+                    element.style.fill = "#CCCCCC";
+                    element.style.strokeWidth = '';
+                    element.style.strokeLinejoin = '';
+                    console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
+                    // If the element has class "stateName", keep its color black when the mouse is no longer hovering over it
+                    if (element.classList.contains('stateName')) {
+                        console.log("Mouseout Unlicensed State Name: " + element.id + " - #CCCCCC");
+                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                        if (path || circle) {
+                            let target = path ? path : circle;
+                            target.style.strokeWidth = '';
+                            target.style.strokeLinejoin = '';
+                            target.style.fill = "#CCCCCC";
+                        }
+                        element.style.fill = '#000000';
+                    }
+
+                });
             }
-            element.addEventListener('mouseover', function() {
-                console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
-                // If the element has class "stateName", keep its color black on hover
+                // If the element has class "stateName", set its color to black
                 if (element.classList.contains('stateName')) {
-                    console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
-                    let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                    let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                    if (path || circle) {
-                        let target = path ? path : circle;
-                        target.style.strokeWidth = '2px';
-                        target.style.strokeLinejoin = 'round';
-                        target.style.fill = darkenColor("#CCCCCC", -16);
-                    }
                     element.style.fill = '#000000';
                 }
-                else {
-                    // Darken the default color by 20% on hover
-                    element.style.fill = darkenColor("#CCCCCC", -16);
-                }
             });
-            element.addEventListener('mouseout', function() {
-                // Reset the color on mouseout
-                element.style.fill = "#CCCCCC";
-                element.style.strokeWidth = '';
-                element.style.strokeLinejoin = '';
-                console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
-                // If the element has class "stateName", keep its color black when the mouse is no longer hovering over it
-                if (element.classList.contains('stateName')) {
-                    console.log("Mouseout Unlicensed State Name: " + element.id + " - #CCCCCC");
-                    let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                    let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                    if (path || circle) {
-                        let target = path ? path : circle;
-                        target.style.strokeWidth = '';
-                        target.style.strokeLinejoin = '';
-                        target.style.fill = "#CCCCCC";
-                    }
-                    element.style.fill = '#000000';
-                }
-
-            });
-        }
-        // If the element has class "stateName", set its color to black
-        if (element.classList.contains('stateName')) {
-            element.style.fill = '#000000';
-        }
-    });
-};
+        };
     </script>
 </div>
     <script src="https://unpkg.com/htmx.org@1.6.1"></script>
