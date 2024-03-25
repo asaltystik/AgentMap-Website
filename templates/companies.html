@@ -12,7 +12,7 @@
 {% if not forms %}
     <h1 style="margin-top: 1px; margin-bottom: 1px;">There are no forms for {{ state }}</h1>
 {% else %}
-    <h1 style="margin-top: 1px; margin-bottom: 1px;">{{ state }}</h1>
+    <h1 style="margin-top: 1px; margin-bottom: 1px;">{{ state }}<span style="font-size: smaller;"> - (License Number: {{ license_number }})</span></h1>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Medicare Supplements: </h2>
     <!-- groups the forms by full_company and stores them in company_list -->
     {% regroup forms by full_company as company_list %}
