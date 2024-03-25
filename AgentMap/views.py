@@ -70,7 +70,9 @@ def get_companies(request, state_code):
     forms = Form.objects.filter(state=state_code).order_by('company')
     # print("Forms: ", forms)
     state = StateDict[state_code]
-    return render(request, "companies.html", {"state": state, "forms": forms})
+    licenses = LicensedState.objects.filter(agent__user=request.user)
+    license_number = licenses.get(state=state_code).licenseNumber
+    return render(request, "companies.html", {"state": state, "forms": forms, "license_number": license_number})
 
 
 @xframe_options_exempt
