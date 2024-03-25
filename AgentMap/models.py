@@ -26,6 +26,8 @@ class Agent(models.Model):
 class LicensedState(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)
     state = models.CharField(max_length=2)
+    licenseNumber = models.CharField(max_length=20, default="N/A")
+    expiration = models.DateField(default="2024-01-01")
     color = models.CharField(max_length=7, default="#0692e1")
 
     def __str__(self):
