@@ -79,6 +79,7 @@ def get_companies(request, state_code):
     except LicensedState.DoesNotExist:
         return render(request, "companies.html", {"state": state, "forms": forms})
 
+
 @xframe_options_exempt
 def view_form(request, form_id):
     form = get_object_or_404(Form, id=form_id)
