@@ -18,7 +18,7 @@
         <span style="font-size: 14px;">
             - (License Number: {{ license_number }})
             {%  if expiration|date:"Y" != "2099" %}
-                - Expires {{ expiration|date:"Y-m-d" }}
+                - Expires: {{ expiration|date:"m/d/Y" }}
             {% endif %}
         </span>
         {% endif %}
