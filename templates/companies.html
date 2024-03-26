@@ -14,12 +14,14 @@
 {% else %}
     <h1 style="margin-top: 1px; margin-bottom: 1px;">
         {{ state }}
+        {% if license_number %}
         <span style="font-size: 14px;">
             - (License Number: {{ license_number }})
             {%  if expiration|date:"Y" != "2099" %}
                 - Expires {{ expiration|date:"Y-m-d" }}
             {% endif %}
         </span>
+        {% endif %}
     </h1>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Medicare Supplements: </h2>
     <!-- groups the forms by full_company and stores them in company_list -->

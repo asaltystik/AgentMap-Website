@@ -70,12 +70,14 @@ def get_companies(request, state_code):
     forms = Form.objects.filter(state=state_code).order_by('company')
     # print("Forms: ", forms)
     state = StateDict[state_code]
-    licenses = LicensedState.objects.filter(agent__user=request.user)
-    license_number = licenses.get(state=state_code).licenseNumber
-    expiration = licenses.get(state=state_code).expiration
-    return render(request, "companies.html", {"state": state, "forms": forms,
+    try:
+        licenses = LicensedState.objects.filter(agent__user=request.user)
+        license_number = licenses.get(state=state_code).licenseNumber
+        expiration = licenses.get(state=state_code).expiration
+        return render(request, "companies.html", {"state": state, "forms": forms,
                                               "license_number": license_number, "expiration": expiration})
-
+    except LicensedState.DoesNotExist:
+        return render(request, "companies.html", {"state": state, "forms": forms})
 
 @xframe_options_exempt
 def view_form(request, form_id):
