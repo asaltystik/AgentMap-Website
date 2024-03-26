@@ -8,9 +8,9 @@ django.setup()
 
 from AgentMap.models import LicensedState, Agent
 
-file = "C:\\Users\\Noricum\\Downloads\\Steven Williamson Licenses.pdf"
+file = "C:\\Users\\Noricum\\Downloads\\Licenses Sircon Platform.pdf"
 
-df = tabula.read_pdf(file, area=[252, 22.31, 720, 414], pages=1)
+df = tabula.read_pdf(file, area=[194.4, 72, 756, 414], pages=1)
 
 # Drop LICENSE TYPE column
 df[0] = df[0].drop(columns=['LICENSE TYPE'])
@@ -83,7 +83,7 @@ for i in range(len(df_following_pages)-1):
     print("Page ", i+2, ":")
     print(df_following_pages[i])
 
-df_last_page = tabula.read_pdf(file, area=[36, 72, 594, 414], pages=5)
+df_last_page = tabula.read_pdf(file, area=[36, 72, 252, 414], pages=5)
 
 # Drop LICENSE TYPE column
 df_last_page[0] = df_last_page[0].drop(columns=['LICENSE TYPE'])
@@ -117,8 +117,8 @@ df_last_page[0]['EXPIRATION DATE'] = df_last_page[0]['EXPIRATION DATE'].fillna('
 df_last_page[0] = df_last_page[0].reset_index(drop=True)
 
 # print the last page
-print("Page 5:")
-print(df_last_page[0])
+# print("Page 5:")
+# print(df_last_page[0])
 
 # Combine all the dataframes into one
 df = pd.concat([df[0], df_following_pages[0], df_following_pages[1], df_following_pages[2], df_following_pages[3], df_last_page[0]], ignore_index=True)
