@@ -28,6 +28,7 @@ StateDict = {
 }
 
 
+# This function will render the register.html page
 def register_view(request):
     if request.method == 'POST':
         form = UserRegistrationForm(request.POST)
@@ -39,6 +40,7 @@ def register_view(request):
     return render(request, 'register.html', {'form': form})
 
 
+# this function will render the login.html page
 def login_view(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)
@@ -52,6 +54,7 @@ def login_view(request):
     return render(request, 'login.html', {'form': form})
 
 
+# This function will log the user out and redirect them to the login page
 def logout_view(request):
     logout(request)
     return redirect('Login')
@@ -80,6 +83,7 @@ def get_companies(request, state_code):
         return render(request, "companies.html", {"state": state, "forms": forms})
 
 
+# This function handles opening the pdf file server side and sending it to the client
 @xframe_options_exempt
 def view_form(request, form_id):
     form = get_object_or_404(Form, id=form_id)
