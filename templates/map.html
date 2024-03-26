@@ -1286,8 +1286,18 @@
     }
 }
 
+        // Reset the scroll position to the top of the page
+        function resetScroll() {
+            let infoBoxContainer = document.getElementById('info-box')
+            infoBoxContainer.scrollTop = 0;
+        }
+
         // add an event listener for the htmx:afterSwap event
         document.body.addEventListener('htmx:afterSwap', function(event) {
+            
+            // Reset the scroll position to the top of the container
+            resetScroll();
+            
             let companies = document.getElementsByClassName('new-company');
             // If there are companies, update their colors
             if(companies) {
