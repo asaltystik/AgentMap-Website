@@ -199,8 +199,6 @@ while edit.lower() == 'yes':
         except ValueError:
             print("Invalid row number. Please enter an integer.")
 
-
-
     # Ask the user for the column to edit
     while True:
         try:
@@ -210,7 +208,6 @@ while edit.lower() == 'yes':
             break
         except ValueError:
             print("Invalid column. Please enter STATE, LICENSE NUMBER, or EXPIRATION DATE.")
-
 
     # Ask the user for the new value
     new_value = input("Enter the new value: ")
