@@ -1,16 +1,31 @@
 import os
 import tabula
 import django
+import argparse
 import pandas as pd
+
 # Set up the Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')
 django.setup()
 
 from AgentMap.models import LicensedState, Agent
 
-file = "C:\\Users\\Noricum\\Downloads\\Licenses Sircon Platform.pdf"
+# Create an argument parser
+parser = argparse.ArgumentParser(description='Parse a PDF file and save the data to a CSV file')
+parser.add_argument('file', type=str, help='The PDF file to parse')
 
-df = tabula.read_pdf(file, area=[194.4, 72, 756, 414], pages=1)
+args = parser.parse_args()
+
+# Ask the user for the coordinates of the table
+print("Enter the coordinates of the table in inches")
+
+# Get the coordinates of the table
+x1 = 1 * 72
+y1 = float(input("Enter the y1 coordinate: ")) * 72
+x2 = 5.75 * 72
+y2 = float(input("Enter the y2 coordinate: ")) * 72
+
+df = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages=1)
 
 # Drop LICENSE TYPE column
 df[0] = df[0].drop(columns=['LICENSE TYPE'])
@@ -46,7 +61,14 @@ df[0] = df[0].reset_index(drop=True)
 # print the first page
 print(df[0])
 
-df_following_pages = tabula.read_pdf(file, area=[36, 72, 738, 414], pages="2-5")
+# Ask the user for the coordinates of the table on pages 2-4
+print("Enter the coordinates of the table in inches for pages 2-4")
+
+# Get the coordinates of the table
+y1 = float(input("Enter the y1 coordinate: ")) * 72
+y2 = float(input("Enter the y2 coordinate: ")) * 72
+
+df_following_pages = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages="2-5")
 for i in range(len(df_following_pages)-1):
     # Drop LICENSE TYPE column
     df_following_pages[i] = df_following_pages[i].drop(columns=['LICENSE TYPE'])
@@ -83,7 +105,14 @@ for i in range(len(df_following_pages)-1):
     print("Page ", i+2, ":")
     print(df_following_pages[i])
 
-df_last_page = tabula.read_pdf(file, area=[36, 72, 252, 414], pages=5)
+# Ask the user for the coordinates of the table on the last page
+print("Enter the coordinates of the table in inches for the last page")
+
+# Get the coordinates of the table on the last page
+y1 = float(input("Enter the y1 coordinate: ")) * 72
+y2 = float(input("Enter the y2 coordinate: ")) * 72
+
+df_last_page = tabula.read_pdf(args.file, area=[36, 72, 252, 414], pages=5)
 
 # Drop LICENSE TYPE column
 df_last_page[0] = df_last_page[0].drop(columns=['LICENSE TYPE'])
@@ -121,13 +150,14 @@ df_last_page[0] = df_last_page[0].reset_index(drop=True)
 # print(df_last_page[0])
 
 # Combine all the dataframes into one
-df = pd.concat([df[0], df_following_pages[0], df_following_pages[1], df_following_pages[2], df_following_pages[3], df_last_page[0]], ignore_index=True)
+df = pd.concat([df[0], df_following_pages[0], df_following_pages[1],
+                df_following_pages[2], df_following_pages[3], df_last_page[0]], ignore_index=True)
 
 # Drop the License Type column
 df = df.drop(columns=['LICENSE TYPE'])
 
 # Drop License Nmber and Expiration date rows that are null
-df = df.dropna(subset=['LICENSE NUMBER', 'EXPIRATION DATE'])
+df = df.dropna(subset=['STATE', 'LICENSE NUMBER', 'EXPIRATION DATE'])
 
 # if there is a duplicate STATE then drop the second one
 df = df.drop_duplicates(subset=['STATE'])
