@@ -75,7 +75,7 @@ def get_companies(request, state_code):
         license_number = licenses.get(state=state_code).licenseNumber
         expiration = licenses.get(state=state_code).expiration
         return render(request, "companies.html", {"state": state, "forms": forms,
-                                              "license_number": license_number, "expiration": expiration})
+                                                  "license_number": license_number, "expiration": expiration})
     except LicensedState.DoesNotExist:
         return render(request, "companies.html", {"state": state, "forms": forms})
 
