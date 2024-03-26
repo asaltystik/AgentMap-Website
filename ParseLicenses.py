@@ -13,6 +13,17 @@ from AgentMap.models import LicensedState, Agent
 
 # function to parse the tables
 def process_dataframe(dataframe):
+    """
+        This function processes a dataframe by performing several operations such as dropping columns,
+        removing null rows, shifting values, and setting default values.
+
+        Parameters:
+        dataframe (pd.DataFrame): The dataframe to be processed.
+
+        Returns:
+        dataframe (pd.DataFrame): The processed dataframe.
+        """
+
     # Drop LICENSE TYPE column
     dataframe = dataframe.drop(columns=['LICENSE TYPE'])
 
