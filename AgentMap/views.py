@@ -72,7 +72,9 @@ def get_companies(request, state_code):
     state = StateDict[state_code]
     licenses = LicensedState.objects.filter(agent__user=request.user)
     license_number = licenses.get(state=state_code).licenseNumber
-    return render(request, "companies.html", {"state": state, "forms": forms, "license_number": license_number})
+    expiration = licenses.get(state=state_code).expiration
+    return render(request, "companies.html", {"state": state, "forms": forms,
+                                              "license_number": license_number, "expiration": expiration})
 
 
 @xframe_options_exempt
