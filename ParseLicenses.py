@@ -21,9 +21,14 @@ print("Enter the coordinates of the table in inches")
 
 # Get the coordinates of the table
 x1 = 1 * 72
-y1 = float(input("Enter the y1 coordinate: ")) * 72
 x2 = 5.75 * 72
-y2 = float(input("Enter the y2 coordinate: ")) * 72
+while True:
+    try:
+        y1 = float(input("Enter the y1 coordinate: ")) * 72
+        y2 = float(input("Enter the y2 coordinate: ")) * 72
+        break
+    except ValueError:
+        print("Needs to be an integer or float")
 
 df = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages=1)
 
@@ -65,8 +70,13 @@ print(df[0])
 print("Enter the coordinates of the table in inches for pages 2-4")
 
 # Get the coordinates of the table
-y1 = float(input("Enter the y1 coordinate: ")) * 72
-y2 = float(input("Enter the y2 coordinate: ")) * 72
+while True:
+    try:
+        y1 = float(input("Enter the y1 coordinate: ")) * 72
+        y2 = float(input("Enter the y2 coordinate: ")) * 72
+        break
+    except ValueError:
+        print("Needs to be an integer or float")
 
 df_following_pages = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages="2-5")
 for i in range(len(df_following_pages)-1):
@@ -109,8 +119,13 @@ for i in range(len(df_following_pages)-1):
 print("Enter the coordinates of the table in inches for the last page")
 
 # Get the coordinates of the table on the last page
-y1 = float(input("Enter the y1 coordinate: ")) * 72
-y2 = float(input("Enter the y2 coordinate: ")) * 72
+while True:
+    try:
+        y1 = float(input("Enter the y1 coordinate: ")) * 72
+        y2 = float(input("Enter the y2 coordinate: ")) * 72
+        break
+    except ValueError:
+        print("Needs to be an integer or float")
 
 df_last_page = tabula.read_pdf(args.file, area=[36, 72, 252, 414], pages=5)
 
@@ -156,8 +171,8 @@ df = pd.concat([df[0], df_following_pages[0], df_following_pages[1],
 # Drop the License Type column
 df = df.drop(columns=['LICENSE TYPE'])
 
-# Drop License Nmber and Expiration date rows that are null
-df = df.dropna(subset=['STATE', 'LICENSE NUMBER', 'EXPIRATION DATE'])
+# Drop rows that are NULL
+df = df.dropna(subset=['LICENSE NUMBER', 'EXPIRATION DATE'])
 
 # if there is a duplicate STATE then drop the second one
 df = df.drop_duplicates(subset=['STATE'])
@@ -171,6 +186,43 @@ df['EXPIRATION DATE'] = pd.to_datetime(df['EXPIRATION DATE'])
 pd.set_option('display.max_rows', None)
 # print the final dataframe
 print(df)
+
+# Ask the user if they want to manually edit the dataframe
+edit = input("Do you want to manually edit the dataframe? (yes/no): ")
+
+while edit.lower() == 'yes':
+    # Ask the user for the row number to edit
+    while True:
+        try:
+            row_number = int(input("Enter the row number to edit: "))
+            break
+        except ValueError:
+            print("Invalid row number. Please enter an integer.")
+
+
+
+    # Ask the user for the column to edit
+    while True:
+        try:
+            column = input("Enter the column to edit(STATE, LICENSE NUMBER, or EXPIRATION DATE): ").upper()
+            if column not in ['STATE', 'LICENSE NUMBER', 'EXPIRATION DATE']:
+                raise ValueError
+            break
+        except ValueError:
+            print("Invalid column. Please enter STATE, LICENSE NUMBER, or EXPIRATION DATE.")
+
+
+    # Ask the user for the new value
+    new_value = input("Enter the new value: ")
+
+    # Update the dataframe
+    df.at[row_number, column] = new_value
+
+    # Print the updated row
+    print(df.loc[row_number])
+
+    # Ask the user if they want to edit another row
+    edit = input("Do you want to edit another row? (yes/no): ")
 
 # Save the dataframe to a csv file in Licenses folder, Ask user for the file name
 file_name = input("Enter the file name: ")
