@@ -594,13 +594,17 @@
 
         // Function to open the modal and set the iframe src
         function openModal(url) {
+            // Log the url
             console.log("Opening modal with url: " + url)
+            // set the iframe src to the url
             document.getElementById("pdfIframe").src = url;
+            // display the modal
             modal.style.display = "block";
         }
 
         // Function to close the modal and clear the iframe src
         function closeModal() {
+            // clear the iframe src and hide the modal
             document.getElementById("pdfIframe").src = "";
             modal.style.display = "none";
         }
@@ -1260,36 +1264,37 @@
             },
         };
 
-    // Get the state from the info-box-contents id
-    let state = document.getElementById('info-box').children[0].id;
-    console.log("Applying HHD Colors to State: " + state);
+            // Get the state from the info-box-contents id
+            let state = document.getElementById('info-box').children[0].id;
+            console.log("Applying HHD Colors to State: " + state);
 
-    // Get all the new-company divs
-    let companies = document.getElementsByClassName('new-company');
-    //console.log("Companies: " + companies);
+            // Get all the new-company divs
+            let companies = document.getElementsByClassName('new-company');
+            //console.log("Companies: " + companies);
 
-    // Loop through each company and apply the color code
-    for (let i = 0; i < companies.length; i++) {
-        // Get the company name from the id
-        let company = companies[i].id;
-        // console.log("Company: " + company);
+            // Loop through each company and apply the color code
+            for (let i = 0; i < companies.length; i++) {
+                // Get the company name from the id
+                let company = companies[i].id;
+                // console.log("Company: " + company);
 
-        // Get the color for this state and company from the mapping
-        let color = colorMapping[state][company];
-        //console.log("Color: " + color);
+                // Get the color for this state and company from the mapping
+                let color = colorMapping[state][company];
+                //console.log("Color: " + color);
 
-        // If a color was found, apply it to the divs background
-        if (color) {
-            companies[i].style.backgroundColor = color;
-            console.log("Applied color: " + color + " to " + company);
+                // If a color was found, apply it to the divs background
+                if (color) {
+                    companies[i].style.backgroundColor = color;
+                    console.log("Applied color: " + color + " to " + company);
+                }
+            }
         }
-    }
-}
 
         // Reset the scroll position to the top of the page
         function resetScroll() {
+            // Get the info-box container
             let infoBoxContainer = document.getElementById('info-box')
-            infoBoxContainer.scrollTop = 0;
+            infoBoxContainer.scrollTop = 0; // Scroll to the top of the container
         }
 
         // add an event listener for the htmx:afterSwap event
@@ -1298,6 +1303,7 @@
             // Reset the scroll position to the top of the container
             resetScroll();
             
+            // Get all the new-company divs
             let companies = document.getElementsByClassName('new-company');
             // If there are companies, update their colors
             if(companies) {
@@ -1309,12 +1315,14 @@
         
         // Function to darken a color
         function darkenColor(color, percent) {
+            // Convert the hex color to an integer
             let num = parseInt(color.replace("#",""), 16),
-            amt = Math.round(2.55 * percent),
-            R = (num >> 16) + amt,
-            B = (num >> 8 & 0x00FF) + amt,
-            G = (num & 0x0000FF) + amt;
-        return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
+            amt = Math.round(2.55 * percent), // Calculate the amount to darken
+            R = (num >> 16) + amt, // Shift the bits to get the red value
+            B = (num >> 8 & 0x00FF) + amt, // Shift the bits to get the blue value
+            G = (num & 0x0000FF) + amt; // Get the green value
+            // Return the new color
+            return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
         }
         
         // on window load, update the state colors
@@ -1335,104 +1343,146 @@
 
                 // Check if the state is in the list of licensed states
                 if (color) {
+                    // Log the licensed state and color
                     console.log("Licensed State: " + state)
-                    // If it is, apply the licensed state color and hover effect
                     console.log("Updated Color: " + color)
+                    
+                    // Apply the color to the element
                     element.style.fill = color;
+                    
+                    // Add a mouseover and mouseout event listener
                     element.addEventListener('mouseover', function() {
-                    console.log("Mouseover Licensed State: " + element.id + " - " + color);
-                    // Darken the color by 20% on hover
-                    element.style.fill = darkenColor(color, -16);
-                    element.style.strokeWidth = '2px';
-                    element.style.strokeLinejoin = 'round';
-                    // If the element has class "stateName", also change the style of the corresponding path
-                    if (element.classList.contains('stateName')) {
-                        console.log("Mouseover Licensed State Name: " + element.id + " - " + color);
-                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                        if (path || circle) {
-                            let target = path ? path : circle;
-                            target.style.strokeWidth = '2px';
-                            target.style.strokeLinejoin = 'round';
-                            target.style.fill = darkenColor(color, -16);
-                        }
-                        // Keep the color of the text black on hover
-                        element.style.fill = '#000000';
-                    }
-                });
-                element.addEventListener('mouseout', function() {
-                    console.log("Mouseout Licensed State: " + element.id + " - " + color);
-                    // Reset the color on mouseout
-                    element.style.fill = color;
-                    element.style.strokeWidth = '';
-                    element.style.strokeLinejoin = '';
-                    // If the element has class "stateName", also reset the style of the corresponding path
-                    if (element.classList.contains('stateName')) {
-                        console.log("Mouseout Licensed State Name: " + element.id + " - " + color)
-                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                        if (path || circle) {
-                            let target = path ? path : circle;
-                            target.style.strokeWidth = '';
-                            target.style.strokeLinejoin = '';
-                            target.style.fill = color;
-                        }
-                        // Keep the color of the text black when the mouse is no longer hovering over it
-                        element.style.fill = '#000000';
-                    }
-                });
-            } else {
-                console.log("Non-Licensed State: " + state)
-                // If it's not, apply a default color and hover effect
-                if (!element.classList.contains('stateName')) {
-                    element.style.fill = "#CCCCCC";
-                    element.style.strokeWidth = "2px";
-                    element.style.strokeLinejoin = "round";
-                }
-                element.addEventListener('mouseover', function() {
-                    console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
-                    // If the element has class "stateName", keep its color black on hover
-                    if (element.classList.contains('stateName')) {
-                        console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
-                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                        if (path || circle) {
-                            let target = path ? path : circle;
-                            target.style.strokeWidth = '2px';
-                            target.style.strokeLinejoin = 'round';
-                            target.style.fill = darkenColor("#CCCCCC", -16);
-                        }
-                        element.style.fill = '#000000';
-                    }
-                    else {
-                        // Darken the default color by 20% on hover
-                        element.style.fill = darkenColor("#CCCCCC", -16);
+                        // Log the mouseover event
+                        console.log("Mouseover Licensed State: " + element.id + " - " + color);
+                        
+                        // Darken the color by 20% on hover and apply styling
+                        element.style.fill = darkenColor(color, -16);
                         element.style.strokeWidth = '2px';
                         element.style.strokeLinejoin = 'round';
-                    }
-                });
-                element.addEventListener('mouseout', function() {
-                    // Reset the color on mouseout
-                    element.style.fill = "#CCCCCC";
-                    element.style.strokeWidth = '';
-                    element.style.strokeLinejoin = '';
-                    console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
-                    // If the element has class "stateName", keep its color black when the mouse is no longer hovering over it
-                    if (element.classList.contains('stateName')) {
-                        console.log("Mouseout Unlicensed State Name: " + element.id + " - #CCCCCC");
-                        let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
-                        let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                        if (path || circle) {
-                            let target = path ? path : circle;
-                            target.style.strokeWidth = '';
-                            target.style.strokeLinejoin = '';
-                            target.style.fill = "#CCCCCC";
+                        
+                        // If the element has class "stateName", also change the style of the corresponding path
+                        if (element.classList.contains('stateName')) {
+                            // Log the mouseover event
+                            console.log("Mouseover Licensed State Name: " + element.id + " - " + color);
+                            
+                            // get the path or circle element with the same id
+                            let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                            let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                            
+                            // If the path or circle exists, change its style
+                            if (path || circle) {
+                                // Get the target element
+                                let target = path ? path : circle;
+                                target.style.strokeWidth = '2px';
+                                target.style.strokeLinejoin = 'round';
+                                target.style.fill = darkenColor(color, -16);
+                            }
+                            
+                            // Keep the color of the text black on hover
+                            element.style.fill = '#000000';
                         }
-                        element.style.fill = '#000000';
+                    });
+                    
+                    // Add a mouseout event listener
+                    element.addEventListener('mouseout', function() {
+                        // Log the mouseout event
+                        console.log("Mouseout Licensed State: " + element.id + " - " + color);
+                        
+                        // Reset the color on mouseout and remove styling
+                        element.style.fill = color;
+                        element.style.strokeWidth = '';
+                        element.style.strokeLinejoin = '';
+                        
+                        // If the element has class "stateName", also reset the style of the corresponding path
+                        if (element.classList.contains('stateName')) {
+                            // Log the mouseout event
+                            console.log("Mouseout Licensed State Name: " + element.id + " - " + color)
+                            
+                            // get the path or circle element with the same id
+                            let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                            let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                            
+                            // If the path or circle exists, reset its style
+                            if (path || circle) {
+                                let target = path ? path : circle;
+                                target.style.strokeWidth = '';
+                                target.style.strokeLinejoin = '';
+                                target.style.fill = color;
+                            }
+                            // Keep the color of the text black when the mouse is no longer hovering over it
+                            element.style.fill = '#000000';
+                        }
+                    });
+                } 
+                else {
+                    // Log the non-licensed state
+                    console.log("Non-Licensed State: " + state)
+                    
+                    // If it's not, apply a default color and hover effect
+                    if (!element.classList.contains('stateName')) {
+                        // Apply the default color and styling
+                        element.style.fill = "#CCCCCC";
+                        element.style.strokeWidth = "2px";
+                        element.style.strokeLinejoin = "round";
                     }
+                    element.addEventListener('mouseover', function() {
+                        // Log the mouseover event
+                        console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
+                        
+                        // If the element has class "stateName", keep its color black on hover
+                        if (element.classList.contains('stateName')) {
+                            // Log the mouseover event
+                            console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
+                            
+                            // get the path or circle element with the same id
+                            let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                            let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                            // If the path or circle exists, change its style
+                            if (path || circle) {
+                                let target = path ? path : circle;
+                                target.style.strokeWidth = '2px';
+                                target.style.strokeLinejoin = 'round';
+                                target.style.fill = darkenColor("#CCCCCC", -16);
+                            }
+                            element.style.fill = '#000000';
+                        }
+                        else {
+                            // Darken the default color by 20% on hover
+                            element.style.fill = darkenColor("#CCCCCC", -16);
+                            element.style.strokeWidth = '2px';
+                            element.style.strokeLinejoin = 'round';
+                        }
+                    });
+                    element.addEventListener('mouseout', function() {
+                        // Reset the color on mouseout
+                        element.style.fill = "#CCCCCC";
+                        element.style.strokeWidth = '';
+                        element.style.strokeLinejoin = '';
+                        
+                        // Log the mouseout event
+                        console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
+                        
+                        // If the element has class "stateName", keep its color black when the mouse is no longer hovering over it
+                        if (element.classList.contains('stateName')) {
+                            // Log the mouseout event
+                            console.log("Mouseout Unlicensed State Name: " + element.id + " - #CCCCCC");
+                            
+                            // get the path or circle element with the same id
+                            let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
+                            let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
+                            
+                            // If the path or circle exists, reset its style
+                            if (path || circle) {
+                                let target = path ? path : circle;
+                                target.style.strokeWidth = '';
+                                target.style.strokeLinejoin = '';
+                                target.style.fill = "#CCCCCC";
+                            }
+                            element.style.fill = '#000000';
+                        }
 
-                });
-            }
+                    });
+                }
                 // If the element has class "stateName", set its color to black
                 if (element.classList.contains('stateName')) {
                     element.style.fill = '#000000';
