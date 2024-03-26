@@ -10,6 +10,43 @@ django.setup()
 
 from AgentMap.models import LicensedState, Agent
 
+
+# function to parse the tables
+def process_dataframe(dataframe):
+    # Drop LICENSE TYPE column
+    dataframe = dataframe.drop(columns=['LICENSE TYPE'])
+
+    # Drop Rows where everything is null
+    dataframe = dataframe.dropna(how="all")
+
+    # Remove any decimal points from the 'LICENSE NUMBER' column
+    dataframe['LICENSE NUMBER'] = dataframe['LICENSE NUMBER'].astype(str).str.replace('\.\d+', '', regex=True)
+
+    # Shift the 'LICENSE NUMBER' and 'EXPIRATION DATE' columns up by 1 maybe 2 if needed
+    dataframe['LICENSE NUMBER'] = dataframe['LICENSE NUMBER'].shift(+1)
+    dataframe['EXPIRATION DATE'] = dataframe['EXPIRATION DATE'].shift(+1)
+    dataframe.loc[dataframe['STATE'].isna(), 'LICENSE NUMBER'] = dataframe.loc[dataframe['STATE'].isna(), 'LICENSE NUMBER'].shift(+1)
+    dataframe.loc[dataframe['STATE'].isna(), 'EXPIRATION DATE'] = dataframe.loc[dataframe['STATE'].isna(), 'EXPIRATION DATE'].shift(+1)
+
+    # Create a mask for rows where 'STATE' is more than 2 characters long
+    mask = dataframe['STATE'].str.len() > 2
+
+    # Use the mask to drop these rows
+    dataframe = dataframe.loc[~mask]
+
+    # Drop Rows where everything is null
+    dataframe = dataframe.dropna(how="all")
+    dataframe = dataframe.dropna(subset=['STATE'])
+
+    # Set the 'EXPIRATION DATE' column to 05/31/2999 if it is null
+    dataframe['EXPIRATION DATE'] = dataframe['EXPIRATION DATE'].fillna('05/31/2099')
+
+    # Reset the index
+    dataframe = dataframe.reset_index(drop=True)
+
+    return dataframe
+
+
 # Create an argument parser
 parser = argparse.ArgumentParser(description='Parse a PDF file and save the data to a CSV file')
 parser.add_argument('file', type=str, help='The PDF file to parse')
@@ -32,36 +69,7 @@ while True:
 
 df = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages=1)
 
-# Drop LICENSE TYPE column
-df[0] = df[0].drop(columns=['LICENSE TYPE'])
-
-# Drop Rows where everything is null
-df[0] = df[0].dropna(how="all")
-
-# Remove any decimal points from the 'LICENSE NUMBER' column
-df[0]['LICENSE NUMBER'] = df[0]['LICENSE NUMBER'].astype(str).str.replace('\.\d+', '', regex=True)
-
-# Shift the 'LICENSE NUMBER' and 'EXPIRATION DATE' columns up by 1 maybe 2 if needed
-df[0]['LICENSE NUMBER'] = df[0]['LICENSE NUMBER'].shift(+1)
-df[0]['EXPIRATION DATE'] = df[0]['EXPIRATION DATE'].shift(+1)
-df[0].loc[df[0]['STATE'].isna(), 'LICENSE NUMBER'] = df[0].loc[df[0]['STATE'].isna(), 'LICENSE NUMBER'].shift(+1)
-df[0].loc[df[0]['STATE'].isna(), 'EXPIRATION DATE'] = df[0].loc[df[0]['STATE'].isna(), 'EXPIRATION DATE'].shift(+1)
-
-# Create a mask for rows where 'STATE' is more than 2 characters long
-mask = df[0]['STATE'].str.len() > 2
-
-# Use the mask to drop these rows
-df[0] = df[0].loc[~mask]
-
-# Drop Rows where everything is null
-df[0] = df[0].dropna(how="all")
-df[0] = df[0].dropna(subset=['STATE'])
-
-# Set the 'EXPIRATION DATE' column to 05/31/2999 if it is null
-df[0]['EXPIRATION DATE'] = df[0]['EXPIRATION DATE'].fillna('1/1/2099')
-
-# Reset the index
-df[0] = df[0].reset_index(drop=True)
+df[0] = process_dataframe(df[0])
 
 # print the first page
 print(df[0])
@@ -80,36 +88,7 @@ while True:
 
 df_following_pages = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages="2-5")
 for i in range(len(df_following_pages)-1):
-    # Drop LICENSE TYPE column
-    df_following_pages[i] = df_following_pages[i].drop(columns=['LICENSE TYPE'])
-
-    # Drop Rows where everything is null
-    df_following_pages[i] = df_following_pages[i].dropna(how="all")
-
-    # Remove any decimal points from the 'LICENSE NUMBER' column
-    df_following_pages[i]['LICENSE NUMBER'] = df_following_pages[i]['LICENSE NUMBER'].astype(str).str.replace('\.\d+', '', regex=True)
-
-    # Shift the 'LICENSE NUMBER' and 'EXPIRATION DATE' columns up by 1 maybe 2 if needed
-    df_following_pages[i]['LICENSE NUMBER'] = df_following_pages[i]['LICENSE NUMBER'].shift(+1)
-    df_following_pages[i]['EXPIRATION DATE'] = df_following_pages[i]['EXPIRATION DATE'].shift(+1)
-    df_following_pages[i].loc[df_following_pages[i]['STATE'].isna(), 'LICENSE NUMBER'] = df_following_pages[i].loc[df_following_pages[i]['STATE'].isna(), 'LICENSE NUMBER'].shift(+1)
-    df_following_pages[i].loc[df_following_pages[i]['STATE'].isna(), 'EXPIRATION DATE'] = df_following_pages[i].loc[df_following_pages[i]['STATE'].isna(), 'EXPIRATION DATE'].shift(+1)
-
-    # Create a mask for rows where 'STATE' is more than 2 characters long
-    mask = df_following_pages[i]['STATE'].str.len() > 2
-
-    # Use the mask to drop these rows
-    df_following_pages[i] = df_following_pages[i].loc[~mask]
-
-    # Drop Rows where everything is null
-    df_following_pages[i] = df_following_pages[i].dropna(how="all")
-    df_following_pages[i] = df_following_pages[i].dropna(subset=['STATE'])
-
-    # Set the 'EXPIRATION DATE' column to 05/31/2999 if it is null
-    df_following_pages[i]['EXPIRATION DATE'] = df_following_pages[i]['EXPIRATION DATE'].fillna('05/31/2099')
-
-    # Reset the index
-    df_following_pages[i] = df_following_pages[i].reset_index(drop=True)
+    df_following_pages[i] = process_dataframe(df_following_pages[i])
 
     # print the following pages
     print("Page ", i+2, ":")
@@ -129,40 +108,11 @@ while True:
 
 df_last_page = tabula.read_pdf(args.file, area=[36, 72, 252, 414], pages=5)
 
-# Drop LICENSE TYPE column
-df_last_page[0] = df_last_page[0].drop(columns=['LICENSE TYPE'])
-
-# Drop Rows where everything is null
-df_last_page[0] = df_last_page[0].dropna(how="all")
-
-# Remove any decimal points from the 'LICENSE NUMBER' column
-df_last_page[0]['LICENSE NUMBER'] = df_last_page[0]['LICENSE NUMBER'].astype(str).str.replace('\.\d+', '', regex=True)
-
-# Shift the 'LICENSE NUMBER' and 'EXPIRATION DATE' columns up by 1 maybe 2 if needed
-df_last_page[0]['LICENSE NUMBER'] = df_last_page[0]['LICENSE NUMBER'].shift(+1)
-df_last_page[0]['EXPIRATION DATE'] = df_last_page[0]['EXPIRATION DATE'].shift(+1)
-df_last_page[0].loc[df_last_page[0]['STATE'].isna(), 'LICENSE NUMBER'] = df_last_page[0].loc[df_last_page[0]['STATE'].isna(), 'LICENSE NUMBER'].shift(+1)
-df_last_page[0].loc[df_last_page[0]['STATE'].isna(), 'EXPIRATION DATE'] = df_last_page[0].loc[df_last_page[0]['STATE'].isna(), 'EXPIRATION DATE'].shift(+1)
-
-# Create a mask for rows where 'STATE' is more than 2 characters long
-mask = df_last_page[0]['STATE'].str.len() > 2
-
-# Use the mask to drop these rows
-df_last_page[0] = df_last_page[0].loc[~mask]
-
-# Drop Rows where everything is null
-df_last_page[0] = df_last_page[0].dropna(how="all")
-df_last_page[0] = df_last_page[0].dropna(subset=['STATE'])
-
-# Set the 'EXPIRATION DATE' column to 05/31/2999 if it is null
-df_last_page[0]['EXPIRATION DATE'] = df_last_page[0]['EXPIRATION DATE'].fillna('05/31/2099')
-
-# Reset the index
-df_last_page[0] = df_last_page[0].reset_index(drop=True)
+df_last_page[0] = process_dataframe(df_last_page[0])
 
 # print the last page
-# print("Page 5:")
-# print(df_last_page[0])
+print("Page 5:")
+print(df_last_page[0])
 
 # Combine all the dataframes into one
 df = pd.concat([df[0], df_following_pages[0], df_following_pages[1],
