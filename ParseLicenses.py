@@ -70,6 +70,8 @@ print("Enter the coordinates of the table in inches")
 # Get the coordinates of the table
 x1 = 1 * 72
 x2 = 5.75 * 72
+
+# Get the y coordinates of the table
 while True:
     try:
         y1 = float(input("Enter the y1 coordinate: ")) * 72
@@ -78,8 +80,10 @@ while True:
     except ValueError:
         print("Needs to be an integer or float")
 
+# Read the first page of the pdf
 df = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages=1)
 
+# process the first page
 df[0] = process_dataframe(df[0])
 
 # print the first page
@@ -97,7 +101,10 @@ while True:
     except ValueError:
         print("Needs to be an integer or float")
 
+# Read all middle pages
 df_following_pages = tabula.read_pdf(args.file, area=[y1, x1, y2, x2], pages="2-5")
+
+# Process the middle pages one at a time
 for i in range(len(df_following_pages)-1):
     df_following_pages[i] = process_dataframe(df_following_pages[i])
 
@@ -117,8 +124,10 @@ while True:
     except ValueError:
         print("Needs to be an integer or float")
 
+# Read the last page
 df_last_page = tabula.read_pdf(args.file, area=[36, 72, 252, 414], pages=5)
 
+# Process the last page
 df_last_page[0] = process_dataframe(df_last_page[0])
 
 # print the last page
@@ -186,6 +195,7 @@ while edit.lower() == 'yes':
 file_name = input("Enter the file name: ")
 df.to_csv("static/Licenses/" + file_name + ".csv", index=False)
 
+# Get the current user as the agent
 agent = Agent.objects.get(user__username=file_name)
 
 # Ask the user if they want to add or delete the list
