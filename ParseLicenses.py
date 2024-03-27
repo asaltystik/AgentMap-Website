@@ -36,8 +36,14 @@ def process_dataframe(dataframe):
     # Shift the 'LICENSE NUMBER' and 'EXPIRATION DATE' columns up by 1 maybe 2 if needed
     dataframe['LICENSE NUMBER'] = dataframe['LICENSE NUMBER'].shift(+1)
     dataframe['EXPIRATION DATE'] = dataframe['EXPIRATION DATE'].shift(+1)
-    dataframe.loc[dataframe['STATE'].isna(), 'LICENSE NUMBER'] = dataframe.loc[dataframe['STATE'].isna(), 'LICENSE NUMBER'].shift(+1)
-    dataframe.loc[dataframe['STATE'].isna(), 'EXPIRATION DATE'] = dataframe.loc[dataframe['STATE'].isna(), 'EXPIRATION DATE'].shift(+1)
+    dataframe.loc[dataframe['STATE'].isna(), 'LICENSE NUMBER'] = dataframe.loc[
+        dataframe['STATE'].isna(),  # Get the rows where 'STATE' is null
+        'LICENSE NUMBER'  # Get the 'LICENSE NUMBER' column
+    ].shift(+1)
+    dataframe.loc[dataframe['STATE'].isna(), 'EXPIRATION DATE'] = dataframe.loc[
+        dataframe['STATE'].isna(),  # Get the rows where 'STATE' is null
+        'EXPIRATION DATE'  # Get the 'EXPIRATION DATE' column
+    ].shift(+1)
 
     # Create a mask for rows where 'STATE' is more than 2 characters long
     mask = dataframe['STATE'].str.len() > 2
@@ -59,6 +65,26 @@ def process_dataframe(dataframe):
 
 
 def process_pdf(file_path):
+    """
+        This function processes a PDF file and saves the data to a CSV file.
+
+        Parameters:
+        file_path (str): The path to the PDF file to parse.
+
+        The function performs the following steps:
+        1. Asks the user to input the y-coordinates of a table in the PDF file.
+        2. Reads the first page of the PDF file using the tabula.read_pdf() function.
+        3. Processes the first page of the PDF using the process_dataframe() function.
+        4. Prints the first page of the PDF.
+        5. Repeats steps 1-4 for the middle pages (pages 2-4) and the last page of the PDF.
+        6. Combines all the dataframes into one and performs several operations on the combined dataframe.
+        7. Asks the user if they want to manually edit the dataframe. If the user answers 'yes', it allows the user to
+         edit the dataframe.
+        8. Saves the dataframe to a CSV file in the 'Licenses' folder. The file name is provided by the user.
+        9. Gets the current user as the agent and asks the user if they want to add or delete the list from the model.
+        It then iterates over the rows in the dataframe to add or delete the licenses.
+        """
+
     # Get the coordinates of the table
     x1 = 1 * 72
     x2 = 5.75 * 72
@@ -97,11 +123,11 @@ def process_pdf(file_path):
     df_following_pages = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages="2-5")
 
     # Process the middle pages one at a time
-    for i in range(len(df_following_pages)-1):
+    for i in range(len(df_following_pages) - 1):
         df_following_pages[i] = process_dataframe(df_following_pages[i])
 
         # print the following pages
-        print("Page ", i+2, ":")
+        print("Page ", i + 2, ":")
         print(df_following_pages[i])
 
     # Ask the user for the coordinates of the table on the last page
@@ -117,7 +143,7 @@ def process_pdf(file_path):
             print("Needs to be an integer or float")
 
     # Read the last page
-    df_last_page = tabula.read_pdf(file_path, area=[36, 72, 252, 414], pages=5)
+    df_last_page = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=5)
 
     # Process the last page
     df_last_page[0] = process_dataframe(df_last_page[0])
@@ -191,20 +217,26 @@ def process_pdf(file_path):
     agent = Agent.objects.get(user__username=file_name)
 
     # Ask the user if they want to add or delete the list
-    action = input("Do you want to add or delete this list from the model? (add/delete): ")
+    # action = input("Do you want to add or delete this list from the model? (add/delete): ")
 
     # Iterate over the rows in the dataframe to add or delete the licenses
     for index, row in df.iterrows():
         print(row['STATE'], row['LICENSE NUMBER'], row['EXPIRATION DATE'])
-        existing_license = LicensedState.objects.filter(agent=agent, state=row['STATE'], licenseNumber=row['LICENSE NUMBER']).first()
+        existing_license = LicensedState.objects.filter(
+            agent=agent,  # agent is the current user
+            state=row['STATE'],  # state is the state in the row
+            licenseNumber=row['LICENSE NUMBER']  # license number is the license number in the row
+        ).first()  # Get the first object that matches the query
+
         if existing_license is None:
             # Create a LicensedState object
             LicensedState.objects.create(
-                agent=agent,
-                state=row['STATE'],
-                licenseNumber=row['LICENSE NUMBER'],
-                expiration=pd.to_datetime(row['EXPIRATION DATE'])
+                agent=agent,  # agent is the current user
+                state=row['STATE'],  # state is the state in the row
+                licenseNumber=row['LICENSE NUMBER'],  # license number is the license number in the row
+                expiration=pd.to_datetime(row['EXPIRATION DATE'])  # expiration date is the expiration date in the row
             )
+
 
 # Create an argument parser
 parser = argparse.ArgumentParser(description='Parse a PDF file and save the data to a CSV file')
