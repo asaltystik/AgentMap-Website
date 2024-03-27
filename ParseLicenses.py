@@ -62,6 +62,7 @@ def process_dataframe(dataframe):
 parser = argparse.ArgumentParser(description='Parse a PDF file and save the data to a CSV file')
 parser.add_argument('file', type=str, help='The PDF file to parse')
 
+# Parse the arguments
 args = parser.parse_args()
 
 # Ask the user for the coordinates of the table
@@ -192,7 +193,7 @@ while edit.lower() == 'yes':
     edit = input("Do you want to edit another row? (yes/no): ")
 
 # Save the dataframe to a csv file in Licenses folder, Ask user for the file name
-file_name = input("Enter the file name: ")
+file_name = input("Enter the agent name: ")
 df.to_csv("static/Licenses/" + file_name + ".csv", index=False)
 
 # Get the current user as the agent
@@ -201,6 +202,7 @@ agent = Agent.objects.get(user__username=file_name)
 # Ask the user if they want to add or delete the list
 action = input("Do you want to add or delete this list from the model? (add/delete): ")
 
+# Iterate over the rows in the dataframe to add or delete the licenses
 for index, row in df.iterrows():
     print(row['STATE'], row['LICENSE NUMBER'], row['EXPIRATION DATE'])
     existing_license = LicensedState.objects.filter(agent=agent, state=row['STATE'], licenseNumber=row['LICENSE NUMBER']).first()
