@@ -216,13 +216,18 @@ def process_pdf(file_path):
     print("Page 5:")
     print(df_last_page[0])
 
+    # Make sure the dataframes are not series
     df = pd.concat(df)
     df_last_page = pd.concat(df_last_page)
 
+    # Check if df_following_pages exists
     if 'df_following_pages' in locals():
+        # make sure the dataframe is not a series
         df_following_pages = pd.concat(df_following_pages)
+        #Combine all 3 dataframes
         df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
     else:
+        # Combine the first and last page
         df = pd.concat([df, df_last_page], ignore_index=True)
 
     # Drop the License Type column
