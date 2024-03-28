@@ -19,8 +19,8 @@ class Command(BaseCommand):
         # Iterate over the expired licenses and delete them
         for expired_license in expired_licenses:
             # Print the expired license
-            self.stdout.write(f'License {expired_license.licenseNumber}'
-                              f' for agent {expired_license.agent.user.username}'
+            self.stdout.write(f'License {expired_license.licenseNumber} '
+                              f'for agent {expired_license.agent.user.username}'
                               f' in state {expired_license.state}'
                               f' has expired and will be deleted.')
             # Delete the license
