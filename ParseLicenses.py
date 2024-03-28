@@ -57,6 +57,7 @@ def get_coordinates():
     print("Coordinates in tabula space: y1 = ", y1, ", x1 = ", x1, ", y2 = ", y2, ", x2 = ", x2)
     return y1, x1, y2, x2
 
+
 # function to parse the tables
 def process_dataframe(dataframe):
     """
@@ -69,6 +70,33 @@ def process_dataframe(dataframe):
         Returns:
         dataframe (pd.DataFrame): The processed dataframe.
         """
+
+    # iterate over the columns in the dataframe
+    for column in dataframe.columns:
+        # if the column name starts with 'Unnamed' then rename it to the value in the first row
+        if column.startswith('Unnamed'):
+            # get the value in the first row
+            new_column_name = dataframe[column].iloc[0]
+            # if the new column name is null then grab the next row
+            if new_column_name == 'NaN':
+                # get the value in the second row
+                new_column_name = dataframe[column].iloc[1]
+            # print(new_column_name)
+
+            # rename the column
+            dataframe = dataframe.rename(columns={column: new_column_name})
+        # if the column name is just LICENSE then rename it to LICENSE NUMBER
+        if column == 'LICENSE':
+            dataframe = dataframe.rename(columns={column: 'LICENSE NUMBER'})
+        # if the column name is just EXPIRATION then rename it to EXPIRATION DATE
+        if column == 'EXPIRATION':
+            dataframe = dataframe.rename(columns={column: 'EXPIRATION DATE'})
+    dataframe = dataframe.drop(dataframe.index[0])
+
+    # print(dataframe)
+
+    # drop the Licensee column if it exists
+    dataframe = dataframe.drop(columns=['LICENSEE'], errors='ignore')
 
     # Drop LICENSE TYPE column
     dataframe = dataframe.drop(columns=['LICENSE TYPE'])
@@ -195,10 +223,15 @@ def process_pdf(file_path):
     df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
 
     # Drop the License Type column
-    df = df.drop(columns=['LICENSE TYPE'])
+    if 'LICENSE TYPE' in df.columns:
+        df = df.drop(columns=['LICENSE TYPE'])
 
     # Drop rows that are NULL
     df = df.dropna(subset=['LICENSE NUMBER', 'EXPIRATION DATE'])
+
+    # if we have more then 3 columns at this point then we need to drop all columns after the 3rd
+    if len(df.columns) > 3:
+        df = df.iloc[:, :3]
 
     # if there is a duplicate STATE then drop the second one
     df = df.drop_duplicates(subset=['STATE'])
