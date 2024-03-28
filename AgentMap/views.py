@@ -86,7 +86,8 @@ def get_companies(request, state_code):
         # Check if the expiration date is in the same month and year as the
         # current date
         is_expiring_soon = (expiration.year == current_date.year and
-                              expiration.month == current_date.month) if expiration else False
+                            expiration.month == current_date.month) \
+            if expiration else False
         return render(request, "companies.html", {"state": state, "forms": forms,
                                                   "license_number": license_number, "expiration": expiration,
                                                   "is_expiring_soon": is_expiring_soon})
