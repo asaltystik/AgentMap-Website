@@ -38,10 +38,10 @@ def get_coordinates():
     This function gets the coordinates of a table in a PDF file from the user.
 
     Returns:
-    y1 (float): The y1 coordinate of the table.
-    x1 (float): The x1 coordinate of the table.
-    y2 (float): The y2 coordinate of the table.
-    x2 (float): The x2 coordinate of the table.
+    y1 (float) x 72: The y1 coordinate of the table.
+    x1 (float) x 72: The x1 coordinate of the table.
+    y2 (float) x 72: The y2 coordinate of the table.
+    x2 (float) x 72: The x2 coordinate of the table.
     """
 
     # Get the y coordinates of the table
