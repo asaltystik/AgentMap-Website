@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.core.exceptions import SuspiciousOperation
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
+from django.utils import timezone
 from django.http import FileResponse
 from .forms import LoginForm, UserRegistrationForm
 from .models import Form, LicensedState
@@ -73,12 +74,22 @@ def get_companies(request, state_code):
     forms = Form.objects.filter(state=state_code).order_by('company')
     # print("Forms: ", forms)
     state = StateDict[state_code]
+
+    # Get the current date
+    current_date = timezone.now().date()
+
     try:
         licenses = LicensedState.objects.filter(agent__user=request.user)
         license_number = licenses.get(state=state_code).licenseNumber
         expiration = licenses.get(state=state_code).expiration
+
+        # Check if the expiration date is in the same month and year as the
+        # current date
+        is_expiring_soon = (expiration.year == current_date.year and
+                              expiration.month == current_date.month) if expiration else False
         return render(request, "companies.html", {"state": state, "forms": forms,
-                                                  "license_number": license_number, "expiration": expiration})
+                                                  "license_number": license_number, "expiration": expiration,
+                                                  "is_expiring_soon": is_expiring_soon})
     except LicensedState.DoesNotExist:
         return render(request, "companies.html", {"state": state, "forms": forms})
 
