@@ -2,6 +2,7 @@ import os
 import tabula
 import django
 import argparse
+from PyPDF2 import PdfReader
 import pandas as pd
 
 # Set up the Django environment
@@ -10,6 +11,51 @@ django.setup()
 
 from AgentMap.models import LicensedState, Agent
 
+
+def get_page_count(file_path):
+    """
+    This function gets the number of pages in a PDF file.
+
+    Parameters:
+    file_path (str): The path to the PDF file.
+
+    Returns:
+    page_count (int): The number of pages in the PDF file.
+    """
+
+    # Open the PDF file
+    with open(file_path, 'rb') as file:
+        pdf = PdfReader(file)
+
+        # Get the number of pages
+        page_count = len(pdf.pages)
+        print("Number of pages in the PDF file: ", page_count)
+    return page_count
+
+
+def get_coordinates():
+    """
+    This function gets the coordinates of a table in a PDF file from the user.
+
+    Returns:
+    y1 (float): The y1 coordinate of the table.
+    x1 (float): The x1 coordinate of the table.
+    y2 (float): The y2 coordinate of the table.
+    x2 (float): The x2 coordinate of the table.
+    """
+
+    # Get the y coordinates of the table
+    while True:
+        try:
+            y1 = float(input("Enter the y1 coordinate: ")) * 72
+            x1 = float(input("Enter the x1 coordinate: ")) * 72
+            y2 = float(input("Enter the y2 coordinate: ")) * 72
+            x2 = float(input("Enter the x2 coordinate: ")) * 72
+            break
+        except ValueError:
+            print("Needs to be an integer or float")
+    print("Coordinates in tabula space: y1 = ", y1, ", x1 = ", x1, ", y2 = ", y2, ", x2 = ", x2)
+    return y1, x1, y2, x2
 
 # function to parse the tables
 def process_dataframe(dataframe):
@@ -86,17 +132,13 @@ def process_pdf(file_path):
         """
 
     # Get the coordinates of the table
-    x1 = 1 * 72
-    x2 = 5.75 * 72
+    # x1 = 1 * 72
+    # x2 = 5.75 * 72
+
+    pages = get_page_count(file_path)
 
     # Get the y coordinates of the table
-    while True:
-        try:
-            y1 = float(input("Enter the y1 coordinate: ")) * 72
-            y2 = float(input("Enter the y2 coordinate: ")) * 72
-            break
-        except ValueError:
-            print("Needs to be an integer or float")
+    y1, x1, y2, x2 = get_coordinates()
 
     # Read the first page of the pdf
     df = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=1)
@@ -107,20 +149,17 @@ def process_pdf(file_path):
     # print the first page
     print(df[0])
 
+    # Set the value of middle pages
+    middle_pages = "2-" + str(pages)
+
     # Ask the user for the coordinates of the table on pages 2-4
-    print("Enter the coordinates of the table in inches for pages 2-4")
+    print("Enter the coordinates of the table in inches for pages " + middle_pages)
 
     # Get the coordinates of the table
-    while True:
-        try:
-            y1 = float(input("Enter the y1 coordinate: ")) * 72
-            y2 = float(input("Enter the y2 coordinate: ")) * 72
-            break
-        except ValueError:
-            print("Needs to be an integer or float")
+    y1, x1, y2, x2 = get_coordinates()
 
     # Read all middle pages
-    df_following_pages = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages="2-5")
+    df_following_pages = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=middle_pages)
 
     # Process the middle pages one at a time
     for i in range(len(df_following_pages) - 1):
@@ -134,16 +173,12 @@ def process_pdf(file_path):
     print("Enter the coordinates of the table in inches for the last page")
 
     # Get the coordinates of the table on the last page
-    while True:
-        try:
-            y1 = float(input("Enter the y1 coordinate: ")) * 72
-            y2 = float(input("Enter the y2 coordinate: ")) * 72
-            break
-        except ValueError:
-            print("Needs to be an integer or float")
+    y1, x1, y2, x2 = get_coordinates()
+
+    last_page = str(pages)
 
     # Read the last page
-    df_last_page = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=5)
+    df_last_page = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=last_page)
 
     # Process the last page
     df_last_page[0] = process_dataframe(df_last_page[0])
@@ -152,9 +187,12 @@ def process_pdf(file_path):
     print("Page 5:")
     print(df_last_page[0])
 
+    df = pd.concat(df)
+    df_following_pages = pd.concat(df_following_pages)
+    df_last_page = pd.concat(df_last_page)
+
     # Combine all the dataframes into one
-    df = pd.concat([df[0], df_following_pages[0], df_following_pages[1],
-                    df_following_pages[2], df_following_pages[3], df_last_page[0]], ignore_index=True)
+    df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
 
     # Drop the License Type column
     df = df.drop(columns=['LICENSE TYPE'])
