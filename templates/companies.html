@@ -14,10 +14,10 @@
 {% if not forms %}
     <h1 style="margin-top: 1px; margin-bottom: 1px;">There are no forms for {{ state }}</h1>
 {% else %}
-    <h1 style="margin-top: 1px; margin-bottom: 1px; {% if is_expiring_soon%}color: crimson;{% endif %}">
+    <h1 style="margin-top: 1px; margin-bottom: 1px;">
         {{ state }}
         {% if license_number %}
-        <span style="font-size: 20px;">
+        <span style="font-size: 20px; {% if is_expiring_soon%}color: crimson;{% endif %}">
             - (License Number: {{ license_number }})
             {%  if expiration|date:"Y" != "2099" %}
                 - Expires: {{ expiration|date:"m/d/Y" }}
