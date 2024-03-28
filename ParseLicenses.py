@@ -229,7 +229,7 @@ def process_pdf(file_path):
     # Drop rows that are NULL
     df = df.dropna(subset=['LICENSE NUMBER', 'EXPIRATION DATE'])
 
-    # if we have more then 3 columns at this point then we need to drop all columns after the 3rd
+    # if we have more than 3 columns at this point then we need to drop all columns after the 3rd
     if len(df.columns) > 3:
         df = df.iloc[:, :3]
 
