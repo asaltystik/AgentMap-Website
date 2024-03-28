@@ -176,26 +176,27 @@ def process_pdf(file_path):
 
     # print the first page
     print(df[0])
+    # If there are more then 2 pages then we need to process the middle pages
+    if pages > 2:
+        # Set the value of middle pages
+        middle_pages = "2-" + str(pages)
 
-    # Set the value of middle pages
-    middle_pages = "2-" + str(pages)
+        # Ask the user for the coordinates of the table on pages 2-4
+        print("Enter the coordinates of the table in inches for pages " + middle_pages)
 
-    # Ask the user for the coordinates of the table on pages 2-4
-    print("Enter the coordinates of the table in inches for pages " + middle_pages)
+        # Get the coordinates of the table
+        y1, x1, y2, x2 = get_coordinates()
 
-    # Get the coordinates of the table
-    y1, x1, y2, x2 = get_coordinates()
+        # Read all middle pages
+        df_following_pages = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=middle_pages)
 
-    # Read all middle pages
-    df_following_pages = tabula.read_pdf(file_path, area=[y1, x1, y2, x2], pages=middle_pages)
+        # Process the middle pages one at a time
+        for i in range(len(df_following_pages) - 1):
+            df_following_pages[i] = process_dataframe(df_following_pages[i])
 
-    # Process the middle pages one at a time
-    for i in range(len(df_following_pages) - 1):
-        df_following_pages[i] = process_dataframe(df_following_pages[i])
-
-        # print the following pages
-        print("Page ", i + 2, ":")
-        print(df_following_pages[i])
+            # print the following pages
+            print("Page ", i + 2, ":")
+            print(df_following_pages[i])
 
     # Ask the user for the coordinates of the table on the last page
     print("Enter the coordinates of the table in inches for the last page")
@@ -216,11 +217,13 @@ def process_pdf(file_path):
     print(df_last_page[0])
 
     df = pd.concat(df)
-    df_following_pages = pd.concat(df_following_pages)
     df_last_page = pd.concat(df_last_page)
 
-    # Combine all the dataframes into one
-    df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
+    if 'df_following_pages' in locals():
+        df_following_pages = pd.concat(df_following_pages)
+        df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
+    else:
+        df = pd.concat([df, df_last_page], ignore_index=True)
 
     # Drop the License Type column
     if 'LICENSE TYPE' in df.columns:
