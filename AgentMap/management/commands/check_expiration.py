@@ -9,6 +9,7 @@ class Command(BaseCommand):
     help = ('Checks the LicensedState model for any licenses past their'
             ' expiration date and deletes them')
 
+    # Handle method that is called when the management command is ran
     def handle(self, *args, **kwargs):
         # Get the current date
         current_date = timezone.now().date()
