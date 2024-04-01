@@ -1,9 +1,10 @@
-import os
-import tabula
-import django
 import argparse
-from PyPDF2 import PdfReader
+import os
+
+import django
 import pandas as pd
+import tabula
+from PyPDF2 import PdfReader
 
 # Set up the Django environment
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')
