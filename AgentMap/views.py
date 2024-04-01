@@ -43,14 +43,20 @@ def register_view(request):
 
 # this function will render the login.html page
 def login_view(request):
+    # if the request is a POST request, check if the form is valid
     if request.method == 'POST':
+        # create a new login form with the POST data
         form = LoginForm(request.POST)
+        # if the form is valid, authenticate the user and log them in
         if form.is_valid():
+            # authenticate the user
             user = authenticate(request, username=form.cleaned_data['username'], password=form.cleaned_data['password'])
+            # if the user is not None, log them in
             if user is not None:
                 login(request, user)
                 return redirect('AgentMap')
     else:
+        # if the request is not a POST request, create a new login form
         form = LoginForm()
     return render(request, 'login.html', {'form': form})
 
@@ -64,6 +70,7 @@ def logout_view(request):
 # This function will render the map.html page
 @login_required
 def agent_map(request):
+    # Get all the states that the agent is licensed in
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
     return render(request, 'map.html', {'licensed_states': licensed_states})
 
@@ -71,8 +78,10 @@ def agent_map(request):
 @login_required
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
+    # Get all the forms in the given state
     forms = Form.objects.filter(state=state_code).order_by('company')
-    # print("Forms: ", forms)
+
+    # Get the un-abbreviated state name using the state code and the StateDict
     state = StateDict[state_code]
 
     # Get the current date
