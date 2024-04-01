@@ -96,9 +96,13 @@ def get_companies(request, state_code):
         is_expiring_soon = (expiration.year == current_date.year and
                             expiration.month <= current_date.month) \
             if expiration else False  # if expiration is None, set is_expiring_soon to False
+
+        # Render the companies.html page with the given state, forms, license number, expiration date,
+        # and is_expiring_soon
         return render(request, "companies.html", {"state": state, "forms": forms,
                                                   "license_number": license_number, "expiration": expiration,
                                                   "is_expiring_soon": is_expiring_soon})
+    # If the agent is not licensed in the given state, render the companies.html page with the given state and forms
     except LicensedState.DoesNotExist:
         return render(request, "companies.html", {"state": state, "forms": forms})
 
