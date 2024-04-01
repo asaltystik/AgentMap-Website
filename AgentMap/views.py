@@ -107,15 +107,21 @@ def get_companies(request, state_code):
 # This function handles opening the pdf file server side and sending it to the client
 @xframe_options_exempt
 def view_form(request, form_id):
+    # Get the form with the given id
     form = get_object_or_404(Form, id=form_id)
+    # Get the file path of the form
     file_path = form.file_path
     # if os is windows, replace the backslashes with forward slashes
     if os.name == 'nt':
         file_path = file_path.replace('\\', '/')
+
+    # if the file path does not start with 'static/', raise a SuspiciousOperation
     file_path = "static/Companies/" + file_path
+
     if not file_path.startswith('static/'):
         raise SuspiciousOperation('Attempted directory traversal')
 
+    # Open the file and send it to the client
     response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{os.path.basename(file_path)}"'
     return response
