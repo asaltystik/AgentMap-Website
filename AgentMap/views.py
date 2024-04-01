@@ -31,11 +31,16 @@ StateDict = {
 
 # This function will render the register.html page
 def register_view(request):
+
+    # if the request is a POST request, check if the form is valid
     if request.method == 'POST':
+        # create a new user registration form with the POST data
         form = UserRegistrationForm(request.POST)
+        # if the form is valid, save the form and redirect the user to the login page
         if form.is_valid():
             form.save()
             return redirect('Login')
+    # if the request is not a POST request, create a new user registration form
     else:
         form = UserRegistrationForm()
     return render(request, 'register.html', {'form': form})
