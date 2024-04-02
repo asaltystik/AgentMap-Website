@@ -39,4 +39,4 @@ class Command(BaseCommand):
                 [agent_obj.user.email],
                 fail_silently=False,
             )
-        print(f'{len(agents)} agents notified of upcoming license expirations.')
+        print(f'{len(agents)} agent(s) notified of upcoming license expirations.')
