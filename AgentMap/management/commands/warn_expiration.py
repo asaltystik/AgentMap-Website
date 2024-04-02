@@ -1,7 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
 from django.db.models import Count
-from calendar import monthrange
 from django.utils import timezone
 from datetime import timedelta
 from AgentMap.models import LicensedState, Agent
