@@ -47,7 +47,8 @@ class Command(BaseCommand):
             send_mail(
                 'Expired License Deletion Notice',
                 f'The following licenses have expired and been deleted:\n'
-                f'{", ".join(licenses)}',
+                f'{", ".join(licenses)}\n'
+                f'Please contact Steve or Craig to renew your licenses.',
                 'carick@securecare65.com',
                 [agent_email],
                 fail_silently=False,
