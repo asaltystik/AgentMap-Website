@@ -49,6 +49,11 @@ def register_view(request):
 
 # this function will render the login.html page
 def login_view(request):
+
+    # If the user is already logged in, redirect them to the agent map page
+    if request.user.is_authenticated:
+        return redirect('AgentMap')
+
     # if the request is a POST request, check if the form is valid
     if request.method == 'POST':
         # create a new login form with the POST data
