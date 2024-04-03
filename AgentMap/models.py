@@ -31,4 +31,4 @@ class LicensedState(models.Model):
     color = models.CharField(max_length=7, default="#0692e1")
 
     def __str__(self):
-        return self.agent.user.username + " - " + self.state + " - " + self.color
+        return self.agent.user.username + " - " + self.state + " - " + self.expiration.strftime('%m/%d/%Y')
