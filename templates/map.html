@@ -12,19 +12,20 @@
     
     .logout-button-form {
         position: absolute;
-        top: 18px;
+        top: 20px;
         left: 15px;
     }
     
     .logout-button {
         border-radius: 10px;
         border: 2px solid #000;
-        
+        transition: .3s;
     }
     
     .logout-button:hover {
         background-color: #ff0000;
         color: #fff;
+        transition: .3s;
 }
 
      /* Container for the map and the info box */
@@ -201,10 +202,11 @@
 <body>
 <!-- the container for the map and info box -->
 <div class="container">
+    <!-- Logout button -->
     <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
           method="POST" hx-trigger="click">
         {% csrf_token %}
-        <button type="submit" class="logout-button">Logout</button>
+        <button type="submit" class="logout-button">Sign Out</button>
     </form>
     <!-- The Map goes here -->
     <div id="AgentMap" class="map">
@@ -1378,6 +1380,7 @@
                         element.style.fill = darkenColor(color, -16);
                         element.style.strokeWidth = '2px';
                         element.style.strokeLinejoin = 'round';
+                        element.style.transition = 'fill 0.3s';
                         
                         // If the element has class "stateName", also change the style of the corresponding path
                         if (element.classList.contains('stateName')) {
@@ -1395,6 +1398,7 @@
                                 target.style.strokeWidth = '2px';
                                 target.style.strokeLinejoin = 'round';
                                 target.style.fill = darkenColor(color, -16);
+                                target.style.transition = 'fill 0.3s';
                             }
                             
                             // Keep the color of the text black on hover
@@ -1411,6 +1415,7 @@
                         element.style.fill = color;
                         element.style.strokeWidth = '';
                         element.style.strokeLinejoin = '';
+                        element.style.transition = 'fill 0.3s';
                         
                         // If the element has class "stateName", also reset the style of the corresponding path
                         if (element.classList.contains('stateName')) {
@@ -1427,6 +1432,7 @@
                                 target.style.strokeWidth = '';
                                 target.style.strokeLinejoin = '';
                                 target.style.fill = color;
+                                target.style.transition = 'fill 0.3s';
                             }
                             // Keep the color of the text black when the mouse is no longer hovering over it
                             element.style.fill = '#000000';
@@ -1443,6 +1449,7 @@
                         element.style.fill = "#CCCCCC";
                         element.style.strokeWidth = "2px";
                         element.style.strokeLinejoin = "round";
+                        element.style.transition = 'fill 0.3s';
                     }
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
@@ -1462,6 +1469,7 @@
                                 target.style.strokeWidth = '2px';
                                 target.style.strokeLinejoin = 'round';
                                 target.style.fill = darkenColor("#CCCCCC", -16);
+                                target.style.transition = 'fill 0.3s';
                             }
                             element.style.fill = '#000000';
                         }
@@ -1470,6 +1478,7 @@
                             element.style.fill = darkenColor("#CCCCCC", -16);
                             element.style.strokeWidth = '2px';
                             element.style.strokeLinejoin = 'round';
+                            element.style.transition = 'fill 0.3s';
                         }
                     });
                     element.addEventListener('mouseout', function() {
@@ -1477,6 +1486,7 @@
                         element.style.fill = "#CCCCCC";
                         element.style.strokeWidth = '';
                         element.style.strokeLinejoin = '';
+                        element.style.transition = 'fill 0.3s';
                         
                         // Log the mouseout event
                         console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
@@ -1496,6 +1506,7 @@
                                 target.style.strokeWidth = '';
                                 target.style.strokeLinejoin = '';
                                 target.style.fill = "#CCCCCC";
+                                target.style.transition = 'fill 0.3s';
                             }
                             element.style.fill = '#000000';
                         }
