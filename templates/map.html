@@ -9,6 +9,24 @@
     <title>Agent Map</title>
 </head>
 <style>
+    
+    .logout-button-form {
+        position: absolute;
+        top: 18px;
+        left: 15px;
+    }
+    
+    .logout-button {
+        border-radius: 10px;
+        border: 2px solid #000;
+        
+    }
+    
+    .logout-button:hover {
+        background-color: #ff0000;
+        color: #fff;
+}
+
      /* Container for the map and the info box */
     .container{
         display: flex;
@@ -181,14 +199,13 @@
         }
 </style>
 <body>
-    <form id="logout-form" class="logout-button" action="{% url 'Logout' %}"
-          method="POST" hx-trigger="click" 
-          style="position: absolute; top: 10px; left: 15px">
-        {% csrf_token %}
-        <button type="submit" class="btn btn-primary">Logout</button>
-    </form>
 <!-- the container for the map and info box -->
 <div class="container">
+    <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
+          method="POST" hx-trigger="click">
+        {% csrf_token %}
+        <button type="submit" class="logout-button">Logout</button>
+    </form>
     <!-- The Map goes here -->
     <div id="AgentMap" class="map">
         <!-- This is the start of the SVG map -->
