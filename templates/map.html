@@ -206,9 +206,11 @@
 <div class="container">
     <!-- Logout button -->
     <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
-          method="POST" hx-trigger="click">
+          method="POST" hx-trigger="click" title="Sign Out">
         {% csrf_token %}
-        <button type="submit" class="logout-button">Sign Out</button>
+        <button type="submit" class="logout-button" title="Sign Out">
+            Sign Out
+        </button>
     </form>
     <!-- The Map goes here -->
     <div id="AgentMap" class="map">
