@@ -98,7 +98,7 @@ def get_companies(request, state_code):
         license_number = licenses.get(state=state_code).licenseNumber
         expiration = licenses.get(state=state_code).expiration
 
-        # Check if the expiration date is past the current date
+        # Check if the expiration date is upcoming in the next 31 days
         is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
             if expiration else False  # if expiration is None, set is_expiring_soon to False
 
