@@ -181,6 +181,12 @@
         }
 </style>
 <body>
+    <form id="logout-form" class="logout-button" action="{% url 'Logout' %}"
+          method="POST" hx-trigger="click" 
+          style="position: absolute; top: 10px; left: 15px">
+        {% csrf_token %}
+        <button type="submit" class="btn btn-primary">Logout</button>
+    </form>
 <!-- the container for the map and info box -->
 <div class="container">
     <!-- The Map goes here -->
