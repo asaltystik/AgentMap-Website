@@ -114,6 +114,7 @@ def get_companies(request, state_code):
 
 # This function handles opening the pdf file server side and sending it to the client
 @xframe_options_exempt
+@login_required
 def view_form(request, form_id):
     # Get the form with the given id
     form = get_object_or_404(Form, id=form_id)
