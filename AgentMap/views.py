@@ -8,6 +8,7 @@ from django.utils import timezone
 from django.http import FileResponse
 from .forms import LoginForm, UserRegistrationForm
 from .models import Form, LicensedState
+from datetime import timedelta
 import os
 
 StateDict = {
@@ -98,8 +99,7 @@ def get_companies(request, state_code):
         expiration = licenses.get(state=state_code).expiration
 
         # Check if the expiration date is past the current date
-        is_expiring_soon = (expiration.year == current_date.year and
-                            expiration.month <= current_date.month) \
+        is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
             if expiration else False  # if expiration is None, set is_expiring_soon to False
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
