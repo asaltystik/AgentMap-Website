@@ -60,7 +60,7 @@
         overflow-y: auto;
         height: 92.6%;
     }
-    
+
     /* Redirect button container */
     .redirect-button-container {
         position: absolute;
@@ -71,7 +71,7 @@
         left: 50%;
         top: 675px;
     }
-    
+
     /* Redirect button */
     .redirect-button {
         position: relative;
@@ -82,7 +82,7 @@
         border-radius: 10px;
         transition: .3s ease-in-out;
     }
-    
+
     /* Redirect button hover effect */
     .redirect-button:hover {
         background-color: #0691df;
@@ -662,7 +662,7 @@
             <!-- This is the frame for alaska and hawaii -->
             <path id="frames" pointer-events="none" fill="none" stroke="#A9A9A9" stroke-width="2" d="M 215 493 L 215 548 L 251 593 M -17.607 425 L 147 425 L 215 493 L 300 493 L 354 547 L 354 593"></path>
         </svg>
-        
+
         <!-- This is the container for the color legend that loads when the page loads. -->
         <div id="color-legend-container" class="color-key-container">
             <p id="RM" class="color-key" style="background-color: grey; font-family: 'Lucida Sans Unicode', 'serif'">
@@ -680,15 +680,15 @@
         </div>
         <!-- This is a button to redirect to securecare65.radiusbob.com on a different tab -->
         <div class="redirect-button-container">
-        <button 
-            class="redirect-button" 
+        <button
+            class="redirect-button"
             onclick="window.open('https://securecare65.radiusbob.com', '_blank')"
         >
             Start Quote
         </button>
             <!-- we might delete this button -->
             <!-- only keeping this here for now if the quoting engine is a different url -->
-        <button 
+        <button
             class="redirect-button"
             onclick="window.open('https://securecare65.radiusbob.com', '_blank')"
             >
@@ -1485,7 +1485,7 @@
                         element.style.fill = darkenColor(color, -16);
                         element.style.strokeWidth = '2px';
                         element.style.strokeLinejoin = 'round';
-                        element.style.transition = 'fill 0.3s';
+                        element.style.transition = 'fill 850ms';
                         
                         // If the element has class "stateName", also change the style of the corresponding path
                         if (element.classList.contains('stateName')) {
@@ -1503,7 +1503,7 @@
                                 target.style.strokeWidth = '2px';
                                 target.style.strokeLinejoin = 'round';
                                 target.style.fill = darkenColor(color, -16);
-                                target.style.transition = 'fill 0.3s';
+                                target.style.transition = 'fill 850ms';
                             }
                             
                             // Keep the color of the text black on hover
@@ -1520,7 +1520,7 @@
                         element.style.fill = color;
                         element.style.strokeWidth = '';
                         element.style.strokeLinejoin = '';
-                        element.style.transition = 'fill 0.3s';
+                        element.style.transition = 'fill 850ms';
                         
                         // If the element has class "stateName", also reset the style of the corresponding path
                         if (element.classList.contains('stateName')) {
@@ -1537,7 +1537,7 @@
                                 target.style.strokeWidth = '';
                                 target.style.strokeLinejoin = '';
                                 target.style.fill = color;
-                                target.style.transition = 'fill 0.3s';
+                                target.style.transition = 'fill 850ms';
                             }
                             // Keep the color of the text black when the mouse is no longer hovering over it
                             element.style.fill = '#000000';
@@ -1554,7 +1554,7 @@
                         element.style.fill = "#CCCCCC";
                         element.style.strokeWidth = "2px";
                         element.style.strokeLinejoin = "round";
-                        element.style.transition = 'fill 0.3s';
+                        element.style.transition = 'fill 850ms';
                     }
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
@@ -1574,7 +1574,7 @@
                                 target.style.strokeWidth = '2px';
                                 target.style.strokeLinejoin = 'round';
                                 target.style.fill = darkenColor("#CCCCCC", -16);
-                                target.style.transition = 'fill 0.3s';
+                                target.style.transition = 'fill 850ms';
                             }
                             element.style.fill = '#000000';
                         }
@@ -1583,7 +1583,7 @@
                             element.style.fill = darkenColor("#CCCCCC", -16);
                             element.style.strokeWidth = '2px';
                             element.style.strokeLinejoin = 'round';
-                            element.style.transition = 'fill 0.3s';
+                            element.style.transition = 'fill 850ms';
                         }
                     });
                     element.addEventListener('mouseout', function() {
@@ -1591,7 +1591,7 @@
                         element.style.fill = "#CCCCCC";
                         element.style.strokeWidth = '';
                         element.style.strokeLinejoin = '';
-                        element.style.transition = 'fill 0.3s';
+                        element.style.transition = 'fill 850ms';
                         
                         // Log the mouseout event
                         console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
@@ -1611,7 +1611,7 @@
                                 target.style.strokeWidth = '';
                                 target.style.strokeLinejoin = '';
                                 target.style.fill = "#CCCCCC";
-                                target.style.transition = 'fill 0.3s';
+                                target.style.transition = 'fill 850ms';
                             }
                             element.style.fill = '#000000';
                         }
