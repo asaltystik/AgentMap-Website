@@ -39,4 +39,4 @@ class Command(BaseCommand):
                 fail_silently=False,
             )
         print(f'{len(agents)} agent(s) notified of upcoming license expirations.')
-        print(f'Agents notified: {", ".join([Agent.objects.get(id=agent['agent']).user.email for agent in agents])}')
+        print(f'Agents notified:\n {"\n".join([Agent.objects.get(id=agent['agent']).user.email for agent in agents])}\n')
