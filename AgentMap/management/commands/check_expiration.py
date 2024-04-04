@@ -43,11 +43,11 @@ class Command(BaseCommand):
         print(f'{len(expired_licenses)} expired licenses deleted.')
 
         # Send email to each agent with their deleted licenses
-        for agent_email, licenses in agent_licenses.items():
+        for agent_email, agent_license in agent_licenses.items():
             send_mail(
                 'Expired License Deletion Notice',
                 f'The following licenses have expired and been deleted:\n'
-                f'{"".join(licenses)}\n'
+                f'{", ".join(agent_license)}\n'
                 f'Please contact Steve or Craig to renew your licenses.',
                 'carick@securecare65.com',
                 [agent_email],
@@ -57,4 +57,4 @@ class Command(BaseCommand):
         # Print the number of agents notified
         print(f'{len(agent_licenses)} agents notified of expired licenses.')
         # print the names of the agents that were notified
-        print(f'Agents notified: {"\n".join(agent_licenses.keys())}')
+        print(f'Agents notified:\n {"\n".join(agent_licenses.keys())}\n')
