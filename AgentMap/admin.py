@@ -3,7 +3,7 @@ from django.contrib import admin
 from AgentMap.models import Agent, Form, LicensedState
 
 
-# Register your models here.
+# Registration of the models in the admin site
 @admin.register(Form)
 class FormAdmin(admin.ModelAdmin):
     pass
