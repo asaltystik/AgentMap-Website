@@ -9,6 +9,7 @@ class Command(BaseCommand):
     help = ("Deletes all licenses for a specific agent, Helps to clean up "
             "the database when an agent leaves the company")
 
+    # Add the username argument
     def add_arguments(self, parser):
         parser.add_argument('username', type=str, help='Username of the agent to delete licenses for')
 
