@@ -11,6 +11,8 @@ from .models import Form, LicensedState
 from datetime import timedelta
 import os
 
+
+# Dictionary to convert state abbreviations to full state names
 StateDict = {
     "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
     "CA": "California", "CO": "Colorado", "CT": "Connecticut",
@@ -69,13 +71,14 @@ def login_view(request):
     else:
         # if the request is not a POST request, create a new login form
         form = LoginForm()
+    # render the login.html page with the form
     return render(request, 'login.html', {'form': form})
 
 
 # This function will log the user out and redirect them to the login page
 def logout_view(request):
-    logout(request)
-    return redirect('Login')
+    logout(request)  # log the user out
+    return redirect('Login')  # redirect the user to the login page
 
 
 # This function will render the map.html page
