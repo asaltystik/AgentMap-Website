@@ -8,6 +8,8 @@ from AgentMap.models import LicensedState, Agent
 
 # This is a custom django management command that sends warning emails to agents
 class Command(BaseCommand):
+
+    # This is the help message that will be displayed when the user runs the command with the --help flag
     help = ("Warns agents of upcoming license expirations by sending an email"
             " to the agent's email address.")
 
@@ -21,7 +23,7 @@ class Command(BaseCommand):
         # Query the LicensedState model for any licenses expiring within the current month
         expiring_licenses = LicensedState.objects.filter(expiration__range=(current_date, end_date))
 
-        # Group the results by agent
+        # Group the results by agent and count the number of expiring licenses for each agent
         agents = expiring_licenses.values('agent').annotate(num_expiring=Count('id'))
 
         # For each unique agent, gather all their upcoming expirations and send an email
