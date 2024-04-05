@@ -26,7 +26,7 @@ class Command(BaseCommand):
                               f'for agent {agent_license.agent.user.username}'
                               f' in state {agent_license.state}'
                               f' has been deleted.')
-            agent_license.delete()
+            agent_license.delete()  # Delete the license
 
         # print the number of licenses deleted
         self.stdout.write(f'{len(agent_licenses)}'
