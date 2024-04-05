@@ -26,6 +26,7 @@ class Command(BaseCommand):
         for agent in agents:
             agent_obj = Agent.objects.get(id=agent['agent'])
             agent_expirations = expiring_licenses.filter(agent=agent_obj)
+            # Create a string of all upcoming expirations for the agent
             expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"
                                          f" in state {expiring_license.state}"
                                          f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"
@@ -33,7 +34,7 @@ class Command(BaseCommand):
             send_mail(
                 'License Expiration Notice',
                 f'You have {agent["num_expiring"]} license(s) expiring'
-                f' this month:\n{expirations_str}',
+                f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
                 'carick@securecare65.com',
                 [agent_obj.user.email],
                 fail_silently=False,
