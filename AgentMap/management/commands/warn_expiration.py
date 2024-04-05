@@ -11,6 +11,7 @@ class Command(BaseCommand):
     help = ("Warns agents of upcoming license expirations by sending an email"
             " to the agent's email address.")
 
+    # Handle method that is called when the management command is ran.
     def handle(self, *args, **kwargs):
         # Get the current date and the last day of the current month
         current_date = timezone.now().date()  # Today's date
@@ -25,14 +26,14 @@ class Command(BaseCommand):
 
         # For each unique agent, gather all their upcoming expirations and send an email
         for agent in agents:
-            agent_obj = Agent.objects.get(id=agent['agent'])
+            agent_obj = Agent.objects.get(id=agent['agent'])  # Create an agent object from the agent id
             # Filter the expiring licenses for the current agent
-            agent_expirations = expiring_licenses.filter(agent=agent_obj)
+            agent_expirations = expiring_licenses.filter(agent=agent_obj)  # This is a queryset of all expiring licenses
             # Create a string of all upcoming expirations for the agent
-            expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"
-                                         f" in state {expiring_license.state}"
-                                         f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"
-                                         for expiring_license in agent_expirations])
+            expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"  # This is the license number
+                                         f" in state {expiring_license.state}"  # This is the state abbreviation
+                                         f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"  # Date
+                                         for expiring_license in agent_expirations])  # Loops through expiring licenses
             send_mail(
                 'License Expiration Notice',
                 f'You have {agent["num_expiring"]} license(s) expiring'
