@@ -12,7 +12,7 @@ class Command(BaseCommand):
 
     def handle(self, *args, **kwargs):
         # Get the current date and the last day of the current month
-        current_date = timezone.now().date()
+        current_date = timezone.now().date()  # Today's date
         end_date = current_date + timedelta(days=31)  # Doing 31 days to cover the 7 months with 31 days.
         # Ignoring the case of a leap year cause the next one is 4 years away.
 
