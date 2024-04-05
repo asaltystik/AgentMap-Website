@@ -49,7 +49,7 @@ class Command(BaseCommand):
         # Send email to each agent with their deleted licenses
         for agent_email, agent_license in agent_licenses.items():
             send_mail(
-                'Expired License Deletion Notice',
+                'Expired License Deletion Notice',  # This is the subject of the email
                 f'The following licenses have expired and been deleted:\n'
                 f'{", ".join(agent_license)}\n'  # This is the string of all deleted licenses
                 f'Please contact Steve or Craig to renew your licenses.',
