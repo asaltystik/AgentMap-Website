@@ -6,6 +6,7 @@ from datetime import timedelta
 from AgentMap.models import LicensedState, Agent
 
 
+# This is a custom django management command that sends warning emails to agents
 class Command(BaseCommand):
     help = ("Warns agents of upcoming license expirations by sending an email"
             " to the agent's email address.")
