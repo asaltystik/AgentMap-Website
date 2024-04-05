@@ -37,7 +37,7 @@ class Command(BaseCommand):
                                          f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"  # Date
                                          for expiring_license in agent_expirations])  # Loops through expiring licenses
             send_mail(
-                'License Expiration Notice',
+                'License Expiration Notice',  # This is the subject of the email
                 f'You have {agent["num_expiring"]} license(s) expiring'  # agent["num_expiring"] returns the count
                 f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
                 'carick@securecare65.com',  # We are sending this from my personal work email
