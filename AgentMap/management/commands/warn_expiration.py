@@ -25,6 +25,7 @@ class Command(BaseCommand):
         # For each unique agent, gather all their upcoming expirations and send an email
         for agent in agents:
             agent_obj = Agent.objects.get(id=agent['agent'])
+            # Filter the expiring licenses for the current agent
             agent_expirations = expiring_licenses.filter(agent=agent_obj)
             # Create a string of all upcoming expirations for the agent
             expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"
@@ -39,5 +40,8 @@ class Command(BaseCommand):
                 [agent_obj.user.email],
                 fail_silently=False,
             )
+
+        # Print the number of agents notified
         print(f'{len(agents)} agent(s) notified of upcoming license expirations.')
+        # Print the email addresses of the agents that were notified
         print(f'Agents notified:\n {"\n".join([Agent.objects.get(id=agent['agent']).user.email for agent in agents])}\n')
