@@ -33,6 +33,8 @@ class Command(BaseCommand):
 
             # Add the license to the dictionary
             agent_email = expired_license.agent.user.email
+
+            # Check if the agent is already in the dictionary
             if agent_email not in agent_licenses:
                 agent_licenses[agent_email] = []  # Creates a list for the agent if it doesn't exist
             agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'  
