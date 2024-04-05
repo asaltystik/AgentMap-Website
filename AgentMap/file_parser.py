@@ -109,4 +109,5 @@ def parse_filenames(directory):
     print(f"Total forms Parsed: {Form.objects.count()}")
 
 
+# Call the parse_filenames function with the directory path
 parse_filenames('C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies')
