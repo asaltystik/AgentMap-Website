@@ -117,8 +117,8 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-staticfiles_dirs = [BASE_DIR / 'static']
+STATIC_URL = '/static/'  # This is the url that static files are served from
+staticfiles_dirs = [BASE_DIR / 'static']  # This is the directory that static files are served from
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
@@ -137,4 +137,4 @@ EMAIL_HOST_PASSWORD = 'lciz kzdl jeky louy'  # This is an app password generated
 # at some point in the future, I will need to hide this in an environment variable or hash it
 
 # Login redirect settings
-LOGIN_URL = 'Login'
+LOGIN_URL = 'Login'  # Forces the user to login before accessing pages that require a user to be logged in
