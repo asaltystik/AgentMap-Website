@@ -13,6 +13,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('username', type=str, help='Username of the agent to delete licenses for')
 
+    # Handle method that is called when the management command is ran
     def handle(self, *args, **options):
         # Get the username
         user = User.objects.get(username=options['username'])
@@ -30,4 +31,4 @@ class Command(BaseCommand):
 
         # print the number of licenses deleted
         self.stdout.write(f'{len(agent_licenses)}'
-                          f' licenses deleted for {user.username}')
+                          f' licenses deleted for {user.username}')  # Print the name
