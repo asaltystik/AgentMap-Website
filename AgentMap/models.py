@@ -21,6 +21,7 @@ class Form(models.Model):
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
 
+    # This function returns a string representation of the agent object
     def __str__(self):
         return self.user.username
 
@@ -33,5 +34,6 @@ class LicensedState(models.Model):
     expiration = models.DateField(default="2024-01-01")  # The expiration date of the license
     color = models.CharField(max_length=7, default="#0692e1")  # The color of the state on the map
 
+    # This function returns a string representation of the licensed state object
     def __str__(self):
         return self.agent.user.username + " - " + self.state + " - " + self.expiration.strftime('%m/%d/%Y')
