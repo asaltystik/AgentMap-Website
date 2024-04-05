@@ -9,7 +9,7 @@ class Command(BaseCommand):
     help = ("Deletes all licenses for a specific agent, Helps to clean up "
             "the database when an agent leaves the company")
 
-    # Add the username argument
+    # Add the username argument. This is the username of the agent to delete licenses for.
     def add_arguments(self, parser):
         parser.add_argument('username', type=str, help='Username of the agent to delete licenses for')
 
@@ -23,9 +23,9 @@ class Command(BaseCommand):
 
         # Iterate over the licenses and delete them
         for agent_license in agent_licenses:
-            self.stdout.write(f'License {agent_license.licenseNumber} '
-                              f'for agent {agent_license.agent.user.username}'
-                              f' in state {agent_license.state}'
+            self.stdout.write(f'License {agent_license.licenseNumber} '  # print the license number
+                              f'for agent {agent_license.agent.user.username}'  # print the username
+                              f' in state {agent_license.state}'  # print the state
                               f' has been deleted.')
             agent_license.delete()  # Delete the license
 
