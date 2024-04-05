@@ -36,8 +36,8 @@ class Command(BaseCommand):
                 'License Expiration Notice',
                 f'You have {agent["num_expiring"]} license(s) expiring'
                 f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
-                'carick@securecare65.com',
-                [agent_obj.user.email],
+                'carick@securecare65.com',  # We are sending this from my personal work email
+                [agent_obj.user.email],  # This is the agents email address
                 fail_silently=False,
             )
 
