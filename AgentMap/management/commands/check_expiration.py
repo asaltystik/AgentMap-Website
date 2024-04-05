@@ -32,9 +32,9 @@ class Command(BaseCommand):
             # Add the license to the dictionary
             agent_email = expired_license.agent.user.email
             if agent_email not in agent_licenses:
-                agent_licenses[agent_email] = []
-            agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'
-                                               f' in state {expired_license.state}')
+                agent_licenses[agent_email] = []  # Creates a list for the agent if it doesn't exist
+            agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'  
+                                               f' in state {expired_license.state}')  # add the license to the list
 
             # Delete the license
             expired_license.delete()
@@ -47,12 +47,12 @@ class Command(BaseCommand):
             send_mail(
                 'Expired License Deletion Notice',
                 f'The following licenses have expired and been deleted:\n'
-                f'{", ".join(agent_license)}\n'
+                f'{", ".join(agent_license)}\n'  # This is the string of all deleted licenses
                 f'Please contact Steve or Craig to renew your licenses.',
-                'carick@securecare65.com',
-                [agent_email],
-                fail_silently=False,
-            )
+                'carick@securecare65.com',  # We are sending this from my personal work email
+                [agent_email],  # This is the agents email address
+                fail_silently=False,  # This will raise an exception if the email fails to send
+            )  # send the email to the agent notifying them of the deletion.
 
         # Print the number of agents notified
         print(f'{len(agent_licenses)} agents notified of expired licenses.')
