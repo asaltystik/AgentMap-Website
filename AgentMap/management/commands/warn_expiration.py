@@ -39,7 +39,7 @@ class Command(BaseCommand):
                 f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
                 'carick@securecare65.com',  # We are sending this from my personal work email
                 [agent_obj.user.email],  # This is the agents email address
-                fail_silently=False,
+                fail_silently=False,  # This will raise an exception if the email fails to send
             )
 
         # Print the number of agents notified
