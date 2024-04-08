@@ -101,6 +101,7 @@ def get_companies(request, state_code):
     # Get the current date
     current_date = timezone.now().date()
 
+    # Try to get the license number and expiration date for the given state
     try:
         licenses = LicensedState.objects.filter(agent__user=request.user)
         license_number = licenses.get(state=state_code).licenseNumber
