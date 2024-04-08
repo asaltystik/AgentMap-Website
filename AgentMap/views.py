@@ -37,8 +37,10 @@ def register_view(request):
 
     # if the request is a POST request, check if the form is valid
     if request.method == 'POST':
+
         # create a new user registration form with the POST data
         form = UserRegistrationForm(request.POST)
+
         # if the form is valid, save the form and redirect the user to the login page
         if form.is_valid():
             form.save()
@@ -84,6 +86,7 @@ def logout_view(request):
 # This function will render the map.html page
 @login_required
 def agent_map(request):
+
     # Get all the states that the agent is licensed in
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
     return render(request, 'map.html', {'licensed_states': licensed_states})
@@ -92,6 +95,7 @@ def agent_map(request):
 @login_required
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
+
     # Get all the forms in the given state
     forms = Form.objects.filter(state=state_code).order_by('company')
 
@@ -125,10 +129,13 @@ def get_companies(request, state_code):
 @xframe_options_exempt
 @login_required
 def view_form(request, form_id):
+
     # Get the form with the given id
     form = get_object_or_404(Form, id=form_id)
+
     # Get the file path of the form
     file_path = form.file_path
+
     # if os is windows, replace the backslashes with forward slashes
     if os.name == 'nt':
         file_path = file_path.replace('\\', '/')
