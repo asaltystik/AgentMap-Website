@@ -46,7 +46,7 @@ def register_view(request):
     # if the request is not a POST request, create a new user registration form
     else:
         form = UserRegistrationForm()
-    return render(request, 'register.html', {'form': form})
+    return render(request, 'register.html', {'form': form})  # render the register.html page with the form
 
 
 # this function will render the login.html page
@@ -67,7 +67,7 @@ def login_view(request):
             # if the user is not None, log them in
             if user is not None:
                 login(request, user)
-                return redirect('AgentMap')
+                return redirect('AgentMap')  # redirect the user to the agent map page
     else:
         # if the request is not a POST request, create a new login form
         form = LoginForm()
