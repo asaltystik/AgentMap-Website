@@ -36,7 +36,7 @@
             <h2 style="text-align: center">
                 {%  for key, value in app_urls.items %}
                     {% if key == full_company.grouper %}
-                    <a href="https://{{ value }}" target="_blank">
+                    <a href="https://{{ value }}" target="_blank" title="{{ full_company.grouper }} E-Application &#013;{{ value }}">
                         {{ full_company.grouper }}
                     </a>
                     {% endif %}
