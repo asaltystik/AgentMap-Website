@@ -33,7 +33,15 @@
     {% for full_company in company_list %}
         <!-- Full Company Name -->
         <div class="new-company" id="{{ full_company.grouper }}" style="border: 2px black solid; border-radius: 12px">
-            <h2 style="text-align: center">{{ full_company.grouper }}</h2>
+            <h2 style="text-align: center">
+                {%  for key, value in eapp_urls.items %}
+                    {% if key == full_company.grouper %}
+                    <a href="https://{{ value }}" target="_blank">
+                        {{ full_company.grouper }}
+                    </a>
+                    {% endif %}
+                {% endfor %}
+            </h2>
             <!-- This is the button-matrix that will display the forms for the company -->
             <div class="button-matrix">
             {% for form in full_company.list %}

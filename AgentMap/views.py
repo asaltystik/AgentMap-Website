@@ -96,6 +96,31 @@ def agent_map(request):
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
 
+    # Dictionary to hold the eapp_url for each company, Key is the company name as it appears in the database
+    eapp_urls = {
+        "AARP": "Google.com",
+        "AARP United HealthCare Insurance": "google.com",
+        "Ace Chubb": "service.iasadmin.com/gateway/login.aspx?pp=pFHD&pn=NR&y1tv0=n",
+        "Aetna": "google.com",
+        "Aflac": "www.suppinsadmin.com/ssitpa/afl/login.fcc?TYPE=33554433&REALMOID=06-7c8fa642-baed-4867-8961-14bbfb4570e0&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s%2f6v5SUbVzQ4z7UXJxBz1wUImgrt7d09vvkdd9fkkP9Ia%2bY2%2bQKSP728d%2fTN%2bXjQ&TARGET=-SM-HTTPS%3a%2f%2fwww%2esuppinsadmin%2ecom%2fssitpa%2ftpaSecure%2fafl%2faflHome%2ehtml",
+        "American Benefit Life": "www.suppinsadmin.com/ssitpa/abl/login.fcc?TYPE=167772161&REALMOID=06-4066f660-248b-4614-bd5e-fb7f8d94f6d2&GUID=0&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s%2f6v5SUbVzQ4z7UXJxBz1wUImgrt7d09vvkdd9fkkP9Ia%2bY2%2bQKSP728d%2fTN%2bXjQ&TARGET=-SM-HTTPS%3a%2f%2fwww%2esuppinsadmin%2ecom%2fssitpa%2ftpaSecure%2fabl%2fablHome%2ehtml",
+        "American Financial Security": "www.suppinsadmin.com/ssitpa/afs/login.fcc?TYPE=33554433&REALMOID=06-ce8b1672-46e5-41bd-85e9-85413567cd16&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s%2f6v5SUbVzQ4z7UXJxBz1wUImgrt7d09vvkdd9fkkP9Ia%2bY2%2bQKSP728d%2fTN%2bXjQ&TARGET=-SM-HTTPS%3a%2f%2fwww%2esuppinsadmin%2ecom%2fssitpa%2ftpaSecure%2fafs%2fafsHome%2ehtml",
+        "American Home Life": "www.suppinsadmin.com/ssitpa/amh/login.fcc?TYPE=33554433&REALMOID=06-f9efb62f-7746-4632-a0d8-8046577e1448&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s%2f6v5SUbVzQ4z7UXJxBz1wUImgrt7d09vvkdd9fkkP9Ia%2bY2%2bQKSP728d%2fTN%2bXjQ&TARGET=-SM-HTTPS%3a%2f%2fwww%2esuppinsadmin%2ecom%2fssitpa%2ftpaSecure%2famh%2famhHome%2ehtml",
+        "Bankers Fidelity Atlantic American": "agent.bflic.com/Login/Login?usrtyp=A",
+        "Cigna Health and Life Insurance": "agentviewcigna.com/AgentView/",
+        "Cigna National Health Insurance": "agentviewcigna.com/AgentView/",
+        "Cigna Loyal American Life Insurance": "agentviewcigna.com/AgentView/",
+        "Elips Life Insurance": "google.com",
+        "LifeShield National Insurance": "lsneapp.com/forms/medicare",
+        "Lumico": "lumicoagentcenter.com/core/login",
+        "Manhattan Life": "producer.manhattanlife.com/life/account/login.aspx",
+        "Medico": "mic.gomedico.com/login.aspx",
+        "Mutual of Omaha": "www3.mutualofomaha.com/OktaSpaRegistration/home?_ga=2.58007530.1352809056.1683039431-1489991625.1683039431",
+        "New Era": "apps.neweralife.com/agentportal/account/login",
+        "Philadelphia American Life Insurance": "my.aimc.net/",
+        "WPS Health Insurance": "my.wpshealth.com/en/AgentInd"
+    }
+
     # Get all the forms in the given state
     forms = Form.objects.filter(state=state_code).order_by('company')
 
@@ -121,7 +146,8 @@ def get_companies(request, state_code):
             "forms": forms,
             "license_number": license_number,
             "expiration": expiration,
-            "is_expiring_soon": is_expiring_soon
+            "is_expiring_soon": is_expiring_soon,
+            "eapp_urls": eapp_urls
         }
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
@@ -133,7 +159,8 @@ def get_companies(request, state_code):
         # Context
         context = {
             "state": state,
-            "forms": forms
+            "forms": forms,
+            "eapp_urls": eapp_urls
         }
 
         return render(request, "companies.html", context)
