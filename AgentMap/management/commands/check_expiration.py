@@ -21,14 +21,14 @@ class Command(BaseCommand):
         expired_licenses = LicensedState.objects.filter(expiration__lt=current_date)
 
         # Dictionary to store the licenses that will be deleted
-        agent_licenses = {}
+        agent_licenses = {}  # This is empty for now
 
         # Iterate over the expired licenses and delete them
         for expired_license in expired_licenses:
             # Print the expired license
-            self.stdout.write(f'License {expired_license.licenseNumber} '
-                              f'for agent {expired_license.agent.user.username}'
-                              f' in state {expired_license.state}'
+            self.stdout.write(f'License {expired_license.licenseNumber} '  # This is the license number
+                              f'for agent {expired_license.agent.user.username}'  # This is the agent username
+                              f' in state {expired_license.state}'  # This is the state abbreviation
                               f' has expired and will be deleted.')
 
             # Add the license to the dictionary
@@ -37,7 +37,7 @@ class Command(BaseCommand):
             # Check if the agent is already in the dictionary
             if agent_email not in agent_licenses:
                 agent_licenses[agent_email] = []  # Creates a list for the agent if it doesn't exist
-            agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'  
+            agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'  # This is the license number
                                                f' in state {expired_license.state}')  # add the license to the list
 
             # Delete the license
