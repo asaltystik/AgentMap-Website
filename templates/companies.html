@@ -34,10 +34,12 @@
         <!-- Full Company Name -->
         <div class="new-company" id="{{ full_company.grouper }}" style="border: 2px black solid; border-radius: 12px">
             <h2 style="text-align: center">
-                {%  for key, value in app_urls.items %}
-                    {% if key == full_company.grouper %}
+            <!-- This is the link to the company's e-application -->
+                {%  for key, value in app_urls.items %}  <!-- This will loop through the app_urls dictionary -->
+                    {% if key == full_company.grouper %} <!-- Checks if the key is equal to the company name -->
+                        <!-- Link to the company's e-application -->
                     <a href="https://{{ value }}" target="_blank" title="{{ full_company.grouper }} E-Application &#013;{{ value }}">
-                        {{ full_company.grouper }}
+                        {{ full_company.grouper }}  <!-- Displays the company name -->
                     </a>
                     {% endif %}
                 {% endfor %}
@@ -51,7 +53,7 @@
                             id="{{ form.full_form_type }}"
                             style="font-family: 'lucida sans unicode','serif'"
                             _="on click call openModal('{% url 'view_form' form.id %}')"
-                            title="{{ full_company.grouper }} {{ form.full_form_type }} {% if form.date != "None" %}{{ form.date }}{% endif %}">
+                            title="{{ full_company.grouper }}&#013;{{ form.full_form_type }}&#013;{% if form.date != "None" %}{{ form.date }}{% endif %}">
                         <!-- This is the non-abbreviated form type -->
                         {{ form.full_form_type }}
                         {% if form.date != "None" %}
