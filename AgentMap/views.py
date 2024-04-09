@@ -115,14 +115,28 @@ def get_companies(request, state_code):
         is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
             if expiration else False  # if expiration is None, set is_expiring_soon to False
 
+        # Context
+        context = {
+            "state": state,
+            "forms": forms,
+            "license_number": license_number,
+            "expiration": expiration,
+            "is_expiring_soon": is_expiring_soon
+        }
+
         # Render the companies.html page with the given state, forms, license number, expiration date,
         # and is_expiring_soon
-        return render(request, "companies.html", {"state": state, "forms": forms,
-                                                  "license_number": license_number, "expiration": expiration,
-                                                  "is_expiring_soon": is_expiring_soon})
+        return render(request, "companies.html", context)
     # If the agent is not licensed in the given state, render the companies.html page with the given state and forms
     except LicensedState.DoesNotExist:
-        return render(request, "companies.html", {"state": state, "forms": forms})
+
+        # Context
+        context = {
+            "state": state,
+            "forms": forms
+        }
+
+        return render(request, "companies.html", context)
 
 
 # This function handles opening the pdf file server side and sending it to the client
