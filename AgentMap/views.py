@@ -77,7 +77,7 @@ def agent_map(request):
 def get_companies(request, state_code):
 
     # Dictionary to hold the eapp_url for each company, Key is the company name as it appears in the database
-    eapp_urls = {
+    app_urls = {
         "AARP": "Google.com",
         "AARP United HealthCare Insurance": "google.com",
         "Ace Chubb": "service.iasadmin.com/gateway/login.aspx?pp=pFHD&pn=NR&y1tv0=n",
@@ -146,7 +146,7 @@ def get_companies(request, state_code):
             "license_number": license_number,
             "expiration": expiration,
             "is_expiring_soon": is_expiring_soon,
-            "eapp_urls": eapp_urls
+            "app_urls": app_urls
         }
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
@@ -159,7 +159,7 @@ def get_companies(request, state_code):
         context = {
             "state": state,
             "forms": forms,
-            "eapp_urls": eapp_urls
+            "app_urls": app_urls
         }
 
         return render(request, "companies.html", context)
