@@ -9,7 +9,6 @@
 </style>
 <body>
 <!-- This is the info-box that will be displayed when the user clicks a state -->
-<div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
 {% if not forms %}
     <h1 style="margin-top: 1px; margin-bottom: 1px;">There are no forms for {{ state }}</h1>
 {% else %}
@@ -24,6 +23,7 @@
         </span>
         {% endif %}
     </h1>
+<div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Medicare Supplements: </h2>
     <!-- groups the forms by full_company and stores them in company_list -->
     {% regroup forms by full_company as company_list %}
