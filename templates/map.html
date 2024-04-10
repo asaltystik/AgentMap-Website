@@ -1486,8 +1486,10 @@
         
         // on window load, update the state colors
         window.onload = function () {
-            // Remove the preload classes
-            document.body.classList.remove('preload');
+            // Remove the all preload classes
+            document.querySelectorAll('.preload').forEach(function(element) {
+                element.classList.remove('preload');
+            });
             
             // Get all the path, circle, and text elements
             let elements = document.querySelectorAll('#states path, #states circle, #states text');
