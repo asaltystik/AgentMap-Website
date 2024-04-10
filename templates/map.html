@@ -30,7 +30,7 @@
         color: #fff;
         transition: 450ms ease-in-out;
 }
-    
+
     .logout-button.preload {
         transition: none !important;
     }
@@ -94,7 +94,7 @@
         color: #fff;
         transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
     }
-    
+
     /* Redirect button preload */
     .redirect-button.preload {
         transition: none !important;
@@ -271,7 +271,7 @@
         color: #fff;
         transition: 450ms ease-in-out; /* Trying out 450 rn */
         }
-    
+
     /* button-matrix preload */
     .button-matrix.preload {
         transition: none !important;
@@ -1486,11 +1486,11 @@
         
         // on window load, update the state colors
         window.onload = function () {
-            // Remove the all preload classes
+            // Grabs all elements with the class tag "preload" and removes that extra tag
             document.querySelectorAll('.preload').forEach(function(element) {
-                element.classList.remove('preload');
+                element.classList.remove('preload'); // Remove the preload class
             });
-            
+
             // Get all the path, circle, and text elements
             let elements = document.querySelectorAll('#states path, #states circle, #states text');
 
