@@ -102,9 +102,10 @@ def parse_filenames(directory):
                         print(f"Saved {form}")
                     else:
                         print(f"Skipping {form} because it already exists")
+                # Filename doesn't have enough parts
                 else:
                     print(f"Skipping {file} because it doesn't have enough parts")
-                    print(len(parts))
+                    print(f"Number of parts: {len(parts)}")
     print(f"Total files: {total}")
     print(f"Total forms Parsed: {Form.objects.count()}")
 
