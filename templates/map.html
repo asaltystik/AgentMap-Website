@@ -1434,8 +1434,8 @@
         };
 
             // Get the state from the info-box-contents id
-            let state = document.querySelector('h1').innerText.split(' ')[0];
-            console.log("Applying HHD Colors to State: " + state);
+            let state = document.querySelector('h1').innerText.split(' ')[0];  // I have no idea why the previous method broke.
+            console.log("Applying HHD Colors to State: " + state);             // Instead of using the id, i'm using the h1 tag to get the state name.
 
             // Get all the new-company divs
             let companies = document.getElementsByClassName('new-company');
