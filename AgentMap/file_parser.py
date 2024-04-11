@@ -79,6 +79,8 @@ def parse_filenames(directory):
                     # print(f"Company: {company}, State: {state}, Form Type: {form_type}, File Path: {file_path}")
 
                     # Get the relative path of the file
+                    # This is a temporary implementation for my local machine
+                    # Server is going to be running on linux so this will need to be changed closer to prod
                     file_path = os.path.relpath(file_path, 'C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies')
                     file_path = file_path.replace('\\', '/')  # replace backslashes with forward slashes
                     # print("relative path: ", file_path)
