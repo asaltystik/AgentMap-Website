@@ -1539,10 +1539,10 @@
                         console.log("Mouseover Licensed State: " + element.id + " - " + color);
                         
                         // Darken the color by 20% on hover and apply styling
-                        element.style.fill = darkenColor(color, -16);
-                        element.style.strokeWidth = '2px';
-                        element.style.strokeLinejoin = 'round';
-                        element.style.transition = 'fill 850ms';
+                        element.style.fill = darkenColor(color, -16); // Darken the color
+                        element.style.strokeWidth = '2px'; // Set the line width to 2px
+                        element.style.strokeLinejoin = 'round'; // Set the Stroke line join to round
+                        element.style.transition = 'fill 850ms'; // transition effect
                         
                         // If the element has class "stateName", also change the style of the corresponding path
                         if (element.classList.contains('stateName')) {
