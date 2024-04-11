@@ -131,9 +131,9 @@ def get_companies(request, state_code):
 
     # Try to get the license number and expiration date for the given state
     try:
-        licenses = LicensedState.objects.filter(agent__user=request.user)
-        license_number = licenses.get(state=state_code).licenseNumber
-        expiration = licenses.get(state=state_code).expiration
+        licenses = LicensedState.objects.filter(agent__user=request.user)  # Get all the licenses for the agent
+        license_number = licenses.get(state=state_code).licenseNumber  # Get the license number for the given state
+        expiration = licenses.get(state=state_code).expiration  # Get the expiration date for the given state
 
         # Check if the expiration date is upcoming in the next 31 days
         is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
@@ -141,12 +141,12 @@ def get_companies(request, state_code):
 
         # Context
         context = {
-            "state": state,
-            "forms": forms,
-            "license_number": license_number,
-            "expiration": expiration,
-            "is_expiring_soon": is_expiring_soon,
-            "app_urls": app_urls
+            "state": state,  # packing the state name into context
+            "forms": forms,  # packing the forms into context
+            "license_number": license_number,  # packing the license number into context
+            "expiration": expiration,  # packing the expiration date into context
+            "is_expiring_soon": is_expiring_soon,  # packing the is_expiring_soon boolean into context
+            "app_urls": app_urls  # packing the app_urls dictionary into context
         }
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
@@ -157,11 +157,12 @@ def get_companies(request, state_code):
 
         # Context
         context = {
-            "state": state,
-            "forms": forms,
-            "app_urls": app_urls
+            "state": state,  # packing the state name into context
+            "forms": forms,  # packing the forms into context
+            "app_urls": app_urls  # packing the app_urls dictionary into context
         }
 
+        # Render the companies.html page with the given state and forms
         return render(request, "companies.html", context)
 
 
@@ -178,13 +179,15 @@ def view_form(request, form_id):
 
     # if os is windows, replace the backslashes with forward slashes
     if os.name == 'nt':
-        file_path = file_path.replace('\\', '/')
+        # in the future this will be replaced. Windows is not what this server is going to be running on in production
+        file_path = file_path.replace('\\', '/')  # Fuck windows \\ should just be /
 
-    # if the file path does not start with 'static/', raise a SuspiciousOperation
+    # Get the file_path
     file_path = "static/Companies/" + file_path
 
+    # if the file path does not start with 'static/', raise a SuspiciousOperation
     if not file_path.startswith('static/'):
-        raise SuspiciousOperation('Attempted directory traversal')
+        raise SuspiciousOperation('Attempted directory traversal')  # Raise a suspicious operation
 
     # Open the file and send it to the client
     response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
