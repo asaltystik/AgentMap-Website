@@ -23,7 +23,7 @@ class Agent(models.Model):
 
     # This function returns a string representation of the agent object
     def __str__(self):
-        return self.user.username
+        return self.user.username  # This is just the username of the agent
 
 
 # This model represents a state that an agent is licensed in
