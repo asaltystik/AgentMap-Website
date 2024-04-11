@@ -19,7 +19,7 @@ from django.urls import path, include
 from AgentMap import views as agentmapview
 
 urlpatterns = [
-    path('AgentMap/', include('AgentMap.urls')),
+    path('AgentMap/', include('AgentMap.urls')),  # Include the urls found in AgentMap.urls
     path('get_companies/<str:state_code>/', agentmapview.get_companies, name='get_companies'),
     path('view_form/<int:form_id>/', agentmapview.view_form, name='view_form'),
     path('admin/', admin.site.urls),
