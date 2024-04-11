@@ -42,9 +42,12 @@
                 {%  for key, value in app_urls.items %}  <!-- This will loop through the app_urls dictionary -->
                     {% if key == full_company.grouper %} <!-- Checks if the key is equal to the company name -->
                         <!-- Link to the company's e-application -->
-                    <a href="https://{{ value }}" target="_blank" title="{{ full_company.grouper }} E-Application &#013;{{ value }}">
+                    <button onclick="window.open('https://{{ value }}', '_blank')"
+                            title="{{ full_company.grouper }} E-Application &#013;{{ value }}"
+                            class="company-app-redirect"
+                    >
                         {{ full_company.grouper }}  <!-- Displays the company name -->
-                    </a>
+                    </button>
                     {% endif %}
                 {% endfor %}
             </h2>
