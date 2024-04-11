@@ -38,7 +38,7 @@ class Command(BaseCommand):
             if agent_email not in agent_licenses:
                 agent_licenses[agent_email] = []  # Creates a list for the agent if it doesn't exist
             agent_licenses[agent_email].append(f'License {expired_license.licenseNumber}'  # This is the license number
-                                               f' in state {expired_license.state}')  # add the license to the list
+                                               f' in state {expired_license.state}\n')  # add the license to the list
 
             # Delete the license
             expired_license.delete()
@@ -51,7 +51,7 @@ class Command(BaseCommand):
             send_mail(
                 'Expired License Deletion Notice',  # This is the subject of the email
                 f'The following licenses have expired and been deleted:\n'
-                f'{", ".join(agent_license)}\n'  # This is the string of all deleted licenses
+                f'{"".join(agent_license)}'  # This is the string of all deleted licenses
                 f'Please contact Steve or Craig to renew your licenses.',
                 'carick@securecare65.com',  # We are sending this from my personal work email
                 [agent_email],  # This is the agents email address
