@@ -1557,10 +1557,10 @@
                             if (path || circle) {
                                 // Get the target element
                                 let target = path ? path : circle;
-                                target.style.strokeWidth = '2px';
-                                target.style.strokeLinejoin = 'round';
-                                target.style.fill = darkenColor(color, -16);
-                                target.style.transition = 'fill 850ms';
+                                target.style.strokeWidth = '2px'; // Set the stroke width to 2px
+                                target.style.strokeLinejoin = 'round'; // Set the stroke line join to round
+                                target.style.fill = darkenColor(color, -16); // Darken the color by 20%
+                                target.style.transition = 'fill 850ms';  // Set the transition to 850ms
                             }
                             
                             // Keep the color of the text black on hover
@@ -1574,10 +1574,10 @@
                         console.log("Mouseout Licensed State: " + element.id + " - " + color);
                         
                         // Reset the color on mouseout and remove styling
-                        element.style.fill = color;
-                        element.style.strokeWidth = '';
-                        element.style.strokeLinejoin = '';
-                        element.style.transition = 'fill 850ms';
+                        element.style.fill = color; // Reset the color
+                        element.style.strokeWidth = ''; // Set the stroke width to nothing
+                        element.style.strokeLinejoin = ''; // Set the stroke line join to nothing
+                        element.style.transition = 'fill 850ms'; // Set the transition to 850ms
                         
                         // If the element has class "stateName", also reset the style of the corresponding path
                         if (element.classList.contains('stateName')) {
@@ -1591,27 +1591,27 @@
                             // If the path or circle exists, reset its style
                             if (path || circle) {
                                 let target = path ? path : circle;
-                                target.style.strokeWidth = '';
-                                target.style.strokeLinejoin = '';
-                                target.style.fill = color;
-                                target.style.transition = 'fill 850ms';
+                                target.style.strokeWidth = ''; // Set the stroke width to nothing
+                                target.style.strokeLinejoin = ''; // Set the stroke line join to nothing
+                                target.style.fill = color; // Set the fill to the original color
+                                target.style.transition = 'fill 850ms'; // Set the transition to 850ms
                             }
                             // Keep the color of the text black when the mouse is no longer hovering over it
-                            element.style.fill = '#000000';
+                            element.style.fill = '#000000'; // Black as my soul
                         }
                     });
                 } 
                 else {
                     // Log the non-licensed state
-                    console.log("Non-Licensed State: " + state)
+                    console.log("Non-Licensed State: " + state) // Log that shite Quay
                     
                     // If it's not, apply a default color and hover effect
                     if (!element.classList.contains('stateName')) {
                         // Apply the default color and styling
-                        element.style.fill = "#CCCCCC";
-                        element.style.strokeWidth = "2px";
-                        element.style.strokeLinejoin = "round";
-                        element.style.transition = 'fill 850ms';
+                        element.style.fill = "#CCCCCC";  // Default color
+                        element.style.strokeWidth = "2px"; // Set the stroke width to 2px
+                        element.style.strokeLinejoin = "round"; // Set the stroke line join to round
+                        element.style.transition = 'fill 850ms'; // Set the transition to 850ms
                     }
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
@@ -1628,27 +1628,27 @@
                             // If the path or circle exists, change its style
                             if (path || circle) {
                                 let target = path ? path : circle;
-                                target.style.strokeWidth = '2px';
-                                target.style.strokeLinejoin = 'round';
-                                target.style.fill = darkenColor("#CCCCCC", -16);
-                                target.style.transition = 'fill 850ms';
+                                target.style.strokeWidth = '2px'; // Set the stroke width to 2px
+                                target.style.strokeLinejoin = 'round'; // Set the stroke line join to round
+                                target.style.fill = darkenColor("#CCCCCC", -16); // Darken the color by 20%
+                                target.style.transition = 'fill 850ms'; // Set the transition to 850ms
                             }
-                            element.style.fill = '#000000';
+                            element.style.fill = '#000000'; // Black as my soul
                         }
                         else {
                             // Darken the default color by 20% on hover
-                            element.style.fill = darkenColor("#CCCCCC", -16);
-                            element.style.strokeWidth = '2px';
-                            element.style.strokeLinejoin = 'round';
-                            element.style.transition = 'fill 850ms';
+                            element.style.fill = darkenColor("#CCCCCC", -16); // Darken the color by 20%
+                            element.style.strokeWidth = '2px';  // Set the stroke width to 2px
+                            element.style.strokeLinejoin = 'round';  // Set the stroke line join to round
+                            element.style.transition = 'fill 850ms'; // Set the transition to 850ms
                         }
                     });
                     element.addEventListener('mouseout', function() {
                         // Reset the color on mouseout
-                        element.style.fill = "#CCCCCC";
-                        element.style.strokeWidth = '';
-                        element.style.strokeLinejoin = '';
-                        element.style.transition = 'fill 850ms';
+                        element.style.fill = "#CCCCCC"; // Default color
+                        element.style.strokeWidth = ''; // Set the stroke width to nothing
+                        element.style.strokeLinejoin = ''; // Set the stroke line join to nothing
+                        element.style.transition = 'fill 850ms'; // Set the transition to 850ms
                         
                         // Log the mouseout event
                         console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC");
@@ -1665,10 +1665,10 @@
                             // If the path or circle exists, reset its style
                             if (path || circle) {
                                 let target = path ? path : circle;
-                                target.style.strokeWidth = '';
-                                target.style.strokeLinejoin = '';
-                                target.style.fill = "#CCCCCC";
-                                target.style.transition = 'fill 850ms';
+                                target.style.strokeWidth = ''; // Set the targets stroke width to nothing
+                                target.style.strokeLinejoin = ''; // Set the targets stroke line join to nothing
+                                target.style.fill = "#CCCCCC"; // Set the targets fill to the default color
+                                target.style.transition = 'fill 850ms'; // Set the targets transition to 850ms
                             }
                             element.style.fill = '#000000';
                         }
