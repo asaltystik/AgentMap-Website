@@ -63,7 +63,7 @@ def parse_filenames(directory):
             if file.endswith('.pdf'):  # Check if the file is a pdf file
                 parts = file.split('_', 2)  # Split the filename at the first underscore
                 print("Parts: ", parts)  # Print the parts of the filename
-                if len(parts) == 3:  # if we have 3 parts we smovin
+                if len(parts) == 3:  # if we have 3 parts we smovin and can parse the data and input it into database
                     company, state, form_type = parts  # Get the company, state, and form type
                     form_type = form_type.replace('.pdf', '')  # Remove the file extension from the form type
                     # If the form_type has an - in it, split it at the - and take the first part for the form_type and
@@ -88,7 +88,7 @@ def parse_filenames(directory):
                     # Get the full form type from the FORM_TYPE_DICT
                     full_form_type = FORM_TYPE_DICT[form_type] if form_type in FORM_TYPE_DICT else "N"
 
-                    # Create a form object with the parsed data
+                    # Ccreate or retrieve the database object
                     form, created = Form.objects.get_or_create(
                         company=company,  # Get the company name
                         full_company=CompanyDict[company],  # Get the full company name
@@ -104,7 +104,9 @@ def parse_filenames(directory):
                         print(f"Saved {form}")
                     else:
                         print(f"Skipping {form} because it already exists")
-                # Filename doesn't have enough parts
+                # Looks like this is an edge case where the filename doesn't have enough parts
+                # This is likely due to a filename that has more than 2 underscores
+                # We can skip these files for now and probably add them in by hand later
                 else:
                     print(f"Skipping {file} because it doesn't have enough parts")
                     print(f"Number of parts: {len(parts)}")
