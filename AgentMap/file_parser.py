@@ -110,8 +110,8 @@ def parse_filenames(directory):
                 else:
                     print(f"Skipping {file} because it doesn't have enough parts")
                     print(f"Number of parts: {len(parts)}")
-    print(f"Total files: {total}")
-    print(f"Total forms Parsed: {Form.objects.count()}")
+    print(f"Total files: {total}")  # Print the total number of files
+    print(f"Total forms Parsed: {Form.objects.count()}")  # Print the total number of forms in the database
 
 
 # Call the parse_filenames function with the directory path
