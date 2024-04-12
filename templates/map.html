@@ -1535,6 +1535,8 @@
         });
         
         // Function to darken a color
+        // Uses some bitwise operations to darken the color by a percentage.
+        // Gotta review this later cause i have zero clue how bit-shifting changes the color.
         function darkenColor(color, percent) {
             // Convert the hex color to an integer
             let num = parseInt(color.replace("#",""), 16),
