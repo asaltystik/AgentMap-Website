@@ -6,19 +6,23 @@ from AgentMap.models import LicensedState
 # Creates a custom Django management command
 # to delete licenses for a specified agent
 class Command(BaseCommand):
-
     # This is the help message that will be displayed when the user runs the command with the --help flag
     help = ("Deletes all licenses for a specific agent, Helps to clean up "
             "the database when an agent leaves the company")
 
     # Add the username argument. This is the username of the agent to delete licenses for.
+    # This is required to run the command
     def add_arguments(self, parser):
         parser.add_argument('username', type=str, help='Username of the agent to delete licenses for')
 
     # Handle method that is called when the management command is ran
     def handle(self, *args, **options):
         # Get the username
-        user = User.objects.get(username=options['username'])
+        try:  # Try to get the username using the argument
+            user = User.objects.get(username=options['username'])
+        except User.DoesNotExist:  # If the user does not exist, print an error message and return
+            print(f"User with username {options['username']} does not exist.")
+            return
 
         # Query the LicensedState model for any licenses for the agent
         agent_licenses = LicensedState.objects.filter(agent=user.agent)
