@@ -7,6 +7,8 @@ from AgentMap.models import LicensedState, Agent
 
 
 # This is a custom django management command that sends warning emails to agents
+# Probably will be implemented as a cron job to run on the first of every month
+# to warn agents of upcoming license expirations.
 class Command(BaseCommand):
 
     # This is the help message that will be displayed when the user runs the command with the --help flag
