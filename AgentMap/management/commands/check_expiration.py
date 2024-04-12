@@ -6,6 +6,7 @@ from AgentMap.models import LicensedState
 
 # Creates a custom Django management command to check the LicensedState model
 # for any licenses past their expiration date and deletes them
+# This will probably be ran as a nightly cron job
 class Command(BaseCommand):
 
     # This is the help message that will be displayed when the user runs the command with the --help flag
