@@ -1,18 +1,28 @@
-import argparse
-import os
-
-import django
+from django.core.management.base import BaseCommand
+from AgentMap.models import LicensedState, Agent
+from PyPDF2 import PdfReader
 import pandas as pd
 import tabula
-from PyPDF2 import PdfReader
-
-# Set up the Django environment
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'TestingSVG.settings')
-django.setup()
-
-from AgentMap.models import LicensedState, Agent
+import os
 
 
+# This command is used to parse the licenses from the SirCon PDFs
+class Command(BaseCommand):
+    # Help message
+    help = 'Parse the licenses from the SirCon PDFs and add them to the database'
+
+    # Add arguments
+    def add_arguments(self, parser):
+        parser.add_argument('path', type=str, help='The path to the folder containing the PDFs')
+        # I want a second argument to be able to specify the agent name
+        parser.add_argument('agent', type=str, help='The name of the agent')
+
+    # Handle function
+    def handle(self, *args, **kwargs):
+        process_pdf(kwargs['path'], kwargs['agent'])
+
+
+# Functions Start here
 def get_page_count(file_path):
     """
     This function gets the number of pages in a PDF file.
@@ -139,7 +149,7 @@ def process_dataframe(dataframe):
     return dataframe
 
 
-def process_pdf(file_path):
+def process_pdf(file_path, agent_name):
     """
         This function processes a PDF file and saves the data to a CSV file.
 
@@ -225,7 +235,7 @@ def process_pdf(file_path):
     if 'df_following_pages' in locals():
         # make sure the dataframe is not a series
         df_following_pages = pd.concat(df_following_pages)
-        #Combine all 3 dataframes
+        # Combine all 3 dataframes
         df = pd.concat([df, df_following_pages, df_last_page], ignore_index=True)
     else:
         # Combine the first and last page
@@ -290,11 +300,10 @@ def process_pdf(file_path):
         edit = input("Do you want to edit another row? (yes/no): ")
 
     # Save the dataframe to a csv file in Licenses folder, Ask user for the file name
-    file_name = input("Enter the agent name: ")
-    df.to_csv("static/Licenses/" + file_name + ".csv", index=False)
+    df.to_csv("static/Licenses/" + agent_name + ".csv", index=False)
 
     # Get the current user as the agent
-    agent = Agent.objects.get(user__username=file_name)
+    agent = Agent.objects.get(user__username=agent_name)
 
     # Ask the user if they want to add or delete the list
     # action = input("Do you want to add or delete this list from the model? (add/delete): ")
@@ -316,14 +325,3 @@ def process_pdf(file_path):
                 licenseNumber=row['LICENSE NUMBER'],  # license number is the license number in the row
                 expiration=pd.to_datetime(row['EXPIRATION DATE'])  # expiration date is the expiration date in the row
             )
-
-
-# Create an argument parser
-parser = argparse.ArgumentParser(description='Parse a PDF file and save the data to a CSV file')
-parser.add_argument('file', type=str, help='The PDF file to parse')
-
-# Parse the arguments
-args = parser.parse_args()
-
-# Call the function with the file path
-process_pdf(args.file)
