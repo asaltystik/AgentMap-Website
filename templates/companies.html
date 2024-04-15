@@ -19,10 +19,18 @@
     ">
         {{ state }}
         {% if license_number %}
-        <span style="font-size: 20px; {% if is_expiring_soon%}color: crimson;{% endif %}">
+        <span style="font-size: 20px;">
             - (License Number: {{ license_number }})
             {%  if expiration|date:"Y" != "2099" %}
                 - Expires: {{ expiration|date:"m/d/Y" }}
+            {% endif %}
+            {% if days_until_expiration <= 31 and days_until_expiration > 0 %}
+                - ({{ days_until_expiration }} days)
+            {% endif %}
+            <!-- This is probably not needed since we will be running
+             check_expiration.py nightly -->
+            {% if days_until_expiration <= 0 %}
+                - (Expired)
             {% endif %}
         </span>
         {% endif %}
@@ -81,5 +89,6 @@
     {% endif %}
 {% endif %}
 </div>
+<div id="days-until-expiration" style="display: none;">{{ days_until_expiration }}</div>
 </body>
 </html>
