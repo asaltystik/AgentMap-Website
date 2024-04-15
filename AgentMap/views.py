@@ -142,10 +142,13 @@ def get_companies(request, state_code):
             # Check if the expiration date is upcoming in the next 31 days
             is_expiring_soon = (expiration - current_date <= timedelta(days=31))\
                 if expiration else False
+            days_until_expiration = (expiration - current_date).days \
+                if expiration else 9999
         else:
             license_number = None
             expiration = None
             is_expiring_soon = False
+            days_until_expiration = 9999
 
         # Context
         context = {
@@ -154,6 +157,7 @@ def get_companies(request, state_code):
             "license_number": license_number,  # packing the license number into context
             "expiration": expiration,  # packing the expiration date into context
             "is_expiring_soon": is_expiring_soon,  # packing the is_expiring_soon boolean into context
+            "days_until_expiration": days_until_expiration,  # packing the days until expiration into context
             "app_urls": app_urls  # packing the app_urls dictionary into context
         }
 
@@ -167,6 +171,8 @@ def get_companies(request, state_code):
         context = {
             "state": state,  # packing the state name into context
             "forms": forms,  # packing the forms into context
+            # Set to NaN
+            "days_until_expiration": 9999,  # Setting this to huge number since nan is not supported
             "app_urls": app_urls  # packing the app_urls dictionary into context
         }
 
