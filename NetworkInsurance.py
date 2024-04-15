@@ -2,6 +2,8 @@ import os
 
 
 # This function will loop through line by line to get the Product name and relevant companies
+# Honestly, Might be better to Deprecate this function, Dont know if it is still
+# Useful to the project
 def scrape():
     # Open the pdf
     with open("C:\\Users\\Noricum\\Downloads\\NetworkInsuranceCarriers.txt") as file:
