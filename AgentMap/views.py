@@ -131,16 +131,21 @@ def get_companies(request, state_code):
 
     # Try to get the license number and expiration date for the given state
     try:
-        licenses = LicensedState.objects.filter(agent__user=request.user)  # Get all the licenses for the agent
-        # Get the license number and expiration for the given state,
-        # ordered by expiration date and then get the last one since it will be
-        # the most recent license
-        license_number = licenses.filter(state=state_code).order_by('expiration').last().licenseNumber
-        expiration = licenses.filter(state=state_code).order_by('expiration').last().expiration
-
-        # Check if the expiration date is upcoming in the next 31 days
-        is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
-            if expiration else False  # if expiration is None, set is_expiring_soon to False
+        # Get all the licenses for the agent
+        licenses = LicensedState.objects.filter(agent__user=request.user)
+        # Get the state license for the given state and the farthest
+        # expiration date for the given state
+        state_license = licenses.filter(state=state_code).order_by('expiration').last()
+        if state_license is not None:
+            license_number = state_license.licenseNumber
+            expiration = state_license.expiration
+            # Check if the expiration date is upcoming in the next 31 days
+            is_expiring_soon = (expiration - current_date <= timedelta(days=31))\
+                if expiration else False
+        else:
+            license_number = None
+            expiration = None
+            is_expiring_soon = False
 
         # Context
         context = {
