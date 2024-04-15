@@ -1521,6 +1521,38 @@
             let infoBoxContainer = document.getElementById('info-box')
             infoBoxContainer.scrollTop = 0; // Scroll to the top of the container
         }
+        
+        // Lerp between header colors
+        function HeaderLerp(){
+            // Get the days_until_expiration value from the newly loaded content
+            let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
+            console.log("Expires: :" + daysUntilExpiration)
+            
+            let colorString = ''
+            if(daysUntilExpiration > 31 || daysUntilExpiration === 9999) {
+                colorString = 'rgb(0, 0, 0)' // Default to black if way far out
+            } else if(!isNaN(daysUntilExpiration)) {
+                // Clamp DaysUntilExpiration between 0 and 31
+                daysUntilExpiration = Math.max(1, Math.min(daysUntilExpiration, 31))
+                // Calculate lerp Percentage
+                let LerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
+            
+                // Define Colors  
+                let colorStart = [220, 20, 60];
+                let colorEnd = [255, 165, 0];
+            
+                let colorInterpolated = colorStart.map(function (channel, index) {
+                    return channel + (colorEnd[index] - channel) * LerpPercentage;
+                });
+            
+                colorString = 'rgb(' + colorInterpolated.join(',') + ')';
+            } else {
+                colorString = 'rgb(0, 0, 0)' // Default to black
+            }
+            
+            // Apply the color to the h1
+            document.querySelector('h1').style.color = colorString;
+        }
 
         // add an event listener for the htmx:afterSwap event
         // Basically whenever we pull up the company information, Mainly used for the color coding for HouseHold Discounts
@@ -1529,6 +1561,9 @@
             // Reset the scroll position to the top of the container
             resetScroll();
             
+            // Lerp the header color
+            HeaderLerp();
+                        
             // Get all the new-company divs
             let companies = document.getElementsByClassName('new-company');
             // If there are companies, update their colors
