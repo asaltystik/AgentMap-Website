@@ -1535,14 +1535,14 @@
                 // Clamp DaysUntilExpiration between 0 and 31
                 daysUntilExpiration = Math.max(1, Math.min(daysUntilExpiration, 31))
                 // Calculate lerp Percentage
-                let LerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
+                let lerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
             
                 // Define Colors  
                 let colorStart = [220, 20, 60];
                 let colorEnd = [255, 165, 0];
             
                 let colorInterpolated = colorStart.map(function (channel, index) {
-                    return channel + (colorEnd[index] - channel) * LerpPercentage;
+                    return channel + (colorEnd[index] - channel) * lerpPercentage;
                 });
             
                 colorString = 'rgb(' + colorInterpolated.join(',') + ')';
