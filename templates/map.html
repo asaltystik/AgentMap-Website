@@ -1486,7 +1486,7 @@
             let state = document.querySelector('h1').innerText  // I have no idea why the previous method broke.
             // If state contains a - then split it at the first - and keep the first part
             if (state.includes("-")) {  // This shit is retarded thanks past me
-                state = state.split("-")[0].trim();
+                state = state.split("-")[0].trim(); // Remove that stupid -
             }
 
             // Log that shit quay
@@ -1503,7 +1503,7 @@
                 // console.log("Company: " + company);
 
                 // Get the color for this state and company from the mapping
-                let color = colorMapping[state][company];
+                let color = colorMapping[state][company]; // colorMapping is a dict that contains a dict
                 //console.log("Color: " + color);
 
                 // If a color was found, apply it to the divs background
@@ -1526,7 +1526,7 @@
         function HeaderLerp(){
             // Get the days_until_expiration value from the newly loaded content
             let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
-            console.log("Expires: :" + daysUntilExpiration)
+            console.log("Expires: :" + daysUntilExpiration) // Log this shit quay
             
             let colorString = ''
             if(daysUntilExpiration > 31 || daysUntilExpiration === 9999) {
@@ -1538,14 +1538,14 @@
                 let lerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
             
                 // Define Colors  
-                let colorStart = [220, 20, 60];
-                let colorEnd = [255, 165, 0];
+                let colorStart = [220, 20, 60]; // Crimson
+                let colorEnd = [255, 165, 0]; // Orange
             
                 let colorInterpolated = colorStart.map(function (channel, index) {
                     return channel + (colorEnd[index] - channel) * lerpPercentage;
                 });
             
-                colorString = 'rgb(' + colorInterpolated.join(',') + ')';
+                colorString = 'rgb(' + colorInterpolated.join(',') + ')'; // format from bits to string
             } else {
                 colorString = 'rgb(0, 0, 0)' // Default to black
             }
