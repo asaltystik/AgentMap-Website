@@ -197,7 +197,14 @@ def view_form(request, form_id):
         file_path = file_path.replace('\\', '/')  # Fuck windows \\ should just be /
 
     # Get the file_path
-    file_path = "static/Companies/" + file_path
+    # if filepath doesnt contain static/Companies/
+    if not file_path.startswith("static/Companies"):
+        index = file_path.index("static/Companies")
+        file_path = file_path[index:]
+    elif "static/Companies" not in file_path:
+        file_path = "static/Companies"
+    else:
+        file_path = file_path
 
     # if the file path does not start with 'static/', raise a SuspiciousOperation
     if not file_path.startswith('static/'):
