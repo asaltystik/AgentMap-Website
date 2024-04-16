@@ -1568,7 +1568,7 @@
             let companies = document.getElementsByClassName('new-company');
             // If there are companies, update their colors
             if(companies) {
-                setTimeout(ColorCodeCompanies, 60);
+                setTimeout(ColorCodeCompanies, 30);  // Delay the color coding by 30ms or else it doesnt work
             }
             // Log the event
             console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
