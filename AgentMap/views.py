@@ -200,12 +200,13 @@ def view_form(request, form_id):
     # Get the file_path
     # if filepath doesnt contain static/Companies/
     if not file_path.startswith("static/Companies"):
-        index = file_path.index("static/Companies")
+        # file_path does not start with static/Companies
+        index = file_path.index("static/Companies")  # Remove the ../.. from the rel path
         file_path = file_path[index:]
     elif "static/Companies" not in file_path:
-        file_path = "static/Companies"
+        file_path = "static/Companies" + file_path  # Simple append to the beginning of the string
     else:
-        file_path = file_path
+        file_path = file_path  # File_path should be ok as is
 
     # if the file path does not start with 'static/', raise a SuspiciousOperation
     if not file_path.startswith('static/'):
