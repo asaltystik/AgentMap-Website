@@ -21,7 +21,7 @@
         {% if license_number %}
         <span style="font-size: 20px;">
             - (License Number: {{ license_number }})
-            {%  if expiration|date:"Y" != "2099" %}
+            {%  if expiration|date:"Y" != "2099" and days_until_expiration <= 31 and days_until_expiration > 0 %}
                 - Expires: {{ expiration|date:"m/d/Y" }}
             {% endif %}
             {% if days_until_expiration <= 31 and days_until_expiration > 0 %}
@@ -29,8 +29,8 @@
             {% endif %}
             <!-- This is probably not needed since we will be running
              check_expiration.py nightly -->
-            {% if days_until_expiration <= 0 %}
-                - (Expired)
+            {% if days_until_expiration < 0  %}
+                - (EXPIRED)
             {% endif %}
         </span>
         {% endif %}
