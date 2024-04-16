@@ -1579,7 +1579,7 @@
         // Gotta review this later cause i have zero clue how bit-shifting changes the color.
         function darkenColor(color, percent) {
             // Convert the hex color to an integer
-            let num = parseInt(color.replace("#",""), 16),
+            let num = parseInt(color.replace("#",""), 16),  // Convert the color from hex to an integer
             amt = Math.round(2.55 * percent), // Calculate the amount to darken
             R = (num >> 16) + amt, // Shift the bits to get the red value
             B = (num >> 8 & 0x00FF) + amt, // Shift the bits to get the blue value
