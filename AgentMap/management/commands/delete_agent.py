@@ -21,8 +21,8 @@ class Command(BaseCommand):
         try:  # Try to get the username using the argument
             user = User.objects.get(username=options['username'])
         except User.DoesNotExist:  # If the user does not exist, print an error message and return
-            print(f"User with username {options['username']} does not exist.")
-            return
+            self.stdout.write(f"User with username {options['username']} does not exist.")
+            return 1  # Return 1 to indicate an error
 
         # Query the LicensedState model for any licenses for the agent
         agent_licenses = LicensedState.objects.filter(agent=user.agent)
@@ -38,3 +38,4 @@ class Command(BaseCommand):
         # print the number of licenses deleted
         self.stdout.write(f'{len(agent_licenses)}'
                           f' licenses deleted for {user.username}')  # Print the name
+        return 0  # Return 0 to indicate success
