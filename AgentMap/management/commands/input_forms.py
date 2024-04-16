@@ -79,8 +79,8 @@ def parse_filenames(directory):
                     file_path = os.path.relpath(str(file_path), start_dir)
                     file_path = file_path.replace('\\', '/')  # replace backslashes with forward slashes
                     # Cut off up until the static directory
-                    index = file_path.index('static')
-                    file_path = file_path[index:]
+                    index = file_path.index('static')  # No clue why my small changed required this to be added in
+                    file_path = file_path[index:]  # Cut off up until the static dir, the ../../ will cause issues
                     print("relative path: ", file_path)
 
                     # print("relative path: ", file_path)

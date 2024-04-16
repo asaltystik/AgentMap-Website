@@ -42,7 +42,7 @@ class Command(BaseCommand):
                                                f' in state {expired_license.state}\n')  # add the license to the list
 
             # Delete the license
-            expired_license.delete()
+            expired_license.delete()  # Delete this shit quay
 
         # Print the number of expired licenses deleted
         print(f'{len(expired_licenses)} expired licenses deleted.')

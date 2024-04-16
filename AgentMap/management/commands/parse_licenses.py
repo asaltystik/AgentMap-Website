@@ -261,13 +261,14 @@ def process_pdf(file_path, agent_name):
     # Format the Expiration Date Column from mm/dd/yyyy to yyyy-mm-dd
     df['EXPIRATION DATE'] = pd.to_datetime(df['EXPIRATION DATE'])
 
-    pd.set_option('display.max_rows', None)
+    pd.set_option('display.max_rows', None)  # Display all fucking rows you goober
     # print the final dataframe
     print(df)
 
     # Ask the user if they want to manually edit the dataframe
     edit = input("Do you want to manually edit the dataframe? (yes/no): ")
 
+    # Loop until we get a valid response
     while edit.lower() == 'yes':
         # Ask the user for the row number to edit
         while True:
