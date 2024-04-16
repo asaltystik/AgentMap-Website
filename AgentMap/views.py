@@ -142,13 +142,14 @@ def get_companies(request, state_code):
             # Check if the expiration date is upcoming in the next 31 days
             is_expiring_soon = (expiration - current_date <= timedelta(days=31))\
                 if expiration else False
+            # Im sure future me won't have to deal with this... Sorry, Not sorry.
             days_until_expiration = (expiration - current_date).days \
-                if expiration else 9999
+                if expiration else 9999  # Set to huge number since NaN is not valid
         else:
-            license_number = None
-            expiration = None
-            is_expiring_soon = False
-            days_until_expiration = 9999
+            license_number = None  # Set to None if no license is found
+            expiration = None  # Set to None if no license is found
+            is_expiring_soon = False  # Set to False if no license is found
+            days_until_expiration = 9999  # Huge number since NaN is not valid
 
         # Context
         context = {
