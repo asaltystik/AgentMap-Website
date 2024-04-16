@@ -15,5 +15,5 @@ class Command(BaseCommand):
         companies = options['companies']  # Get the companies to delete forms for
         for company in companies:
             Form.objects.filter(company=company).delete()  # Delete all forms for the given company
-            print(f"Deleted all forms for {company}")  # Print that shit quay
+            self.stdout.write(f"Deleted all forms for {company}")  # Print that shit quay
         return 0
