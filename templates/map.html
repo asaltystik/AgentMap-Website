@@ -35,7 +35,7 @@
     .logout-button.preload {
         transition: none !important;
     }
-    
+
     .health-bar {
         transition: width 0.5s ease-in-out;
     }
@@ -1533,7 +1533,7 @@
             // Get the days_until_expiration value from the newly loaded content
             let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
             console.log("Expires: :" + daysUntilExpiration) // Log this shit quay
-            
+
             // Get the last Color of the health bar from the .LastHPColor class if it isnt empty, else dfault should be green [7, 170, 8]
             let lastColor = document.querySelector('.LastHPColor').textContent;
             console.log("Last Color: " + lastColor)
@@ -1542,12 +1542,12 @@
                 // If lastColor contains non-numeric characters (other than commas and periods), remove them
                 lastColor = lastColor.replace(/[^0-9.,]/g, '');
             }
-            
+
             lastColor = lastColor === '' ? [7, 170, 8] : lastColor.split(',').map(Number);
-            
+
             //Get the last width of the health bar from the .LastHPWidth class
             let lastWidthText = document.querySelector('.LastHPWidth').textContent;
-            
+
             // If lastColor is not empty, immediately set the background color of the health bar
             if (lastColor !== '') {
                 document.querySelector('.health-bar').style.backgroundColor = 'rgb(' + lastColor.join(',') + ')';
@@ -1556,14 +1556,14 @@
             if (lastWidthText.trim() === '') {
                 document.querySelector('.health-bar').style.width = '100%';
             }
-                
+
             let lastWidth = parseFloat(lastWidthText);
             lastWidth = Math.max(0, Math.min(lastWidth, 100));
-            
+
             setTimeout(function() {
                 console.log("Delay the lerp to look clean")
             }, 80);
-            
+
             let colorString = ''
             if(daysUntilExpiration === 9999) {
                 colorString = 'rgb(0, 0, 0)' // default to green if maxed out
@@ -1574,8 +1574,8 @@
                 daysUntilExpiration = Math.max(0, Math.min(daysUntilExpiration, 31))
                 // Calculate lerp Percentage
                 let lerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
-    
-                // Define Colors  
+
+                // Define Colors
                 let colorStart = [220, 20, 60]; // red
                 let colorMiddle = [253, 240, 0]; // yellow
                 let colorEnd = [9, 170, 8]; // green
@@ -1594,9 +1594,9 @@
                         return channel + (colorEnd[index] - channel) * lerpPercentage;
                     });
                 }
-    
+
                 colorString = 'rgb(' + colorInterpolated.join(',') + ')'; // format from bits to string
-                
+
                 // Apply the color to the h1 if the lerpPercentage is 0
                 if(lerpPercentage === 0 ) {
                     document.querySelector('h1').style.color = colorString;
@@ -1604,40 +1604,40 @@
             } else {
                 colorString = 'rgb(0, 0, 0)' // Default to black
             }
-            
+
             // Get the health bar element
             let healthBar = document.querySelector('.health-bar');
-            
+
             // Calculate the health bar width
             let healthBarWidth = (daysUntilExpiration / 31) * 100;
-            
+
             // Clamp the health bar width between 0 and 100
             healthBarWidth = Math.max(0, Math.min(healthBarWidth, 100));
-            
+
             let currentColor = colorString.slice(4, -1).split(',').map(Number);
-            
+
             let colorDiff = [
                 currentColor[0] - lastColor[0],
                 currentColor[1] - lastColor[1],
                 currentColor[2] - lastColor[2]
             ];
-            
+
             function calculateColor(percentage) {
                 return 'rgb(' + lastColor.map(function (channel, index) {
                     return Math.round(channel + colorDiff[index] * percentage);
                 }).join(',') + ')';
             }
-            
+
             // create a dynamic animation
             let animName = 'HealthBar-Width';
             let animDuration = 1;
-            
+
             // Create the keyframes for the animation
             let keyframes = `@keyframes ${animName} {
                 from { width: ${lastWidth}%; background-color: ${lastColor};}
                 to { width: ${healthBarWidth}%; background-color: ${colorString};
             }`;
-            
+
             // Use requestAnimationFrame to update the color of the health bar at each frame
             let start;
             function frame(time){
@@ -1649,24 +1649,32 @@
                 }
             }
             requestAnimationFrame(frame)
-            
+
             // Create a style element
             let style = document.createElement('style');
-            
+
             // Set the style element text to the keyframes
             style.textContent = keyframes;
-            
+
             document.head.appendChild(style);
 
             // Apply the animation to the health bar
             // delay the animation by 30ms to look smoother
             healthBar.style.animation = `${animName} ${animDuration}s 1  ease-in-out forwards`;
-            
+
             // document the width amount to the .LastHPWidth class
             document.querySelector('.LastHPWidth').textContent = healthBarWidth.toString();
-            
+
             // document the color to the .LastHPColor class
             document.querySelector('.LastHPColor').textContent = colorString;
+            
+            setTimeout(function() {
+                if (daysUntilExpiration === 0) {
+                    healthBar.style.display = 'none';
+                } else {
+                    healthBar.style.display = 'block';
+                }
+            }, 800);
         }
 
         // add an event listener for the htmx:afterSwap event
@@ -1688,8 +1696,8 @@
             // Log the event
             console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
         });
-        
-        
+
+
         // Function to darken a color
         // Uses some bitwise operations to darken the color by a percentage.
         // Gotta review this later cause i have zero clue how bit-shifting changes the color.
