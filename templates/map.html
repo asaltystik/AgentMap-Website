@@ -1542,7 +1542,8 @@
                 // If lastColor contains non-numeric characters (other than commas and periods), remove them
                 lastColor = lastColor.replace(/[^0-9.,]/g, '');
             }
-
+            
+            // If the last color is empty use the default green color I like, else format the lastColor 
             lastColor = lastColor === '' ? [7, 170, 8] : lastColor.split(',').map(Number);
 
             //Get the last width of the health bar from the .LastHPWidth class
@@ -1557,9 +1558,11 @@
                 document.querySelector('.health-bar').style.width = '100%';
             }
 
+            // Set the lastWidth from the lastWidthText and clamp it between 0 and 100
             let lastWidth = parseFloat(lastWidthText);
             lastWidth = Math.max(0, Math.min(lastWidth, 100));
 
+            // timeout to delay the lerp to look clean
             setTimeout(function() {
                 console.log("Delay the lerp to look clean")
             }, 80);
@@ -1579,7 +1582,7 @@
                 let colorStart = [220, 20, 60]; // red
                 let colorMiddle = [253, 240, 0]; // yellow
                 let colorEnd = [9, 170, 8]; // green
-                let colorInterpolated = [];
+                let colorInterpolated = []; // Empty array to store the interpolated color
 
                 if (lerpPercentage < 0.5) {
                     // Interpolate between green and yellow
@@ -1613,13 +1616,15 @@
 
             // Clamp the health bar width between 0 and 100
             healthBarWidth = Math.max(0, Math.min(healthBarWidth, 100));
-
+            
+            // Get the current color of the health bar
             let currentColor = colorString.slice(4, -1).split(',').map(Number);
-
+            
+            // The difference between the current color and the last color
             let colorDiff = [
-                currentColor[0] - lastColor[0],
-                currentColor[1] - lastColor[1],
-                currentColor[2] - lastColor[2]
+                currentColor[0] - lastColor[0], // Red channel
+                currentColor[1] - lastColor[1], // Green channel
+                currentColor[2] - lastColor[2] // Blue channel
             ];
 
             function calculateColor(percentage) {
@@ -1641,14 +1646,14 @@
             // Use requestAnimationFrame to update the color of the health bar at each frame
             let start;
             function frame(time){
-                if(!start) start = time;
-                let progress = Math.min((time - start) / 1000, 1);
-                healthBar.style.background = calculateColor(progress);
+                if(!start) start = time; // set the start time
+                let progress = Math.min((time - start) / 1000, 1); // Calculate the progress between frames
+                healthBar.style.background = calculateColor(progress); // Calculate the color
                 if(progress < 1) {
-                    requestAnimationFrame(frame);
+                    requestAnimationFrame(frame); // Continue the animation
                 }
             }
-            requestAnimationFrame(frame)
+            requestAnimationFrame(frame) // Start the animation
 
             // Create a style element
             let style = document.createElement('style');
@@ -1656,7 +1661,7 @@
             // Set the style element text to the keyframes
             style.textContent = keyframes;
 
-            document.head.appendChild(style);
+            document.head.appendChild(style); // Append the style element to the head
 
             // Apply the animation to the health bar
             // delay the animation by 30ms to look smoother
@@ -1668,11 +1673,12 @@
             // document the color to the .LastHPColor class
             document.querySelector('.LastHPColor').textContent = colorString;
             
+            // Set Timeout to hide the health bar if daysUntilExpiration is 0
             setTimeout(function() {
                 if (daysUntilExpiration === 0) {
-                    healthBar.style.display = 'none';
+                    healthBar.style.display = 'none'; // Hide the health bar
                 } else {
-                    healthBar.style.display = 'block';
+                    healthBar.style.display = 'block'; // Show the health bar
                 }
             }, 800);
         }
