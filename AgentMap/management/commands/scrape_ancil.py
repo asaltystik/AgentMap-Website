@@ -6,8 +6,10 @@ import os
 # Honestly, Might be better to Deprecate this function, Dont know if it is still
 # Useful to the project
 class Command(BaseCommand):
+
+    help = "Grabs the ancillary products and companies from a txt file and saves it to a json"
     def add_arguments(self, parser):
-        parser.add_argument('file_path', type=str)
+        parser.add_argument('file_path', nargs='?', type=str, help='Must be a txt file')
         return 0
 
     def handle(self, *args, **options):
