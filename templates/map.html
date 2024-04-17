@@ -1540,8 +1540,8 @@
                 let lerpPercentage = daysUntilExpiration / 31; // Cap it off at a month
     
                 // Define Colors  
-                let colorStart = [255, 0, 0]; // red
-                let colorMiddle = [255, 165, 0]; // orange
+                let colorStart = [220, 20, 60]; // red
+                let colorMiddle = [253, 240, 0]; // yellow
                 let colorEnd = [9, 170, 8]; // green
                 let colorInterpolated = [];
 
@@ -1560,13 +1560,15 @@
                 }
     
                 colorString = 'rgb(' + colorInterpolated.join(',') + ')'; // format from bits to string
+                
+                // Apply the color to the h1 if the lerpPercentage is 0
+                if(lerpPercentage === 0 ) {
+                    document.querySelector('h1').style.color = colorString;
+                }
             } else {
                 colorString = 'rgb(0, 0, 0)' // Default to black
             }
-    
-            // Apply the color to the h1
-            document.querySelector('h1').style.color = colorString;
-
+            
             // Calculate the health bar width
             let healthBarWidth = (daysUntilExpiration / 31) * 100;
             
@@ -1588,7 +1590,7 @@
             resetScroll();
             
             // Lerp the header color
-            setTimeout(HeaderLerp, 30);
+            setTimeout(HeaderLerp, 60);
                         
             // Get all the new-company divs
             let companies = document.getElementsByClassName('new-company');
