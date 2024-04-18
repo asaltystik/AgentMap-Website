@@ -1532,7 +1532,7 @@
         function HeaderLerp(){
             // Get the days_until_expiration value from the newly loaded content
             let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
-            console.log("Expires: :" + daysUntilExpiration) // Log this shit quay
+            console.log("Expiration Timer: :" + daysUntilExpiration) // Log this shit quay
 
             // Get the last Color of the health bar from the .LastHPColor class if it isnt empty, else dfault should be green [7, 170, 8]
             let lastColor = document.querySelector('.LastHPColor').textContent;
@@ -1552,7 +1552,7 @@
             // If lastColor is not empty, immediately set the background color of the health bar
             if (lastColor !== '') {
                 document.querySelector('.health-bar').style.backgroundColor = 'rgb(' + lastColor.join(',') + ')';
-                console.log("last Color is not empty " + lastColor)
+                // console.log("last Color is not empty " + lastColor)
             }
             if (lastWidthText.trim() === '') {
                 document.querySelector('.health-bar').style.width = '100%';
@@ -1564,7 +1564,7 @@
 
             // timeout to delay the lerp to look clean
             setTimeout(function() {
-                console.log("Delay the lerp to look clean")
+                // console.log("Delay the lerp to look clean")
             }, 80);
 
             let colorString = ''
