@@ -1617,10 +1617,10 @@
 
             // Clamp the health bar width between 0 and 100
             healthBarWidth = Math.max(0, Math.min(healthBarWidth, 100));
-            
+
             // Get the current color of the health bar
             let currentColor = colorString.slice(4, -1).split(',').map(Number);
-            
+
             // The difference between the current color and the last color
             let colorDiff = [
                 currentColor[0] - lastColor[0], // Red channel
@@ -1673,7 +1673,7 @@
 
             // document the color to the .LastHPColor class
             document.querySelector('.LastHPColor').textContent = colorString;
-            
+
             // Set Timeout to hide the health bar if daysUntilExpiration is 0
             setTimeout(function() {
                 if (daysUntilExpiration === 0) {
