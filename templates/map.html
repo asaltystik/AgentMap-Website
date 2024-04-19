@@ -1538,9 +1538,10 @@
             let lastColor = document.querySelector('.LastHPColor').textContent;
             console.log("Last Color: " + lastColor)
             // Check if lastColor string is correctly formatted
+            // Regex Magicka
             if (/[^0-9.,]/.test(lastColor)) {
                 // If lastColor contains non-numeric characters (other than commas and periods), remove them
-                lastColor = lastColor.replace(/[^0-9.,]/g, '');
+                lastColor = lastColor.replace(/[^0-9.,]/g, ''); // Regex Magicka
             }
             
             // If the last color is empty use the default green color I like, else format the lastColor 
