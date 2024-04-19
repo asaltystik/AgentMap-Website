@@ -1842,7 +1842,7 @@
                             let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
                             // If the path or circle exists, change its style
                             if (path || circle) {
-                                let target = path ? path : circle;
+                                let target = path ? path : circle; // Ternary Operator to select path or circle
                                 target.style.strokeWidth = '2px'; // Set the stroke width to 2px
                                 target.style.strokeLinejoin = 'round'; // Set the stroke line join to round
                                 target.style.fill = darkenColor("#CCCCCC", -16); // Darken the color by 20%
