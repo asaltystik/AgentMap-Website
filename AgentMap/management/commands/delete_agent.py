@@ -5,6 +5,7 @@ from AgentMap.models import LicensedState
 
 # Creates a custom Django management command
 # to delete licenses for a specified agent
+# gets ran by the command python manage.py delete_agent <username>
 class Command(BaseCommand):
     # This is the help message that will be displayed when the user runs the command with the --help flag
     help = ("Deletes all licenses for a specific agent, Helps to clean up "
