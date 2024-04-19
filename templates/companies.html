@@ -43,6 +43,7 @@
                 background-color: rgba(100,93,93,0.44);
                 border: 3px solid black;
                 border-radius: 8px;
+                display: block;
              "
              title="{{ days_until_expiration }}/31 days till expiration"
         >
@@ -58,12 +59,40 @@
                  style="
                      height: 100%;
                      border-radius: 5px 9px 9px 5px;
-                     padding: 0 0 0 1px
+                     padding: 0 0 0 1px;
+                     display: block;
                  "
             >
             </div>
         </div>
         </span>
+        {% else %}
+            <div id="health-bar-container"
+                 class="health-bar-container"
+                 style="
+                    position: absolute;
+                    top: 15px;
+                    right: 765px;
+                    height: 20px;
+                    width: 150px;
+                    background-color: rgba(100,93,93,0.44);
+                    border: 3px solid black;
+                    border-radius: 8px;
+                    display: none;
+                    background-color: rgb(9, 170, 8)
+                 "
+                 title="No License Number"
+            >
+            <div id="health-bar"
+                 class="health-bar"
+                 style="
+                     height: 100%;
+                     border-radius: 5px 9px 9px 5px;
+                     padding: 0 0 0 1px;
+                     display: none;
+                 "
+            ></div>
+            </div>
         {% endif %}
     </h1>
 <div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
