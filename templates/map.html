@@ -1536,7 +1536,8 @@
             let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
             console.log("Expiration Timer: :" + daysUntilExpiration) // Log this shit quay
 
-            // Get the last Color of the health bar from the .LastHPColor class if it isnt empty, else dfault should be green [7, 170, 8]
+            // Get the last Color of the health bar from the .LastHPColor class
+            // if it isnt empty, else dfault should be green [7, 170, 8]
             let lastColor = document.querySelector('.LastHPColor').textContent;
             console.log("Last Color: " + lastColor)
             // Check if lastColor string is correctly formatted
