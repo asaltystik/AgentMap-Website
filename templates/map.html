@@ -1594,7 +1594,7 @@
                     });
                 } else {
                     // Interpolate between yellow and red
-                    lerpPercentage = (lerpPercentage - 0.5) * 2; // Adjust lerpPercentage
+                    lerpPercentage = (lerpPercentage - 0.5) * 6; // Adjust lerpPercentage
                     colorInterpolated = colorMiddle.map(function (channel, index) {
                         return channel + (colorEnd[index] - channel) * lerpPercentage;
                     });
