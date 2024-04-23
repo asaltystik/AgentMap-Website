@@ -11,7 +11,7 @@ class Command(BaseCommand):
     # Help message
     help = 'Parse the licenses from the SirCon PDFs and add them to the database'
 
-    # Add arguments
+    # Add arguments of the path and the name of the agent
     def add_arguments(self, parser):
         parser.add_argument('path', type=str, help='The path to the folder containing the PDFs')
         # I want a second argument to be able to specify the agent name
