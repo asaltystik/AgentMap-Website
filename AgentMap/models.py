@@ -9,7 +9,7 @@ class Form(models.Model):
     state = models.CharField(max_length=2)  # the state abbreviation
     form_type = models.CharField(max_length=200)  # The abbreviated form type
     full_form_type = models.CharField(max_length=200, default="N")  # The full form type
-    date = models.CharField(max_length=4, default="None")  # The date the form is valid for
+    date = models.CharField(max_length=8, default="None")  # The date the form is valid for
     file_path = models.CharField(max_length=255)  # the relative path to the file
 
     # This function returns a string representation of the form object
