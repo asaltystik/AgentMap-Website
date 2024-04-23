@@ -114,15 +114,17 @@ def parse_filenames(directory):
     print(f"Total forms Parsed: {Form.objects.count()}")  # Print the total number of forms in the database
 
 
-# Command to parse the filenames in a given directory and add the to the database.
+# Command to parse the filenames in a given directory and add to the database.
 # This should only be ran with the argument of that static directory
 class Command(BaseCommand):
     help = 'Parse filenames in the given directory and add them to the database'
 
+    # Add the directory argument. This is the directory to parse filenames in.
     def add_arguments(self, parser):
         parser.add_argument('directory', nargs='?', type=str, help='The directory to parse filenames in.')
         return 0
 
+    # Handle method that is called when the management command is ran
     def handle(self, *args, **options):
         directory = options['directory']
         parse_filenames(directory)
