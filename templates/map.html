@@ -357,6 +357,10 @@
 <!-- the container for the map and info box -->
 <div class="container">
     <!-- Logout button -->
+    <div style="position: absolute; top: 16px; left: 1700px; font-size: 24px;
+     font-family: lucida sans unicode,serif; font-weight: bold;">
+        {{ user.first_name }} {{ user.last_name }}
+    </div>
     <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
           method="POST" hx-trigger="click" title="Sign Out">
         {% csrf_token %}
