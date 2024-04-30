@@ -47,10 +47,12 @@ class Command(BaseCommand):
                 fail_silently=False,  # This will raise an exception if the email fails to send
             )
 
+        # Get the date and time of the email
+        date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
+        print(f'{date} - Checking for upcoming license expirations...')
+
         # Print the number of agents notified
         print(f'{len(agents)} agent(s) notified of upcoming license expirations.')
         # Print the email addresses of the agents that were notified
-        # get the date and time of the email
-        date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
         agents_notified = "\n".join([Agent.objects.get(id=agent['agent']).user.email for agent in agents])
-        print(f'{date} - Agents notified:\n{agents_notified}\n')
+        print(f'Agents notified:\n{agents_notified}\n')

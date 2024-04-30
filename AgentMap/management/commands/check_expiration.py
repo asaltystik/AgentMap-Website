@@ -24,6 +24,10 @@ class Command(BaseCommand):
         # Dictionary to store the licenses that will be deleted
         agent_licenses = {}  # This is empty for now
 
+        # Get the date and time of the email
+        date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
+        print(f'{date} - Checking for expired licenses...')
+
         # Iterate over the expired licenses and delete them
         for expired_license in expired_licenses:
             # Print the expired license
@@ -63,5 +67,4 @@ class Command(BaseCommand):
         print(f'{len(agent_licenses)} agents notified of expired licenses.')
         # print the names of the agents that were notified
         agents_notified = "\n".join(agent_licenses.keys())
-        date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
-        print(f'{date} - Agents notified:\n{agents_notified}\n')
+        print(f'Agents notified:\n{agents_notified}\n')
