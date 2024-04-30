@@ -62,4 +62,5 @@ class Command(BaseCommand):
         # Print the number of agents notified
         print(f'{len(agent_licenses)} agents notified of expired licenses.')
         # print the names of the agents that were notified
-        print(f'Agents notified:\n {"\n".join(agent_licenses.keys())}\n')
+        agents_notified = "\n".join(agent_licenses.keys())
+        print(f'Agents notified:\n{agents_notified}\n')
