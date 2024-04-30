@@ -63,4 +63,5 @@ class Command(BaseCommand):
         print(f'{len(agent_licenses)} agents notified of expired licenses.')
         # print the names of the agents that were notified
         agents_notified = "\n".join(agent_licenses.keys())
-        print(f'Agents notified:\n{agents_notified}\n')
+        date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
+        print(f'{date} - Agents notified:\n{agents_notified}\n')
