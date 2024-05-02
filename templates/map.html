@@ -1578,9 +1578,9 @@
 
             let colorString = ''
             if(daysUntilExpiration === 9999) {
-                colorString = 'rgb(9, 170, 8)' // default to green if maxed out
+                colorString = 'rgb(118,253,118)' // default to green if maxed out
             } else if (daysUntilExpiration > 31 && daysUntilExpiration !== 9999) {
-                colorString = 'rgb(9, 170, 8)' // Default to black since no date
+                colorString = 'rgb(118,253,118)' // Default to black since no date
             } else if(!isNaN(daysUntilExpiration)) {
                 // Clamp DaysUntilExpiration between 0 and 31
                 daysUntilExpiration = Math.max(0, Math.min(daysUntilExpiration, 31))
@@ -1589,8 +1589,8 @@
 
                 // Define Colors
                 let colorStart = [220, 20, 60]; // red
-                let colorMiddle = [253, 240, 0]; // yellow
-                let colorEnd = [9, 170, 8]; // green
+                let colorMiddle = [243, 177, 22]; // yellow
+                let colorEnd = [118, 253, 118]; // green
                 let colorInterpolated = []; // Empty array to store the interpolated color
 
                 if (lerpPercentage < 0.5) {
