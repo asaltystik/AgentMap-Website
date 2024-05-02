@@ -27,7 +27,7 @@ def register_view(request):
             return redirect('Login')
     # if the request is not a POST request, create a new user registration form
     else:
-        form = UserRegistrationForm()
+        form = UserRegistrationForm()  # Serve them the registration form
     return render(request, 'register.html', {'form': form})  # render the register.html page with the form
 
 
