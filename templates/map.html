@@ -1578,16 +1578,16 @@
 
             let colorString = ''
             if(daysUntilExpiration === 9999) {
-                colorString = 'rgb(118,253,118)' // default to green if maxed out
+                colorString = 'rgb(43, 177, 100)' // default to green if maxed out
             } else if (daysUntilExpiration > 31 && daysUntilExpiration !== 9999) {
-                colorString = 'rgb(118,253,118)' // Default to black since no date
+                colorString = 'rgb(43, 177, 100)' // Default to black since no date
             } else if(!isNaN(daysUntilExpiration)) {
                 // Clamp DaysUntilExpiration between 0 and 31
                 daysUntilExpiration = Math.max(0, Math.min(daysUntilExpiration, 31))
                 // Calculate lerp Percentage
                 let lerpPercentage = ((daysUntilExpiration) % 4) /4; // Cap it off at a month
                 let index = Math.floor((daysUntilExpiration) / 4); // Get the index of the color point
-                
+
                 // Define Colors
                 let colorPoints = [
                     [255, 38, 38], // red
@@ -1601,7 +1601,7 @@
                     [43, 177, 100], // green
                 ]
                 let colorInterpolated = []; // Empty array to store the interpolated color
-                
+
                 colorInterpolated = colorPoints[index].map(function (channel, channelIndex) {
                     return channel + (colorPoints[index + 1][channelIndex] - channel) * lerpPercentage;
                 });
