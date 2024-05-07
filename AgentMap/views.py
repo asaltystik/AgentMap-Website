@@ -146,10 +146,14 @@ def get_companies(request, state_code):
             days_until_expiration = (expiration - current_date).days \
                 if expiration else 9999  # Set to huge number since NaN is not valid
         else:
-            license_number = None  # Set to None if no license is found
-            expiration = None  # Set to None if no license is found
-            is_expiring_soon = False  # Set to False if no license is found
-            days_until_expiration = 9999  # Huge number since NaN is not valid
+            # If the agent is not licensed in the given state, Take the admin license and expiration date
+            admin_license = LicensedState.objects.filter(agent__user__username='admin', state=state_code).first()
+            license_number = "admin - " + admin_license.licenseNumber if admin_license else None
+            expiration = admin_license.expiration if admin_license else None
+            is_expiring_soon = (expiration - current_date <= timedelta(days=31))\
+                if expiration else False
+            days_until_expiration = (expiration - current_date).days \
+                if expiration else 9999 # Huge number since NaN is not valid
 
         # Context
         context = {
@@ -168,14 +172,19 @@ def get_companies(request, state_code):
     # If the agent is not licensed in the given state, render the companies.html page with the given state and forms
     except LicensedState.DoesNotExist:
 
+        # Get the user named admin license number and expiration date for this state
+        admin_license = LicensedState.objects.filter(agent__user__username='admin', state=state_code).first()
+
         # Context
         context = {
             "state": state,  # packing the state name into context
             "forms": forms,  # packing the forms into context
-            # Set to NaN
+            "license_number": admin_license.licenseNumber if admin_license else None,
+            "expiration": admin_license.expiration if admin_license else None,
             "days_until_expiration": 9999,  # Setting this to huge number since nan is not supported
             "app_urls": app_urls  # packing the app_urls dictionary into context
         }
+        print(context)
 
         # Render the companies.html page with the given state and forms
         return render(request, "companies.html", context)
