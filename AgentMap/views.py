@@ -79,7 +79,7 @@ def get_companies(request, state_code):
     # Dictionary to hold the eapp_url for each company, Key is the company name as it appears in the database
     app_urls = {
         "AARP": "www.uhcjarvis.com/content/jarvis/en/secure/home.html",
-        "AARP United HealthCare Insurance": "www.uhcjarvis.com/content/jarvis/en/secure/home.html",
+        "AARP UHICA": "www.uhcjarvis.com/content/jarvis/en/secure/home.html",
         "Ace Chubb": "service.iasadmin.com/gateway/login.aspx?pp=pFHD&pn=NR&y1tv0=n",
         "Aetna": "www.aetnaseniorproducts.com/ssi/login.fcc?TYPE=33554433&REALMOID=06-b6795d4d-3004-4588-a799-63a4db15a01c&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssi%2fsecure%2fagentSecure%2fmyCompass%2ehtml",
         "Aflac": "www.aetnaseniorproducts.com/ssibrokerwebsecure/afl/login.fcc?TYPE=33554433&REALMOID=06-ff4bb4c5-301d-4181-bd7a-b75398c8cb44&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssibrokerwebsecure%2fafl%2fhome%2ehtml",
