@@ -23,7 +23,7 @@ FORM_TYPE_DICT = {
 # Dictionary to map the company abbreviation to the full company name
 CompanyDict = {
     "AARP": "AARP",
-    "AARP-UHICA": "AARP United HealthCare Insurance",
+    "AARP-UHICA": "AARP UHICA",
     "ABL": "American Benefit Life",
     "ACE": "Ace Chubb",
     "AETNA": "Aetna",
