@@ -148,12 +148,10 @@ def get_companies(request, state_code):
         else:
             # If the agent is not licensed in the given state, Take the admin license and expiration date
             admin_license = LicensedState.objects.filter(agent__user__username='admin', state=state_code).first()
-            license_number = "admin - " + admin_license.licenseNumber if admin_license else None
-            expiration = admin_license.expiration if admin_license else None
-            is_expiring_soon = (expiration - current_date <= timedelta(days=31))\
-                if expiration else False
-            days_until_expiration = (expiration - current_date).days \
-                if expiration else 9999 # Huge number since NaN is not valid
+            license_number = "Corp# " + admin_license.licenseNumber if admin_license else None
+            expiration = None
+            is_expiring_soon = False
+            days_until_expiration = 9999 # Huge number since NaN is not valid
 
         # Context
         context = {
