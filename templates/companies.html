@@ -23,7 +23,7 @@
     ">
         {{ state }}
         {% if license_number %}
-        <span style="font-size: 20px;">
+        <span style="font-size: 18px;">
             - (License Number: {{ license_number }})
             {%  if expiration|date:"Y" != "2099" and days_until_expiration > 0 and days_until_expiration != 9999 %}
                 - Expires: {{ expiration|date:"m/d/Y" }}
