@@ -18,6 +18,9 @@ FORM_TYPE_DICT = {
     "RP": "Medi Supp Replacement Form",
     "COMBO": "Medicare Supplement & DVH+ App",
     "MS": "Medicare Supplement",
+    "DDL": "Declinable Drug List",
+    "UW": "Underwriting Guidelines Handbook",
+    "HWC": "Medicare Height & Weight Chart",
 }
 
 # Dictionary to map the company abbreviation to the full company name
