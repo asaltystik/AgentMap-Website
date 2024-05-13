@@ -83,6 +83,8 @@ def agent_map(request):
             if license.agent.user.username != 'admin' and license.agent not in agents_in_states[license.state]:
                 agent_name = license.agent.user.username[0].upper() + license.agent.user.username[1:]
                 agents_in_states[license.state].append(agent_name)
+            # Sort agents_in_states by aplhabetical order
+            agents_in_states[license.state].sort()
     return render(request, 'map.html', {'licensed_states': licensed_states, 'agents_in_states': agents_in_states})
 
 @login_required
