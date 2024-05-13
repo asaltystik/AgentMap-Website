@@ -67,10 +67,22 @@ def logout_view(request):
 @login_required
 def agent_map(request):
 
+    agents_in_states = {}
     # Get all the states that the agent is licensed in
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
-    return render(request, 'map.html', {'licensed_states': licensed_states})
 
+    # Check if the logged in user is 'admin'
+    if request.user.username == 'admin':
+        # Get all the states
+        licenses = LicensedState.objects.all().select_related('agent')
+
+        agents_in_states = {}
+        for license in licenses:
+            if license.state not in agents_in_states:
+                agents_in_states[license.state] = []
+            if license.agent.user.username != 'admin':
+                agents_in_states[license.state].append(license.agent)
+    return render(request, 'map.html', {'licensed_states': licensed_states, 'agents_in_states': agents_in_states})
 
 @login_required
 # This function will get all the companies in the given state

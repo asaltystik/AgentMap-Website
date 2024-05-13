@@ -18,7 +18,7 @@
             font-family: lucida sans unicode, serif;
             height: 60vh;
         }
-        
+
         .horizontal-container {
             display: flex;
             flex-direction: row;
@@ -28,24 +28,24 @@
             border: 4px solid black;
             border-radius: 20px;
         }
-        
+
         .map-container {
             position: relative;
             width: 50vw;
         }
-        
+
         .map {
             flex: 1;
             padding: 1vh 1vw;
         }
-        
+
         .stateName {
             font-size: 1.2em;
             font-weight: bold;
             fill: rgba(16, 15, 15, 0.8);
             cursor: pointer;
         }
-        
+
         .info-box-container {
             position: relative;
             width: 50vw;
@@ -53,14 +53,14 @@
             padding: 2vh 0 2.5vh 0;
             border-left: 4px solid black;
         }
-        
+
         .info-box-contents {
             padding: 1vw;
             overflow-y: auto;
             overflow-x: hidden;
             height: calc(94% - 2vw);
         }
-        
+
         /* Container for the List of Companies */
         .new-company-container {
             display: grid;
@@ -120,7 +120,7 @@
         .button-matrix.preload {
             transition: none !important;
         }
-        
+
         /* Company EApp Redirect */
         .company-app-redirect {
             text-align: center;
@@ -143,14 +143,14 @@
         .company-app-redirect.preload {
             transition: none !important;
         }
-        
+
         .extras-container {
             display: flex;
             flex-direction: row;
             align-items: center;
             padding: 1vh 0;
         }
-        
+
         .color-key-container {
             width: 50vw;
             position: relative;
@@ -163,7 +163,7 @@
             margin-top: 2vh;
             margin-right: 1vw;
         }
-        
+
         .color-key {
             height: 7.5vh;
             margin: 0.5vh 0.5vh 0.1vh 0.1vh;
@@ -176,7 +176,7 @@
             align-items: center;
             justify-content: center;
         }
-        
+
         /* Redirect button */
         .redirect-button {
             position: relative;
@@ -199,7 +199,7 @@
         .redirect-button.preload {
             transition: none !important;
         }
-        
+
         .logout-container {
             display: flex;
             flex-direction: row;
@@ -213,14 +213,14 @@
             font-size: 1.6em;
             gap: .5vw
         }
-        
+
         /* Styling for the logout button */
         .logout-button {
             border-radius: 10px;
             border: 2px solid #000;
             transition: 450ms ease-in-out;  /* Trying out 450 rn */
         }
-        
+
         /* Styling for the logout button hover effect */
         .logout-button:hover {
             background-color: #ff0000;
@@ -232,7 +232,7 @@
         .logout-button.preload {
             transition: none !important;
         }
-        
+
         /* The Modal (background) */
         .modal {
             display: none; /* Hidden by default */
@@ -351,360 +351,464 @@
             <!-- Paths and Text for the states -->
             <g id="states">
                 <path id="AK" hx-get="/get_companies/AK" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M161.1,453.7l-0.3,85.4l1.6,1l3.1,0.2l1.5-1.1h2.6l0.2,2.9l7,6.8l0.5,2.6l3.4-1.9l0.6-0.2l0.3-3.1 l1.5-1.6l1.1-0.2l1.9-1.5l3.1,2.1l0.6,2.9l1.9,1.1l1.1,2.4l3.9,1.8l3.4,6l2.7,3.9l2.3,2.7l1.5,3.7l5,1.8l5.2,2.1l1,4.4l0.5,3.1 l-1,3.4l-1.8,2.3l-1.6-0.8l-1.5-3.1l-2.7-1.5l-1.8-1.1l-0.8,0.8l1.5,2.7l0.2,3.7l-1.1,0.5l-1.9-1.9l-2.1-1.3l0.5,1.6l1.3,1.8 l-0.8,0.8c0,0-0.8-0.3-1.3-1c-0.5-0.6-2.1-3.4-2.1-3.4l-1-2.3c0,0-0.3,1.3-1,1c-0.6-0.3-1.3-1.5-1.3-1.5l1.8-1.9l-1.5-1.5v-5h-0.8 l-0.8,3.4l-1.1,0.5l-1-3.7l-0.6-3.7l-0.8-0.5l0.3,5.7v1.1l-1.5-1.3l-3.6-6l-2.1-0.5l-0.6-3.7l-1.6-2.9l-1.6-1.1v-2.3l2.1-1.3 l-0.5-0.3l-2.6,0.6l-3.4-2.4l-2.6-2.9l-4.8-2.6l-4-2.6l1.3-3.2v-1.6l-1.8,1.6l-2.9,1.1l-3.7-1.1l-5.7-2.4h-5.5l-0.6,0.5l-6.5-3.9 l-2.1-0.3l-2.7-5.8l-3.6,0.3l-3.6,1.5l0.5,4.5l1.1-2.9l1,0.3l-1.5,4.4l3.2-2.7l0.6,1.6l-3.9,4.4l-1.3-0.3l-0.5-1.9l-1.3-0.8 l-1.3,1.1l-2.7-1.8l-3.1,2.1l-1.8,2.1l-3.4,2.1l-4.7-0.2l-0.5-2.1l3.7-0.6v-1.3l-2.3-0.6l1-2.4l2.3-3.9v-1.8l0.2-0.8l4.4-2.3l1,1.3 h2.7l-1.3-2.6l-3.7-0.3l-5,2.7l-2.4,3.4l-1.8,2.6l-1.1,2.3l-4.2,1.5l-3.1,2.6l-0.3,1.6l2.3,1l0.8,2.1l-2.7,3.2l-6.5,4.2l-7.8,4.2 l-2.1,1.1l-5.3,1.1l-5.3,2.3l1.8,1.3l-1.5,1.5l-0.5,1.1l-2.7-1l-3.2,0.2l-0.8,2.3h-1l0.3-2.4l-3.6,1.3l-2.9,1l-3.4-1.3l-2.9,1.9 h-3.2l-2.1,1.3l-1.6,0.8l-2.1-0.3l-2.6-1.1l-2.3,0.6l-1,1l-1.6-1.1v-1.9l3.1-1.3l6.3,0.6l4.4-1.6l2.1-2.1l2.9-0.6l1.8-0.8l2.7,0.2 l1.6,1.3l1-0.3l2.3-2.7l3.1-1l3.4-0.6l1.3-0.3l0.6,0.5h0.8l1.3-3.7l4-1.5l1.9-3.7l2.3-4.5l1.6-1.5l0.3-2.6l-1.6,1.3l-3.4,0.6 l-0.6-2.4l-1.3-0.3l-1,1l-0.2,2.9l-1.5-0.2l-1.5-5.8l-1.3,1.3l-1.1-0.5l-0.3-1.9l-4,0.2l-2.1,1.1l-2.6-0.3l1.5-1.5l0.5-2.6 l-0.6-1.9l1.5-1l1.3-0.2l-0.6-1.8v-4.4l-1-1l-0.8,1.5h-6.1l-1.5-1.3l-0.6-3.9l-2.1-3.6v-1l2.1-0.8l0.2-2.1l1.1-1.1l-0.8-0.5 l-1.3,0.5l-1.1-2.7l1-5l4.5-3.2l2.6-1.6l1.9-3.7l2.7-1.3l2.6,1.1l0.3,2.4l2.4-0.3l3.2-2.4l1.6,0.6l1,0.6h1.6l2.3-1.3l0.8-4.4 c0,0,0.3-2.9,1-3.4c0.6-0.5,1-1,1-1l-1.1-1.9l-2.6,0.8l-3.2,0.8l-1.9-0.5l-3.6-1.8l-5-0.2l-3.6-3.7l0.5-3.9l0.6-2.4l-2.1-1.8 l-1.9-3.7l0.5-0.8l6.8-0.5h2.1l1,1h0.6l-0.2-1.6l3.9-0.6l2.6,0.3l1.5,1.1l-1.5,2.1l-0.5,1.5l2.7,1.6l5,1.8l1.8-1l-2.3-4.4l-1-3.2 l1-0.8l-3.4-1.9l-0.5-1.1l0.5-1.6l-0.8-3.9l-2.9-4.7l-2.4-4.2l2.9-1.9h3.2l1.8,0.6l4.2-0.2l3.7-3.6l1.1-3.1l3.7-2.4l1.6,1l2.7-0.6 l3.7-2.1l1.1-0.2l1,0.8l4.5-0.2l2.7-3.1h1.1l3.6,2.4l1.9,2.1l-0.5,1.1l0.6,1.1l1.6-1.6l3.9,0.3l0.3,3.7l1.9,1.5l7.1,0.6l6.3,4.2 l1.5-1l5.2,2.6l2.1-0.6l1.9-0.8l4.8,1.9L161.1,453.7z M46,482.6l2.1,5.3l-0.2,1l-2.9-0.3l-1.8-4l-1.8-1.5H39l-0.2-2.6l1.8-2.4 l1.1,2.4l1.5,1.5L46,482.6z M43.4,516.1l3.7,0.8l3.7,1l0.8,1l-1.6,3.7l-3.1-0.2l-3.4-3.6L43.4,516.1z M22.7,502l1.1,2.6 l1.1,1.6l-1.1,0.8l-2.1-3.1V502H22.7z M9,575.1l3.4-2.3l3.4-1l2.6,0.3l0.5,1.6l1.9,0.5l1.9-1.9l-0.3-1.6l2.7-0.6l2.9,2.6 l-1.1,1.8l-4.4,1.1l-2.7-0.5l-3.7-1.1l-4.4,1.5l-1.6,0.3L9,575.1z M57.9,570.6l1.6,1.9l2.1-1.6l-1.5-1.3L57.9,570.6z M60.8,573.6l1.1-2.3l2.1,0.3l-0.8,1.9H60.8z M84.4,571.7l1.5,1.8l1-1.1l-0.8-1.9L84.4,571.7z M93.2,559.2l1.1,5.8l2.9,0.8 l5-2.9l4.4-2.6l-1.6-2.4l0.5-2.4l-2.1,1.3l-2.9-0.8l1.6-1.1l1.9,0.8l3.9-1.8l0.5-1.5l-2.4-0.8l0.8-1.9l-2.7,1.9l-4.7,3.6l-4.8,2.9L93.2,559.2z M135.5,539.4l2.4-1.5l-1-1.8l-1.8,1L135.5,539.4z">
-                    <title>Alaska</title>
+                    <title>Alaska{% if 'AK' in agents_in_states %}: {% for agent in agents_in_states.AK %}{{ agent }}, {% endfor %}
+                        {% endif %}
+                    </title>
                 </path>
                 <text id="AK" x="105" y="500" class="stateName" hx-get="/get_companies/AK" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Alaska</title>
+                    <title>Alaska{% if 'AK' in agents_in_states %}: {% for agent in agents_in_states.AK %}{{ agent }}, {% endfor %}
+                        {% endif %}
+                    </title>
                     AK
                 </text>
                 <path id="HI" hx-get="/get_companies/HI" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M233.1,519.3l1.9-3.6l2.3-0.3l0.3,0.8l-2.1,3.1H233.1z M243.3,515.6l6.1,2.6l2.1-0.3l1.6-3.9 l-0.6-3.4l-4.2-0.5l-4,1.8L243.3,515.6z M274,525.6l3.7,5.5l2.4-0.3l1.1-0.5l1.5,1.3l3.7-0.2l1-1.5l-2.9-1.8l-1.9-3.7l-2.1-3.6 l-5.8,2.9L274,525.6z M294.2,534.5l1.3-1.9l4.7,1l0.6-0.5l6.1,0.6l-0.3,1.3l-2.6,1.5l-4.4-0.3L294.2,534.5z M299.5,539.7l1.9,3.9 l3.1-1.1l0.3-1.6l-1.6-2.1l-3.7-0.3V539.7z M306.5,538.5l2.3-2.9l4.7,2.4l4.4,1.1l4.4,2.7v1.9l-3.6,1.8l-4.8,1l-2.4-1.5 L306.5,538.5z M323.1,554.1l1.6-1.3l3.4,1.6l7.6,3.6l3.4,2.1l1.6,2.4l1.9,4.4l4,2.6l-0.3,1.3l-3.9,3.2l-4.2,1.5l-1.5-0.6l-3.1,1.8 l-2.4,3.2l-2.3,2.9l-1.8-0.2l-3.6-2.6l-0.3-4.5l0.6-2.4l-1.6-5.7l-2.1-1.8l-0.2-2.6l2.3-1l2.1-3.1l0.5-1l-1.6-1.8L323.1,554.1z">
-                    <title>Hawaii</title>
+                    <title>Hawaii{% if 'HI' in agents_in_states %}: {% for agent in agents_in_states.HI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="HI" x="270" y="560" class="stateName" hx-get="/get_companies/HI" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Hawaii</title>
+                    <title>Hawaii{% if 'HI' in agents_in_states %}: {% for agent in agents_in_states.HI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     HI
                 </text>
                 <path id="AL" hx-get="/get_companies/AL" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator"  fill="#CCCCCC" stroke="#D3D3D3" d="M625.6,466.8l-1.6-15.2l-2.7-18.8l0.2-14.1l0.8-31l-0.2-16.7l0.2-6.4l7.8-0.4l27.8-2.6l8.9-0.7 l-0.1,2.2l0.2,2.1l0.6,3.4l3.4,7.9l2.4,9.9l1.5,6.1l1.6,4.8l1.5,7l2.1,6.3l2.6,3.4l0.5,3.4l1.9,0.8l0.2,2.1l-1.8,4.8l-0.5,3.2 l-0.2,1.9l1.6,4.4l0.3,5.3l-0.8,2.4l0.6,0.8l1.5,0.8l1,2.5h-6.3l-6.8,0.6l-25.5,2.9l-10.4,1.4l-0.1,3.8l1.8,1.8l2.6,1.9l0.6,7.9 l-5.5,2.6l-2.7-0.3l2.7-1.9v-1l-3.1-6l-2.3-0.6l-1.5,4.4l-1.3,2.7l-0.6-0.2H625.6z">
-                    <title>Alabama</title>
+                    <title>Alabama{% if 'AL' in agents_in_states %}: {% for agent in agents_in_states.AL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="AL" x="637" y="415" class="stateName" hx-get="/get_companies/AL" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Alabama</title>
+                    <title>Alabama{% if 'AL' in agents_in_states %}: {% for agent in agents_in_states.AL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     AL
                 </text>
                 <path id="AR" hx-get="/get_companies/AR" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M591,345l-3.8,0.9l-6.2-0.5l0.7-3l3.2-2.7l0.5-2.3l-1.8-3l-11,0.5l-20.8,0.9l-23.3,0.7L505,337 l1.6,6.9v8.2l1.4,11l0.2,37.8l2.3,1.9l3-1.4l2.7,1.1l0.4,10.3l22.9-0.1l18.9-0.8l10.1-0.2l1.1-2.1l-0.3-3.5l-1.8-3l1.6-1.5 l-1.6-2.5l0.7-2.5l1.4-5.6l2.5-2.1l-0.7-2.3l3.7-5.4l2.7-1.4l-0.1-1.5l-0.3-1.8l2.9-5.6l2.4-1.3l0.4-3.4l1.8-1.2l0.9-4.2l-1.3-4 l4-2.4l0.6-2l1.2-4.3L591,345z">
-                    <title>Arkansas</title>
+                    <title>Arkansas{% if 'AR' in agents_in_states %}: {% for agent in agents_in_states.AR %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="AR" x="528" y="375" class="stateName" hx-get="/get_companies/AR" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Arkansas</title>
+                    <title>Arkansas{% if 'AR' in agents_in_states %}: {% for agent in agents_in_states.AR %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     AR
                 </text>
                 <path id="AZ" hx-get="/get_companies/AZ" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M137.7,387.5l-2.6,2.2l-0.3,1.5l0.5,1l18.9,10.7l12.1,7.6l14.7,8.6l16.8,10l12.3,2.4l25.1,2.7 l2.5-12.5l3.8-27.2l7-52.9l4.3-31l-24.6-3.7l-27.2-4.6l-33.4-6.3l-2.9,18.1l-0.5,0.5l-1.7,2.6l-2.5-0.1l-1.3-2.7l-2.7-0.3l-0.9-1.1 h-0.9l-0.9,0.6l-1.9,1l-0.1,7l-0.2,1.7l-0.6,12.6l-1.5,2.2l-0.6,3.3l2.7,4.9l1.3,5.8l0.8,1l1,0.6l-0.1,2.3l-1.6,1.4l-3.4,1.7 l-1.9,1.9l-1.5,3.7l-0.6,4.9l-2.9,2.7l-2.1,0.7l-0.1,5.8l-0.5,1.7l0.5,0.8l3.7,0.6l-0.6,2.7l-1.5,2.2L137.7,387.5z">
-                    <title>Arizona</title>
+                    <title>Arizona{% if 'AZ' in agents_in_states %}: {% for agent in agents_in_states.AZ %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="AZ" x="185" y="370" class="stateName" hx-get="/get_companies/AZ" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Arizona</title>
+                    <title>Arizona{% if 'AZ' in agents_in_states %}: {% for agent in agents_in_states.AZ %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     AZ
                 </text>
                 <path id="CA" hx-get="/get_companies/CA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M136.9,386.8l3.8-0.5l1.5-2l0.7-1.9l-3.2-0.1l-1.1-1.8l0.8-1.7l0-6.2l2.2-1.3l2.7-2.6l0.4-4.9 l1.6-3.5l1.9-2.1l3.3-1.7l1.3-0.7l0.8-1.5l-0.9-0.9l-1-1.5l-0.9-5.3l-2.9-5.2l0.1-2.8l-2.2-3.2l-15-23.2l-19.4-28.7l-22.4-33 l-12.7-19.5l1.8-7.2l6.8-25.9l8.1-31.4l-12.4-3.3l-13.5-3.4l-12.6-4.1l-7.5-2.1l-11.4-3l-7.1-2.4l-1.6,4.7l-0.2,7.4l-5.2,11.8 l-3.1,2.6l-0.3,1.1l-1.8,0.8l-1.5,4.2l-0.8,3.2l2.7,4.2l1.6,4.2l1.1,3.6l-0.3,6.5l-1.8,3.1l-0.6,5.8l-1,3.7l1.8,3.9l2.7,4.5 l2.3,4.8l1.3,4l-0.3,3.2l-0.3,0.5v2.1l5.7,6.3l-0.5,2.4l-0.6,2.3l-0.6,1.9l0.2,8.2l2.1,3.7l1.9,2.6l2.7,0.5l1,2.7l-1.1,3.6 l-2.1,1.6h-1.1l-0.8,3.9l0.5,2.9l3.2,4.4l1.6,5.3l1.5,4.7l1.3,3.1l3.4,5.8l1.5,2.6l0.5,2.9l1.6,1v2.4l-0.8,1.9l-1.8,7.1l-0.5,1.9 l2.4,2.7l4.2,0.5l4.5,1.8l3.9,2.1h2.9l2.9,3.1l2.6,4.8l1.1,2.3l3.9,2.1l4.8,0.8l1.5,2.1l0.6,3.2l-1.5,0.6l0.3,1l3.2,0.8l2.7,0.2 l2.9,4.7l3.9,4.2l0.8,2.3l2.6,4.2l0.3,3.2v9.4l0.5,1.8l10,1.5l19.7,2.7L136.9,386.8z M48.8,337l1.3,1.5l-0.2,1.3l-3.2-0.1 l-0.6-1.2l-0.6-1.5L48.8,337z M50.7,337l1.2-0.6l3.6,2.1l3.1,1.2l-0.9,0.6l-4.5-0.2l-1.6-1.6L50.7,337z M71.4,356.8l1.8,2.3 l0.8,1l1.5,0.6l0.6-1.5l-1-1.8l-2.7-2l-1.1,0.2V356.8z M70,365.5l1.8,3.2l1.2,1.9l-1.5,0.2l-1.3-1.2c0,0-0.7-1.5-0.7-1.9 s0-2.2,0-2.2L70,365.5z">
-                    <title>California</title>
+                    <title>California{% if 'CA' in agents_in_states %}: {% for agent in agents_in_states.CA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="CA" x="65" y="300" class="stateName" hx-get="/get_companies/CA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>California</title>
+                    <title>California{% if 'CA' in agents_in_states %}: {% for agent in agents_in_states.CA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     CA
                 </text>
                 <path id="CO" hx-get="/get_companies/CO" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M378.6,256.8l1.4-21.3l-32.1-3.1l-24.5-2.7l-37.3-4.1l-20.7-2.5l-2.6,22.2l-3.2,22.4l-3.8,28 l-1.5,11.1l-0.3,2.8l33.9,3.8l37.7,4.3l32,3.2l16.6,0.8">
-                    <title>Colorado</title>
+                    <title>Colorado{% if 'CO' in agents_in_states %}: {% for agent in agents_in_states.CO %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="CO" x="305" y="280" class="stateName" hx-get="/get_companies/CO" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Colorado</title>
+                    <title>Colorado{% if 'CO' in agents_in_states %}: {% for agent in agents_in_states.AK %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     CO
                 </text>
                 <path id="CT" hx-get="/get_companies/CT" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M873.2,180.1l-0.6-4.2l-0.8-4.4l-1.6-6l-4.2,0.9l-21.8,4.8l0.6,3.3l1.5,7.3v8.1l-1.1,2.3l1.8,2.1 l5-3.4l3.6-3.2l1.9-2.1l0.8,0.6l2.7-1.5l5.2-1.1L873.2,180.1z">
-                    <title>Connecticut</title>
+                    <title>Connecticut{% if 'CT' in agents_in_states %}: {% for agent in agents_in_states.CT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="CT" x="865" y="210" class="stateName" hx-get="/get_companies/CT" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Connecticut</title>
+                    <title>Connecticut{% if 'CT' in agents_in_states %}: {% for agent in agents_in_states.CT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     CT
                 </text>
                 <path id="DE" hx-get="/get_companies/DE" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M822.4,230.4l0.6-2.1l0-1.2l-1.3-0.1l-2.1,1.6l-1.5,1.5l1.5,4.2l2.3,5.7l2.1,9.7l1.6,6.3l5-0.2 l6.1-1.2l-2.3-7.4l-1,0.5l-3.6-2.4l-1.8-4.7l-1.9-3.6l-2.3-1l-2.1-3.6L822.4,230.4z">
-                    <title>Delaware</title>
+                    <title>Delaware{% if 'DE' in agents_in_states %}: {% for agent in agents_in_states.DE %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="DE" x="840" y="250" class="stateName" hx-get="/get_companies/DE" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Delaware</title>
+                    <title>Delaware{% if 'DE' in agents_in_states %}: {% for agent in agents_in_states.DE %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     DE
                 </text>
                 <path id="FL" hx-get="/get_companies/FL" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M755.4,445.5l2.3,7.3l3.7,9.7l5.3,9.4l3.7,6.3l4.8,5.5l4,3.7l1.6,2.9l-1.1,1.3L779,493l2.9,7.4 l2.9,2.9l2.6,5.3l3.6,5.8l4.5,8.2l1.3,7.6l0.5,12l0.6,1.8l-0.3,3.4l-2.4,1.3l0.3,1.9l-0.6,1.9l0.3,2.4l0.5,1.9l-2.7,3.2l-3.1,1.5 l-3.9,0.2l-1.5,1.6l-2.4,1l-1.3-0.5l-1.1-1l-0.3-2.9l-0.8-3.4l-3.4-5.2l-3.6-2.3l-3.9-0.3l-0.8,1.3l-3.1-4.4l-0.6-3.6l-2.6-4 l-1.8-1.1l-1.6,2.1l-1.8-0.3l-2.1-5l-2.9-3.9l-2.9-5.3l-2.6-3.1l-3.6-3.7l2.1-2.4l3.2-5.5l-0.2-1.6l-4.5-1l-1.6,0.6l0.3,0.6l2.6,1 l-1.5,4.5l-0.8,0.5l-1.8-4l-1.3-4.8l-0.3-2.7l1.5-4.7v-9.5L736,485l-1.3-3.1l-5.2-1.3l-1.9-0.6l-1.6-2.6l-3.4-1.6l-1.1-3.4l-2.7-1 l-2.4-3.7l-4.2-1.5l-2.9-1.5h-2.6l-4,0.8l-0.2,1.9l0.8,1l-0.5,1.1l-3.1-0.2l-3.7,3.6l-3.6,1.9h-3.9l-3.2,1.3l-0.3-2.7l-1.6-1.9 l-2.9-1.1l-1.6-1.5l-8.1-3.9l-7.6-1.8l-4.4,0.6l-6,0.5l-6,2.1l-3.5,0.6l-0.2-8l-2.6-1.9l-1.8-1.8l0.3-3.1l10.2-1.3l25.5-2.9 l6.8-0.6l5.4,0.3l2.6,3.9l1.5,1.5l8.1,0.5l10.8-0.6l21.5-1.3l5.4-0.7l4.6,0l0.2,2.9l3.8,0.8l0.3-4.8l-1.6-4.5l1-0.7l5.1,0.5 L755.4,445.5z M767.9,577.9l2.4-0.6l1.3-0.2l1.5-2.3l2.3-1.6l1.3,0.5l1.7,0.3l0.4,1.1l-3.5,1.2l-4.2,1.5l-2.3,1.2L767.9,577.9z M781.4,572.9l1.2,1.1l2.7-2.1l5.3-4.2l3.7-3.9l2.5-6.6l1-1.7l0.2-3.4l-0.7,0.5l-1,2.8l-1.5,4.6l-3.2,5.3l-4.4,4.2l-3.4,1.9 L781.4,572.9z">
-                    <title>Florida</title>
+                    <title>Florida{% if 'FL' in agents_in_states %}: {% for agent in agents_in_states.FL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="FL" x="750" y="500" class="stateName" hx-get="/get_companies/FL" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Florida</title>
+                    <title>Florida{% if 'FL' in agents_in_states %}: {% for agent in agents_in_states.FL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     FL
                 </text>
                 <path id="GA" hx-get="/get_companies/GA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M689.6,358l-4.8,0.8l-8.4,1.1l-8.6,0.9v2.2l0.2,2.1l0.6,3.4l3.4,7.9l2.4,9.9l1.5,6.1l1.6,4.8l1.5,7 l2.1,6.3l2.6,3.4l0.5,3.4l1.9,0.8l0.2,2.1l-1.8,4.8l-0.5,3.2l-0.2,1.9l1.6,4.4l0.3,5.3l-0.8,2.4l0.6,0.8l1.5,0.8l0.6,3.4l2.6,3.9 l1.5,1.5l7.9,0.2l10.8-0.6l21.5-1.3l5.4-0.7l4.6,0l0.2,2.9l2.6,0.8l0.3-4.4l-1.6-4.5l1.1-1.6l5.8,0.8l5,0.3l-0.8-6.3l2.3-10 l1.5-4.2l-0.5-2.6l3.3-6.2l-0.5-1.4l-1.9,0.7l-2.6-1.3l-0.6-2.1l-1.3-3.6l-2.3-2.1l-2.6-0.6l-1.6-4.8l-2.9-6.3l-4.2-1.9l-2.1-1.9 l-1.3-2.6l-2.1-1.9l-2.3-1.3l-2.3-2.9l-3.1-2.3l-4.5-1.8l-0.5-1.5l-2.4-2.9l-0.5-1.5l-3.4-4.9l-3.4,0.2l-4.1-3l-1.3-1.3l-0.3-1.8 l0.8-1.9l2.4-1.2l-1.1-1.2l0.1-0.3l-5.8,1l-7,0.8L689.6,358z">
-                    <title>Georgia</title>
+                    <title>Georgia{% if 'GA' in agents_in_states %}: {% for agent in agents_in_states.GA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="GA" x="701" y="415" class="stateName" hx-get="/get_companies/GA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Georgia</title>
+                    <title>Georgia{% if 'GA' in agents_in_states %}: {% for agent in agents_in_states.GA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     GA
                 </text>
                 <path id="IA" hx-get="/get_companies/IA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M566.6,201.6l0.2,1.9l2.3,1.1l1.1,1.3l0.3,1.3l3.9,3.2l0.7,2.2l-0.8,2.9l-1.5,3.5l-0.8,2.7 l-2.2,1.6l-1.7,0.6l-5.5,1.5l-0.7,2.3l-0.8,2.3l0.6,1.4l1.7,1.7l0,3.7l-2.2,1.6l-0.5,1.5v2.5l-1.5,0.5l-1.7,1.4l-0.5,1.5l0.5,1.7 l-1.4,1.2l-2.3-2.9l-1.5-2.6l-8.3,0.8l-10.2,0.6l-25,0.7l-13,0.2l-9.4,0.2l-1.3,0.1l-1.7-4.5l-0.2-6.6l-1.6-4.1l-0.7-5.3l-2.3-3.7 l-0.9-4.8l-2.7-7.5l-1.1-5.4l-1.4-2.2l-1.6-2.7l1.8-4.3l1.4-5.7l-2.7-2.1l-0.5-2.7l0.9-2.5h1.7h11.5l49.6-0.7l19.9-0.7l1.9,2.7 l1.8,2.6l0.5,0.8l-1.8,2.7l0.5,4.2l2.5,3.9l3,1.8l2.4,0.2L566.6,201.6z">
-                    <title>Iowa</title>
+                    <title>Iowa{% if 'IA' in agents_in_states %}: {% for agent in agents_in_states.IA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="IA" x="510" y="220" class="stateName" hx-get="/get_companies/IA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Iowa</title>
+                    <title>Iowa{% if 'IA' in agents_in_states %}: {% for agent in agents_in_states.IA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     IA
                 </text>
                 <path id="ID" hx-get="/get_companies/ID" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M162.1,181c-22.6-4.3-14.1-2.8-21.1-4.4l4.4-17.5l4.3-17.7l1.4-4.2l2.5-5.9l-1.3-2.3l-2.5,0.1 l-0.8-1l0.5-1.1l0.3-3.1l4.5-5.5l1.8-0.5l1.1-1.1l0.6-3.2l0.9-0.7l3.9-5.8l3.9-4.3l0.2-3.8l-3.4-2.6l-1.3-4.4l0.4-9.7l3.7-16.5 l4.5-20.8l3.8-13.5l0.8-3.8l13,2.5l-4.2,21.5l2.9,7.7l-1.1,4.6l2,4.6l3.2,1.7l4.5,9.8l2.7,3.8l0.6,1.1l3.4,1.1l0.5,2.5l-6.9,16.8 l0.3,3.3l2.7,2.9l1.9,0.5l4.8-3.6l0.4-0.5l0.2,0.8l0.3,4.1l2.6,12.9l3.5,2.7l0.4,0.8l2.1,2.4l-0.8,2.8l0.7,3.8l1.9,0.9l2.1-1.6 l2.6-0.5l3.4,1.6l2.5-0.6l3.8-0.2l4,1.6l2.7-0.3l0.9-2.3l2.5-1.6l0.7,1.7l0.6,2.2l2.3,2.5l-3.8,24l-5.1,29l-4.2-0.3l-8.2-1.5 l-9.8-1.8l-12.2-2.4l-12.5-2.5l-8.5-1.8l-9.3-1.7L162.1,181z">
-                    <title>Idaho</title>
+                    <title>Idaho{% if 'ID' in agents_in_states %}: {% for agent in agents_in_states.ID %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="ID" x="175" y="145" class="stateName" hx-get="/get_companies/ID" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Idaho</title>
+                    <title>Idaho{% if 'ID' in agents_in_states %}: {% for agent in agents_in_states.ID %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     ID
                 </text>
                 <path id="IL" hx-get="/get_companies/IL" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M617.8,301.5v-3.6l0.3-4.9l2.4-3.1l1.8-3.8l2.6-3.9l-0.4-5.3l-2-3.5l-0.1-3.3l0.7-5.3l-0.8-7.2 l-1.1-15.8l-1.3-15l-0.9-11.6l-0.3-0.9l-0.8-2.6l-1.3-3.7l-1.6-1.8l-1.5-2.6l-0.2-5.5l-9.9,1.3l-27.2,1.7l-8.7-0.4l0.2,2.4l2.3,0.7 l0.9,1.1l0.5,1.8l3.9,3.4l0.7,2.3l-0.7,3.4l-1.8,3.7l-0.7,2.5l-2.3,1.8l-1.8,0.7l-5.3,1.4l-0.7,1.8L562,230l0.7,1.4l1.8,1.6 l-0.2,4.1l-1.8,1.6l-0.7,1.6v2.7l-1.8,0.5l-1.6,1.1l-0.2,1.4l0.2,2.1l-1.7,1.3l-1,2.8l0.5,3.7l2.3,7.3l7.3,7.5l5.5,3.7l-0.2,4.3 l0.9,1.4l6.4,0.5l2.7,1.4l-0.7,3.7l-2.3,5.9l-0.7,3.2l2.3,3.9l6.4,5.3l4.6,0.7l2.1,5l2.1,3.2l-0.9,3l1.6,4.1l1.8,2.1l1.9-0.8 l0.7-2.2l2-1.4l3.2-1.1l3.1,1.2l2.9,1.1l0.8-0.2l-0.1-1.2l-1.1-2.8l0.4-2.4l2.3-1.6l2.4-1l1.2-0.4l-0.6-1.3l-0.8-2.2l1.2-1.3 L617.8,301.5z">
-                    <title>Illinois</title>
+                    <title>Illinois{% if 'IL' in agents_in_states %}: {% for agent in agents_in_states.IL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="IL" x="585" y="260" class="stateName" hx-get="/get_companies/IL" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Illinois</title>
+                    <title>Illinois{% if 'IL' in agents_in_states %}: {% for agent in agents_in_states.IL %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     IL
                 </text>
                 <path id="IN" hx-get="/get_companies/IN" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M618.4,300.9l0.1-2.9l0.5-4.5l2.3-2.9l1.8-3.9l2.6-4.2l-0.5-5.8l-1.8-2.7l-0.3-3.2l0.8-5.5l-0.5-7 l-1.3-16l-1.3-15.4l-1-11.7l3.1,0.9l1.5,1l1.1-0.3l2.1-1.9l2.8-1.6l5.1-0.2l22-2.3l5.6-0.5l1.5,16l4.3,36.8l0.6,5.8L669,271 l1.2,1.8l0.1,1.4l-2.5,1.6l-3.5,1.6l-3.2,0.6l-0.6,4.9l-4.6,3.3l-2.8,4l0.3,2.4l-0.6,1.5h-3.3l-1.6-1.6l-2.5,1.3l-2.7,1.5l0.2,3.1 l-1.2,0.3l-0.5-1l-2.2-1.5l-3.3,1.3l-1.6,3l-1.4-0.8l-1.5-1.6l-4.5,0.5l-5.6,1L618.4,300.9z">
-                    <title>Indiana</title>
+                    <title>Indiana{% if 'IN' in agents_in_states %}: {% for agent in agents_in_states.IN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="IN" x="635" y="260" class="stateName" hx-get="/get_companies/IN" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Indiana</title>    
+                    <title>Indiana{% if 'IN' in agents_in_states %}: {% for agent in agents_in_states.IN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     IN
                 </text>
                 <path id="KS" hx-get="/get_companies/KS" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M503.4,325.1l-12.6,0.2l-46.1-0.5l-44.6-2.1l-24.6-1.3l4.1-64.7l21.8,0.8l40.5,1.4l44.1,0.5h5.1 l3.2,3.2l2.8,0.2l0.9,1.1v2l-1.8,1.6l-0.5,2.6l2.2,3.6l2.5,3.1l2.5,2l1.1,11.2L503.4,325.1z">
-                    <title>Kansas</title>
+                    <title>Kansas{% if 'KS' in agents_in_states %}: {% for agent in agents_in_states.KS %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="KS" x="430" y="295" class="stateName" hx-get="/get_companies/KS" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Kansas</title>
+                    <title>Kansas{% if 'KS' in agents_in_states %}: {% for agent in agents_in_states.KS %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     KS
                 </text>
                 <path id="KY" hx-get="/get_companies/KY" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M721.8,297.8l-2.3,2.7l-4.2,3.6L711,310l-1.8,1.8v2.1l-3.9,2.1l-5.7,3.4l-3.5,0.4l-51.9,4.9 l-15.8,1.8l-4.6,0.5l-3.9,0l-0.2,4.2l-8.2,0.1l-7,0.6l-10.4,0.2l1.9-0.2l2.2-1.8l2.1-1.1l0.2-3.2l0.9-1.8l-1.6-2.5l0.8-1.9l2.3-1.8 l2.1-0.6l2.7,1.3l3.6,1.3l1.1-0.3l0.2-2.3l-1.3-2.4l0.3-2.3l1.9-1.5l2.6-0.6l1.6-0.6l-0.8-1.8l-0.6-1.9l1.1-0.8l1.1-3.3l3-1.7 l5.8-1l3.6-0.5l1.5,1.9l1.8,0.8l1.8-3.2l2.9-1.5l1.9,1.6l0.8,1.1l2.1-0.5l-0.2-3.4l2.9-1.6l1.1-0.8l1.1,1.6h4.7l0.8-2.1l-0.3-2.3 l2.9-3.6l4.7-3.9l0.5-4.5l2.7-0.3l3.9-1.8l2.7-1.9l-0.3-1.9l-1.5-1.5l0.6-2.2l4.1-0.2l2.4-0.8l2.9,1.6l1.6,4.4l5.8,0.3l1.8,1.8 l2.1,0.2l2.4-1.5l3.1,0.5l1.3,1.5l2.7-2.6l1.8-1.3h1.6l0.6,2.7l1.8,1l2.4,2.2l0.2,5.5l0.8,1.6l2.6,1.5l0.6,2.3l2.9,3.7l2.6,2.7 L721.8,297.8z">
-                    <title>Kentucky</title>
+                    <title>Kentucky{% if 'KY' in agents_in_states %}: {% for agent in agents_in_states.KY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="KY" x="655" y="310" class="stateName" hx-get="/get_companies/KY" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Kentucky</title>
+                    <title>Kentucky{% if 'KY' in agents_in_states %}: {% for agent in agents_in_states.KY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     KY
                 </text>
                 <path id="LA" hx-get="/get_companies/LA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M602.2,473l-1-2.6l-1.1-3.1l-3.3-3.5l0.9-6.8l-0.1-1.1l-1.3,0.3l-8.2,0.9l-25,0.5l-0.7-2.4l0.9-8.5 l3.3-5.9l5-8.7l-0.6-2.4l1.3-0.7l0.5-2l-2.3-2.1l-0.1-1.9l-1.8-4.3l-0.5-5.9l-9.7,0.1l-19.2,0.9l-22.2,0l0,9.6l0.7,9.4l0.7,3.9 l2.5,4.1l0.9,5l4.3,5.5l0.2,3.2l0.7,0.7l-0.7,8.5l-3,5l1.6,2.1l-0.7,2.5l-0.7,7.3l-1.4,3.2l0.1,3.6l4.7-1.5l8.1-0.3l10.3,3.6 l6.5,1.1l3.7-1.5l3.2,1.1l3.2,1l0.8-2.1l-3.2-1.1l-2.6,0.5l-2.7-1.6c0,0,0.2-1.3,0.8-1.5c0.6-0.2,3.1-1,3.1-1l1.8,1.5l1.8-1 l3.2,0.6l1.5,2.4l0.3,2.3l4.5,0.3l1.8,1.8l-0.8,1.6l-1.3,0.8l1.6,1.6l8.4,3.6l3.6-1.3l1-2.4l2.6-0.6l1.8-1.5l1.3,1l0.8,2.9 l-2.3,0.8l0.6,0.6l3.4-1.3l2.3-3.4l0.8-0.5l-2.1-0.3l0.8-1.6l-0.2-1.5l2.1-0.5l1.1-1.3l0.6,0.8c0,0-0.2,3.1,0.6,3.1 c0.8,0,4.2,0.6,4.2,0.6l4,1.9l1,1.5h2.9l1.1,1l2.3-3.1v-1.5h-1.3l-3.4-2.7l-5.8-0.8l-3.2-2.3l1.1-2.7l2.3,0.3l0.2-0.6l-1.8-1v-0.5 h3.2l1.8-3.1l-1.3-1.9l-0.3-2.7l-1.5,0.2l-1.9,2.1l-0.6,2.6l-3.1-0.6l-1-1.8l1.8-1.9l2-1.8L602.2,473z">
-                    <title>Louisiana</title>
+                    <title>Louisiana{% if 'LA' in agents_in_states %}: {% for agent in agents_in_states.LA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="LA" x="535" y="465" class="stateName" hx-get="/get_companies/LA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Louisiana</title>
+                    <title>Louisiana{% if 'LA' in agents_in_states %}: {% for agent in agents_in_states.LA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     LA
                 </text>
                 <path id="MA" hx-get="/get_companies/MA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M900,173.9l2.2-0.7l0.5-1.7l1,0.1l1,2.3l-1.3,0.5l-3.9,0.1L900,173.9z M890.6,174.7l2.3-2.6h1.6 l1.8,1.5l-2.4,1l-2.2,1L890.6,174.7z M855.8,152.7l17.5-4.2l2.3-0.6l2.1-3.2l3.7-1.7l2.9,4.4l-2.4,5.2l-0.3,1.5l1.9,2.6l1.1-0.8 h1.8l2.3,2.6l3.9,6l3.6,0.5l2.3-1l1.8-1.8l-0.8-2.7l-2.1-1.6l-1.5,0.8l-1-1.3l0.5-0.5l2.1-0.2l1.8,0.8l1.9,2.4l1,2.9l0.3,2.4 l-4.2,1.5l-3.9,1.9l-3.9,4.5l-1.9,1.5v-1l2.4-1.5l0.5-1.8l-0.8-3.1l-2.9,1.5l-0.8,1.5l0.5,2.3l-2.1,1l-2.7-4.5l-3.4-4.4l-2.1-1.8 l-6.5,1.9l-5.1,1.1l-21.8,4.8l-0.4-4.9l0.6-10.6l5.2-0.9L855.8,152.7z">
-                    <title>Massachusetts</title>
+                    <title>Massachusetts{% if 'MA' in agents_in_states %}: {% for agent in agents_in_states.MA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MA" x="905" y="165" class="stateName" hx-get="/get_companies/MA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Massachusetts</title>
+                    <title>Massachusetts{% if 'MA' in agents_in_states %}: {% for agent in agents_in_states.MA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MA
                 </text>
                 <path id="MD" hx-get="/get_companies/MD" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M837,255.3l-6.1,1.3l-5.8,0.2l-1.8-7.1l-2.1-9.7l-2.3-5.7l-1.3-4.4l-7.5,1.6l-14.9,2.8l-37.5,7.6 l1.1,5l1,5.7l0.3-0.3l2.1-2.4l2.3-2.6l2.4-0.6l1.5-1.5l1.8-2.6l1.3,0.6l2.9-0.3l2.6-2.1l2-1.5l1.8-0.5l1.6,1.1l2.9,1.5l1.9,1.8 l1.2,1.5l4.1,1.7v2.9l5.5,1.3l1.1,0.5l1.4-2l2.9,2l-1.3,2.5l-0.8,4l-1.8,2.6v2.1l0.6,1.8l5.1,1.4l4.3-0.1l3.1,1l2.1,0.3l1-2.1 l-1.5-2.1v-1.8l-2.4-2.1l-2.1-5.5l1.3-5.3l-0.2-2.1l-1.3-1.3c0,0,1.5-1.6,1.5-2.3c0-0.6,0.5-2.1,0.5-2.1l1.9-1.3l1.9-1.6l0.5,1 l-1.5,1.6l-1.3,3.7l0.3,1.1l1.8,0.3l0.5,5.5l-2.1,1l0.3,3.6l0.5-0.2l1.1-1.9l1.6,1.8l-1.6,1.3l-0.3,3.4l2.6,3.4l3.9,0.5l1.6-0.8 l3.2,4.2l1.4,0.5l6.7-2.8l2-4L837,255.3z M820.3,264.3l1.1,2.5l0.2,1.8l1.1,1.9c0,0,0.9-0.9,0.9-1.2c0-0.3-0.7-3.1-0.7-3.1 l-0.7-2.3L820.3,264.3z">
-                    <title>Maryland</title>
+                    <title>Maryland{% if 'MD' in agents_in_states %}: {% for agent in agents_in_states.MD %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MD" x="840" y="270" class="stateName" hx-get="/get_companies/MD" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Maryland</title>
+                    <title>Maryland{% if 'MD' in agents_in_states %}: {% for agent in agents_in_states.MD %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MD
                 </text>
                 <path id="ME" hx-get="/get_companies/ME" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M923.2,77.3l1.9,2.1l2.3,3.7v1.9l-2.1,4.7l-1.9,0.6l-3.4,3.1l-4.8,5.5c0,0-0.6,0-1.3,0 c-0.6,0-1-2.1-1-2.1l-1.8,0.2l-1,1.5l-2.4,1.5l-1,1.5l1.6,1.5l-0.5,0.6l-0.5,2.7l-1.9-0.2v-1.6l-0.3-1.3l-1.5,0.3l-1.8-3.2 l-2.1,1.3l1.3,1.5l0.3,1.1l-0.8,1.3l0.3,3.1l0.2,1.6l-1.6,2.6l-2.9,0.5l-0.3,2.9l-5.3,3.1l-1.3,0.5l-1.6-1.5l-3.1,3.6l1,3.2 l-1.5,1.3l-0.2,4.4l-1.1,6.3l-2.5-1.2l-0.5-3.1l-3.9-1.1l-0.3-2.7l-7.3-23.4l-4.2-13.6l1.4-0.1l1.5,0.4v-2.6l0.8-5.5l2.6-4.7l1.5-4 l-1.9-2.4v-6l0.8-1l0.8-2.7l-0.2-1.5l-0.2-4.8l1.8-4.8l2.9-8.9l2.1-4.2h1.3l1.3,0.2v1.1l1.3,2.3l2.7,0.6l0.8-0.8v-1l4-2.9l1.8-1.8 l1.5,0.2l6,2.4l1.9,1l9.1,29.9h6l0.8,1.9l0.2,4.8l2.9,2.3h0.8l0.2-0.5l-0.5-1.1L923.2,77.3z M902.3,107.5l1.5-1.5l1.4,1.1 l0.6,2.4l-1.7,0.9L902.3,107.5z M909,101.6l1.8,1.9c0,0,1.3,0.1,1.3-0.2s0.2-2,0.2-2l0.9-0.8l-0.8-1.8l-2,0.7L909,101.6z">
-                    <title>Maine</title>
+                    <title>Maine{% if 'ME' in agents_in_states %}: {% for agent in agents_in_states.ME %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="ME" x="877" y="89" class="stateName" hx-get="/get_companies/ME" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Maine</title>    
+                    <title>Maine{% if 'ME' in agents_in_states %}: {% for agent in agents_in_states.ME %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     ME
                 </text>
                 <path id="MI" hx-get="/get_companies/MI" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M581.6,82.1l1.8-2.1l2.2-0.8l5.4-3.9l2.3-0.6l0.5,0.5l-5.1,5.1l-3.3,1.9l-2.1,0.9L581.6,82.1z M667.8,114.2l0.6,2.5l3.2,0.2l1.3-1.2c0,0-0.1-1.5-0.4-1.6c-0.3-0.2-1.6-1.9-1.6-1.9l-2.2,0.2l-1.6,0.2l-0.3,1.1L667.8,114.2z M697.9,177.2l-3.2-8.2l-2.3-9.1l-2.4-3.2l-2.6-1.8l-1.6,1.1l-3.9,1.8l-1.9,5l-2.7,3.7l-1.1,0.6l-1.5-0.6c0,0-2.6-1.5-2.4-2.1 c0.2-0.6,0.5-5,0.5-5l3.4-1.3l0.8-3.4l0.6-2.6l2.4-1.6l-0.3-10l-1.6-2.3l-1.3-0.8l-0.8-2.1l0.8-0.8l1.6,0.3l0.2-1.6L676,131 l-1.3-2.6h-2.6l-4.5-1.5l-5.5-3.4h-2.7l-0.6,0.6l-1-0.5l-3.1-2.3l-2.9,1.8l-2.9,2.3l0.3,3.6l1,0.3l2.1,0.5l0.5,0.8l-2.6,0.8 l-2.6,0.3l-1.5,1.8l-0.3,2.1l0.3,1.6l0.3,5.5l-3.6,2.1l-0.6-0.2v-4.2l1.3-2.4l0.6-2.4l-0.8-0.8l-1.9,0.8l-1,4.2l-2.7,1.1l-1.8,1.9 l-0.2,1l0.6,0.8l-0.6,2.6l-2.3,0.5v1.1l0.8,2.4l-1.1,6.1l-1.6,4l0.6,4.7l0.5,1.1l-0.8,2.4l-0.3,0.8l-0.3,2.7l3.6,6l2.9,6.5l1.5,4.8 l-0.8,4.7l-1,6l-2.4,5.2l-0.3,2.7l-3.3,3.1l4.4-0.2l21.4-2.3l7.3-1l0.1,1.7l6.9-1.2l10.3-1.5l3.9-0.5l0.1-0.6l0.2-1.5l2.1-3.7 l2-1.7l-0.2-5.1l1.6-1.6l1.1-0.3l0.2-3.6l1.5-3l1.1,0.6l0.2,0.6l0.8,0.2l1.9-1L697.9,177.2z M567.5,111.2l0.7-0.6l2.7-0.8l3.6-2.3 v-1l0.6-0.6l6-1l2.4-1.9l4.4-2.1l0.2-1.3l1.9-2.9l1.8-0.8l1.3-1.8l2.3-2.3l4.4-2.4l4.7-0.5l1.1,1.1l-0.3,1l-3.7,1l-1.5,3.1 l-2.3,0.8l-0.5,2.4l-2.4,3.2l-0.3,2.6l0.8,0.5l1-1.1l3.6-2.9l1.3,1.3h2.3l3.2,1l1.5,1.1l1.5,3.1l2.7,2.7l3.9-0.2l1.5-1l1.6,1.3 l1.6,0.5l1.3-0.8h1.1l1.6-1l4-3.6l3.4-1.1l6.6-0.3l4.5-1.9l2.6-1.3l1.5,0.2v5.7l0.5,0.3l2.9,0.8l1.9-0.5l6.1-1.6l1.1-1.1l1.5,0.5v7 l3.2,3.1l1.3,0.6l1.3,1l-1.3,0.3l-0.8-0.3l-3.7-0.5l-2.1,0.6l-2.3-0.2l-3.2,1.5h-1.8l-5.8-1.3l-5.2,0.2l-1.9,2.6l-7,0.6l-2.4,0.8 l-1.1,3.1l-1.3,1.1l-0.5-0.2l-1.5-1.6l-4.5,2.4h-0.6l-1.1-1.6l-0.8,0.2l-1.9,4.4l-1,4l-3.2,7l-1.2-1l-1.4-1l-1.9-10.3l-3.5-1.4 l-2.1-2.3l-12.1-2.7l-2.9-1l-8.2-2.2l-7.9-1.1L567.5,111.2z">
-                    <title>Michigan</title>
+                    <title>Michigan{% if 'MI' in agents_in_states %}: {% for agent in agents_in_states.MI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MI" x="650" y="190" class="stateName" hx-get="/get_companies/MI" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Michigan</title>
+                    <title>Michigan{% if 'MI' in agents_in_states %}: {% for agent in agents_in_states.MI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MI
                 </text>
                 <path id="MN" hx-get="/get_companies/MN" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M471.9,128.5l-0.5-8.5l-1.8-7.3l-1.8-13.5l-0.5-9.8l-1.8-3.4l-1.6-5v-10.3l0.7-3.9l-1.8-5.5l30.1,0 l0.3-8.2l0.6-0.2l2.3,0.5l1.9,0.8l0.8,5.5l1.5,6.1l1.6,1.6h4.8l0.3,1.5l6.3,0.3v2.1h4.8l0.3-1.3l1.1-1.1l2.3-0.6l1.3,1h2.9l3.9,2.6 l5.3,2.4l2.4,0.5l0.5-1l1.5-0.5l0.5,2.9l2.6,1.3l0.5-0.5l1.3,0.2v2.1l2.6,1h3.1l1.6-0.8l3.2-3.2l2.6-0.5l0.8,1.8l0.5,1.3h1l1-0.8 l8.9-0.3l1.8,3.1h0.6l0.7-1.1l4.4-0.4l-0.6,2.3l-3.9,1.8l-9.2,4.1l-4.8,2l-3.1,2.6l-2.4,3.6l-2.3,3.9l-1.8,0.8l-4.5,5l-1.3,0.2 l-3.8,2.9l-2.8,3.2l-0.2,3l0.2,7.8l-1.6,1.6L530,128l-1.8,5.7l2.5,3.6l0.5,2.5l-1.1,3l-0.2,3.7l0.5,7.1l3.4,4.1h3l2.5,2.3l3.2,1.4 l3.7,5l7.1,5l1.8,2.1l0.2,5.7l-20.6,0.7l-60.2,0.5l-0.3-35.7l-0.5-3l-4.1-3.4l-1.1-1.8v-1.6l2.1-1.6l1.4-1.4L471.9,128.5z">
-                    <title>Minnesota</title>
+                    <title>Minnesota{% if 'MN' in agents_in_states %}: {% for agent in agents_in_states.MN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MN" x="489" y="145" class="stateName" hx-get="/get_companies/MN" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Minnesota</title>
+                    <title>Minnesota{% if 'MN' in agents_in_states %}: {% for agent in agents_in_states.MN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MN
                 </text>
                 <path id="MO" hx-get="/get_companies/MO" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M555.8,249.5l-2.5-3.1l-1.1-2.3l-7.8,0.7l-9.8,0.5l-25.4,0.9l-13.5,0.2l-7.9,0.1l-2.3,0.1l1.3,2.5 l-0.2,2.3l2.5,3.9l3.1,4.1l3.1,2.7l2.3,0.2l1.4,0.9v3l-1.8,1.6l-0.5,2.3l2.1,3.4l2.5,3l2.5,1.8l1.4,11.7l-0.7,35.3l0.2,4.7l0.5,5.4 l23.4-0.1l23.2-0.7l20.8-0.8l11.7-0.2l2.2,3.4l-0.7,3.3l-3.1,2.4l-0.6,1.8l5.4,0.5l3.9-0.7l1.7-5.5l0.7-5.9l2.3-2l1.7-1.5l2.1-1 l0.1-2.9l0.6-1.7l-1-1.7l-2.7,0.1l-2.2-2.6l-1.4-4.2l0.8-2.5l-1.9-3.4l-1.8-4.6l-4.8-0.8l-7-5.6l-1.7-4.1l0.8-3.2l2.1-6.1l0.5-2.9 l-1.9-1l-6.9-0.8l-1-1.7l-0.1-4.2l-5.5-3.4l-7-7.8l-2.3-7.3l-0.2-4.2L555.8,249.5z">
-                    <title>Missouri</title>
+                    <title>Missouri{% if 'MO' in agents_in_states %}: {% for agent in agents_in_states.MO %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MO" x="527" y="300" class="stateName" hx-get="/get_companies/MO" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Missouri</title>
+                    <title>Missouri{% if 'MO' in agents_in_states %}: {% for agent in agents_in_states.MO %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MO
                 </text>
                 <path id="MS" hx-get="/get_companies/MS" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M624.6,467l-0.3,1.3h-5.2l-1.5-0.8l-2.1-0.3l-6.8,1.9l-1.8-0.8l-2.6,4.2l-1.1,0.8l-1.1-2.5 l-1.1-3.9l-3.4-3.2l1.1-7.5l-0.7-0.9l-1.8,0.2l-8.2,0.7l-24.2,0.7l-0.5-1.6l0.7-8l3.4-6.2l5.3-9.1l-0.9-2.1h1.1l0.7-3.2l-2.3-1.8 l0.2-1.8l-2.1-4.6l-0.3-5.3l1.4-2.7l-0.4-4.3l-1.4-3l1.4-1.4l-1.4-2.1l0.5-1.8l0.9-6.2l3-2.7l-0.7-2.1l3.7-5.3l2.7-0.9v-2.5 l-0.7-1.4l2.7-5.3l2.7-1.1l0.1-3.4l8.7-0.1l24.1-1.9l4.6-0.2l0,6.4l0.2,16.7l-0.8,31l-0.2,14.1l2.7,18.8L624.6,467z">
-                    <title>Mississippi</title>
+                    <title>Mississippi{% if 'MS' in agents_in_states %}: {% for agent in agents_in_states.MS %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MS" x="583" y="420" class="stateName" hx-get="/get_companies/MS" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Mississippi</title>
+                    <title>Mississippi{% if 'MS' in agents_in_states %}: {% for agent in agents_in_states.MS %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MS
                 </text>
                 <path id="MT" hx-get="/get_companies/MT" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M356.7,122.3l0.6-11.2l2.3-24.8c0.5-5,1.1-8.5,1.4-15.4l0.9-14.6l-30.7-2.8L302,50l-29.3-4 l-32.3-5.3l-18.4-3.4l-32.7-6.9l-4.5,21.3l3.4,7.5l-1.4,4.6l1.8,4.6l3.2,1.4l4.6,10.8l2.7,3.2l0.5,1.1l3.4,1.1l0.5,2.1l-7.1,17.6 v2.5l2.5,3.2h0.9l4.8-3l0.7-1.1l1.6,0.7l-0.2,5.3l2.7,12.6l3,2.5l0.9,0.7l1.8,2.3l-0.5,3.4l0.7,3.4l1.1,0.9l2.3-2.3h2.7l3.2,1.6 l2.5-0.9h4.1l3.7,1.6l2.7-0.5l0.5-3l3-0.7l1.4,1.4l0.5,3.2l1.8,1.4l1.5-11.6l20.7,3l28.2,4l16.6,1.9l31.4,3.5l11,1.5l1.1-15.4 L356.7,122.3z">
-                    <title>Montana</title>
+                    <title>Montana{% if 'MT' in agents_in_states %}: {% for agent in agents_in_states.MT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="MT" x="265" y="100" class="stateName" hx-get="/get_companies/MT" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Montana</title>
+                    <title>Montana{% if 'MT' in agents_in_states %}: {% for agent in agents_in_states.MT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     MT
                 </text>
                 <path id="NC" hx-get="/get_companies/NC" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M832.1,298.5l1.7,4.7l3.6,6.5l2.4,2.4l0.6,2.3l-2.4,0.2l0.8,0.6l-0.3,4.2l-2.6,1.3l-0.6,2.1 l-1.3,2.9l-3.7,1.6l-2.4-0.3l-1.5-0.2l-1.6-1.3l0.3,1.3v1h1.9l0.8,1.3l-1.9,6.3h4.2l0.6,1.6l2.3-2.3l1.3-0.5l-1.9,3.6l-3.1,4.8 h-1.3l-1.1-0.5l-2.7,0.6l-5.2,2.4l-6.5,5.3l-3.4,4.7l-1.9,6.5l-0.5,2.4l-4.7,0.5l-5.5,1.3l-9.9-8.2l-12.6-7.6l-2.9-0.8l-12.6,1.5 l-4.3,0.8l-1.6-3.2l-3-2.1l-16.5,0.5l-7.3,0.8l-9.1,4.5l-6.1,2.6l-1.6,0.3l-5.8,1l-7,0.8l-6.8,0.5l0.5-4.1l1.8-1.5l2.7-0.6l0.6-3.7 l4.2-2.7l3.9-1.5l4.2-3.6l4.4-2.1l0.6-3.1l3.9-3.9l0.6-0.2c0,0,0,1.1,0.8,1.1c0.8,0,1.9,0.3,1.9,0.3l2.3-3.6l2.1-0.6l2.3,0.3 l1.6-3.6l2.9-2.6l0.5-2.1v-4l4.5,0.7l7.1-1.3l15.8-1.9l17.1-2.6l19.9-4l19.7-4.2l11.4-2.8L832.1,298.5z M836,331.5l2.6-2.5 l3.2-2.6l1.5-0.6l0.2-2l-0.6-6.1l-1.5-2.3l-0.6-1.9l0.7-0.2l2.7,5.5l0.4,4.4l-0.2,3.4l-3.4,1.5l-2.8,2.4l-1.1,1.2L836,331.5z">
-                    <title>North Carolina</title>
+                    <title>North Carolina{% if 'NC' in agents_in_states %}: {% for agent in agents_in_states.NC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NC" x="765" y="335" class="stateName" hx-get="/get_companies/NC" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>North Carolina</title>
+                    <title>North Carolina{% if 'NC' in agents_in_states %}: {% for agent in agents_in_states.NC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NC
                 </text>
                 <path id="ND" hx-get="/get_companies/ND" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M471.3,127.7l-0.4-7.5l-2-7.3l-1.8-13.6l-0.5-9.8l-2-3.1l-1.6-5.4v-10.3l0.7-3.9l-2.1-5.5 l-28.4-0.6l-18.6-0.6l-26.5-1.3l-24.9-1.9l-1.3,14.2l-1.4,15.1l-2.3,24.9l-0.5,11l56.8,3.8L471.3,127.7z">
-                    <title>North Dakota</title>
+                    <title>North Dakota{% if 'ND' in agents_in_states %}: {% for agent in agents_in_states.ND %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="ND" x="405" y="100" class="stateName" hx-get="/get_companies/ND" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>North Dakota</title>    
+                    <title>North Dakota{% if 'ND' in agents_in_states %}: {% for agent in agents_in_states.ND %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     ND
                 </text>
                 <path id="NE" hx-get="/get_companies/NE" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M484.2,247l1.4,2.7l0.1,2.1l2.4,3.7l2.7,3.2h-5l-43.5-0.9l-40.8-0.9l-21.2-1l1.1-21.3l-33.4-2.7 l4.3-44l15.5,1L388,190l17.8,1.1l23.8,1.1l10.7-0.5l2.1,2.3l4.8,3l1.1,0.9l4.3-1.4l3.9-0.5l2.7-0.2l1.8,1.4l5,1.6l3,1.6l0.5,1.6 l0.9,2.1h1.8l0.8,0l1,5.2l2.7,8l1.2,4.6l2.1,3.8l0.5,4.9l1.4,4.3l0.5,6.5">
-                    <title>Nebraska</title>
+                    <title>Nebraska{% if 'NE' in agents_in_states %}: {% for agent in agents_in_states.NE %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NE" x="405" y="230" class="stateName" hx-get="/get_companies/NE" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Nebraska</title>
+                    <title>Nebraska{% if 'NE' in agents_in_states %}: {% for agent in agents_in_states.NE %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NE
                 </text>
                 <path id="NH" hx-get="/get_companies/NH" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M880.8,142.4l0.9-1.1l1.1-3.3l-2.5-0.9l-0.5-3.1l-3.9-1.1l-0.3-2.7l-7.3-23.4l-4.6-14.5l-0.9,0 l-0.6,1.6l-0.6-0.5l-1-1l-1.5,1.9l0,5l0.3,5.7l1.9,2.7v4l-3.7,5.1l-2.6,1.1v1.1l1.1,1.8v8.6l-0.8,9.2l-0.2,4.8l1,1.3l-0.2,4.5 l-0.5,1.8l1.5,0.9l16.4-4.7l2.3-0.6l1.5-2.6L880.8,142.4z">
-                    <title>New Hampshire</title>
+                    <title>New Hampshire{% if 'NH' in agents_in_states %}: {% for agent in agents_in_states.NH %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NH" x="885" y="145" class="stateName" hx-get="/get_companies/NH" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>New Hampshire</title>
+                    <title>New Hampshire{% if 'NH' in agents_in_states %}: {% for agent in agents_in_states.NH %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NH
                 </text>
                 <path id="NJ" hx-get="/get_companies/NJ" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M828.2,190.3l-2.1,2.4v3.1l-1.9,3.1l-0.2,1.6l1.3,1.3l-0.2,2.4l-2.3,1.1l0.8,2.7l0.2,1.1l2.7,0.3 l1,2.6l3.6,2.4l2.4,1.6v0.8l-3.2,3.1l-1.6,2.3l-1.5,2.7l-2.3,1.3l-1.2,0.7l-0.2,1.2l-0.6,2.6l1.1,2.2l3.2,2.9l4.8,2.3l4,0.6 l0.2,1.5l-0.8,1l0.3,2.7h0.8l2.1-2.4l0.8-4.8l2.7-4l3.1-6.5l1.1-5.5l-0.6-1.1l-0.2-9.4l-1.6-3.4l-1.1,0.8l-2.7,0.3l-0.5-0.5l1.1-1 l2.1-1.9l0.1-1.1l-0.4-3.4l0.5-2.7l-0.2-2.1l-2.6-1.1l-4.5-1l-3.9-1.1L828.2,190.3z">
-                    <title>New Jersey</title>
+                    <title>New Jersey{% if 'NJ' in agents_in_states %}: {% for agent in agents_in_states.NJ %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NJ" x="850" y="230" class="stateName" hx-get="/get_companies/NJ" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>New Jersey</title>
+                    <title>New Jersey{% if 'NJ' in agents_in_states %}: {% for agent in agents_in_states.NJ %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NJ
                 </text>
                 <path id="NM" hx-get="/get_companies/NM" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M282.7,431l-0.7-6.1l8.6,0.5l29.5,3.1l28.4,1.4l2-22.3l3.7-55.9l1.1-19.4l2,0.3l0-11.1l-32.2-2.4 l-36.9-4.4l-34.5-4.1l-4.2,30.8l-7,53.2l-3.8,26.9l-2,13.3l15.5,2l1.3-10l16.7,2.6L282.7,431z">
-                    <title>New Mexico</title>
+                    <title>New Mexico{% if 'NM' in agents_in_states %}: {% for agent in agents_in_states.NM %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NM" x="282" y="380" class="stateName" hx-get="/get_companies/NM" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>New Mexico</title>
+                    <title>New Mexico{% if 'NM' in agents_in_states %}: {% for agent in agents_in_states.NM %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NM
                 </text>
                 <path id="NV" hx-get="/get_companies/NV" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M140.7,177.6l21,4.5l9.7,1.9l9.3,1.8l6.6,1.6l-0.6,5.9l-3.5,17.3l-4.1,20l-1.9,9.7l-2.2,13.3 l-3.2,16.4l-3.5,15.7l-2,10.2l-2.5,16.8l-0.5,1.1l-1.1,2.5l-1.9-0.1l-1.1-2.7l-2.7-0.5l-1.4-1l-2,0.3l-0.9,0.7l-1.3,1.3l-0.4,7 l-0.5,1.7l-0.4,12.1l-1.3,1.7l-1.9-2.3l-14.5-22.7l-19.4-29L89.6,249l-12.4-18.6l1.6-6.6l7-25.9l7.9-31.3l33.6,8.1l13.7,3">
-                    <title>Nevada</title>
+                    <title>Nevada{% if 'NV' in agents_in_states %}: {% for agent in agents_in_states.NV %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NV" x="120" y="235" class="stateName" hx-get="/get_companies/NV" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Nevada</title>
+                    <title>Nevada{% if 'NV' in agents_in_states %}: {% for agent in agents_in_states.NV %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NV
                 </text>
                 <path id="NY" hx-get="/get_companies/NY" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M828.9,189.3l-1.1-1l-2.6-0.2l-2.3-1.9l-1.6-6.1l-3.5,0.1l-2.4-2.7l-19.4,4.4l-43,8.7l-7.5,1.2 l-0.7-6.5l1.4-1.1l1.3-1.1l1-1.6l1.8-1.1l1.9-1.8l0.5-1.6l2.1-2.7l1.1-1l-0.2-1l-1.3-3.1l-1.8-0.2l-1.9-6.1l2.9-1.8l4.4-1.5l4-1.3 l3.2-0.5l6.3-0.2l1.9,1.3l1.6,0.2l2.1-1.3l2.6-1.1l5.2-0.5l2.1-1.8l1.8-3.2l1.6-1.9h2.1l1.9-1.1l0.2-2.3l-1.5-2.1l-0.3-1.5l1.1-2.1 v-1.5h-1.8l-1.8-0.8l-0.8-1.1l-0.2-2.6l5.8-5.5l0.6-0.8l1.5-2.9l2.9-4.5l2.7-3.7l2.1-2.4l2.4-1.8l3.1-1.2l5.5-1.3l3.2,0.2l4.5-1.5 l7.6-2.1l0.5,5l2.4,6.5l0.8,5.2l-1,3.9l2.6,4.5l0.8,2.1l-0.8,2.9l2.9,1.3l0.6,0.3l3.1,11l-0.5,5.1l-0.5,10.8l0.8,5.5l0.8,3.6 l1.5,7.3v8.1l-1.1,2.3l1.8,2l0.8,1.7l-1.9,1.8l0.3,1.3l1.3-0.3l1.5-1.3l2.3-2.6l1.1-0.6l1.6,0.6l2.3,0.2l7.9-3.9l2.9-2.7l1.3-1.5 l4.2,1.6l-3.4,3.6l-3.9,2.9l-7.1,5.3l-2.6,1l-5.8,1.9l-4,1.1l-1.2-0.5l-0.2-3.7l0.5-2.7l-0.2-2.1l-2.8-1.7l-4.5-1l-3.9-1.1 L828.9,189.3z">
-                    <title>New York</title>
+                    <title>New York{% if 'NY' in agents_in_states %}: {% for agent in agents_in_states.NY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="NY" x="800" y="165" class="stateName" hx-get="/get_companies/NY" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>New York</title>
+                    <title>New York{% if 'NY' in agents_in_states %}: {% for agent in agents_in_states.NY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     NY
                 </text>
                 <path id="OH" hx-get="/get_companies/OH" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M731.4,195l-6.1,4.1l-3.9,2.3l-3.4,3.7l-4,3.9l-3.2,0.8l-2.9,0.5l-5.5,2.6l-2.1,0.2l-3.4-3.1 l-5.2,0.6l-2.6-1.5l-2.4-1.4l-4.9,0.7l-10.2,1.6l-7.8,1.2l1.3,14.6l1.8,13.7l2.6,23.4l0.6,4.8l4.1-0.1l2.4-0.8l3.4,1.5l2.1,4.4 l5.1,0l1.9,2.1l1.8-0.1l2.5-1.3l2.5,0.4l2,1.5l1.7-2.1l2.3-1.3l2.1-0.7l0.6,2.7l1.8,1l3.5,2.3l2.2-0.1l1.1-1.1l-0.1-1.4l1.6-1.5 l0.2-5l1-3.9l1.5-1.4l1.5,0.9l0.8,1.2l1.2-0.2l-0.4-2.4l-0.6-0.6v-2.4l1-1.3l2.3-3.4l1.3-1.5l2.1,0.5l2.3-1.6l3.1-3.4l2.3-3.9 l0.2-5.4l0.5-5v-4.7l-1.1-3.1l1-1.5l0.9-1l-1.4-9.8L731.4,195z">
-                    <title>Ohio</title>
+                    <title>Ohio{% if 'OH' in agents_in_states %}: {% for agent in agents_in_states.OH %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="OH" x="685" y="245" class="stateName" hx-get="/get_companies/OH" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Ohio</title>
+                    <title>Ohio{% if 'OH' in agents_in_states %}: {% for agent in agents_in_states.OH %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     OH
                 </text>
                 <path id="OK" hx-get="/get_companies/OK" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M375.3,322.6l-10.7-0.5l-6.4-0.5l0.3,0.2l-0.7,10.4l22,1.4l32.1,1.3l-2.3,24.4l-0.5,17.8l0.2,1.6 l4.3,3.7l2.1,1.1l0.7-0.2l0.7-2.1l1.4,1.8h2.1v-1.4l2.7,1.4l-0.5,3.9l4.1,0.2l2.5,1.1l4.1,0.7l2.5,1.8l2.3-2.1l3.4,0.7l2.5,3.4h0.9 v2.3l2.3,0.7l2.3-2.3l1.8,0.7h2.5l0.9,2.5l4.8,1.8l1.4-0.7l1.8-4.1h1.1l1.1,2.1l4.1,0.7l3.7,1.4l3,0.9l1.8-0.9l0.7-2.5h4.3l2.1,0.9 l2.7-2.1h1.1l0.7,1.6h4.1l1.6-2.1l1.8,0.5l2.1,2.5l3.2,1.8l3.2,0.9l1.9,1.1l-0.4-37.2l-1.4-11l-0.2-8.9l-1.4-6.5l-0.8-7.2l-0.1-3.8 l-12.1,0.3l-46.4-0.5l-45-2.1L375.3,322.6z">
-                    <title>Oklahoma</title>
+                    <title>Oklahoma{% if 'OK' in agents_in_states %}: {% for agent in agents_in_states.OK %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="OK" x="442" y="364" class="stateName" hx-get="/get_companies/OK" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Oklahoma</title>
+                    <title>Oklahoma{% if 'OK' in agents_in_states %}: {% for agent in agents_in_states.OK %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     OK
                 </text>
                 <path id="OR" hx-get="/get_companies/OR" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M140.2,176.8l4.3-17.9l4.7-17.9l1.1-4.2l2.4-5.6l-0.6-1.2l-2.5,0l-1.3-1.7l0.5-1.5l0.5-3.2l4.5-5.5 l1.8-1.1l1.1-1.1l1.5-3.6l4-5.7l3.6-3.9l0.2-3.5l-3.3-2.5l-1.2-4.5l-13.2-3.7l-15.1-3.5l-15.4,0.1l-0.5-1.4l-5.5,2.1l-4.5-0.6 l-2.4-1.6l-1.3,0.7L99,84l-1.7-1.3l-5.3-2h-0.8l-4.3-1.4l-1.9,1.8l-6.2-0.3l-5.9-4.1l0.7-0.8l0.2-7.8l-2.3-3.9l-4.1-0.6 l-0.7-2.5l-2.4-0.5l-5.8,2.1l-2.3,6.5l-3.2,10l-3.2,6.5l-5,14.1l-6.5,13.6l-8.1,12.6l-1.9,2.9l-0.8,8.6l-1.3,6l2.7,3.5l6.7,2.3 l11.6,3.3l7.9,2.5l12.4,3.6l13.3,3.6l13.2,3.6">
-                    <title>Oregon</title>
+                    <title>Oregon{% if 'OR' in agents_in_states %}: {% for agent in agents_in_states.OR %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="OR" x="80" y="130" class="stateName" hx-get="/get_companies/OR" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Oregon</title>
+                    <title>Oregon{% if 'OR' in agents_in_states %}: {% for agent in agents_in_states.OR %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     OR
                 </text>
                 <path id="PA" hx-get="/get_companies/PA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M822.2,226.3l1.1-0.6l2.3-0.6l1.5-2.7l1.6-2.3l3.2-3.1v-0.8l-2.4-1.6l-3.6-2.4l-1-2.6l-2.7-0.3 l-0.2-1.1l-0.8-2.7l2.3-1.1l0.2-2.4l-1.3-1.3l0.2-1.6l1.9-3.1v-3.1l2.3-2.4l0.2-1.1l-2.6-0.2l-2.3-1.9l-2.4-5.3l-3-0.9l-2.3-2.1 l-18.6,4l-43,8.7l-8.9,1.5l-0.5-7.1l-5.5,5.6l-1.3,0.5l-4.2,3l2.9,19.1l2.9,9.5l3.6,19.3l3.3-0.6l11.9-1.5l37.9-7.7l14.9-2.8 l8.3-1.6l0.3-0.2l2.1-1.6L822.2,226.3z">
-                    <title>Pennsylvania</title>
+                    <title>Pennsylvania{% if 'PA' in agents_in_states %}: {% for agent in agents_in_states.PA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="PA" x="770" y="215" class="stateName" hx-get="/get_companies/PA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Pennsylvania</title>
+                    <title>Pennsylvania{% if 'PA' in agents_in_states %}: {% for agent in agents_in_states.PA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     PA
                 </text>
                 <path id="RI" hx-get="/get_companies/RI" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M874.1,179.8l-0.5-4.2l-0.8-4.4l-1.7-5.9l5.7-1.5l1.6,1.1l3.4,4.4l2.9,4.4l-2.9,1.5l-1.3-0.2 l-1.1,1.8l-2.4,1.9L874.1,179.8z">
-                    <title>Rhode Island</title>
+                    <title>Rhode Island{% if 'RI' in agents_in_states %}: {% for agent in agents_in_states.RI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="RI" x="880" y="192" class="stateName" hx-get="/get_companies/RI" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Rhode Island</title>
+                    <title>Rhode Island{% if 'RI' in agents_in_states %}: {% for agent in agents_in_states.RI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     RI
                 </text>
                 <path id="SC" hx-get="/get_companies/SC" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M761.2,412.9l-1.8,1l-2.6-1.3l-0.6-2.1l-1.3-3.6l-2.3-2.1l-2.6-0.6l-1.6-4.8l-2.7-6l-4.2-1.9 l-2.1-1.9l-1.3-2.6L736,385l-2.3-1.3l-2.3-2.9l-3.1-2.3l-4.5-1.8l-0.5-1.5l-2.4-2.9l-0.5-1.5l-3.4-5.2l-3.4,0.2l-4-2.4l-1.3-1.3 l-0.3-1.8l0.8-1.9l2.3-1l-0.3-2.1l6.1-2.6l9.1-4.5l7.3-0.8l16.5-0.5l2.3,1.9l1.6,3.2l4.4-0.5l12.6-1.5l2.9,0.8l12.6,7.6l10.1,8.1 l-5.4,5.5l-2.6,6.1l-0.5,6.3l-1.6,0.8l-1.1,2.7l-2.4,0.6l-2.1,3.6l-2.7,2.7l-2.3,3.4l-1.6,0.8l-3.6,3.4l-2.9,0.2l1,3.2l-5,5.5 L761.2,412.9z">
-                    <title>South Carolina</title>
+                    <title>South Carolina{% if 'SC' in agents_in_states %}: {% for agent in agents_in_states.SC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="SC" x="745" y="380" class="stateName" hx-get="/get_companies/SC" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>South Carolina</title>
+                    <title>South Carolina{% if 'SC' in agents_in_states %}: {% for agent in agents_in_states.SC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     SC
                 </text>
                 <path id="SD" hx-get="/get_companies/SD" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M472.8,203.2l-1-1.1l-1.5-3.6l1.8-3.7l1.1-5.6l-2.6-2.1l-0.3-2.7l0.6-3l2.2-0.8l0.3-5.7l-0.1-30.1 l-0.6-3l-4.1-3.6l-1-2v-1.9l1.9-1.3l1.5-1.9l0.2-2.7l-57.4-1.6l-56.2-3.9l-0.8,5.3l-1.6,15.9l-1.3,17.9l-1.6,24.6l16,1l19.6,1.1 l18,1.3l23.8,1.3l10.7-0.8l2.9,2.3l4.3,3l1,0.8l3.5-0.9l4-0.3l2.7-0.1l3.1,1.2l4.5,1.4l3.1,1.8l0.6,1.9l0.9,1.9l0.7-0.5 L472.8,203.2z">
-                    <title>South Dakota</title>
+                    <title>South Dakota{% if 'SD' in agents_in_states %}: {% for agent in agents_in_states.SD %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="SD" x="404" y="165" class="stateName" hx-get="/get_companies/SD" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>South Dakota</title>
+                    <title>South Dakota{% if 'SD' in agents_in_states %}: {% for agent in agents_in_states.SD %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     SD</text>
                 <path id="TN" hx-get="/get_companies/TN" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M697.1,320.6l-51.9,5l-15.8,1.8l-4.6,0.5l-3.9,0v3.9l-8.4,0.5l-7,0.6l-11.1,0.1l-0.3,5.8l-2.1,6.3 l-1,3l-1.3,4.4l-0.3,2.6l-4,2.3l1.5,3.6l-1,4.4l-1,0.8l7.3-0.2l24.1-1.9l5.3-0.2l8.1-0.5l27.8-2.6l10.2-0.8l8.4-1l8.4-1.1l4.8-0.8 l-0.1-4.5l1.8-1.5l2.7-0.6l0.6-3.7l4.2-2.7l3.9-1.5l4.2-3.6l4.4-2.1l0.9-3.5l4.3-3.9l0.6-0.2c0,0,0,1.1,0.8,1.1s1.9,0.3,1.9,0.3 l2.3-3.6l2.1-0.6l2.3,0.3l1.6-3.6l2.1-2.2l0.6-1l0.2-3.9l-1.5-0.3l-2.4,1.9l-7.9,0.2l-12,1.9L697.1,320.6z">
-                    <title>Tennessee</title>
+                    <title>Tennessee{% if 'TN' in agents_in_states %}: {% for agent in agents_in_states.TN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="TN" x="640" y="350" class="stateName" hx-get="/get_companies/TN" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Tennessee</title>
+                    <title>Tennessee{% if 'TN' in agents_in_states %}: {% for agent in agents_in_states.TN %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     TN
                 </text>
                 <path id="TX" hx-get="/get_companies/TX" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M357.1,333.4l22.7,1.1l31.1,1.1l-2.3,23.5l-0.3,18.2l0.1,2.1l4.3,3.8l1.7,0.8l1.8,0.3l0.7-1.3 l0.9,0.9l1.7,0.5l1.6-0.7l1.1,0.4l-0.3,3.4l4.3,1l2.7,0.8l4,0.5l2.2,1.8l3.2-1.6l2.8,0.4l2,2.8l1.1,0.3l-0.2,2l3.1,1.2l2.8-1.8 l1.5,0.4l2.4,0.2l0.4,1.9l4.6,2l2.7-0.2l2-4.1h0.3l1.1,1.9l4.4,1l3.3,1.2l3.3,0.8l2.1-0.8l0.8-2.5h3.7l1.9,0.8l3.1-1.6h0.7l0.4,1.1 h4.3l2.4-1.3l1.7,0.3l1.4,1.9l2.9,1.7l3.5,1.1l2.7,1.4l2.4,1.6l3.3-0.9l1.9,1l0.5,10.1l0.3,9.7l0.7,9.5l0.5,4l2.7,4.6l1.1,4.1 l3.9,6.3l0.5,2.9l0.5,1l-0.7,7.5l-2.7,4.4l1,2.9l-0.4,2.5l-0.8,7.3l-1.4,2.7l0.6,4.4l-5.7,1.6l-9.9,4.5l-1,1.9l-2.6,1.9l-2.1,1.5 l-1.3,0.8l-5.7,5.3l-2.7,2.1l-5.3,3.2l-5.7,2.4l-6.3,3.4l-1.8,1.5l-5.8,3.6l-3.4,0.6l-3.9,5.5l-4,0.3l-1,1.9l2.3,1.9l-1.5,5.5 l-1.3,4.5l-1.1,3.9l-0.8,4.5l0.8,2.4l1.8,7l1,6.1l1.8,2.7l-1,1.5l-3.1,1.9l-5.7-3.9l-5.5-1.1l-1.3,0.5l-3.2-0.6l-4.2-3.1l-5.2-1.1 l-7.6-3.4l-2.1-3.9l-1.3-6.5l-3.2-1.9l-0.6-2.3l0.6-0.6l0.3-3.4l-1.3-0.6l-0.6-1l1.3-4.4l-1.6-2.3l-3.2-1.3l-3.4-4.4l-3.6-6.6 l-4.2-2.6l0.2-1.9l-5.3-12.3l-0.8-4.2l-1.8-1.9l-0.2-1.5l-6-5.3l-2.6-3.1v-1.1l-2.6-2.1l-6.8-1.1l-7.4-0.6l-3.1-2.3l-4.5,1.8 l-3.6,1.5l-2.3,3.2l-1,3.7l-4.4,6.1l-2.4,2.4l-2.6-1l-1.8-1.1l-1.9-0.6l-3.9-2.3v-0.6l-1.8-1.9l-5.2-2.1l-7.4-7.8l-2.3-4.7v-8.1 l-3.2-6.5l-0.5-2.7l-1.6-1l-1.1-2.1l-5-2.1l-1.3-1.6l-7.1-7.9l-1.3-3.2l-4.7-2.3l-1.5-4.4l-2.6-2.9l-1.9-0.5l-0.6-4.7l8,0.7l29,2.7 l29.3,1.6l2.3-23.8l3.9-55.6l1.6-18.7l1.4,0 M457.2,567.3l-0.6-7.1l-2.7-7.2l-0.6-7l1.5-8.2l3.3-6.9l3.5-5.4l3.2-3.6l0.6,0.2 l-4.8,6.6l-4.4,6.5l-2,6.6l-0.3,5.2l0.9,6.1l2.6,7.2l0.5,5.2l0.2,1.5L457.2,567.3z">
-                    <title>Texas</title>
+                    <title>Texas{% if 'TX' in agents_in_states %}: {% for agent in agents_in_states.TX %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="TX" x="410" y="460" class="stateName" hx-get="/get_companies/TX" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Texas</title>
+                    <title>Texas{% if 'TX' in agents_in_states %}: {% for agent in agents_in_states.TX %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     TX
                 </text>
                 <path id="UT" hx-get="/get_companies/UT" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M253,309.3l-24.6-3.5l-26.6-4.9l-33.8-6l1.6-9.2l3.2-15.2L176,254l2.2-13.6l1.9-8.9l3.8-20.5 l3.5-17.5l1.1-5.6l12.7,2.3l12,2.1l10.3,1.8l8.3,1.4l3.7,0.5l-1.5,10.6l-2.3,13.2l7.8,0.9l16.4,1.8l8.2,0.9l-2.1,22l-3.2,22.6 l-3.8,27.8l-1.7,11.1L253,309.3z">
-                    <title>Utah</title>
+                    <title>Utah{% if 'UT' in agents_in_states %}: {% for agent in agents_in_states.UT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="UT" x="205" y="265" class="stateName" hx-get="/get_companies/UT" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Utah</title>
+                    <title>Utah{% if 'UT' in agents_in_states %}: {% for agent in agents_in_states.UT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     UT
                 </text>
                 <path id="VA" hx-get="/get_companies/VA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M828.9,269.2l-0.1-1.9l6.5-2.5l-0.8,3.2l-2.9,3.8l-0.4,4.6l0.5,3.4l-1.8,5l-2.2,1.9l-1.5-4.6 l0.4-5.4l1.6-4.2L828.9,269.2z M831.2,297.5L773,310.1l-37.4,5.3l-6.7-0.4l-2.6,1.9l-7.3,0.2l-8.4,1l-8.9,1l8.5-4.9l0-2.1 l1.5-2.1l10.6-11.5l3.9,4.5l3.8,1l2.5-1.1l2.2-1.3l2.5,1.3l3.9-1.4l1.9-4.6l2.6,0.5l2.9-2.1l1.8,0.5l2.8-3.7l0.3-2.1l-1-1.3l1-1.9 l5.3-12.3l0.6-5.7l1.2-0.5l2.2,2.4l3.9-0.3l1.9-7.6l2.8-0.6l1-2.7l2.6-2.3l1.3-2.3l1.5-3.4l0.1-5.1l9.8,3.8 c0.7,0.3,0.7-4.8,0.7-4.8l4.1,1.4l-0.5,2.6l8.2,2.9l1.3,1.8l-0.9,3.7l-1.3,1.3l-0.5,1.7l0.5,2.4l2,1.3l3.9,1.4l2.9,1l4.9,0.9 l2.2,2.1l3.2,0.4l0.9,1.2l-0.4,4.7l1.4,1.1l-0.5,1.9l1.2,0.8l-0.2,1.4l-2.7-0.1l0.1,1.6l2.3,1.5l0.1,1.4l1.8,1.8l0.5,2.5l-2.6,1.4 l1.6,1.5l5.8-1.7L831.2,297.5z">
-                    <title>Virginia</title>
+                    <title>Virginia{% if 'VA' in agents_in_states %}: {% for agent in agents_in_states.VA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="VA" x="770" y="290" class="stateName" hx-get="/get_companies/VA" hx-target="#info-box" hx-trigger="click" cursor="default">
-                    <title>Virginia</title>
+                    <title>Virginia{% if 'VA' in agents_in_states %}: {% for agent in agents_in_states.VA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                     VA
                 </text>
                 <path id="VT" hx-get="/get_companies/VT" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M844.3,153.7l-0.8-5.7l-2.4-10l-0.6-0.3l-2.9-1.3l0.8-2.9l-0.8-2.1l-2.7-4.6l1-3.9l-0.8-5.2 l-2.4-6.5l-0.8-4.9l26.2-6.7l0.3,5.8l1.9,2.7v4l-3.7,4l-2.6,1.1v1.1l1.1,1.8v8.6l-0.8,9.2l-0.2,4.8l1,1.3l-0.2,4.5l-0.5,1.8 l0.7,1.6l-7,1.4L844.3,153.7z">
-                    <title>Vermont</title>
+                    <title>Vermont{% if 'VT' in agents_in_states %}: {% for agent in agents_in_states.VT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="VT" x="830" y="100" class="stateName" hx-get="/get_companies/VT" hx-target="#info-box" hx-trigger="click" cursor="default">
                     VT
-                    <title>Vermont</title>
+                    <title>Vermont{% if 'VT' in agents_in_states %}: {% for agent in agents_in_states.VT %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
                 <path id="WA" hx-get="/get_companies/WA" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M93.6,6.4l4.4,1.5l9.7,2.7l8.6,1.9l20,5.7l23,5.7l15.2,3.4l-1,3.9l-4.1,13.8l-4.5,20.8 l-3.2,16.1l-0.4,9.4l-13.2-3.9l-15.6-3.4l-13.7,0.6l-1.6-1.5l-5.3,1.9l-4-0.3l-2.7-1.8l-1.6,0.5l-4.2-0.2l-1.9-1.4l-4.8-1.7 l-1.4-0.2l-5-1.3l-1.8,1.5l-5.7-0.3l-4.8-3.8l0.2-0.8l0.1-7.9l-2.1-3.9l-4.1-0.7l-0.4-2.4l-2.5-0.6l-2.9-0.5l-1.8,1l-2.3-2.9 l0.3-2.9l2.7-0.3l1.6-4l-2.6-1.1l0.2-3.7l4.4-0.6l-2.7-2.7l-1.5-7.1l0.6-2.9v-7.9l-1.8-3.2l2.3-9.4l2.1,0.5l2.4,2.9l2.7,2.6 l3.2,1.9l4.5,2.1l3.1,0.6l2.9,1.5l3.4,1l2.3-0.2v-2.4l1.3-1.1l2.1-1.3l0.3,1.1l0.3,1.8l-2.3,0.5l-0.3,2.1l1.8,1.5l1.1,2.4l0.6,1.9 l1.5-0.2l0.2-1.3l-1-1.3l-0.5-3.2l0.8-1.8l-0.6-1.5V19l1.8-3.6l-1.1-2.6l-2.4-4.8l0.3-0.8L93.6,6.4z M84.1,12.3l2-0.2 l0.5,1.4l1.5-1.6h2.3l0.8,1.5l-1.5,1.7l0.6,0.8l-0.7,2l-1.4,0.4c0,0-0.9,0.1-0.9-0.2s1.5-2.6,1.5-2.6l-1.7-0.6l-0.3,1.5l-0.7,0.6 l-1.5-2.3L84.1,12.3z">
-                    <title>Washington</title>
+                    <title>Washington{% if 'WA' in agents_in_states %}: {% for agent in agents_in_states.WA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="WA" x="100" y="60" class="stateName" hx-get="/get_companies/WA" hx-target="#info-box" hx-trigger="click" cursor="default">
                     WA
-                    <title>Washington</title>
+                    <title>Washington{% if 'WA' in agents_in_states %}: {% for agent in agents_in_states.WA %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
                 <path id="WI" hx-get="/get_companies/WI" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M612.9,197.2l0.4-3l-1.6-4.5l-0.6-6.1l-1.1-2.4l1-3.1l0.8-2.9l1.5-2.6l-0.6-3.4l-0.6-3.6l0.5-1.8 l1.9-2.4l0.2-2.7l-0.8-1.3l0.6-2.6l0.5-3.2l2.7-5.7l2.9-6.8l0.2-2.3l-0.3-1l-0.8,0.5l-4.2,6.3l-2.7,4l-1.9,1.8l-0.8,2.3l-1.5,0.8 l-1.1,1.9l-1.5-0.3l-0.2-1.8l1.3-2.4l2.1-4.7l1.8-1.6l1.1-2.3l-1.6-0.9l-1.4-1.4l-1.6-10.3l-3.7-1.1l-1.4-2.3l-12.6-2.7l-2.5-1.1 l-8.2-2.3l-8.2-1.1l-4.2-5.4l-0.5,1.3l-1.1-0.2l-0.6-1.1l-2.7-0.8l-1.1,0.2l-1.8,1l-1-0.6l0.6-1.9l1.9-3.1l1.1-1.1l-1.9-1.5 l-2.1,0.8l-2.9,1.9l-7.4,3.2l-2.9,0.6l-2.9-0.5l-1-0.9l-2.1,2.8l-0.2,2.7v8.5l-1.1,1.6l-5.3,3.9l-2.3,5.9l0.5,0.2l2.5,2.1l0.7,3.2 l-1.8,3.2v3.9l0.5,6.6l3,3h3.4l1.8,3.2l3.4,0.5l3.9,5.7l7.1,4.1l2.1,2.7l0.9,7.4l0.7,3.3l2.3,1.6l0.2,1.4l-2.1,3.4l0.2,3.2l2.5,3.9 l2.5,1.1l3,0.5l1.3,1.4l9.2,0l26.1-1.5L612.9,197.2z">
-                    <title>Wisconsin</title>
+                    <title>Wisconsin{% if 'WI' in agents_in_states %}: {% for agent in agents_in_states.WI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="WI" x="565" y="165" class="stateName" hx-get="/get_companies/WI" hx-target="#info-box" hx-trigger="click" cursor="default">
                     WI
-                    <title>Wisconsin</title>
+                    <title>Wisconsin{% if 'WI' in agents_in_states %}: {% for agent in agents_in_states.WI %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
                 <path id="WV" hx-get="/get_companies/WV" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M756.4,242.2l1.1,4.9l1.1,6.9l3.6-2.7l2.3-3.1l2.5-0.6l1.5-1.5l1.8-2.6l1.2,0.6l2.9-0.3l2.6-2.1 l2-1.5l1.8-0.5l1.3,1l2.2,1.1l1.9,1.8l1.4,1.3l-0.1,4.7l-5.7-3.1l-4.5-1.8l-0.2,5.3l-0.5,2.1l-1.6,2.7l-0.6,1.6l-3.1,2.4l-0.5,2.3 l-3.4,0.3l-0.3,3.1l-1.1,5.5h-2.6l-1.3-0.8l-1.6-2.7l-1.8,0.2l-0.3,4.4l-2.1,6.6l-5,10.8l0.8,1.3l-0.2,2.7l-2.1,1.9l-1.5-0.3 l-3.2,2.4l-2.6-1l-1.8,4.7c0,0-3.7,0.8-4.4,1c-0.6,0.2-2.4-1.3-2.4-1.3l-2.4,2.3l-2.6,0.6l-2.9-0.8l-1.3-1.3l-2.2-3l-3.1-2 l-2.6-2.7l-2.9-3.7l-0.6-2.3l-2.6-1.5l-0.8-1.6l-0.2-5.3l2.2-0.1l1.9-0.8l0.2-2.7l1.6-1.5l0.2-5l1-3.9l1.3-0.6l1.3,1.1l0.5,1.8 l1.8-1l0.5-1.6l-1.1-1.8v-2.4l1-1.3l2.3-3.4l1.3-1.5l2.1,0.5l2.3-1.6l3.1-3.4l2.3-3.9l0.3-5.7l0.5-5v-4.7l-1.1-3.1l1-1.5l1.3-1.3 l3.5,19.8l4.6-0.8L756.4,242.2z">
-                    <title>West Virginia</title>
+                    <title>West Virginia{% if 'WV' in agents_in_states %}: {% for agent in agents_in_states.WV %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="WV" x="725" y="275" class="stateName" hx-get="/get_companies/WV" hx-target="#info-box" hx-trigger="click" cursor="default">
                     WV
-                    <title>West Virginia</title>
+                    <title>West Virginia{% if 'WV' in agents_in_states %}: {% for agent in agents_in_states.WV %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
                 <path id="WY" hx-get="/get_companies/WY" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3" d="M354.3,143.8l-10.5-0.8l-32.1-3.3l-16.2-2.1l-28.3-4.1l-19.9-3l-1.4,11.2l-3.8,24.3l-5.3,30.4 l-1.5,10.5l-1.7,11.9l6.5,0.9l25.9,2.5l20.6,2.3l36.8,4.1l23.8,2.9l4.5-44.2l1.4-25.4L354.3,143.8z">
-                    <title>Wyoming</title>
+                    <title>Wyoming{% if 'WY' in agents_in_states %}: {% for agent in agents_in_states.WY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </path>
                 <text id="WY" x="280" y="190" class="stateName" hx-get="/get_companies/WY" hx-target="#info-box" hx-trigger="click" cursor="default">
                     WY
-                    <title>Wyoming</title>
+                    <title>Wyoming{% if 'WY' in agents_in_states %}: {% for agent in agents_in_states.WY %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
                 <circle id="DC" hx-get="/get_companies/DC" hx-target="#info-box" hx-trigger="click" hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#FFFFFF" stroke-width="1.5" cx="901.3" cy="251.8" r="8">
-                    <title>Washington D.C.</title>
+                    <title>Washington D.C.{% if 'DC' in agents_in_states %}: {% for agent in agents_in_states.DC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </circle>
                 <text id="DC" x="920" y="257" class="stateName" hx-get="/get_companies/DC" hx-target="#info-box" hx-trigger="click" cursor="default">
                     DC
-                    <title>Washington D.C.</title>
+                    <title>Washington D.C.{% if 'DC' in agents_in_states %}: {% for agent in agents_in_states.DC %}{{ agent }}, {% endfor %}
+                        {% endif %}</title>
                 </text>
         </g>
             <!-- This is the frame for alaska and hawaii -->
@@ -732,7 +836,7 @@
             </p>
         </div>
         <div class="redirect-button-container">
-        <button 
+        <button
             id="quoting-engine-button"
             class="redirect-button preload"
             onclick="window.open('https://www.insurancetoolsportal.com/securecare65/auth/signin', '_blank')"
@@ -745,7 +849,7 @@
             <!-- This button is probably useless since the agents all know the radius bob website lmao -->
             <!-- Gonna keep this in here for the new hires and people who forget the url -->
         <button
-            id="radiusbob-button"  
+            id="radiusbob-button"
             class="redirect-button preload"
             onclick="window.open('https://securecare65.radiusbob.com', '_blank')"
             Title="RadiusBob: https://securecare65.radiusbob.com"
@@ -760,7 +864,7 @@
             id="sircon-button"
             class="redirect-button preload"
             onclick="window.open('https://www.sircon.com/login.jsp', '_blank')"
-            Title="Sircon: https://www.sircon.com/login.jsp"    
+            Title="Sircon: https://www.sircon.com/login.jsp"
         >
             Sircon
         </button>
@@ -807,12 +911,12 @@
             document.getElementById("pdfIframe").src = "";
             modal.style.display = "none";
         }
-    
+
         // when the user clicks on the map, we want to change the background color of the new-company child divs
         function ColorCodeCompanies() {
             console.log("Updating company colors");
             // Define the color mapping, Huge Dictionary of Dicts to map color to company to state
-            // Example: colorMapping["Alabama"]["Aetna"] = "green"    
+            // Example: colorMapping["Alabama"]["Aetna"] = "green"
             const colorMapping = {
             "Alabama": {
                 "AARP": "green",
@@ -1129,7 +1233,7 @@
                 "Medico": "grey",
                 "Mutual of Omaha": "#8576FF",
                 "WPS Health Insurance": "green"
-            }, 
+            },
             "Montana": {
                 "AARP": "green",
                 "Ace Chubb": "grey",
@@ -1519,8 +1623,8 @@
                 // If lastColor contains non-numeric characters (other than commas and periods), remove them
                 lastColor = lastColor.replace(/[^0-9.,]/g, ''); // Regex Magicka
             }
-            
-            // If the last color is empty use the default green color I like, else format the lastColor 
+
+            // If the last color is empty use the default green color I like, else format the lastColor
             lastColor = lastColor === '' ? [43, 177, 100] : lastColor.split(',').map(Number);
 
             //Get the last width of the health bar from the .LastHPWidth class
@@ -1662,13 +1766,13 @@
         // add an event listener for the htmx:afterSwap event
         // Basically whenever we pull up the company information, Mainly used for the color coding for HouseHold Discounts
         document.body.addEventListener('htmx:afterSwap', function(event) {
-            
+
             // Reset the scroll position to the top of the container
             resetScroll();
-            
+
             // Lerp the header color
             setTimeout(HeaderLerp, 80);
-                        
+
             // Get all the new-company divs
             let companies = document.getElementsByClassName('new-company');
             // If there are companies, update their colors
@@ -1693,7 +1797,7 @@
             // Return the new color
             return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
         }
-        
+
         // on window load, update the state colors
         window.onload = function () {
             // Grabs all elements with the class tag "preload" and removes that extra tag
@@ -1720,30 +1824,30 @@
                     // Log the licensed state and color
                     console.log("Licensed State: " + state) // Log this shit Quay
                     console.log("Updated Color: " + color) // Log This shit Quay
-                    
+
                     // Apply the color to the element
                     element.style.fill = color;
-                    
+
                     // Add a mouseover and mouseout event listener
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
                         console.log("Mouseover Licensed State: " + element.id + " - " + color);
-                        
+
                         // Darken the color by 20% on hover and apply styling
                         element.style.fill = darkenColor(color, -16); // Darken the color
                         element.style.strokeWidth = '2px'; // Set the line width to 2px
                         element.style.strokeLinejoin = 'round'; // Set the Stroke line join to round
                         element.style.transition = 'fill 850ms'; // transition effect
-                        
+
                         // If the element has class "stateName", also change the style of the corresponding path
                         if (element.classList.contains('stateName')) {
                             // Log the mouseover event
                             console.log("Mouseover Licensed State Name: " + element.id + " - " + color);
-                            
+
                             // get the path or circle element with the same id
                             let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
                             let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                            
+
                             // If the path or circle exists, change its style
                             if (path || circle) {
                                 // Get the target element
@@ -1753,32 +1857,32 @@
                                 target.style.fill = darkenColor(color, -16); // Darken the color by 20%
                                 target.style.transition = 'fill 850ms';  // Set the transition to 850ms
                             }
-                            
+
                             // Keep the color of the text black on hover
                             element.style.fill = '#000000'; // Black as my soul
                         }
                     });
-                    
+
                     // Add a mouseout event listener
                     element.addEventListener('mouseout', function() {
                         // Log the mouseout event
                         console.log("Mouseout Licensed State: " + element.id + " - " + color);
-                        
+
                         // Reset the color on mouseout and remove styling
                         element.style.fill = color; // Reset the color
                         element.style.strokeWidth = ''; // Set the stroke width to nothing
                         element.style.strokeLinejoin = ''; // Set the stroke line join to nothing
                         element.style.transition = 'fill 850ms'; // Set the transition to 850ms
-                        
+
                         // If the element has class "stateName", also reset the style of the corresponding path
                         if (element.classList.contains('stateName')) {
                             // Log the mouseout event
                             console.log("Mouseout Licensed State Name: " + element.id + " - " + color)
-                            
+
                             // get the path or circle element with the same id
                             let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
                             let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                            
+
                             // If the path or circle exists, reset its style
                             if (path || circle) {
                                 let target = path ? path : circle;
@@ -1791,11 +1895,11 @@
                             element.style.fill = '#000000'; // Black as my soul
                         }
                     });
-                } 
+                }
                 else {
                     // Log the non-licensed state
                     console.log("Non-Licensed State: " + state) // Log that shite Quay
-                    
+
                     // If it's not, apply a default color and hover effect
                     if (!element.classList.contains('stateName')) {
                         // Apply the default color and styling
@@ -1807,12 +1911,12 @@
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
                         console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
-                        
+
                         // If the element has class "stateName", keep its color black on hover
                         if (element.classList.contains('stateName')) {
                             // Log the mouseover event
                             console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
-                            
+
                             // get the path or circle element with the same id
                             let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
                             let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
@@ -1840,19 +1944,19 @@
                         element.style.strokeWidth = ''; // Set the stroke width to nothing
                         element.style.strokeLinejoin = ''; // Set the stroke line join to nothing
                         element.style.transition = 'fill 850ms'; // Set the transition to 850ms
-                        
+
                         // Log the mouseout event
                         console.log("Mouseout Unlicensed State:" + element.id + " - #CCCCCC"); // Log that shit quay
-                        
+
                         // If the element has class "stateName", keep its color black when the mouse is no longer hovering over it
                         if (element.classList.contains('stateName')) {
                             // Log the mouseout event
                             console.log("Mouseout Unlicensed State Name: " + element.id + " - #CCCCCC");
-                            
+
                             // get the path or circle element with the same id
                             let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
                             let circle = document.querySelector('circle[id="' + element.getAttribute('id') + '"]');
-                            
+
                             // If the path or circle exists, reset its style
                             if (path || circle) {
                                 let target = path ? path : circle;
