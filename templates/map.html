@@ -10,371 +10,343 @@
     <title>Agent Map</title> <!-- Title of the page -->
     <link rel="shortcut icon" href="https://securecare65.com/wp-content/uploads/2018/06/favicon.ico">
 </head>
-<style>
-    /* I Hate CSS, Sorry whoever has to make this thing look pretty */
-    /* Styling for the logout button form */
-    .logout-button-form {
-        position: absolute;
-        top: 16px;
-        left: 1864px;
-    }
+    <style>
+        .main-container {
+            display: flex;
+            flex-direction: column;
+            z-index: 1;
+            font-family: lucida sans unicode, serif;
+            border-radius: 20px;
+            height: 60vh;
+        }
+        
+        .horizontal-container {
+            display: flex;
+            flex-direction: row;
+            flex-grow: 1;
+            background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
+            background-clip: border-box;
+            border: 2px solid black;
+            border-radius: 20px;
+        }
+        
+        .map-container {
+            position: relative;
+            width: 50vw;
+        }
+        
+        .map {
+            flex: 1;
+            padding: 1vh 1vw;
+        }
+        
+        .stateName {
+            font-size: 1.2em;
+            font-weight: bold;
+            fill: rgba(16, 15, 15, 0.8);
+            cursor: pointer;
+        }
+        
+        .info-box-container {
+            position: relative;
+            width: 50vw;
+            height: 62vh;
+            padding: 2vh 0 2.5vh 0;
+            border-left: 2px solid black;
+        }
+        
+        .info-box-contents {
+            padding: 1vw;
+            overflow-y: auto;
+            overflow-x: hidden;
+            height: calc(94% - 2vw);
+        }
+        
+        /* Container for the List of Companies */
+        .new-company-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: .5vw;
+            justify-items: center;
+            align-items: center;
+            }
 
-    /* Styling for the logout button */
-    .logout-button {
-        border-radius: 10px;
-        border: 2px solid #000;
-        transition: 450ms ease-in-out;  /* Trying out 450 rn */
-    }
-
-    /* Styling for the logout button hover effect */
-    .logout-button:hover {
-        background-color: #ff0000;
-        color: #fff;
-        transition: 450ms ease-in-out;
-    }
-
-    /* Styling for the logout button preload */
-    .logout-button.preload {
-        transition: none !important;
-    }
-
-    .health-bar {
-        transition: width 0.5s ease-in-out;
-    }
-
-     /* Container for the map and the info box */
-    .container{
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        height: 64vh;
-        border: 4px solid #000;
-        border-radius: 20px;
-        /* Stealing the background from the securecare website */
-        background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
-        background-clip: border-box;
-        padding: 3px;
-        z-index: 1;
-    }
-
-    /* The Map Content */
-    .map{
-        flex: 1;
-        padding: 10px;
-        height: 90.8%;
-    }
-
-    /* The Info Box Container */
-    .info-box-container{
-        flex: 1;
-        flex-direction: column;
-        padding: 16px 0 20px 0;
-        height: 92.6%;
-        font-family: lucida sans unicode, serif;
-        border-left: 4px solid #000;
-    }
-
-
-    /* The Info Box content */
-    .info-box-contents {
-        padding: 0 10px 0 10px;
-        overflow-y: auto;
-        overflow-x: hidden;
-        height: calc(100% - 25px);
-    }
-
-
-    /* This shit is not my best work but css is garbagio */
-    /* Redirect button container */
-    .redirect-button-container {
-        position: absolute;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        height: 5%;
-        left: 51%;
-        top: 675px;
-    }
-
-    /* Redirect button */
-    .redirect-button {
-        position: relative;
-        padding: 20px;
-        font-size: 30px;
-        width: 200px;
-        height: 100px;
-        border-radius: 10px;
-        transition: 650ms ease-in-out; /* lets keep this at 650 for rn */
-    }
-
-    /* Redirect button hover effect */
-    .redirect-button:hover {
-        background-color: #0691df;
-        color: #fff;
-        transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
-    }
-
-    /* Redirect button preload */
-    .redirect-button.preload {
-        transition: none !important;
-    }
-
-    /* scroll bar styling */
-    ::-webkit-scrollbar {
-        width: 16px;
-        height: 16px;
-    }
-
-    /* scroll bar thumb styling */
-    ::-webkit-scrollbar-thumb {
-        opacity: .15;
-        background: #808080aa;
-        background-clip: content-box;
-        border: 4px solid transparent;
-        border-radius: 8px;
-        -webkit-box-shadow: none;
-        box-shadow: none;
-    }
-
-    /* scroll bar thumb hover effect */
-    ::-webkit-scrollbar-thumb:hover,
-    ::-webkit-scrollbar-thumb:active {
-        background: #808080;
-        background-clip: content-box;
-        border: 4px solid transparent;
-    }
-
-    /* scroll bar track styling */
-    ::-webkit-scrollbar-track {
-        background: transparent;
-        border: none;
-    }
-
-    /* scroll bar track hover effect */
-    ::-webkit-scrollbar-track:hover {
-        background: rgba(128, 128, 128, .15);
-    }
-
-    /* scroll bar track styling */
-    ::-webkit-scrollbar-track:vertical:hover,
-    ::-webkit-scrollbar-track:horizontal:hover {
-        background: rgba(0, 0, 0, .15);
-    }
-
-    /* select scrollbar thumb */
-    select::-webkit-scrollbar-thumb {
-        border: 4px solid hsl(0 0% 92% / 1);
-    }
-
-    /* select scrollbar track */
-    select::-webkit-scrollbar-track {
-        background: hsl(0 0% 92% / 1);
-    }
-
-    /* The Modal (background) */
-    .modal {
-        display: none; /* Hidden by default */
-        position: fixed; /* Stay in place */
-        z-index: 1; /* Sit on top */
-        left: 50%; /* Line up the center of the modal */
-        top: 50%; /* Line up the center of the modal */
-        transform: translate(-50%, -50%); /* Center the modal */
-        width: 100%; /* Full width */
-        height: 100%; /* Full height */
-        overflow: auto; /* Enable scroll if needed */
-        background-color: rgb(0,0,0); /* Fallback color */
-        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+        /* styling for the company div */
+        .new-company {
+            width: 22vw;
+            height: 25vh;
         }
 
-    /* Modal Content */
-    /* CSS gives me brain rot */
-    .modal-content {
-        position: relative;
-        margin: auto;
-        padding: 0;
-        top: 2%;
-        width: 100%;
-        height: 100%;
-        max-width: 1200px;
-        max-height: 900px;
+        /* Styling for the company name */
+        .new-company h2 {
+            margin-top: .2vh;
+            margin-bottom: .2vh;
+            border-top: 2px;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
         }
 
-    /* The Close Button */
-    /* So much css, tiny little button */
-    .close {
-        color: #ff0000;
-        background-color: rgba(100, 93, 93, 0.82);
-        float: right;
-        font-size: 30px;
-        font-weight: bold;
-        border: 2px solid #000;
-        padding-left: 8px;
-        padding-right: 10px;
-        padding-top: 4px;
-        border-radius: 15px;
-        top: -5px;
-        z-index: 1;
-        position: relative;
-        transition: 450ms ease-in-out; /* Trying out 450 rn */
+        /* Styling for the button matrix */
+        /* Lets not touch anything to do with the button matrix
+        Im bit scared of how it will react */
+        .button-matrix {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: .5vw;
+            justify-items: center;
+            align-items: center;
+            padding: 0.1vw;
+            overflow-y: auto;
+            height: 18vh;
+            }
+
+        /* Styling for the buttons */
+        .button-matrix button {
+            text-align: center;
+            background-color: #0691df;
+            border: .2vw solid #000;
+            border-radius: 1vw;
+            transition: 450ms ease-in-out;  /* Trying out 450 rn */
+            }
+
+        /*Styling for the buttons hover effect */
+        .button-matrix button:hover {
+            background-color: #065887;
+            color: #fff;
+            transition: 450ms ease-in-out; /* Trying out 450 rn */
+            }
+
+        /* button-matrix preload */
+        .button-matrix.preload {
+            transition: none !important;
+        }
+        
+        /* Company EApp Redirect */
+        .company-app-redirect {
+            text-align: center;
+            background-color: #0691df;
+            border: 2px solid #000;
+            border-radius: 10px;
+            transition: 450ms ease-in-out;
+            font-size: 18px;
+            padding: 5px
         }
 
-    /* the Close Button Hover Effect */
-    .close:hover, .close:focus {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-        background-color: #ff0000;
-        transition: 450ms ease-in-out; /* Trying out 450 rn */
+        /* Company EApp Redirect Hover Effect */
+        .company-app-redirect:hover {
+            background-color: #065887;
+            color: #fff;
+            transition: 450ms ease-in-out;
         }
 
-    /* The Hover effect for the states 
-    path:hover, circle:hover {
-        display: inline-block;
-        stroke-width:2px;
-        stroke-linejoin: round;
-        fill: #065988 !important;
-        cursor: pointer;
+        /* Company EApp Redirect Preload */
+        .company-app-redirect.preload {
+            transition: none !important;
         }
-    */
-     
-    /* Change the font of the state names */
-    .stateName {
-        font-family: lucida sans unicode, serif;
-        font-size: 18px;
-        font-weight: bold;
-        fill: rgba(16, 15, 15, 0.8);
-        cursor: pointer;
+        
+        .extras-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            padding: 1vh 0;
         }
-
-    /* Container for the List of Companies */
-    .new-company-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-        justify-items: center;
-        align-items: center;
+        
+        .color-key-container {
+            width: 50vw;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1vh 0;
+            margin-top: 2vh;
+            margin-right: 1vw;
         }
-
-    /* styling for the company div */
-     .new-company {
-         width: 433px;
-         height: 200px;
-     }
-
-     /* Styling for the company name */
-     .new-company h2 {
-         margin-top: 4px;
-         margin-bottom: 4px;
-         border-top: 2px;
-         font-size: 20px;
-         font-weight: bold;
-         text-align: center;
-     }
-
-    /* Styling for the button matrix */
-    /* Lets not touch anything to do with the button matrix
-       Im bit scared of how it will react */
-    .button-matrix {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 10px;
-        justify-items: center;
-        align-items: center;
-        padding: 5px;
-        overflow-y: auto;
-        height: 150px;
+        
+        .color-key {
+            height: 7.5vh;
+            margin: 0.5vh 0.5vh 0.1vh 0.1vh;
+            word-wrap: break-word;
+            border: 0.2vw solid #000;
+            border-radius: 0.5vw;
+            padding: 0.5vh;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Redirect button */
+        .redirect-button {
+            position: relative;
+            padding: 20px;
+            font-size: 30px;
+            width: 200px;
+            height: 100px;
+            border-radius: 10px;
+            transition: 650ms ease-in-out; /* lets keep this at 650 for rn */
         }
 
-    /* Styling for the buttons */
-    .button-matrix button {
-        text-align: center;
-        background-color: #0691df;
-        border: 2px solid #000;
-        border-radius: 10px;
-        transition: 450ms ease-in-out;  /* Trying out 450 rn */
+        /* Redirect button hover effect */
+        .redirect-button:hover {
+            background-color: #0691df;
+            color: #fff;
+            transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
         }
 
-    /*Styling for the buttons hover effect */
-    .button-matrix button:hover {
-        background-color: #065887;
-        color: #fff;
-        transition: 450ms ease-in-out; /* Trying out 450 rn */
+        /* Redirect button preload */
+        .redirect-button.preload {
+            transition: none !important;
+        }
+        
+        .logout-container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            padding: 1vh 0;
+            position: absolute;
+            top: -.6vh;
+            right: .6vw;
+            font-weight: bold;
+            font-size: 1.6em;
+            gap: .5vw
+        }
+        
+        /* Styling for the logout button */
+        .logout-button {
+            border-radius: 10px;
+            border: 2px solid #000;
+            transition: 450ms ease-in-out;  /* Trying out 450 rn */
+        }
+        
+        /* Styling for the logout button hover effect */
+        .logout-button:hover {
+            background-color: #ff0000;
+            color: #fff;
+            transition: 450ms ease-in-out;
         }
 
-    /* button-matrix preload */
-    .button-matrix.preload {
-        transition: none !important;
-    }
-
-    /* Company EApp Redirect */
-    .company-app-redirect {
-        text-align: center;
-        background-color: #0691df;
-        border: 2px solid #000;
-        border-radius: 10px;
-        transition: 450ms ease-in-out;
-        font-size: 18px;
-        padding: 5px
-    }
-
-    /* Company EApp Redirect Hover Effect */
-    .company-app-redirect:hover {
-        background-color: #065887;
-        color: #fff;
-        transition: 450ms ease-in-out;
-    }
-
-    /* Company EApp Redirect Preload */
-    .company-app-redirect.preload {
-        transition: none !important;
-    }
-
-    /* Styling for the color key container */
-    .color-key-container {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        padding: 5px;
-        margin-top: 15px;
+        /* Styling for the logout button preload */
+        .logout-button.preload {
+            transition: none !important;
+        }
+        
+        /* The Modal (background) */
+        .modal {
+            display: none; /* Hidden by default */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Sit on top */
+            left: 50%; /* Line up the center of the modal */
+            top: 50%; /* Line up the center of the modal */
+            transform: translate(-50%, -50%); /* Center the modal */
+            width: 100%; /* Full width */
+            height: 100%; /* Full height */
+            overflow: auto; /* Enable scroll if needed */
+            background-color: rgb(0,0,0); /* Fallback color */
+            background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
         }
 
-    /* Styling for the color key */
-    .color-key {
-        height: 75px;
-        margin: 5px 5px 1px 1px;
-        word-wrap: break-word;
-        border: 2px solid #000;
-        border-radius: 10px;
-        padding: 5px;
-        text-align: center;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        /* Modal Content */
+        /* CSS gives me brain rot */
+        .modal-content {
+            position: relative;
+            margin: auto;
+            padding: 0;
+            top: 2%;
+            width: 100%;
+            height: 100%;
+            max-width: 1200px;
+            max-height: 900px;
+            }
+
+        /* The Close Button */
+        /* So much css, tiny little button */
+        .close {
+            color: #ff0000;
+            background-color: rgba(100, 93, 93, 0.82);
+            float: right;
+            font-size: 30px;
+            font-weight: bold;
+            border: 2px solid #000;
+            padding-left: 8px;
+            padding-right: 10px;
+            padding-top: 4px;
+            border-radius: 15px;
+            top: -5px;
+            z-index: 1;
+            position: relative;
+            transition: 450ms ease-in-out; /* Trying out 450 rn */
         }
-</style>
+
+        /* the Close Button Hover Effect */
+        .close:hover, .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+            background-color: #ff0000;
+            transition: 450ms ease-in-out; /* Trying out 450 rn */
+        }
+        /* scroll bar styling */
+        ::-webkit-scrollbar {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* scroll bar thumb styling */
+        ::-webkit-scrollbar-thumb {
+            opacity: .15;
+            background: #0691df;
+            background-clip: content-box;
+            border: 4px solid transparent;
+            border-radius: 8px;
+            -webkit-box-shadow: none;
+            box-shadow: none;
+        }
+
+        /* scroll bar thumb hover effect */
+        ::-webkit-scrollbar-thumb:hover,
+        ::-webkit-scrollbar-thumb:active {
+            background: rgba(6, 144, 221, 0.9);
+            background-clip: content-box;
+            border: 4px solid transparent;
+        }
+
+        /* scroll bar track styling */
+        ::-webkit-scrollbar-track {
+            background: transparent;
+            border: none;
+        }
+
+        /* scroll bar track hover effect */
+        ::-webkit-scrollbar-track:hover {
+            background: rgba(128, 128, 128, .15);
+        }
+
+        /* scroll bar track styling */
+        ::-webkit-scrollbar-track:vertical:hover,
+        ::-webkit-scrollbar-track:horizontal:hover {
+            background: rgba(0, 0, 0, .15);
+        }
+
+        /* select scrollbar thumb */
+        select::-webkit-scrollbar-thumb {
+            border: 4px solid hsl(0 0% 92% / 1);
+        }
+
+        /* select scrollbar track */
+        select::-webkit-scrollbar-track {
+            background: hsl(0 0% 92% / 1);
+        }
+    </style>
+</head>
 <body>
-<!-- the container for the map and info box -->
-<div class="container">
-    <!-- Logout button -->
-    <div style="position: absolute; top: 16px; left: 1700px; font-size: 24px;
-     font-family: lucida sans unicode,serif; font-weight: bold;">
-        {{ user.first_name }} {{ user.last_name }}
-    </div>
-    <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
-          method="POST" hx-trigger="click" title="Sign Out">
-        {% csrf_token %}
-        <button type="submit" class="logout-button preload" title="Sign Out">
-            <!-- Logout icon from hugeicons.com -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-                <path d="M11 3L10.3374 3.23384C7.75867 4.144 6.46928 4.59908 5.73464 5.63742C5 6.67576 5 8.0431 5 10.7778V13.2222C5 15.9569 5 17.3242 5.73464 18.3626C6.46928 19.4009 7.75867 19.856 10.3374 20.7662L11 21" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
-                <path d="M21 12L11 12M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-        </button>
-    </form>
-    <!-- The Map goes here -->
-    <div id="AgentMap" class="map">
+<div class="main-container">
+    <div class="horizontal-container">
+        <div class="map-container">
+            <div id="AgentMap" class="map">
         <!-- This is the start of the SVG map -->
         <svg viewBox="0 0 959 598" class="svg-states">
             <!-- Paths and Text for the states -->
@@ -739,9 +711,14 @@
             <!-- This is the frame for alaska and hawaii -->
             <path id="frames" pointer-events="none" fill="none" stroke="#A9A9A9" stroke-width="2" d="M 215 493 L 215 548 L 251 593 M -17.607 425 L 147 425 L 215 493 L 300 493 L 354 547 L 354 593"></path>
         </svg>
-
-        <!-- This is the container for the color legend that loads when the page loads. -->
-        <div id="color-legend-container" class="color-key-container">
+            </div>
+        </div>
+        <div id="info-box" class="info-box-container">
+            <!-- The Company Information will be loaded here when a user clicks a state -->
+        </div>
+    </div>
+    <div class="extras-container">
+        <div class="color-key-container">
             <p id="RM" class="color-key" style="background-color: grey; font-family: 'Lucida Sans Unicode', 'serif'">
                 RM - Shared Residence for at least 12 months with 1, but no more than 3 others, or married or legal relationship
             </p>
@@ -755,8 +732,6 @@
                 NONE - No Household Discount Policy
             </p>
         </div>
-        <!-- This is a button to redirect to the quoting engine -->
-        <!-- in  a new tab, No clue what else we can do with the quoting engine but im sure craig will tell me -->
         <div class="redirect-button-container">
         <button 
             id="quoting-engine-button"
@@ -778,45 +753,39 @@
         >
             RadiusBob
         </button>
-            <!-- This is the button to redirect to Sircon -->
-            <!-- At some point we will need to grab this url for a scraping bot -->
-            <!-- This bot will need to be able to log in to Sircon and scrape the agent licenses -->
-            <!-- Be cool if I can create a new agent if they are not in this backend yet -->
-            <button
-                id="sircon-button"
-                class="redirect-button preload"
-                onclick="window.open('https://www.sircon.com/login.jsp', '_blank')"
-                Title="Sircon: https://www.sircon.com/login.jsp"    
-            >
-                Sircon
-            </button>
+        <!-- This is the button to redirect to Sircon -->
+        <!-- At some point we will need to grab this url for a scraping bot -->
+        <!-- This bot will need to be able to log in to Sircon and scrape the agent licenses -->
+        <!-- Be cool if I can create a new agent if they are not in this backend yet -->
+        <button
+            id="sircon-button"
+            class="redirect-button preload"
+            onclick="window.open('https://www.sircon.com/login.jsp', '_blank')"
+            Title="Sircon: https://www.sircon.com/login.jsp"    
+        >
+            Sircon
+        </button>
         </div>
     </div>
-
-    <!-- This is the container for the company information that will be loaded when a user clicks on a state. -->
-    <div id="info-box" class="info-box-container">
-        <!-- The company information will be loaded here when a user clicks a state. -->
+</div>
+<!-- PDF Model -->
+<div id="PDFModal" class="modal" >
+    <!-- PDFModal content -->
+    <div class="modal-content">
+        <!-- close button -->
+        <span class="close" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
+                <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+        </span>
+        <!-- PDF iframe -->
+        <!-- The src of the iframe will be set by the openModal function -->
+        <iframe id="pdfIframe" style="will-change: transform; box-shadow: 0 0 20px rgba(0, 0, 0, 1);" src="" width="100%" height="800px"></iframe>
     </div>
-
-    <!-- PDF Model -->
-    <div id="PDFModal" class="modal" >
-        <!-- PDFModal content -->
-        <div class="modal-content">
-            <!-- close button -->
-            <span class="close" onclick="closeModal()">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none">
-                    <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-            </span>
-            <!-- PDF iframe -->
-            <!-- The src of the iframe will be set by the openModal function -->
-            <iframe id="pdfIframe" style="will-change: transform; box-shadow: 0 0 20px rgba(0, 0, 0, 1);" src="" width="100%" height="800px"></iframe>
-        </div>
-    </div>
-    <!-- This is some hidden divs that will be used to store the last states HPColor and HPWidth -->
-    <div class="LastHPWidth" style="display: none"></div>
-    <div class="LastHPColor" style="display: none"></div>
-    
+</div>
+<!-- This is some hidden divs that will be used to store the last states HPColor and HPWidth -->
+<div class="LastHPWidth" style="display: none"></div>
+<div class="LastHPColor" style="display: none"></div>
     <!-- This is the script that handles the modal for PDFS, and the color mapping for the companies -->
     <script>
         // I Also hate javascript, but it is what it is
@@ -1905,8 +1874,7 @@
             });
         };
     </script>
-</div>
-    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
-    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
 </body>
 </html>
