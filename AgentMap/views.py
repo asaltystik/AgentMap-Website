@@ -80,7 +80,7 @@ def agent_map(request):
         for license in licenses:
             if license.state not in agents_in_states:
                 agents_in_states[license.state] = []
-            if license.agent.user.username != 'admin':
+            if license.agent.user.username != 'admin' and license.agent not in agents_in_states[license.state]:
                 agents_in_states[license.state].append(license.agent)
     return render(request, 'map.html', {'licensed_states': licensed_states, 'agents_in_states': agents_in_states})
 
