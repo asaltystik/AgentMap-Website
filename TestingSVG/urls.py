@@ -23,4 +23,8 @@ urlpatterns = [
     path('get_companies/<str:state_code>/', agent_map_view.get_companies, name='get_companies'),
     path('view_form/<int:form_id>/', agent_map_view.view_form, name='view_form'),
     path('admin/', admin.site.urls),
+    path('', agent_map_view.agent_map, name='AgentMap'),
+    path('login/', agent_map_view.login_view, name='Login'),
+    path('logout/', agent_map_view.logout_view, name='Logout'),
+    path('register/', agent_map_view.register_view, name='Register'),
 ]
