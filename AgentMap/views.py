@@ -168,6 +168,12 @@ def get_companies(request, state_code):
             is_expiring_soon = False
             days_until_expiration = 9999 # Huge number since NaN is not valid
 
+        # Birthday rule states
+        birthday_rule_states = [
+            "California", "Idaho", "Kentucky", "Maryland", "Missouri",
+            "Nevada", "Oklahoma", "Oregon", "Washington"
+        ]
+
         # Context
         context = {
             "state": state,  # packing the state name into context
@@ -176,7 +182,8 @@ def get_companies(request, state_code):
             "expiration": expiration,  # packing the expiration date into context
             "is_expiring_soon": is_expiring_soon,  # packing the is_expiring_soon boolean into context
             "days_until_expiration": days_until_expiration,  # packing the days until expiration into context
-            "app_urls": app_urls  # packing the app_urls dictionary into context
+            "app_urls": app_urls,  # packing the app_urls dictionary into context
+            "birthday_rule_states": birthday_rule_states  # packing the birthday_rule_states into context
         }
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
