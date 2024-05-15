@@ -239,7 +239,7 @@ def view_form(request, form_id):
     response['Content-Disposition'] = f'inline; filename="{os.path.basename(file_path)}"'
     return response
 
-# This function handles opening the txt file server side and sending it to the client
+# This function handles opening the txt file server side and sending it to the client@xframe_options_exempt
 @xframe_options_exempt
 @login_required
 def birthday_rules(request, state):
@@ -250,8 +250,26 @@ def birthday_rules(request, state):
     with open(file_path, 'r') as file:
         file_content = file.read()
 
-    # Create a response with the file content
-    response = HttpResponse(file_content, content_type='text/plain')
+    # Wrap the file content in HTML tags and apply CSS styling
+    html_content = f"""
+    <html>
+    <head>
+        <style>
+        body {{
+            background-color: #ffffff;
+            color: #000000;
+            font-family: Arial, sans-serif;
+        }}
+        </style>
+    </head>
+    <body>
+        <pre>{file_content}</pre>
+    </body>
+    </html>
+    """
+
+    # Create a response with the HTML content
+    response = HttpResponse(html_content, content_type='text/html')
 
     return response
 
