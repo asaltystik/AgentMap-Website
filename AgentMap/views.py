@@ -5,7 +5,7 @@ from django.core.exceptions import SuspiciousOperation
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.http import FileResponse
+from django.http import FileResponse, HttpResponse
 from .forms import LoginForm, UserRegistrationForm
 from .models import Form, LicensedState
 from datetime import timedelta
@@ -237,6 +237,22 @@ def view_form(request, form_id):
     # Open the file and send it to the client
     response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = f'inline; filename="{os.path.basename(file_path)}"'
+    return response
+
+# This function handles opening the txt file server side and sending it to the client
+@xframe_options_exempt
+@login_required
+def birthday_rules(request, state):
+    # Define the path to the text file
+    file_path = f'static/birthday_rules/{state}.txt'
+
+    # Open the file and read its content
+    with open(file_path, 'r') as file:
+        file_content = file.read()
+
+    # Create a response with the file content
+    response = HttpResponse(file_content, content_type='text/plain')
+
     return response
 
 # Need to add a view for the agent to start the process of underwriting

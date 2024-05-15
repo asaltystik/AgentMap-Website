@@ -27,4 +27,5 @@ urlpatterns = [
     path('login/', agent_map_view.login_view, name='Login'),
     path('logout/', agent_map_view.logout_view, name='Logout'),
     path('register/', agent_map_view.register_view, name='Register'),
+    path('birthday_rules/<str:state>', agent_map_view.birthday_rules, name='birthday_rules'),
 ]
