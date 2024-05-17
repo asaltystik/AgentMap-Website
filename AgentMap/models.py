@@ -37,3 +37,52 @@ class LicensedState(models.Model):
     # This function returns a string representation of the licensed state object
     def __str__(self):
         return self.agent.user.username + " - " + self.state + " - " + self.expiration.strftime('%m/%d/%Y')
+
+
+# This model represents a company that provides medicare supplement insurance
+class MedicareSupplementAgencies(models.Model):
+    agency_name = models.CharField(max_length=200)  # The name of the agency
+    abbreviation = models.CharField(max_length=20, default="")  # The abbreviation of the agency
+
+    class Meta:
+        verbose_name_plural = "Medicare Supplement Agencies"
+
+    def __str__(self):
+        return self.agency_name
+
+
+# This model represents a Drug
+class Drugs(models.Model):
+    drug_name = models.CharField(max_length=200)  # The name of the drug
+    drug_classification = models.CharField(max_length=200)  # The classification of the drug
+
+    def __str__(self):
+        return self.drug_name
+
+    class Meta:
+        verbose_name_plural = "Drugs"
+
+
+# This model represents a Medical Condition
+class MedicalConditions(models.Model):
+    condition_name = models.CharField(max_length=200)  # The name of the condition
+
+    class Meta:
+        verbose_name_plural = "Medical Conditions"
+
+    def __str__(self):
+        return self.condition_name
+
+
+# This model will contain the Acceptance rules companies given a drug, and condition
+class AcceptanceRules(models.Model):
+    agency = models.ForeignKey(MedicareSupplementAgencies, on_delete=models.CASCADE)  # The agency that accepts the drug
+    drug = models.ForeignKey(Drugs, on_delete=models.CASCADE)  # The drug that is accepted
+    condition = models.ForeignKey(MedicalConditions, default=0, on_delete=models.CASCADE)  # The condition that is accepted
+    acceptance = models.BooleanField(default=False)  # Whether the agency accepts the drug for the condition
+
+    class Meta:
+        verbose_name_plural = "Acceptance Rules"
+
+    def __str__(self):
+        return self.agency.agency_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name
