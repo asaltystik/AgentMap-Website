@@ -108,6 +108,7 @@ def get_companies(request, state_code):
         "Elips Life Insurance": "lumicoagentcenter.com/core/login",
         "LifeShield National Insurance": "lsneapp.com/forms/medicare",
         "Lumico": "lumicoagentcenter.com/core/login",
+        "United American": "https://globelife.my.site.com/GAPortal/s/login/?ec=302&startURL=%2FGAPortal%2Fs%2F",
         "Manhattan Life": "producer.manhattanlife.com/life/account/login.aspx",
         "Medico": "mic.gomedico.com/login.aspx",
         "Mutual of Omaha": "www3.mutualofomaha.com/OktaSpaRegistration/home?_ga=2.58007530.1352809056.1683039431-1489991625.1683039431",

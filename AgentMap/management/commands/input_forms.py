@@ -40,6 +40,7 @@ CompanyDict = {
     "LUMICO": "Lumico",
     "ELIPS": "Elips Life Insurance",
     "LIFES": "LifeShield National Insurance",
+    "UA": "United American",
     "NEWERA": "New Era",
     "MAN": "Manhattan Life",
     "MEDICO": "Medico",
