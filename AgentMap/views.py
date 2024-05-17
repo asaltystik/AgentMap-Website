@@ -266,11 +266,24 @@ def birthday_rules(request, state):
             background-color: #ffffff;
             color: #000000;
             font-family: Arial, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0;
+            height: 100vh;
+        }}
+        p {{
+            white-space: pre-wrap;       /* css-3 */
+            white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+            white-space: -pre-wrap;      /* Opera 4-6 */
+            white-space: -o-pre-wrap;    /* Opera 7 */
+            word-wrap: break-word;       /* Internet Explorer 5.5+ */
+            text-align: justify;
         }}
         </style>
     </head>
     <body>
-        <pre>{file_content}</pre>
+        <p>{file_content}</p>
     </body>
     </html>
     """
