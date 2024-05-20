@@ -1,52 +1,19 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import Form
+from AgentMap.models import Form, MedicareSupplementAgencies, FormTypes, State
 import os
 
 # Dictionary to map the form type abbreviation to the full form type
 FORM_TYPE_DICT = {
-    "DVH+_APP": "Dental, Vision, Hearing Plus Application",
-    "DVH+_OC": "Dental, Vision, Hearing Plus Outline ",
-    "DVH+_BR": "Dental, Vision, Hearing Plus Brochure",
-    "DVH_APP": "Dental, Vision, Hearing Plus Application",
-    "MS_COMBO": "Medicare Supplement Combo App",
-    "MS_APP": "Medicare Supplement Application",
-    "MS_BR": "Medicare Supplement Brochure",
-    "OC": "Medicare Supplement Coverage Outline",
-    "BR": "Medicare Supplement Brochure",
-    "HHD": "Medi Supp HouseHold Discount",
-    "HANDBOOK": "Underwriting  Guidelines Handbook",
-    "RP": "Medi Supp Replacement Form",
-    "COMBO": "Medicare Supplement & DVH+ App",
-    "MS": "Medicare Supplement",
-    "DDL": "Declinable Drug List",
-    "UW": "Underwriting Guidelines Handbook",
-    "HWC": "Medicare Height & Weight Chart",
+    form.form_type: form.full_form_type for form in FormTypes.objects.all()
 }
 
 # Dictionary to map the company abbreviation to the full company name
 CompanyDict = {
-    "AARP": "AARP",
-    "AARP-UHICA": "AARP UHICA",
-    "ABL": "American Benefit Life",
-    "ACE": "Ace Chubb",
-    "AETNA": "Aetna",
-    "AFLAC": "Aflac",
-    "AFS": "American Financial Security",
-    "AMHL": "American Home Life",
-    "BFAM": "Bankers Fidelity Atlantic American",
-    "CIGNA-CHLIC": "Cigna Health and Life Insurance",
-    "CIGNA-CNHIC": "Cigna National Health Insurance",
-    "CIGNA-LOYAL": "Cigna Loyal American Life Insurance",
-    "LUMICO": "Lumico",
-    "ELIPS": "Elips Life Insurance",
-    "LIFES": "LifeShield National Insurance",
-    "UA": "United American",
-    "NEWERA": "New Era",
-    "MAN": "Manhattan Life",
-    "MEDICO": "Medico",
-    "MOO": "Mutual of Omaha",
-    "PHILAM": "Philadelphia American Life Insurance",
-    "WPS": "WPS Health Insurance"
+    agency.abbreviation: agency.agency_name for agency in MedicareSupplementAgencies.objects.all()
+}
+
+state_dict = {
+    state.state_code: state.full_state for state in State.objects.all()
 }
 
 
@@ -90,15 +57,22 @@ def parse_filenames(directory):
                     # print("relative path: ", file_path)
 
                     # Get the full form type from the FORM_TYPE_DICT
-                    full_form_type = FORM_TYPE_DICT[form_type] if form_type in FORM_TYPE_DICT else "N"
+                    try:
+                        form_type = FormTypes.objects.get(form_type=form_type)
+                    except FormTypes.DoesNotExist:
+                        form_type = None
+
+                    # Get the MedicareSupplementAgencies object for the company
+                    agency = MedicareSupplementAgencies.objects.filter(abbreviation=company).first()
+
+                    state = State.objects.filter(state_code=state).first()
 
                     # Ccreate or retrieve the database object
                     form, created = Form.objects.get_or_create(
-                        company=company,  # Get the company name
-                        full_company=CompanyDict[company],  # Get the full company name
+                        company=agency,  # Get the company name
+                        # full_company=CompanyDict[company],  # Get the full company name
                         state=state,  # Get the state abbreviation
                         form_type=form_type,  # get the form type abbreviation
-                        full_form_type=full_form_type,  # get the full form type
                         date=date,  # Get the date
                         file_path=file_path  # Get the file path
                     )
