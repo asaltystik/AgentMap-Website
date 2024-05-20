@@ -72,7 +72,7 @@ def parse_filenames(directory):
                         company=agency,  # Get the company name
                         # full_company=CompanyDict[company],  # Get the full company name
                         state=state,  # Get the state abbreviation
-                        form_type=form_type,  # get the form type abbreviation
+                        form_info=form_type,  # get the form type abbreviation
                         date=date,  # Get the date
                         file_path=file_path  # Get the file path
                     )
