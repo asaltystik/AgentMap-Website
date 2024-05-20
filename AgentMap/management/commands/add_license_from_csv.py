@@ -1,6 +1,6 @@
 # import base command from django
 from django.core.management.base import BaseCommand
-from AgentMap.models import LicensedState, Agent
+from AgentMap.models import LicensedState, Agent, State
 import pandas as pd
 
 
@@ -25,9 +25,10 @@ class Command(BaseCommand):
                 expiration_date = expiration_date.strftime('%Y-%m-%d')
             print(expiration_date)
             print(row['Agent'])
+            state = State.objects.get(state_code=row['State'])
             LicensedState.objects.get_or_create(
                 agent=Agent.objects.get(user__username=row['Agent']),
-                state=row['State'],
+                state=state,
                 licenseNumber=row['License Number'],
                 defaults={'expiration': expiration_date}
             )

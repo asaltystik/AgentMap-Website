@@ -111,7 +111,7 @@ def get_companies(request, state_code):
         licenses = LicensedState.objects.filter(agent__user=request.user)
         # Get the state license for the given state and the farthest
         # expiration date for the given state
-        state_license = licenses.filter(state=state_code).order_by('expiration').last()
+        state_license = licenses.filter(state__state_code=state_code).order_by('expiration').last()
         if state_license is not None:
             license_number = state_license.licenseNumber
             expiration = state_license.expiration

@@ -63,13 +63,13 @@ class Agent(models.Model):
 # This model represents a state that an agent is licensed in
 class LicensedState(models.Model):
     agent = models.ForeignKey(Agent, on_delete=models.CASCADE)  # The agent that is licensed
-    state = models.CharField(max_length=2)  # The state abbreviation
+    state = models.ForeignKey(State, on_delete=models.CASCADE)  # The state that the agent is licensed in
     licenseNumber = models.CharField(max_length=20, default="N/A")  # The license number
     expiration = models.DateField(default="2024-01-01")  # The expiration date of the license
 
     # This function returns a string representation of the licensed state object
     def __str__(self):
-        return self.agent.user.username + " - " + self.state + " - " + self.expiration.strftime('%m/%d/%Y')
+        return self.agent.user.username + " - " + self.state.state_code + " - " + self.expiration.strftime('%m/%d/%Y')
 
 
 # This model represents a Drug
