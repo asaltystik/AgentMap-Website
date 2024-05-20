@@ -1897,7 +1897,7 @@
             // Convert the licensed_states to a dictionary for faster lookup
             let licensedStates = {};
             {% for license in licensed_states %}
-                licensedStates["{{ license.state }}"] = "{{ license.color }}";
+                licensedStates["{{ license.state }}"] = "#0692e1";
             {% endfor %}
 
             // Loop through each path, circle, and text element
