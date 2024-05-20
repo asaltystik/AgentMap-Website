@@ -7,7 +7,7 @@ from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.http import FileResponse, HttpResponse
 from .forms import LoginForm, UserRegistrationForm
-from .models import Form, LicensedState
+from .models import Form, LicensedState, State
 from datetime import timedelta
 import os
 
@@ -91,53 +91,13 @@ def agent_map(request):
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
 
-    # Dictionary to hold the eapp_url for each company, Key is the company name as it appears in the database
-    app_urls = {
-        "AARP": "www.uhcjarvis.com/content/jarvis/en/secure/home.html",
-        "AARP UHICA": "www.uhcjarvis.com/content/jarvis/en/secure/home.html",
-        "Ace Chubb": "service.iasadmin.com/gateway/login.aspx?pp=pFHD&pn=NR&y1tv0=n",
-        "Aetna": "www.aetnaseniorproducts.com/ssi/login.fcc?TYPE=33554433&REALMOID=06-b6795d4d-3004-4588-a799-63a4db15a01c&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssi%2fsecure%2fagentSecure%2fmyCompass%2ehtml",
-        "Aflac": "www.aetnaseniorproducts.com/ssibrokerwebsecure/afl/login.fcc?TYPE=33554433&REALMOID=06-ff4bb4c5-301d-4181-bd7a-b75398c8cb44&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssibrokerwebsecure%2fafl%2fhome%2ehtml",
-        "American Benefit Life": "www.aetnaseniorproducts.com/ssibrokerwebsecure/abl/login.fcc?TYPE=33554433&REALMOID=06-ef546027-d735-462c-aecc-ec557b82aefe&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssibrokerwebsecure%2fabl%2fhome%2ehtml",
-        "American Financial Security": "www.aetnaseniorproducts.com/ssibrokerwebsecure/afs/login.fcc?TYPE=33554433&REALMOID=06-99f3d839-97c4-4ce1-8cfd-47b979323564&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssibrokerwebsecure%2fafs%2fhome%2ehtml",
-        "American Home Life": "www.aetnaseniorproducts.com/ssibrokerwebsecure/amh/login.fcc?TYPE=33554433&REALMOID=06-8833a054-6469-49fd-b80c-d5c3ce33aed7&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-s7pFJAUCnH5Qp3pzu1lx8MibbZnWT%2b01G%2f6iCkHVxMsS0hd%2fsbmjhWe16MOGqvFRrS17O3IrRUBJqyBYHEvE5IyHDS9KZnck&TARGET=-SM-HTTPS%3a%2f%2fwww%2eaetnaseniorproducts%2ecom%2fssibrokerwebsecure%2famh%2fhome%2ehtml",
-        "Bankers Fidelity Atlantic American": "agent.bflic.com/Login/Login?usrtyp=A",
-        "Cigna Health and Life Insurance": "agentviewcigna.com/AgentView/",
-        "Cigna National Health Insurance": "agentviewcigna.com/AgentView/",
-        "Cigna Loyal American Life Insurance": "agentviewcigna.com/AgentView/",
-        "Elips Life Insurance": "lumicoagentcenter.com/core/login",
-        "LifeShield National Insurance": "lsneapp.com/forms/medicare",
-        "Lumico": "lumicoagentcenter.com/core/login",
-        "United American": "https://globelife.my.site.com/GAPortal/s/login/?ec=302&startURL=%2FGAPortal%2Fs%2F",
-        "Manhattan Life": "producer.manhattanlife.com/life/account/login.aspx",
-        "Medico": "mic.gomedico.com/login.aspx",
-        "Mutual of Omaha": "www3.mutualofomaha.com/OktaSpaRegistration/home?_ga=2.58007530.1352809056.1683039431-1489991625.1683039431",
-        "New Era": "apps.neweralife.com/agentportal/account/login",
-        "Philadelphia American Life Insurance": "my.aimc.net/",
-        "WPS Health Insurance": "my.wpshealth.com/en/AgentInd"
-    }
-
     # Dictionary to convert state abbreviations to full state names
     state_dictionary = {
-        "AL": "Alabama", "AK": "Alaska", "AZ": "Arizona", "AR": "Arkansas",
-        "CA": "California", "CO": "Colorado", "CT": "Connecticut",
-        "DC": "District of Columbia", "DE": "Delaware", "FL": "Florida",
-        "GA": "Georgia", "HI": "Hawaii", "ID": "Idaho", "IL": "Illinois",
-        "IN": "Indiana", "IA": "Iowa", "KS": "Kansas", "KY": "Kentucky",
-        "LA": "Louisiana", "ME": "Maine", "MD": "Maryland", "MA": "Massachusetts",
-        "MI": "Michigan", "MN": "Minnesota", "MS": "Mississippi", "MO": "Missouri",
-        "MT": "Montana", "NE": "Nebraska", "NV": "Nevada", "NH": "New Hampshire",
-        "NJ": "New Jersey", "NM": "New Mexico", "NY": "New York",
-        "NC": "North Carolina", "ND": "North Dakota", "OH": "Ohio",
-        "OK": "Oklahoma", "OR": "Oregon", "PA": "Pennsylvania",
-        "RI": "Rhode Island", "SC": "South Carolina", "SD": "South Dakota",
-        "TN": "Tennessee", "TX": "Texas", "UT": "Utah", "VT": "Vermont",
-        "VA": "Virginia", "WA": "Washington", "WV": "West Virginia",
-        "WI": "Wisconsin", "WY": "Wyoming",
+        state_obj.state_code: state_obj.full_state for state_obj in State.objects.all()
     }
 
     # Get all the forms in the given state
-    forms = Form.objects.filter(state=state_code).order_by('company')
+    forms = Form.objects.filter(state__state_code=state_code).order_by('company')
 
     # Get the un-abbreviated state name using the state code and the StateDict
     state = state_dictionary[state_code]
@@ -183,7 +143,6 @@ def get_companies(request, state_code):
             "expiration": expiration,  # packing the expiration date into context
             "is_expiring_soon": is_expiring_soon,  # packing the is_expiring_soon boolean into context
             "days_until_expiration": days_until_expiration,  # packing the days until expiration into context
-            "app_urls": app_urls,  # packing the app_urls dictionary into context
             "birthday_rule_states": birthday_rule_states  # packing the birthday_rule_states into context
         }
 
@@ -203,7 +162,6 @@ def get_companies(request, state_code):
             "license_number": admin_license.licenseNumber if admin_license else None,
             "expiration": admin_license.expiration if admin_license else None,
             "days_until_expiration": 9999,  # Setting this to huge number since nan is not supported
-            "app_urls": app_urls  # packing the app_urls dictionary into context
         }
         print(context)
 
