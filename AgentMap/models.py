@@ -2,19 +2,53 @@ from django.db import models
 from django.contrib.auth.models import User
 
 
+class State(models.Model):
+    state_code = models.CharField(max_length=3)  # The state abbreviation
+    full_state = models.CharField(max_length=200)  # The full state name
+
+    class Meta:
+        verbose_name_plural = "States"
+
+    def __str__(self):
+        return self.state_code
+
+
+# This model represents a company that provides medicare supplement insurance
+class MedicareSupplementAgencies(models.Model):
+    agency_name = models.CharField(max_length=200)  # The name of the agency
+    abbreviation = models.CharField(max_length=20, default="")  # The abbreviation of the agency
+    app_url = models.CharField(max_length=900, default="")  # The url to the application
+
+    class Meta:
+        verbose_name_plural = "Medicare Supplement Agencies"
+
+    def __str__(self):
+        return self.agency_name
+
+
+# This model will be used to store the different types of forms that are available
+class FormTypes(models.Model):
+    form_type = models.CharField(max_length=200)  # The abbreviated form type
+    full_form_type = models.CharField(max_length=200)  # The full form type
+
+    class Meta:
+        verbose_name_plural = "Form Types"
+
+    def __str__(self):
+        return self.form_type
+
+
 # This model represents a pdf file that has been uploaded to the server.
 class Form(models.Model):
-    company = models.CharField(max_length=30)  # The abbreviated company name
-    full_company = models.CharField(max_length=200, default="N")  # The full company name
-    state = models.CharField(max_length=2)  # the state abbreviation
-    form_type = models.CharField(max_length=200)  # The abbreviated form type
-    full_form_type = models.CharField(max_length=200, default="N")  # The full form type
+    company = models.ForeignKey(MedicareSupplementAgencies, related_name='forms', on_delete=models.CASCADE)  # The abbreviated company name
+    state = models.ForeignKey(State, on_delete=models.CASCADE)  # the state abbreviation
+    form_info = models.ForeignKey(FormTypes, on_delete=models.CASCADE)  # the form type
     date = models.CharField(max_length=8, default="None")  # The date the form is valid for
     file_path = models.CharField(max_length=255)  # the relative path to the file
 
     # This function returns a string representation of the form object
     def __str__(self):
-        return self.company + " - " + self.state + " - " + self.form_type
+        return self.company.agency_name + " - " + self.state.state_code + " - " + self.form_info.form_type
 
 
 # This model represents a user that is an agent
@@ -32,23 +66,10 @@ class LicensedState(models.Model):
     state = models.CharField(max_length=2)  # The state abbreviation
     licenseNumber = models.CharField(max_length=20, default="N/A")  # The license number
     expiration = models.DateField(default="2024-01-01")  # The expiration date of the license
-    color = models.CharField(max_length=7, default="#0692e1")  # The color of the state on the map
 
     # This function returns a string representation of the licensed state object
     def __str__(self):
         return self.agent.user.username + " - " + self.state + " - " + self.expiration.strftime('%m/%d/%Y')
-
-
-# This model represents a company that provides medicare supplement insurance
-class MedicareSupplementAgencies(models.Model):
-    agency_name = models.CharField(max_length=200)  # The name of the agency
-    abbreviation = models.CharField(max_length=20, default="")  # The abbreviation of the agency
-
-    class Meta:
-        verbose_name_plural = "Medicare Supplement Agencies"
-
-    def __str__(self):
-        return self.agency_name
 
 
 # This model represents a Drug

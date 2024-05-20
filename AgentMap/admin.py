@@ -2,7 +2,8 @@ from django.contrib import admin
 
 from AgentMap.models import (Agent, Form, LicensedState,
                              MedicareSupplementAgencies,
-                             Drugs, MedicalConditions)
+                             Drugs, MedicalConditions,
+                             FormTypes, State)
 
 
 # Registration of the Form model in the admin site
@@ -38,4 +39,14 @@ class DrugsAdmin(admin.ModelAdmin):
 # Registration of the MedicalConditions model in the admin site
 @admin.register(MedicalConditions)
 class MedicalConditionsAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(FormTypes)
+class FormTypesAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(State)
+class StateAdmin(admin.ModelAdmin):
     pass
