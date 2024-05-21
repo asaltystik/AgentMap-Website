@@ -13,7 +13,7 @@ class Command(BaseCommand):
         # Check if the server is running on Windows or Linux
         if os.name == 'nt':
             # If the server is running on Windows, use the Windows path
-            directory = "C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies\\Cigna"
+            directory = "C:\\Users\\Noricum\\Desktop\\WebApps\\djangoMap\\static\\Companies\\Cigna"
         else:
             # If the server is running on Linux, use the Linux path
             directory = "static/Companies/Cigna"

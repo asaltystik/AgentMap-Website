@@ -46,7 +46,7 @@ def parse_filenames(directory):
                     # Get the relative path of the file
                     # This is a temporary implementation for my local machine
                     # Server is going to be running on linux so this will need to be changed closer to prod
-                    start_dir: str = 'C:\\Users\\Noricum\\Desktop\\WebApps\\TestingSVG\\static\\Companies'
+                    start_dir: str = 'C:\\Users\\Noricum\\Desktop\\WebApps\\djangoMap\\static\\Companies'
                     file_path = os.path.relpath(str(file_path), start_dir)
                     file_path = file_path.replace('\\', '/')  # replace backslashes with forward slashes
                     # Cut off up until the static directory

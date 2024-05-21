@@ -29,4 +29,4 @@ def copy_and_rename(directory, file_to_copy, default_formtype='DDL'):
             print(f"Copying {file_to_copy} to {new_filename}")
             shutil.copy(os.path.join(directory, file_to_copy), os.path.join(directory, new_filename))
 
-copy_and_rename('C:\\Users\\Noricum\\Desktop\\TestingSVG\\static\\Companies\\Philadelphia-American', "F:\\Carick\\New Era_Philadelphia American Declinable Drug List.pdf")
+copy_and_rename('C:\\Users\\Noricum\\Desktop\\djangoMap\\static\\Companies\\Philadelphia-American', "F:\\Carick\\New Era_Philadelphia American Declinable Drug List.pdf")
