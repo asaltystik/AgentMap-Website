@@ -107,3 +107,29 @@ class AcceptanceRules(models.Model):
 
     def __str__(self):
         return self.agency.agency_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name
+
+
+# This model will contain the HouseHoldDiscount colors
+class HouseHoldDiscountKey(models.Model):
+    discount_type = models.CharField(max_length=200)  # The type of discount
+    description = models.CharField(max_length=999)  # The description of the discount
+    color = models.CharField(max_length=20)  # The color of the discount
+
+    class Meta:
+        verbose_name_plural = "HouseHold Discount Keys"
+
+    def __str__(self):
+        return self.discount_type + " - " + self.color
+
+
+# This model will contain the State by State Household Discounts
+class HouseHoldDiscounts(models.Model):
+    state = models.ForeignKey(State, on_delete=models.CASCADE)  # The state that the discount is for
+    agency = models.ForeignKey(MedicareSupplementAgencies, on_delete=models.CASCADE)  # The company that the discount is for
+    discount = models.ForeignKey(HouseHoldDiscountKey, on_delete=models.CASCADE)  # The discount that is available
+
+    class Meta:
+        verbose_name_plural = "HouseHold Discounts"
+
+    def __str__(self):
+        return self.state.state_code + " - " + self.agency.agency_name + " - " + self.discount.discount_type

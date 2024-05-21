@@ -116,7 +116,16 @@
             <!-- this is the loop that will display the forms for each company -->
             {% for company in company_list %}
                 <!-- Full Company Name -->
-                <div class="new-company" id="{{ company.grouper }}" style="border: 2px black solid; border-radius: 12px">
+                <div class="new-company" id="{{ company.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.agency.agency_name == company.grouper.agency_name %}
+                            style="
+                                   border: 2px black solid;
+                                   border-radius: 12px;
+                                   background-color: {{ discount.discount.color }};
+                            ">
+                        {% endif %}
+                    {% endfor %}
                     <h2 style="text-align: center">
                         <!-- Button that links to the company's website -->
                         <button onclick="window.open('https://{{ company.grouper.app_url }}', '_blank')"
@@ -131,7 +140,7 @@
                     {% for form in company.list %}
                         <div>
                             <!-- This is the button that will open the modal for the form -->
-                            <button 
+                            <button
                                 id="{{ form.form_info.full_form_type }}"
                                 style="font-family: 'lucida sans unicode','serif'"
                                 _="on click call openModal('{% url 'view_form' form.id %}')"

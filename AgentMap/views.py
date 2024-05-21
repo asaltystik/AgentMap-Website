@@ -1,3 +1,5 @@
+from collections import defaultdict
+
 from django.views.decorators.clickjacking import xframe_options_exempt
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
@@ -5,9 +7,10 @@ from django.core.exceptions import SuspiciousOperation
 from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils import timezone
-from django.http import FileResponse, HttpResponse
+from django.http import FileResponse, HttpResponse, JsonResponse
+from django.core import serializers
 from .forms import LoginForm, UserRegistrationForm
-from .models import Form, LicensedState, State
+from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscounts
 from datetime import timedelta
 import os
 
@@ -71,6 +74,9 @@ def agent_map(request):
     # Get all the states that the agent is licensed in
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
 
+    # Get all the discounts + keys
+    discount_keys = HouseHoldDiscountKey.objects.all()
+
     # Check if the logged in user is 'admin'
     if request.user.username == 'admin':
         # Get all the states
@@ -85,11 +91,23 @@ def agent_map(request):
                 agents_in_states[license.state].append(agent_name)
             # Sort agents_in_states by aplhabetical order
             agents_in_states[license.state].sort()
-    return render(request, 'map.html', {'licensed_states': licensed_states, 'agents_in_states': agents_in_states})
+
+    context = {
+        'licensed_states': licensed_states,
+        'agents_in_states': agents_in_states,
+        'discount_keys': discount_keys,
+    }
+
+    return render(request, 'map.html', context=context)
 
 @login_required
 # This function will get all the companies in the given state
 def get_companies(request, state_code):
+    # Birthday rule states
+    birthday_rule_states = [
+        "California", "Idaho", "Kentucky", "Maryland", "Missouri",
+        "Nevada", "Oklahoma", "Oregon", "Washington"
+    ]
 
     # Dictionary to convert state abbreviations to full state names
     state_dictionary = {
@@ -102,6 +120,7 @@ def get_companies(request, state_code):
     # Get the un-abbreviated state name using the state code and the StateDict
     state = state_dictionary[state_code]
 
+    discounts = HouseHoldDiscounts.objects.filter(state__state_code=state_code).order_by('agency')
     # Get the current date
     current_date = timezone.now().date()
 
@@ -129,21 +148,17 @@ def get_companies(request, state_code):
             is_expiring_soon = False
             days_until_expiration = 9999 # Huge number since NaN is not valid
 
-        # Birthday rule states
-        birthday_rule_states = [
-            "California", "Idaho", "Kentucky", "Maryland", "Missouri",
-            "Nevada", "Oklahoma", "Oregon", "Washington"
-        ]
 
         # Context
         context = {
             "state": state,  # packing the state name into context
             "forms": forms,  # packing the forms into context
+            "discounts": discounts,  # packing the discounts into context
             "license_number": license_number,  # packing the license number into context
             "expiration": expiration,  # packing the expiration date into context
             "is_expiring_soon": is_expiring_soon,  # packing the is_expiring_soon boolean into context
             "days_until_expiration": days_until_expiration,  # packing the days until expiration into context
-            "birthday_rule_states": birthday_rule_states  # packing the birthday_rule_states into context
+            "birthday_rule_states": birthday_rule_states,  # packing the birthday_rule_states into context
         }
 
         # Render the companies.html page with the given state, forms, license number, expiration date,
@@ -159,9 +174,11 @@ def get_companies(request, state_code):
         context = {
             "state": state,  # packing the state name into context
             "forms": forms,  # packing the forms into context
+            "discounts": discounts,  # packing the discounts into context
             "license_number": admin_license.licenseNumber if admin_license else None,
             "expiration": admin_license.expiration if admin_license else None,
             "days_until_expiration": 9999,  # Setting this to huge number since nan is not supported
+            "birthday_rule_states": birthday_rule_states,  # packing the birthday_rule_states into context
         }
         print(context)
 
@@ -251,5 +268,3 @@ def birthday_rules(request, state):
     response = HttpResponse(html_content, content_type='text/html')
 
     return response
-
-# Need to add a view for the agent to start the process of underwriting
