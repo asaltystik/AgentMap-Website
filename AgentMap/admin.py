@@ -6,7 +6,8 @@ from AgentMap.models import (Agent, Form, LicensedState,
                              FormTypes, State,
                              HouseHoldDiscountKey,
                              HouseHoldDiscounts,
-                             AcceptanceRules)
+                             AcceptanceRules
+                             )
 
 
 # Registration of the Form model in the admin site
