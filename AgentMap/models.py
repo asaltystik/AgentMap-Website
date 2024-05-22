@@ -75,7 +75,7 @@ class LicensedState(models.Model):
 # This model represents a Drug
 class Drugs(models.Model):
     drug_name = models.CharField(max_length=200)  # The name of the drug
-    drug_classification = models.CharField(max_length=200)  # The classification of the drug
+    drug_classification = models.CharField(max_length=200, blank=True)  # The classification of the drug
 
     def __str__(self):
         return self.drug_name
@@ -106,7 +106,7 @@ class AcceptanceRules(models.Model):
         verbose_name_plural = "Acceptance Rules"
 
     def __str__(self):
-        return self.agency.agency_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name
+        return self.agency.agency_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name + " - " + str(self.is_accepted)
 
 
 # This model will contain the HouseHoldDiscount colors
