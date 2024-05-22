@@ -5,7 +5,8 @@ from AgentMap.models import (Agent, Form, LicensedState,
                              Drugs, MedicalConditions,
                              FormTypes, State,
                              HouseHoldDiscountKey,
-                             HouseHoldDiscounts)
+                             HouseHoldDiscounts,
+                             AcceptanceRules)
 
 
 # Registration of the Form model in the admin site
@@ -61,4 +62,8 @@ class HouseholdDiscountKeysAdmin(admin.ModelAdmin):
 
 @admin.register(HouseHoldDiscounts)
 class HouseholdDiscountsAdmin(admin.ModelAdmin):
+    pass
+
+@admin.register(AcceptanceRules)
+class AcceptanceRulesAdmin(admin.ModelAdmin):
     pass
