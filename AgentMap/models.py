@@ -100,7 +100,7 @@ class AcceptanceRules(models.Model):
     agency = models.ForeignKey(MedicareSupplementAgencies, on_delete=models.CASCADE)  # The agency that accepts the drug
     drug = models.ForeignKey(Drugs, on_delete=models.CASCADE)  # The drug that is accepted
     condition = models.ForeignKey(MedicalConditions, default=0, on_delete=models.CASCADE)  # The condition that is accepted
-    acceptance = models.BooleanField(default=False)  # Whether the agency accepts the drug for the condition
+    is_accepted = models.BooleanField(default=False)  # Whether the agency accepts the drug for the condition
 
     class Meta:
         verbose_name_plural = "Acceptance Rules"
