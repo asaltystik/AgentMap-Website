@@ -110,15 +110,15 @@
     <div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
         <h2 style="margin-top: 1px; margin-bottom: 1px;">Medicare Supplements: </h2>
         <!-- groups the forms by full_company and stores them in company_list -->
-        {% regroup forms by company as company_list %}
+        {% regroup forms by carrier as carrier_list %}
         <!-- This is the container for the filtered company forms -->
         <div class="new-company-container">
             <!-- this is the loop that will display the forms for each company -->
-            {% for company in company_list %}
+            {% for carrier in carrier_list %}
                 <!-- Full Company Name -->
-                <div class="new-company" id="{{ company.grouper }}"
+                <div class="new-company" id="{{ carrier.grouper }}"
                      {% for discount in discounts %}
-                        {% if discount.agency.agency_name == company.grouper.agency_name %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
                             style="
                                    border: 2px black solid;
                                    border-radius: 12px;
@@ -128,23 +128,23 @@
                     {% endfor %}
                     <h2 style="text-align: center">
                         <!-- Button that links to the company's website -->
-                        <button onclick="window.open('https://{{ company.grouper.app_url }}', '_blank')"
-                            title="{{ company.grouper.agency_name }} E-Application"
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
                             class="company-app-redirect"
                         >
-                            {{ company.grouper.agency_name }}  <!-- Displays the company name -->
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
                         </button>
                     </h2>
                     <!-- This is the button-matrix that will display the forms for the company -->
                     <div class="button-matrix">
-                    {% for form in company.list %}
+                    {% for form in carrier.list %}
                         <div>
                             <!-- This is the button that will open the modal for the form -->
                             <button
                                 id="{{ form.form_info.full_form_type }}"
                                 style="font-family: 'lucida sans unicode','serif'"
                                 _="on click call openModal('{% url 'view_form' form.id %}')"
-                                title="{{ company.grouper.agency_name }}&#013;{{ form.form_info.full_form_type }}&#013;{% if form.date != "None" %}{{ form.date }}{% endif %}"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ form.form_info.full_form_type }}&#013;{% if form.date != "None" %}{{ form.date }}{% endif %}"
                             >
                                 <!-- This is the non-abbreviated form type -->
                                 {{ form.form_info.full_form_type }}

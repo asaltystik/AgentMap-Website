@@ -14,20 +14,20 @@ class State(models.Model):
 
 
 # This model represents a company that provides medicare supplement insurance
-class MedicareSupplementAgencies(models.Model):
-    agency_name = models.CharField(max_length=200)  # The name of the agency
+class MedicareSupplementCarrier(models.Model):
+    carrier_name = models.CharField(max_length=200)  # The name of the agency
     abbreviation = models.CharField(max_length=20, default="")  # The abbreviation of the agency
     app_url = models.CharField(max_length=900, default="")  # The url to the application
 
     class Meta:
-        verbose_name_plural = "Medicare Supplement Agencies"
+        verbose_name_plural = "Medicare Supplement Carriers"
 
     def __str__(self):
-        return self.agency_name
+        return self.carrier_name
 
 
 # This model will be used to store the different types of forms that are available
-class FormTypes(models.Model):
+class FormType(models.Model):
     form_type = models.CharField(max_length=200)  # The abbreviated form type
     full_form_type = models.CharField(max_length=200)  # The full form type
 
@@ -40,15 +40,15 @@ class FormTypes(models.Model):
 
 # This model represents a pdf file that has been uploaded to the server.
 class Form(models.Model):
-    company = models.ForeignKey(MedicareSupplementAgencies, related_name='forms', on_delete=models.CASCADE)  # The abbreviated company name
+    carrier = models.ForeignKey(MedicareSupplementCarrier, related_name='forms', on_delete=models.CASCADE)  # The abbreviated company name
     state = models.ForeignKey(State, on_delete=models.CASCADE)  # the state abbreviation
-    form_info = models.ForeignKey(FormTypes, on_delete=models.CASCADE)  # the form type
+    form_info = models.ForeignKey(FormType, on_delete=models.CASCADE)  # the form type
     date = models.CharField(max_length=8, default="None")  # The date the form is valid for
     file_path = models.CharField(max_length=255)  # the relative path to the file
 
     # This function returns a string representation of the form object
     def __str__(self):
-        return self.company.agency_name + " - " + self.state.state_code + " - " + self.form_info.form_type
+        return self.carrier.carrier_name + " - " + self.state.state_code + " - " + self.form_info.form_type
 
 
 # This model represents a user that is an agent
@@ -73,7 +73,7 @@ class LicensedState(models.Model):
 
 
 # This model represents a Drug
-class Drugs(models.Model):
+class Drug(models.Model):
     drug_name = models.CharField(max_length=200)  # The name of the drug
     drug_classification = models.CharField(max_length=200, blank=True)  # The classification of the drug
 
@@ -85,7 +85,7 @@ class Drugs(models.Model):
 
 
 # This model represents a Medical Condition
-class MedicalConditions(models.Model):
+class MedicalCondition(models.Model):
     condition_name = models.CharField(max_length=200)  # The name of the condition
 
     class Meta:
@@ -96,17 +96,17 @@ class MedicalConditions(models.Model):
 
 
 # This model will contain the Acceptance rules companies given a drug, and condition
-class AcceptanceRules(models.Model):
-    agency = models.ForeignKey(MedicareSupplementAgencies, on_delete=models.CASCADE)  # The agency that accepts the drug
-    drug = models.ForeignKey(Drugs, on_delete=models.CASCADE)  # The drug that is accepted
-    condition = models.ForeignKey(MedicalConditions, default=0, on_delete=models.CASCADE)  # The condition that is accepted
+class AcceptanceRule(models.Model):
+    carrier = models.ForeignKey(MedicareSupplementCarrier, on_delete=models.CASCADE)  # The agency that accepts the drug
+    drug = models.ForeignKey(Drug, on_delete=models.CASCADE)  # The drug that is accepted
+    condition = models.ForeignKey(MedicalCondition, default=0, on_delete=models.CASCADE)  # The condition that is accepted
     is_accepted = models.BooleanField(default=False)  # Whether the agency accepts the drug for the condition
 
     class Meta:
         verbose_name_plural = "Acceptance Rules"
 
     def __str__(self):
-        return self.agency.agency_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name + " - " + str(self.is_accepted)
+        return self.carrier.carrier_name + " - " + self.drug.drug_name + " - " + self.condition.condition_name + " - " + str(self.is_accepted)
 
 
 # This model will contain the HouseHoldDiscount colors
@@ -123,13 +123,13 @@ class HouseHoldDiscountKey(models.Model):
 
 
 # This model will contain the State by State Household Discounts
-class HouseHoldDiscounts(models.Model):
+class HouseHoldDiscount(models.Model):
     state = models.ForeignKey(State, on_delete=models.CASCADE)  # The state that the discount is for
-    agency = models.ForeignKey(MedicareSupplementAgencies, on_delete=models.CASCADE)  # The company that the discount is for
+    carrier = models.ForeignKey(MedicareSupplementCarrier, on_delete=models.CASCADE)  # The company that the discount is for
     discount = models.ForeignKey(HouseHoldDiscountKey, on_delete=models.CASCADE)  # The discount that is available
 
     class Meta:
         verbose_name_plural = "HouseHold Discounts"
 
     def __str__(self):
-        return self.state.state_code + " - " + self.agency.agency_name + " - " + self.discount.discount_type
+        return self.state.state_code + " - " + self.carrier.carrier_name + " - " + self.discount.discount_type

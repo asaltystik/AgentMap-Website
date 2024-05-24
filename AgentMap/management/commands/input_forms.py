@@ -1,15 +1,15 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import Form, MedicareSupplementAgencies, FormTypes, State
+from AgentMap.models import Form, MedicareSupplementCarrier, FormType, State
 import os
 
 # Dictionary to map the form type abbreviation to the full form type
 FORM_TYPE_DICT = {
-    form.form_type: form.full_form_type for form in FormTypes.objects.all()
+    form.form_type: form.full_form_type for form in FormType.objects.all()
 }
 
 # Dictionary to map the company abbreviation to the full company name
 CompanyDict = {
-    agency.abbreviation: agency.agency_name for agency in MedicareSupplementAgencies.objects.all()
+    agency.abbreviation: agency.carrier_name for agency in MedicareSupplementCarrier.objects.all()
 }
 
 state_dict = {
@@ -58,18 +58,18 @@ def parse_filenames(directory):
 
                     # Get the full form type from the FORM_TYPE_DICT
                     try:
-                        form_type = FormTypes.objects.get(form_type=form_type)
-                    except FormTypes.DoesNotExist:
+                        form_type = FormType.objects.get(form_type=form_type)
+                    except FormType.DoesNotExist:
                         form_type = None
 
                     # Get the MedicareSupplementAgencies object for the company
-                    agency = MedicareSupplementAgencies.objects.filter(abbreviation=company).first()
+                    carrier = MedicareSupplementCarrier.objects.filter(abbreviation=company).first()
 
                     state = State.objects.filter(state_code=state).first()
 
                     # Ccreate or retrieve the database object
                     form, created = Form.objects.get_or_create(
-                        company=agency,  # Get the company name
+                        carrier=carrier,  # Get the company name
                         # full_company=CompanyDict[company],  # Get the full company name
                         state=state,  # Get the state abbreviation
                         form_info=form_type,  # get the form type abbreviation

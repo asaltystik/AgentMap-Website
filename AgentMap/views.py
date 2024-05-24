@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.http import FileResponse, HttpResponse, JsonResponse
 from django.core import serializers
 from .forms import LoginForm, UserRegistrationForm
-from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscounts
+from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount
 from datetime import timedelta
 import os
 
@@ -115,12 +115,12 @@ def get_companies(request, state_code):
     }
 
     # Get all the forms in the given state
-    forms = Form.objects.filter(state__state_code=state_code).order_by('company')
+    forms = Form.objects.filter(state__state_code=state_code).order_by('carrier')
 
     # Get the un-abbreviated state name using the state code and the StateDict
     state = state_dictionary[state_code]
 
-    discounts = HouseHoldDiscounts.objects.filter(state__state_code=state_code).order_by('agency')
+    discounts = HouseHoldDiscount.objects.filter(state__state_code=state_code).order_by('carrier')
     # Get the current date
     current_date = timezone.now().date()
 

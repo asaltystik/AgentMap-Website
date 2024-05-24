@@ -1,12 +1,12 @@
 from django.contrib import admin
 
 from AgentMap.models import (Agent, Form, LicensedState,
-                             MedicareSupplementAgencies,
-                             Drugs, MedicalConditions,
-                             FormTypes, State,
+                             MedicareSupplementCarrier,
+                             Drug, MedicalCondition,
+                             FormType, State,
                              HouseHoldDiscountKey,
-                             HouseHoldDiscounts,
-                             AcceptanceRules
+                             HouseHoldDiscount,
+                             AcceptanceRule
                              )
 
 
@@ -29,24 +29,24 @@ class LicensedStateAdmin(admin.ModelAdmin):
 
 
 # Registration of the MedicareSupplementAgencies model in the admin site
-@admin.register(MedicareSupplementAgencies)
-class MedicareSupplementAgenciesAdmin(admin.ModelAdmin):
+@admin.register(MedicareSupplementCarrier)
+class MedicareSupplementCarriersAdmin(admin.ModelAdmin):
     pass
 
 
 # Registration of the Drugs model in the admin site
-@admin.register(Drugs)
+@admin.register(Drug)
 class DrugsAdmin(admin.ModelAdmin):
     pass
 
 
 # Registration of the MedicalConditions model in the admin site
-@admin.register(MedicalConditions)
+@admin.register(MedicalCondition)
 class MedicalConditionsAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(FormTypes)
+@admin.register(FormType)
 class FormTypesAdmin(admin.ModelAdmin):
     pass
 
@@ -61,10 +61,10 @@ class HouseholdDiscountKeysAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(HouseHoldDiscounts)
+@admin.register(HouseHoldDiscount)
 class HouseholdDiscountsAdmin(admin.ModelAdmin):
     pass
 
-@admin.register(AcceptanceRules)
+@admin.register(AcceptanceRule)
 class AcceptanceRulesAdmin(admin.ModelAdmin):
     pass

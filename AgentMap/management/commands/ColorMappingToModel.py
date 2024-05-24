@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import HouseHoldDiscounts, State, MedicareSupplementAgencies, HouseHoldDiscountKey
+from AgentMap.models import HouseHoldDiscount, State, MedicareSupplementCarrier, HouseHoldDiscountKey
 import time
 
 
@@ -93,6 +93,7 @@ def add_color_mapping_to_model():
         },
         "Connecticut": {
             "AARP": "green",
+            "American Benefit Life": "grey",
             "Aetna": "red",
             "Cigna National Health Insurance": "green",
             "Mutual of Omaha": "red",
@@ -702,23 +703,23 @@ def add_color_mapping_to_model():
     }
 
     ColorKey = {
-        "green": "#008000",
-        "red": "#ff0000",
-        "grey": "#808080",
-        "#8576FF": "#8576FF"
+        "green": "#7FC6CC",
+        "red": "#E5A090",
+        "grey": "#F0D498",
+        "#8576FF": "#ACACE6"
     }
 
     for state, companies in colorMapping.items():
         state_id = State.objects.get(full_state=state)
-        for agency, color in companies.items():
+        for carrier, color in companies.items():
             # Get the company object
             try:
-                agency_id = MedicareSupplementAgencies.objects.get(agency_name=agency)
-            except MedicareSupplementAgencies.DoesNotExist:
-                print(f"Company {agency} does not exist in the database.")
+                carrier_id = MedicareSupplementCarrier.objects.get(carrier_name=carrier)
+            except MedicareSupplementCarrier.DoesNotExist:
+                print(f"Company {carrier} does not exist in the database.")
                 time.sleep(50)
 
-            print(f"State: {state}, Company: {agency}, Color: {color}")
+            print(f"State: {state}, Carrier: {carrier}, Color: {color}")
 
             # decode the color
             color = ColorKey[color]
@@ -726,20 +727,20 @@ def add_color_mapping_to_model():
             # Get the color object
             discount_id = HouseHoldDiscountKey.objects.get(color=color)
 
-            print(f"State ID: {state_id}, Agency ID: {agency_id}, Discount ID: {discount_id}")
+            print(f"State ID: {state_id}, Carrier ID: {carrier_id}, Discount ID: {discount_id}")
 
             # Check if an entry with the same state and company already exists
-            existing_entry = HouseHoldDiscounts.objects.filter(state_id=state_id, agency_id=agency_id).first()
+            existing_entry = HouseHoldDiscount.objects.filter(state_id=state_id, carrier_id=carrier_id).first()
             if existing_entry is None:
                 # Create a new HouseHoldDiscount object
 
-                HouseHoldDiscounts.objects.get_or_create(
+                HouseHoldDiscount.objects.get_or_create(
                     state=state_id,
-                    agency=agency_id,
+                    carrier=carrier_id,
                     discount=discount_id
                 )
             else:
-                print(f"Entry for state {state} and company {agency} already exists.")
+                print(f"Entry for state {state} and company {carrier} already exists.")
 
 
 class Command(BaseCommand):
