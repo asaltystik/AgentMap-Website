@@ -235,6 +235,7 @@ def birthday_rules(request, state):
 
     # Wrap the file content in HTML tags and apply CSS styling
     html_content = f"""
+    <!DOCTYPE html>
     <html>
     <head>
         <style>
