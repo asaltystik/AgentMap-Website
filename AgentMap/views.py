@@ -242,6 +242,7 @@ def birthday_rules(request, state):
             background-color: #ffffff;
             color: #000000;
             font-family: Arial, sans-serif;
+            font-size: 24px;
             display: flex;
             align-items: center;
             justify-content: center;
