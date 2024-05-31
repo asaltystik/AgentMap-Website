@@ -795,13 +795,13 @@
     <div class="extras-container">
         <div class="color-key-container">
             <h2 class="color-key-header">Household Discount Key</h2>
-            <div class="color-keys">
-                {% for key in discount_keys %}
-                    <p id="{{ key.discount_type }}" class="color-key" style="background-color: {{ key.color }};">
-                        {{ key.discount_type }} - {{ key.description }}
-                    </p>
-            {% endfor %}
-            </div>
+                <div class="color-keys">
+                    {% for key in discount_keys %}
+                        <p id="{{ key.discount_type }}" class="color-key" style="background-color: {{ key.color }};">
+                            {{ key.discount_type }} - {{ key.description }}
+                        </p>
+                {% endfor %}
+                </div>
         </div>
         <div class="redirect-button-container">
             <button
