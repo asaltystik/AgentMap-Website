@@ -4,7 +4,7 @@
     flex-direction: column;
     z-index: 1;
     font-family: lucida sans unicode, serif;
-    height: 60vh;
+    height: 70vh;
 }
 
 /* Styling for the container that holds the map and the info-box */
@@ -16,18 +16,27 @@
     background-clip: border-box;
     border: 4px solid black;
     border-radius: 20px;
+    height: calc(95% - 1vh);
+    width: auto;
 }
 
 /* Styling for the map container */
 .map-container {
     position: relative;
-    width: 50vw;
+    width: 45vw;
+    height: auto;
 }
 
 /* Styling for the map */
 .map {
     flex: 1;
-    padding: 1vh 1vw;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-states {
+    height: 100%;
+    width: 100%;
 }
 
 /* Make the letters bold and bigger */
@@ -41,9 +50,9 @@
 /* Styling for the info-box-container */
 .info-box-container {
     position: relative;
-    width: 50vw;
-    height: 62vh;
-    padding: 2vh 0 2.5vh 0;
+    width: 55vw;
+    height: auto;
+    padding: 2vh 0 2.3vh 0;
     border-left: 4px solid black;
 }
 
@@ -59,14 +68,14 @@
 .new-company-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: .5vw;
+    gap: .3vw;
     justify-items: center;
     align-items: center;
 }
 
 /* styling for the company div */
 .new-company {
-    width: 22vw;
+    width: 25vw;
     height: 25vh;
 }
 
@@ -89,13 +98,14 @@ Im bit scared of how it will react */
     gap: .2vw;
     justify-items: center;
     align-items: center;
-    padding: 0.1vw;
+    padding: 0.3vw;
     overflow-y: auto;
-    height: calc(98% - 2vw);
+    height: calc(98% - 2.45vw);
 }
 
 /* Styling for the buttons */
 .button-matrix button {
+    min-height: 7.5vh;
     text-align: center;
     background-color: #77AAFF;
     border: .15vw solid black;
@@ -148,21 +158,33 @@ Im bit scared of how it will react */
 
 /* Styling for the color-key-container */
 .color-key-container {
-    width: 50vw;
+    width: calc(45% - 1vw);
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1vh 0;
-    margin-top: 2vh;
     margin-right: 1vw;
+}
+
+.color-key-container .color-key-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+
+.color-key-container .color-keys {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
 }
 
 /* Styling for the color-key */
 .color-key {
-    height: 7.5vh;
+    width : calc(95% - .1vw);
+    min-height: 7.5vh;
     margin: 0.5vh 0.5vh 0.1vh 0.1vh;
     word-wrap: break-word;
     border: 0.2vw solid #000;

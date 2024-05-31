@@ -9,6 +9,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agent Map</title> <!-- Title of the page -->
     <link rel="shortcut icon" href="https://securecare65.com/wp-content/uploads/2018/06/favicon.ico">
+    <!-- Got the static files to work, so now we moved the 100's of lines of css to a separate file -->
+    <!-- and use the django templater to load the css in on page load -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
@@ -18,8 +20,10 @@
         <div class="map-container">
             <div id="AgentMap" class="map">
                 <!-- This is the start of the SVG map -->
-                <svg viewBox="0 0 959 598" class="svg-states">
+                <svg viewBox="0 0 959 598" preserveAspectRatio="xMidYMid meet" class="svg-states">
                     <!-- Paths and Text for the states -->
+                    <!-- We are using the django templater to load in the licensed agents for each state -->
+                    <!-- It is purely irrelevant to any account that is not the main admin account -->
                     <g id="states">
                         <path id="AK" hx-get="/get_companies/AK" hx-target="#info-box" hx-trigger="click"
                               hx-indicator="#loading-indicator" fill="#CCCCCC" stroke="#D3D3D3"
@@ -738,6 +742,8 @@
                             {% endif %}</title>
                         </text>
                     </g>
+                <!-- this is some roughly drawn time zones and their labels -->
+                <!-- The tspans need to be on the same line to avoid the utc offset from being on a new line -->
                     <g id="time-zones">
                         <path style="pointer-events: none; fill: rgb(216, 216, 216); stroke: rgb(0, 0, 0); fill-opacity: 0;"
                               d="M 606.974 73.063 L 568.993 113.154 L 616.821 134.255 L 626.668 161.686 L 627.372 206.701 L 630.185 232.725 L 621.745 236.945 L 622.448 296.027 L 632.491 344.971 L 661.133 357.922 L 697.004 481.01"></path>
@@ -785,13 +791,17 @@
             </div>
         </div>
     </div>
+    <!-- This holds any extra information that needs to be displayed such as the color key and redirect buttons -->
     <div class="extras-container">
         <div class="color-key-container">
-            {% for key in discount_keys %}
-                <p id="{{ key.discount_type }}" class="color-key" style="background-color: {{ key.color }};">
-                    {{ key.discount_type }} - {{ key.description }}
-                </p>
+            <h2 class="color-key-header">Household Discount Key</h2>
+            <div class="color-keys">
+                {% for key in discount_keys %}
+                    <p id="{{ key.discount_type }}" class="color-key" style="background-color: {{ key.color }};">
+                        {{ key.discount_type }} - {{ key.description }}
+                    </p>
             {% endfor %}
+            </div>
         </div>
         <div class="redirect-button-container">
             <button
@@ -853,9 +863,11 @@
 <!-- This is the script that handles the modal for PDFS, and the color mapping for the companies -->
 <script type="text/javascript">
     // Convert the licensed_states to a dictionary for faster lookup
+    // This exists here by itself because I have moved the behemoth of a js block to a separate file.
+    // We need to make sure that the licensed_states are available to the main.js file tho so this must stay
     let licensedStates = {};
     {% for license in licensed_states %}
-        licensedStates["{{ license.state }}"] = "#0692e1";
+        licensedStates["{{ license.state }}"] = "#0692e1"; // #0692e1 is the default color for licensed states
     {% endfor %}
 </script>
 <script src="{% static 'js/main.js' %}"></script>
