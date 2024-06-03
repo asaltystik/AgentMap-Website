@@ -73,24 +73,28 @@ def agent_map(request):
     agents_in_states = {}
     # Get all the states that the agent is licensed in
     licensed_states = LicensedState.objects.filter(agent__user=request.user)
+    print(f'Licensed states: {licensed_states}')  # Debugging line
 
     # Get all the discounts + keys
     discount_keys = HouseHoldDiscountKey.objects.all()
 
-    # Check if the logged in user is 'admin'
+    # Check if the logged-in user is 'admin'
     if request.user.username == 'admin':
+        print('Admin is logged in')
         # Get all the states
-        licenses = LicensedState.objects.all().select_related('agent')
+        licenses = LicensedState.objects.all().select_related('agent', 'state')  # Include 'state' in select_related
 
         agents_in_states = {}
         for license in licenses:
-            if license.state not in agents_in_states:
-                agents_in_states[license.state] = []
-            if license.agent.user.username != 'admin' and license.agent not in agents_in_states[license.state]:
+            state_code = license.state.state_code  # Assuming 'name' is the field that holds the state code
+            if state_code not in agents_in_states:
+                agents_in_states[state_code] = []
+            if license.agent.user.username != 'admin' and license.agent not in agents_in_states[state_code]:
                 agent_name = license.agent.user.username[0].upper() + license.agent.user.username[1:]
-                agents_in_states[license.state].append(agent_name)
-            # Sort agents_in_states by aplhabetical order
-            agents_in_states[license.state].sort()
+                agents_in_states[state_code].append(agent_name)
+            # Sort agents_in_states by alphabetical order
+            agents_in_states[state_code].sort()
+        # print(f'Agents in states: {agents_in_states}')  # Debugging line
 
     context = {
         'licensed_states': licensed_states,
@@ -99,6 +103,7 @@ def agent_map(request):
     }
 
     return render(request, 'map.html', context=context)
+
 
 @login_required
 # This function will get all the companies in the given state
