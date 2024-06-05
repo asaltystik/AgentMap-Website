@@ -210,6 +210,38 @@
             return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
         }
 
+        // Function to get current time in a specific time zone
+function getTimeInTimeZone(timeZone) {
+    // Create a date object for the current time
+    let date = new Date();
+
+    // Convert the current time to the time in the specified time zone
+    let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
+    let newDate = new Date(utc + (3600000 * timeZone));
+
+    // Format the time in HH:MM:SS format
+    let time = newDate.toISOString().substr(11, 5);
+    // Return the time in the specified time zone
+
+    return time;
+}
+
+// Function to update time-zone texts
+function updateTimeZones() {
+    // Get the text elements for the time zones
+    let easternTime = document.querySelector("#Eastern");
+    let centralTime = document.querySelector("#Central");
+    let mountainTime = document.querySelector("#Mountain");
+    let pacificTime = document.querySelector("#Pacific");
+
+    // Update the text content with the current time in the respective time zone
+    easternTime.textContent = getTimeInTimeZone(-9);
+    centralTime.textContent = getTimeInTimeZone(-10);
+    mountainTime.textContent = getTimeInTimeZone(-11);
+    pacificTime.textContent = getTimeInTimeZone(-12);
+}
+
+
         // on window load, update the state colors
         window.onload = function () {
             // Grabs all elements with the class tag "preload" and removes that extra tag
@@ -380,5 +412,10 @@
                 if (element.classList.contains('stateName')) {
                     element.style.fill = '#000000'; // Black as my soul
                 }
+                // Update the time zones
+                // Call the function to update the time zones
+                updateTimeZones();
+                // Set an interval to update the time zones every second
+                setInterval(updateTimeZones, 1000);
             });
         };
