@@ -196,6 +196,18 @@ Im bit scared of how it will react */
     justify-content: center;
 }
 
+/* Styling for the redirect button container */
+.redirect-button-container {
+    width: calc(35% - 2vw);
+    margin-top: calc(2%);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: .2vh;
+    column-gap: .000001vh;
+    align-items: center;
+}
+
 /* Redirect button */
 .redirect-button {
     position: relative;

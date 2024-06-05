@@ -141,3 +141,5 @@ EMAIL_HOST_PASSWORD = 'lciz kzdl jeky louy'  # This is an app password generated
 
 # Login redirect settings
 LOGIN_URL = 'Login'  # Forces the user to login before accessing pages that require a user to be logged in
+
+X_FRAME_OPTIONS = 'SAMEORIGIN'  # This prevents the site from being embedded in an iframe

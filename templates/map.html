@@ -734,6 +734,34 @@
             >
                 Sircon
             </button>
+            <!-- if the user is an admin show the admin button -->
+            {% if user.is_staff %}
+                <button
+                        id="admin-button"
+                        class="redirect-button preload"
+                        onclick="window.open('/admin', '_blank')"
+                        Title="Admin: http://agent.securecare65.com/admin"
+                >
+                    Admin
+                </button>
+                <!-- button that will open the client_map view in the pdf modal -->
+                <button
+                        id="client-map-button"
+                        class="redirect-button preload"
+                        _="on click call openModal('/clientMap/')"
+                        Title="Client Map"
+                        >
+                    Client Map
+                </button>
+                <button 
+                        id="choropleth-map-button" 
+                        class="redirect-button preload"
+                        _="on click call openModal('/clientHeatMap/')"
+                        Title="County Heat Map of clients"
+                >
+                    Heat Map
+                </button>
+            {% endif %}
         </div>
     </div>
 </div>
