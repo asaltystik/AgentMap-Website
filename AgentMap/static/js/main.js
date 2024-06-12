@@ -104,7 +104,7 @@
                     document.querySelector('h1').style.color = colorString;
                 }
             } else {
-                colorString = 'rgb(0, 0, 0)' // Default to black
+                colorString = 'oklch(0% 0 0)' // Default to black
             }
 
             // Get the health bar element
@@ -210,6 +210,25 @@
             return "#" + (0x1000000 + (R<255?R<1?0:R:255)*0x10000 + (B<255?B<1?0:B:255)*0x100 + (G<255?G<1?0:G:255)).toString(16).slice(1);
         }
 
+        // We want to create a new darkenColor function that uses only the oklch color space
+        // This function will take in a color in the oklch color space and darken it by a percentage
+        function darkenOKLCH(color, percent) {
+            // Split the color into the L, C, and H values
+            let colorArray = color.split(' '); // Split the color into an array
+            console.log("Color Array: " + colorArray) // Log the color array
+            let L = parseFloat(colorArray[0].replace('oklch(', '')); // Get the L value and remove the oklch( prefix
+            let C = parseFloat(colorArray[1]); // Get the C value
+            let H = parseFloat(colorArray[2]); // Get the H value
+            console.log("Original Color: " + L + '% ' + C + ' ' + H) // Log the original color
+
+            // Calculate the new L value
+            let newL = L - (L * (percent / 100)); // Calculate the new L value
+
+            // Return the new color in the oklch color space
+            console.log("Darkened Color: " + newL + '% ' + C + ' ' + H)
+            return 'oklch(' + newL + '% ' + C + ' ' + H + ')';
+        }
+
         // Function to get current time in a specific time zone
 function getTimeInTimeZone(timeZone) {
     // Create a date object for the current time
@@ -220,10 +239,19 @@ function getTimeInTimeZone(timeZone) {
     let newDate = new Date(utc + (3600000 * timeZone));
 
     // Format the time in HH:MM:SS format
-    let time = newDate.toISOString().substr(11, 5);
-    // Return the time in the specified time zone
+    let time = newDate.toISOString().substr(11, 8);
 
-    return time;
+    // Convert the 24-hour time to 12-hour time with AM/PM
+    let hours = newDate.getUTCHours();
+    let minutes = newDate.getUTCMinutes();
+    let ampm = hours >= 12 ? 'PM' : 'AM';
+    hours = hours % 12;
+    hours = hours ? hours : 12; // the hour '0' should be '12'
+    minutes = minutes < 10 ? '0'+minutes : minutes;
+    let strTime = hours + ':' + minutes + ' ' + ampm;
+
+    // Return the time in the specified time zone
+    return strTime;
 }
 
 // Function to update time-zone texts
@@ -235,10 +263,10 @@ function updateTimeZones() {
     let pacificTime = document.querySelector("#Pacific");
 
     // Update the text content with the current time in the respective time zone
-    easternTime.textContent = getTimeInTimeZone(-9);
-    centralTime.textContent = getTimeInTimeZone(-10);
-    mountainTime.textContent = getTimeInTimeZone(-11);
-    pacificTime.textContent = getTimeInTimeZone(-12);
+    easternTime.textContent = getTimeInTimeZone(-8);
+    centralTime.textContent = getTimeInTimeZone(-9);
+    mountainTime.textContent = getTimeInTimeZone(-10);
+    pacificTime.textContent = getTimeInTimeZone(-11);
 }
 
 
@@ -257,6 +285,7 @@ function updateTimeZones() {
                 let state = element.id;
                 let color = licensedStates[state];
 
+
                 // Check if the state is in the list of licensed states
                 if (color) {
                     // Log the licensed state and color
@@ -272,11 +301,11 @@ function updateTimeZones() {
                         console.log("Mouseover Licensed State: " + element.id + " - " + color);
 
                         // Darken the color by 20% on hover and apply styling
-                        element.style.fill = darkenColor(color, -16); // Darken the color
+                        //element.style.fill = darkenColor(color, -16); // Darken the color
+                        element.style.fill = darkenOKLCH(color, 25)
                         element.style.strokeWidth = '2px'; // Set the line width to 2px
                         element.style.strokeLinejoin = 'round'; // Set the Stroke line join to round
                         element.style.transition = 'fill 850ms'; // transition effect
-
                         // If the element has class "stateName", also change the style of the corresponding path
                         if (element.classList.contains('stateName')) {
                             // Log the mouseover event
@@ -292,12 +321,13 @@ function updateTimeZones() {
                                 let target = path ? path : circle;
                                 target.style.strokeWidth = '2px'; // Set the stroke width to 2px
                                 target.style.strokeLinejoin = 'round'; // Set the stroke line join to round
-                                target.style.fill = darkenColor(color, -16); // Darken the color by 20%
+                                //target.style.fill = darkenColor(color, -16); // Darken the color by 20%
+                                target.style.fill = darkenOKLCH(color, 25)
                                 target.style.transition = 'fill 850ms';  // Set the transition to 850ms
                             }
 
-                            // Keep the color of the text black on hover
-                            element.style.fill = '#000000'; // Black as my soul
+                            // shift the color of the text to off-white
+                            element.style.fill = 'oklch(0% 0 0)';
                         }
                     });
 
@@ -330,7 +360,7 @@ function updateTimeZones() {
                                 target.style.transition = 'fill 850ms'; // Set the transition to 850ms
                             }
                             // Keep the color of the text black when the mouse is no longer hovering over it
-                            element.style.fill = '#000000'; // Black as my soul
+                            element.style.fill = 'oklch(0% 0 0)'; // Black as my soul
                         }
                     });
                 }
@@ -341,19 +371,19 @@ function updateTimeZones() {
                     // If it's not, apply a default color and hover effect
                     if (!element.classList.contains('stateName')) {
                         // Apply the default color and styling
-                        element.style.fill = "#CCCCCC";  // Default color
+                        element.style.fill = "oklch(84.52% 0 0)";  // Default color
                         element.style.strokeWidth = "2px"; // Set the stroke width to 2px
                         element.style.strokeLinejoin = "round"; // Set the stroke line join to round
                         element.style.transition = 'fill 850ms'; // Set the transition to 850ms
                     }
                     element.addEventListener('mouseover', function() {
                         // Log the mouseover event
-                        console.log("Mouseover unlicensed state: " + element.id + " - #CCCCCC");
+                        console.log("Mouseover unlicensed state: " + element.id + " - oklch(84.52% 0 0)");
 
                         // If the element has class "stateName", keep its color black on hover
                         if (element.classList.contains('stateName')) {
                             // Log the mouseover event
-                            console.log("Mouseover Unlicensed State Name: " + element.id + " - #CCCCCC");
+                            console.log("Mouseover Unlicensed State Name: " + element.id + " - oklch(84.52% 0 0)");
 
                             // get the path or circle element with the same id
                             let path = document.querySelector('path[id="' + element.getAttribute('id') + '"]');
@@ -366,7 +396,7 @@ function updateTimeZones() {
                                 target.style.fill = darkenColor("#CCCCCC", -16); // Darken the color by 20%
                                 target.style.transition = 'fill 850ms'; // Set the transition to 850ms
                             }
-                            element.style.fill = '#000000'; // Black as my soul
+                            element.style.fill = 'oklch(0% 0 0)'; // Black as my soul
                         }
                         else {
                             // Darken the default color by 20% on hover
@@ -378,7 +408,7 @@ function updateTimeZones() {
                     });
                     element.addEventListener('mouseout', function() {
                         // Reset the color on mouseout
-                        element.style.fill = "#CCCCCC"; // Default color
+                        element.style.fill = "oklch(84.52% 0 0)"; // Default color
                         element.style.strokeWidth = ''; // Set the stroke width to nothing
                         element.style.strokeLinejoin = ''; // Set the stroke line join to nothing
                         element.style.transition = 'fill 850ms'; // Set the transition to 850ms
@@ -400,17 +430,17 @@ function updateTimeZones() {
                                 let target = path ? path : circle;
                                 target.style.strokeWidth = ''; // Set the targets stroke width to nothing
                                 target.style.strokeLinejoin = ''; // Set the targets stroke line join to nothing
-                                target.style.fill = "#CCCCCC"; // Set the targets fill to the default color
+                                target.style.fill = "oklch(84.52% 0 0)"; // Set the targets fill to the default color
                                 target.style.transition = 'fill 850ms'; // Set the targets transition to 850ms
                             }
-                            element.style.fill = '#000000';
+                            element.style.fill = 'oklch(0% 0 0)';
                         }
 
                     });
                 }
                 // If the element has class "stateName", set its color to black
                 if (element.classList.contains('stateName')) {
-                    element.style.fill = '#000000'; // Black as my soul
+                    element.style.fill = 'oklch(0% 0 0)'; // Black as my soul
                 }
                 // Update the time zones
                 // Call the function to update the time zones

@@ -14,7 +14,8 @@
     flex-grow: 1;
     background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
     background-clip: border-box;
-    border: 4px solid black;
+    /*change the border to oklch()*/
+    border: 4px solid oklch(0% 0.1 154);
     border-radius: 20px;
     height: calc(95% - 1vh);
     width: auto;
@@ -43,7 +44,7 @@
 .stateName {
     font-size: 1.2em;
     font-weight: bold;
-    fill: rgba(16, 15, 15, 0.8);
+    fill: oklch(0% 0 0);
     cursor: pointer;
 }
 
@@ -53,7 +54,7 @@
     width: 55vw;
     height: auto;
     padding: 2vh 0 2.3vh 0;
-    border-left: 4px solid black;
+    border-left: 4px solid oklch(0% 0 0 / 80%);
 }
 
 /* Styling for the info-box */
@@ -107,16 +108,16 @@ Im bit scared of how it will react */
 .button-matrix button {
     min-height: 7.5vh;
     text-align: center;
-    background-color: #77AAFF;
-    border: .15vw solid black;
+    background-color: oklch(73.8% .134 253.71);
+    border: .15vw solid oklch(0% 0.1 154);
     border-radius: 1vw;
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
 /*Styling for the buttons hover effect */
 .button-matrix button:hover {
-    background-color: #065887;
-    color: #fff;
+    background-color: oklch(43.8% .134 253.71);
+    color: oklch(100% 0 0);
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
@@ -128,8 +129,8 @@ Im bit scared of how it will react */
 /* Company EApp Redirect */
 .company-app-redirect {
     text-align: center;
-    background-color: #77AAFF;
-    border: 2px solid #000;
+    background-color: oklch(73.8% .134 253.71);
+    border: 2px solid oklch(0% 0.1 154);
     border-radius: 10px;
     transition: 450ms ease-in-out;
     font-size: 18px;
@@ -138,8 +139,8 @@ Im bit scared of how it will react */
 
 /* Company EApp Redirect Hover Effect */
 .company-app-redirect:hover {
-    background-color: #065887;
-    color: #fff;
+    background-color: oklch(43.8% .134 253.71);
+    color: oklch(100% 0 0);
     transition: 450ms ease-in-out;
 }
 
@@ -187,7 +188,7 @@ Im bit scared of how it will react */
     min-height: 7.5vh;
     margin: 0.5vh 0.5vh 0.1vh 0.1vh;
     word-wrap: break-word;
-    border: 0.2vw solid #000;
+    border: 0.2vw solid oklch(0% 0.1 154);
     border-radius: 0.5vw;
     padding: 0.5vh;
     text-align: center;
@@ -221,8 +222,8 @@ Im bit scared of how it will react */
 
 /* Redirect button hover effect */
 .redirect-button:hover {
-    background-color: #0691df;
-    color: #fff;
+    background-color: oklch(63.22% .154 243.8);
+    color: oklch(100% 0 0);
     transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
 }
 
@@ -248,14 +249,14 @@ Im bit scared of how it will react */
 /* Styling for the logout button */
 .logout-button {
     border-radius: 10px;
-    border: 2px solid #000;
+    border: 2px solid oklch(0% 0.1 154);
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
 /* Styling for the logout button hover effect */
 .logout-button:hover {
-    background-color: #ff0000;
-    color: #fff;
+    background-color: oklch(59.12% 0.242 29.2338851923426);
+    color: oklch(100% 0 0);
     transition: 450ms ease-in-out;
 }
 
@@ -275,8 +276,8 @@ Im bit scared of how it will react */
     width: 100%; /* Full width */
     height: 100%; /* Full height */
     overflow: auto; /* Enable scroll if needed */
-    background-color: rgb(0, 0, 0); /* Fallback color */
-    background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+    background-color: oklch(0% .1 154); /* Fallback color */
+    background-color: oklch(0% 0 0 / 40%); /* Black w/ opacity */
 }
 
 /* Modal Content */
@@ -295,12 +296,12 @@ Im bit scared of how it will react */
 /* The Close Button */
 /* So much css, tiny little button */
 .close {
-    color: #ff0000;
-    background-color: rgba(100, 93, 93, 0.82);
+    color: oklch(59.12% 0.242 29.2338851923426);
+    background-color: oklch(48.49% 0.009 17.47 / 82%);
     float: right;
     font-size: 30px;
     font-weight: bold;
-    border: 2px solid #000;
+    border: 2px solid oklch(0% 0.1 154);
     padding-left: 8px;
     padding-right: 10px;
     padding-top: 4px;
@@ -313,24 +314,24 @@ Im bit scared of how it will react */
 
 /* the Close Button Hover Effect */
 .close:hover, .close:focus {
-    color: #000;
+    color: oklch(0% 0 0);
     text-decoration: none;
     cursor: pointer;
-    background-color: #ff0000;
+    background-color: oklch(59.12% 0.242 29.2338851923426);
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
 /* Birthday Rules */
 .birthday-rule-button {
-    border: .2vw solid #000;
+    border: .2vw solid oklch(0% 0.1 154);
     border-radius: 1vw;
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
 /* Birthday Rules Hover Effect */
 .birthday-rule-button:hover {
-    background-color: #0691df;
-    color: #fff;
+    background-color: oklch(63.22% 0.154 243.8);
+    color: oklch(100% 0 0);
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
@@ -343,7 +344,7 @@ Im bit scared of how it will react */
 /* scroll bar thumb styling */
 ::-webkit-scrollbar-thumb {
     opacity: .15;
-    background: #0691df;
+    background: oklch(63.22% 0.154 243.8);
     background-clip: content-box;
     border: 4px solid transparent;
     border-radius: 8px;
@@ -354,7 +355,7 @@ Im bit scared of how it will react */
 /* scroll bar thumb hover effect */
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:active {
-    background: rgba(6, 144, 221, 0.9);
+    background: oklch(62.88% 0.153 243.64 / 90%);
     background-clip: content-box;
     border: 4px solid transparent;
 }
@@ -367,23 +368,23 @@ Im bit scared of how it will react */
 
 /* scroll bar track hover effect */
 ::-webkit-scrollbar-track:hover {
-    background: rgba(128, 128, 128, .15);
+    background: oklch(59.99% 0 0 / 15%);
 }
 
 /* scroll bar track styling */
 ::-webkit-scrollbar-track:vertical:hover,
 ::-webkit-scrollbar-track:horizontal:hover {
-    background: rgba(0, 0, 0, .15);
+    background: oklch(0% 0 0 / 15%);
 }
 
 /* select scrollbar thumb */
 select::-webkit-scrollbar-thumb {
-    border: 4px solid hsl(0 0% 92% / 1);
+    border: 4px solid oklch(93.89% 0 0);
 }
 
 /* select scrollbar track */
 select::-webkit-scrollbar-track {
-    background: hsl(0 0% 92% / 1);
+    background: oklch(93.89% 0 0);
 }
 
 /* Media Queries */
