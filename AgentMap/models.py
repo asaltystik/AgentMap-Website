@@ -113,7 +113,7 @@ class AcceptanceRule(models.Model):
 class HouseHoldDiscountKey(models.Model):
     discount_type = models.CharField(max_length=200)  # The type of discount
     description = models.CharField(max_length=999)  # The description of the discount
-    color = models.CharField(max_length=20)  # The color of the discount
+    color = models.CharField(max_length=30)  # The color of the discount
 
     class Meta:
         verbose_name_plural = "HouseHold Discount Keys"
