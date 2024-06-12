@@ -794,7 +794,7 @@
     // We need to make sure that the licensed_states are available to the main.js file tho so this must stay
     let licensedStates = {};
     {% for license in licensed_states %}
-        licensedStates["{{ license.state }}"] = "#0692e1"; // #0692e1 is the default color for licensed states
+        licensedStates["{{ license.state }}"] = "oklch(72.35% 0.155 243.96)"; // #0692e1 is the default color for licensed states
     {% endfor %}
 </script>
 <script src="{% static 'js/main.js' %}"></script>
