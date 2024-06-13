@@ -52,7 +52,7 @@
 .info-box-container {
     position: relative;
     width: 55vw;
-    height: auto;
+    height: calc(95% - 1vh);
     padding: 2vh 0 2.3vh 0;
     border-left: 4px solid oklch(0% 0 0 / 80%);
 }
