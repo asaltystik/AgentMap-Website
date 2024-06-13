@@ -238,7 +238,7 @@ function getTimeInTimeZone(timeZone) {
     let utc = date.getTime() + (date.getTimezoneOffset() * 60000);
     let newDate = new Date(utc + (3600000 * timeZone));
 
-    // Format the time in HH:MM:SS format
+    // Format the time in HH:MM format
     let time = newDate.toISOString().substr(11, 8);
 
     // Convert the 24-hour time to 12-hour time with AM/PM
