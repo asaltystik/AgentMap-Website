@@ -31,7 +31,6 @@ urlpatterns = [
     path('register/', agent_map_view.register_view, name='Register'),
     path('birthday_rules/<str:state>', agent_map_view.birthday_rules, name='birthday_rules'),
     path('clientMap/', agent_map_view.client_map, name='ClientMap'),
-    path('clientHeatMap/', agent_map_view.client_heat_map, name='ClientHeatMap'),
 ]
 
 # if settings.DEBUG:

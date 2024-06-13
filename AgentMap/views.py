@@ -280,8 +280,4 @@ def birthday_rules(request, state):
 # This view will return a interactive map of the US with the clients coordinates are marked on the map
 @login_required
 def client_map(request):
-    return render(request, 'client_locations.html')
-
-@login_required
-def client_heat_map(request):
-    return render(request, 'client_county_choropleth.html')
+    return render(request, 'client_combined_map.html')
