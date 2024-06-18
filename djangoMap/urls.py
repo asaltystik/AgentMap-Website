@@ -31,6 +31,7 @@ urlpatterns = [
     path('register/', agent_map_view.register_view, name='Register'),
     path('birthday_rules/<str:state>', agent_map_view.birthday_rules, name='birthday_rules'),
     path('clientMap/', agent_map_view.client_map, name='ClientMap'),
+    path('declined_drugs/', agent_map_view.declinable_drug_list, name='Declined Drug Search'),
 ]
 
 # if settings.DEBUG:

@@ -735,6 +735,15 @@
             >
                 Sircon
             </button>
+            <button
+                    id="declineables-button"
+                    class="redirect-button preload"
+                    hx-get="declined_drugs/"
+                    hx-target="#info-box"
+                    hx-trigger="click"
+            >
+                Declineable Drugs
+            </button>
             <!-- if the user is an admin show the admin button -->
             {% if user.is_staff %}
                 <button

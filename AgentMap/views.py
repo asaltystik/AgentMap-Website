@@ -10,7 +10,7 @@ from django.utils import timezone
 from django.http import FileResponse, HttpResponse, JsonResponse
 from django.core import serializers
 from .forms import LoginForm, UserRegistrationForm
-from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount
+from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount, AcceptanceRule
 from datetime import timedelta
 import os
 
@@ -281,3 +281,14 @@ def birthday_rules(request, state):
 @login_required
 def client_map(request):
     return render(request, 'client_combined_map.html')
+
+# This view will send the user to the Declinable Drug List Page
+@login_required
+def declinable_drug_list(request):
+    # We will need to pack the data into a context dictionary to pass to the render
+    acceptanceRules = AcceptanceRule.objects.all()
+    context = {
+        'acceptanceRules': acceptanceRules
+    }
+    return render(request, 'declinable_drug_list.html', context=context)
+

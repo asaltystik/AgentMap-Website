@@ -1,0 +1,5093 @@
+Drug Name,Condition,Company,Is_Allowed
+Abacavir,HIV,ACE,0
+Ziagen,HIV,ACE,0
+Abarelix,Cancer,ACE,0
+Plenaxis,Cancer,ACE,0
+Acamprosate,Alcoholism,ACE,0
+Campral,Alcoholism,ACE,0
+AL-721,AIDS,ACE,0
+AL-721,HIV,ACE,0
+Albuterol/Ipratropium,COPD,ACE,0
+Albuterol/Ipratropium,Emphysema,ACE,0
+DuoNeb,COPD,ACE,0
+DuoNeb,Emphysema,ACE,0
+Combivent Respimat,COPD,ACE,0
+Combivent Respimat,Emphysema,ACE,0
+Altretamine,Cancer,ACE,0
+Hexalen,Cancer,ACE,0
+Amantadine,Parkinson's Disease,ACE,0
+Endantadine,Parkinson's Disease,ACE,0
+Symmetrel,Parkinson's Disease,ACE,0
+Symadine,Parkinson's Disease,ACE,0
+Anakinra,Rheumatoid Arthritis,ACE,0
+Kineret,Rheumatoid Arthritis,ACE,0
+Apomorphine,Parkinson's Disease,ACE,0
+Apokyn,Parkinson's Disease,ACE,0
+Uprima,Parkinson's Disease,ACE,0
+Atazanavir,HIV,ACE,0
+Reyataz,HIV,ACE,0
+Auranofin,Rheumatoid Arthritis,ACE,0
+Ridaura,Rheumatoid Arthritis,ACE,0
+Aurothioglucose,Rheumatoid Arthritis,ACE,0
+Solganal,Rheumatoid Arthritis,ACE,0
+Azathioprine,Rheumatoid Arthritis,ACE,0
+Azathioprine,Kidney Transplant,ACE,0
+Imuran,Rheumatoid Arthritis,ACE,0
+Imuran,Kidney Transplant,ACE,0
+Azasan,Rheumatoid Arthritis,ACE,0
+Azasan,Kidney Transplant,ACE,0
+BCG,Bladder Cancer,ACE,0
+TheraCyx,Bladder Cancer,ACE,0
+Tice BCG,Bladder Cancer,ACE,0
+Baclofen,Multiple Sclerosis,ACE,0
+Lioresal,Multiple Sclerosis,ACE,0
+Lioresal Intrathecal,Multiple Sclerosis,ACE,0
+Gablofen,Multiple Sclerosis,ACE,0
+Benztropine,Parkinson's Disease,ACE,0
+Cogentin,Parkinson's Disease,ACE,0
+Bicalutamide,Prostate Cancer,ACE,0
+Casodex,Prostate Cancer,ACE,0
+Biperiden Hydrochloride,Parkinson's Disease,ACE,0
+Akineton,Parkinson's Disease,ACE,0
+Bleomycin,Cancer,ACE,0
+Blenoxane,Cancer,ACE,0
+Bromocriptine,Parkinson's Disease,ACE,0
+Cycloset,Parkinson's Disease,ACE,0
+Parlodel,Parkinson's Disease,ACE,0
+Busulfan,Cancer,ACE,0
+Myleran,Cancer,ACE,0
+Busulfex,Cancer,ACE,0
+Carbidopa,Parkinson's Disease,ACE,0
+Lodosyn,Parkinson's Disease,ACE,0
+Carbidopa/Levodopa,Parkinson's Disease,ACE,0
+Sinemet,Parkinson's Disease,ACE,0
+Rytary,Parkinson's Disease,ACE,0
+Duopa,Parkinson's Disease,ACE,0
+Atamet,Parkinson's Disease,ACE,0
+Carbilev,Parkinson's Disease,ACE,0
+Parcopa,Parkinson's Disease,ACE,0
+Carboplatin,Cancer,ACE,0
+Paraplatin,Cancer,ACE,0
+Chlorambucil,Cancer,ACE,0
+Chlorambucil,Kidney Transplant,ACE,0
+Chlorambucil,Rheumatoid Arthritis,ACE,0
+Leukeran,Cancer,ACE,0
+Leukeran,Kidney Transplant,ACE,0
+Leukeran,Rheumatoid Arthritis,ACE,0
+Chlorotrianisene,Cancer,ACE,0
+Tace,Cancer,ACE,0
+Chlorpromazine,Psychosis,ACE,0
+Chlorpromazine,Schizophrenia,ACE,0
+Thorazine,Psychosis,ACE,0
+Thorazine,Schizophrenia,ACE,0
+Cisplatin,Cancer,ACE,0
+Platinol,Cancer,ACE,0
+Cyclophosphamide,Cancer,ACE,0
+Cyclophosphamide,Rheumatoid Arthritis,ACE,0
+Cyclophosphamide,Lupus,ACE,0
+Cytoxan,Cancer,ACE,0
+Cytoxan,Rheumatoid Arthritis,ACE,0
+Cytoxan,Lupus,ACE,0
+Neosar,Cancer,ACE,0
+Neosar,Rheumatoid Arthritis,ACE,0
+Neosar,Lupus,ACE,0
+Cycloserine,Tuberculosis,ACE,0
+Seromycin,Tuberculosis,ACE,0
+Cyclosporine,Organ Transplant,ACE,0
+Cyclosporine,Cancer,ACE,0
+Cyclosporine,Rheumatoid Arthritis,ACE,0
+Neoral,Organ Transplant,ACE,0
+Neoral,Cancer,ACE,0
+Neoral,Rheumatoid Arthritis,ACE,0
+Sandimmune,Organ Transplant,ACE,0
+Sandimmune,Rheumatoid Arthritis,ACE,0
+Sandimmune,Cancer,ACE,0
+Gengraf,Organ Transplant,ACE,0
+Gengraf,Cancer,ACE,0
+Gengraf,Rheumatoid Arthritis,ACE,0
+Darunavir,AIDS,ACE,0
+Darunavir,HIV,ACE,0
+Prezista,AIDS,ACE,0
+Prezista,HIV,ACE,0
+Delavirdine,AIDS,ACE,0
+Delavirdine,HIV,ACE,0
+Rescriptor,HIV,ACE,0
+Rescriptor,AIDS,ACE,0
+Didanosine,AIDS,ACE,0
+Didanosine,HIV,ACE,0
+Videx,AIDS,ACE,0
+Videx,HIV,ACE,0
+ddl,AIDS,ACE,0
+ddl,HIV,ACE,0
+Disulfiram,Alcoholism,ACE,0
+Antabuse,Alcoholism,ACE,0
+Donepezil,Dementia,ACE,0
+Aricept,Dementia,ACE,0
+Doxorubicin,Cancer,ACE,0
+Adriamycin,Cancer,ACE,0
+Caelyx,Cancer,ACE,0
+Rubex,Cancer,ACE,0
+Dronabinol,Cancer,ACE,0
+Marinol,Cancer,ACE,0
+THC,Cancer,ACE,0
+Emtricitabine,AIDS,ACE,0
+Emtricitabine,HIV,ACE,0
+Atripla,AIDS,ACE,0
+Atripla,HIV,ACE,0
+Emtrivia,AIDS,ACE,0
+Emtrivia,HIV,ACE,0
+Coviracil,AIDS,ACE,0
+Coviracil,HIV,ACE,0
+Emtricitabine/tenofovir,HIV,ACE,0
+Truvada,HIV,ACE,0
+Entacapone,Parkinson's Disease,ACE,0
+Comtan,Parkinson's Disease,ACE,0
+Entacapone/Levodopa/Carbidopa,Parkinson's Disease,ACE,0
+Stalevo,Parkinson's Disease,ACE,0
+Epoetin Alfa,Chronic Kidney Disease,ACE,0
+Epoetin Alfa,HIV,ACE,0
+Epoetin Alfa,Cancer,ACE,0
+Epogen,Chronic Kidney Disease,ACE,0
+Epogen,HIV,ACE,0
+Epogen,Cancer,ACE,0
+Procrit,Chronic Kidney Disease,ACE,0
+Procrit,HIV,ACE,0
+Procrit,Cancer,ACE,0
+Eprex,Chronic Kidney Disease,ACE,0
+Eprex,HIV,ACE,0
+Eprex,Cancer,ACE,0
+Ergoloid Mesylates,Dementia,ACE,0
+Hydergine,Dementia,ACE,0
+Etanercept,Rheumatoid Arthritis,ACE,0
+Enbrel,Rheumatoid Arthritis,ACE,0
+Ethinyl Estradiol,Cancer,ACE,0
+Estinyl,Cancer,ACE,0
+Ethopropazine,Parkinson's Disease,ACE,0
+Parsidol,Parkinson's Disease,ACE,0
+Etoposide,Cancer,ACE,0
+VePesid,Cancer,ACE,0
+Toposar,Cancer,ACE,0
+Etopophos,Cancer,ACE,0
+Filgrastim,Cancer,ACE,0
+Neupogen,Cancer,ACE,0
+Granix,Cancer,ACE,0
+Zarxio,Cancer,ACE,0
+Fluphenazine,Psychosis,ACE,0
+Modecate,Psychosis,ACE,0
+Prolixin,Psychosis,ACE,0
+Moditen,Psychosis,ACE,0
+Permitil,Psychosis,ACE,0
+Flutamide,Cancer,ACE,0
+Euflex,Cancer,ACE,0
+Eulexin,Cancer,ACE,0
+Fosamprenavir,HIV,ACE,0
+Lexiva,HIV,ACE,0
+Foscarnet Sodium,AIDS,ACE,0
+Foscarnet Sodium,HIV,ACE,0
+Foscavir,AIDS,ACE,0
+Foscavir,HIV,ACE,0
+Furosemide (>60mg/day),Heart Disease,ACE,0
+Lasix,Heart Disease,ACE,0
+Galantamine,Dementia,ACE,0
+Razadyne,Dementia,ACE,0
+Reminyl,Dementia,ACE,0
+glatiramer,Multiple Sclerosis,ACE,0
+Copaxone,Multiple Sclerosis,ACE,0
+Glatopa,Multiple Sclerosis,ACE,0
+Gold Sodium Thiomalate,Severe Arthritis,ACE,0
+Goserelin,Cancer,ACE,0
+Zoladex,Cancer,ACE,0
+Haloperidol,Psychosis,ACE,0
+Haldol,Psychosis,ACE,0
+Peridol,Psychosis,ACE,0
+Hydroxyurea,Cancer,ACE,0
+Hydrea,Cancer,ACE,0
+Droxia,Cancer,ACE,0
+Imatinib,Cancer,ACE,0
+Gleevec,Cancer,ACE,0
+Indinavir,AIDS,ACE,0
+Indinavir,HIV,ACE,0
+Crixivan, AIDS,ACE,0
+Crixivan,HIV,ACE,0
+IDV,AIDS,ACE,0
+IDV,HIV,ACE,0
+Infliximab,Rheumatoid Arthritis,ACE,0
+Remicade,Rheumatoid Arthritis,ACE,0
+Insulin > 50 units per day,Diabetes Mellitus,ACE,0
+Interferon,AIDS,ACE,0
+Interferon,HIV,ACE,0
+Interferon,Cancer,ACE,0
+Interferon,Multiple Sclerosis,ACE,0
+Interferon,Hepatitis,ACE,0
+Interferon Alfa-2a,Aids,ACE,0
+Interferon Alfa-2a,HIV,ACE,0
+Interferon Alfa-2a,Cancer,ACE,0
+Roferon-A,AIDS,ACE,0
+Roferon-A,HIV,ACE,0
+Roferon-A,Cancer,ACE,0
+Interferon Beta 1a,Multiple Sclerosis,ACE,0
+Avonex,Multiple Sclerosis,ACE,0
+Rebif,Multiple Sclerosis,ACE,0
+Interferon Beta 1b,Multiple Sclerosis,ACE,0
+Betaseron,Multiple Sclerosis,ACE,0
+Extavia,Multiple Sclerosis,ACE,0
+Ipratropium,COPD,ACE,0
+Ipratropium,Emphysema,ACE,0
+Atrovent,COPD,ACE,0
+Atrovent,Emphysema,ACE,0
+Iamivudine,AIDS,ACE,0
+Combivir,AIDS,ACE,0
+3TC,AIDS,ACE,0
+Epivir,AIDS,ACE,0
+Lamivudine/Zidovudine/Abacavir,HIV,ACE,0
+Trizivir,HIV,ACE,0
+Leuprolide,Cancer,ACE,0
+Lupron,Cancer,ACE,0
+Eligard,Cancer,ACE,0
+Levamisole Hydrochloride,Cancer,ACE,0
+Ergamisol,Cancer,ACE,0
+Levodopa,Parkinson's Disease,ACE,0
+Larodopa,Parkinson's Disease,ACE,0
+Dopar,Parkinson's Disease,ACE,0
+L-Dopa,Parkinson's Disease,ACE,0
+Lomustine,Cancer,ACE,0
+Gleostine,Cancer,ACE,0
+CCNU,Cancer,ACE,0
+Lopinavir,HIV,ACE,0
+Kaletra,HIV,ACE,0
+Maraviroc,HIV,ACE,0
+Selzentry,HIV,ACE,0
+Medroxyprogesterone Acetate,Cancer,ACE,0
+Depo-Provera,Cancer,ACE,0
+Provera,Cancer,ACE,0
+Amen,Cancer,ACE,0
+Curretab,Cancer,ACE,0
+Cycrin,Cancer,ACE,0
+Megestrol,Cancer,ACE,0
+Megace,Cancer,ACE,0
+Melpahlan,Cancer,ACE,0
+Alkeran,Cancer,ACE,0
+Memantine,Dementia,ACE,0
+Namenda,Dementia,ACE,0
+Methotrexate,Severe Arthritis,ACE,0
+Methotrexate,Cancer,ACE,0
+Trexall,Severe Arthritis,ACE,0
+Trexall,Cancer,ACE,0
+Rheumatrex,Severe Arthritis,ACE,0
+Rheumatrex,Cancer,ACE,0
+Rasuvo,Severe Arthritis,ACE,0
+Rasuvo,Cancer,ACE,0
+Otrexup,Severe Arthritis,ACE,0
+Otrexup,Cancer,ACE,0
+Mitomycin,Cancer,ACE,0
+Mutamycin,Cancer,ACE,0
+Mitoxantrone,Multiple Sclerosis,ACE,0
+Mitoxantrone,Cancer,ACE,0
+Novantrone,Multiple Sclerosis,ACE,0
+Novantrone,Cancer,ACE,0
+Mycophenolate,Myasthenia Gravis,ACE,0
+Mycophenolate,Organ Transplant,ACE,0
+CellCept,Myasthenia Gravis,ACE,0
+CellCept,Organ Transplant,ACE,0
+Myfortic,Myasthenia Gravis,ACE,0
+Myfortic,Organ Transplant,ACE,0
+Naltrexone,Opiod Detox,ACE,0
+Naltrexone,Alcoholism,ACE,0
+ReVia,Opiod Detox,ACE,0
+Revia,Alcoholism,ACE,0
+Vivitrol,Opiod Detox,ACE,0
+Vivitrol,Alcoholism,ACE,0
+Depade,Opiod Detox,ACE,0
+Depade,Alcoholism,ACE,0
+Natalizumab,Multiple Sclerosis,ACE,0
+Tysabri,Multiple Sclerosis,ACE,0
+Nelfinavir,AIDS,ACE,0
+Nelfinavir,HIV,ACE,0
+Viracept,AIDS,ACE,0
+Viracept,HIV,ACE,0
+Neostigmine,Myasthenia Gravis,ACE,0
+Prostigmin,Myasthenia Gravis,ACE,0
+Bloxiverz,Myasthenia Gravis,ACE,0
+Nesiritide,Congestive Heart Failure,ACE,0
+Netrecor,Congestive Heart Failure,ACE,0
+Nevirapine,AIDS,ACE,0
+Nevirapine,HIV,ACE,0
+Viramune,AIDS,ACE,0
+Viramune,HIV,ACE,0
+Ondansetron,Cancer,ACE,0
+Zofran,Cancer,ACE,0
+Oxygen,COPD,ACE,0
+Oxygen,Emphysema,ACE,0
+Paliperidone,Schizophrenia,ACE,0
+Invega,Schizophrenia,ACE,0
+Pergolide Mesylate,Parkinson's Disease,ACE,0
+Permax,Parkinson's Disease,ACE,0
+Pramipexole,Parkinson's Disease,ACE,0
+Mirapex,Parkinson's Disease,ACE,0
+Prednisone,Severe Arthritis,ACE,0
+Prednisone,Lupus,ACE,0
+Prednisone,Chronic Lung Disease,ACE,0
+Rayos,Severe Arthritis,ACE,0
+Rayos,Lupus,ACE,0
+Rayos,Chronic Lung Disease,ACE,0
+Sterapred,Severe Arthritis,ACE,0
+Sterapred,Lupus,ACE,0
+Sterapred,Chronic Lung Disease,ACE,0
+Procyclidine,Parkinson's Disease,ACE,0
+Kemadrin,Parkinson's Disease,ACE,0
+Pyridostigmine,Myasthenia Gravis,ACE,0
+Mestinon,Myasthenia Gravis,ACE,0
+Regonol,Myasthenia Gravis,ACE,0
+Rasagiline,Parkinson's Disease,ACE,0
+Azilect,Parkinson's Disease,ACE,0
+Riluzole,Amyotrophic Lateral Sclerosis,ACE,0
+Rilutek,Amyotrophic Lateral Sclerosis,ACE,0
+Risperidone,Psychosis,ACE,0
+Risperidone,Schizophrenia,ACE,0
+Risperdal,Psychosis,ACE,0
+Risperdal,Schizophrenia,ACE,0
+Ritonavir,AIDS,ACE,0
+Ritonavir,HIV,ACE,0
+Norvir,AIDS,ACE,0
+Norvir,HIV,ACE,0
+Rivastigmine,Dementia,ACE,0
+Exelon,Dementia,ACE,0
+Ropiniole,Parkinson's Disease,ACE,0
+Requip,Parkinson's Disease,ACE,0
+Rotigotine,Parkinson's Disease,ACE,0
+Neupro,Parkinson's Disease,ACE,0
+Saquinavir,AIDS,ACE,0
+Saquinavir,HIV,ACE,0
+Invirase,AIDS,ACE,0
+Invirase,HIV,ACE,0
+Fortovase,AIDS,ACE,0
+Fortovase,HIV,ACE,0
+Selegiline,Parkinson's Disease,ACE,0
+Carbex,Parkinson's Disease,ACE,0
+Eldepryl,Parkinson's Disease,ACE,0
+Zelapar,Parkinson's Disease,ACE,0
+Stavudine,AIDS,ACE,0
+Stavudine,HIV,ACE,0
+Zerit,AIDS,ACE,0
+Zerit,HIV,ACE,0
+d4T,AIDS,ACE,0
+d4T,HIV,ACE,0
+Streptozocin,Cancer,ACE,0
+Zanosar,Cancer,ACE,0
+Tacrine,Dementia,ACE,0
+Cognex,Dementia,ACE,0
+Tacrolimus,Myasthenia Gravis,ACE,0
+Tacrolimus,Organ Transplant,ACE,0
+Prograf,Myasthenia Gravis,ACE,0
+Prograf,Organ Transplant,ACE,0
+Hecoria,Myasthenia Gravis,ACE,0
+Hecoria,Organ Transplant,ACE,0
+Astagraf,Myasthenia Gravis,ACE,0
+Astagraf,Organ Transplant,ACE,0
+Envarsus,Myasthenia Gravis,ACE,0
+Envarsus,Organ Transplant,ACE,0
+Tenofovir,AIDS,ACE,0
+Tenofovir,HIV,ACE,0
+Viread,AIDS,ACE,0
+Viread,HIV,ACE,0
+Testolactone,Cancer,ACE,0
+Teslac,Cancer,ACE,0
+Theophylline,COPD,ACE,0
+Theophylline,Emphysema,ACE,0
+Thioridazine,Psychosis,ACE,0
+Thioridazine,Dementia,ACE,0
+Mellaril,Psychosis,ACE,0
+Mellaril,Dementia,ACE,0
+Thiotepa,Cancer,ACE,0
+Tespa,Cancer,ACE,0
+Thioplex,Cancer,ACE,0
+Thiothixene,Psychosis,ACE,0
+Navane,Psychosis,ACE,0
+Tiotropium,COPD,ACE,0
+Tiotropium,Emphysema,ACE,0
+Spiriva,COPD,ACE,0
+Spiriva,Emphysema,ACE,0
+Tipranavir,AIDS,ACE,0
+Tipranavir,HIV,ACE,0
+Aptivus,AIDS,ACE,0
+Aptivus,HIV,ACE,0
+Tolcapone,Parkinson's Disease,ACE,0
+Tasmar,Parkinson's Disease,ACE,0
+Trastuzumab,Cancer,ACE,0
+Herceptin,Cancer,ACE,0
+Trifluoperazine,Psychosis,ACE,0
+Trifluoperazine,Schizophrenia,ACE,0
+Stelazine,Psychosis,ACE,0
+Stelazine,Schizophrenia,ACE,0
+Trihexyphenidyl,Parkinson's Disease,ACE,0
+Artane,Parkinson's Disease,ACE,0
+Trihex ,Parkinson's Disease,ACE,0
+Triptorelin,Cancer,ACE,0
+Trelstar,Cancer,ACE,0
+Valganiciclovir,HIV,ACE,0
+Valcyte,HIV,ACE,0
+Vincristine,Cancer,ACE,0
+Oncovin,Cancer,ACE,0
+Vincasar,Cancer,ACE,0
+Zalcitabine,AIDS,ACE,0
+Zalcitabine,HIV,ACE,0
+Hivid,AIDS,ACE,0
+Hivid,HIV,ACE,0
+ddC,AIDS,ACE,0
+ddC,HIV,ACE,0
+Zidovudine,AIDS,ACE,0
+Zidovudine,HIV,ACE,0
+Zidovudine,Hepatitis,ACE,0
+AZT,AIDS,ACE,0
+AZT,HIV,ACE,0
+AZT,Hepatitis,ACE,0
+ZDV,AIDS,ACE,0
+ZDV,HIV,ACE,0
+ZDV,Hepatitis,ACE,0
+Retrovir,AIDS,ACE,0
+Retrovir,HIV,ACE,0
+Retrovir,Hepatitis,ACE,0
+Ziprasidone,Schizophrenia,ACE,0
+Geodon,Schizophrenia,ACE,0
+Zoledronic Acid,Hypercalcemia Caused By Cancer,ACE,0
+Reclast,Hypercalcemia Caused By Cancer,ACE,0
+Zometa,Hypercalcemia Caused By Cancer,ACE,0
+Abacavir,Any Condition,AETNA,0
+"Abacavir, Dolutegravir And Lamivudine",Any Condition,AETNA,0
+Abatacept,Any Condition,AETNA,0
+Abemaciclib,Any Condition,AETNA,0
+Abilify,Any Condition,AETNA,0
+Abiraterone,Any Condition,AETNA,0
+Abstral,Any Condition,AETNA,0
+Abstral,Cancer,AETNA,0
+Acamprosate,Any Condition,AETNA,0
+Accesspak,Any Condition,AETNA,0
+Accupril,Congestive Heart Failure,AETNA,0
+Aceon,Congestive Heart Failure,AETNA,0
+Aclasta,Any Condition,AETNA,0
+Aclidinium,COPD,AETNA,1
+Aclidinium,Chronic Bronchitis,AETNA,1
+Aclidinium,Emphysema,AETNA,1
+Aclidinium,Chronic Respiratory Condition,AETNA,1
+Actemra,Any Condition,AETNA,0
+Actigall,Any Condition,AETNA,0
+Actimmune,Any Condition,AETNA,0
+Actiq,Any Condition,AETNA,0
+Actiq,Cancer,AETNA,0
+Adakveo,Any Condition,AETNA,0
+Adalat,Angina,AETNA,1
+Adalimumab,Any Condition,AETNA,0
+Adcetris,Any Condition,AETNA,0
+Adefovir,Any Condition,AETNA,0
+Adriamycin,Any Condition,AETNA,0
+Adrucil,Any Condition,AETNA,0
+Advair,COPD,AETNA,1
+Advair,Chronic Bronchitis,AETNA,1
+Advair,Emphysema,AETNA,1
+Advair,Chronic Respiratory Condition,AETNA,1
+Afeditab,Angina,AETNA,1
+Afinitor,Any Condition,AETNA,0
+Afrezza,Any Condition,AETNA,0
+Agrylin,Any Condition,AETNA,0
+Airmir,COPD,AETNA,1
+Airmir,Chronic Bronchitis,AETNA,1
+Airmir,Emphysema,AETNA,1
+Airmir,Chronic Respiratory Condition,AETNA,1
+Akineton,Parkinson's Disease,AETNA,0
+Albuterol,COPD,AETNA,1
+Albuterol,Chronic Bronchitis,AETNA,1
+Albuterol,Emphysema,AETNA,1
+Albuterol,Chronic Respiratory Condition,AETNA,1
+Albuterol And Ipratropium,COPD,AETNA,1
+Albuterol And Ipratropium,Chronic Bronchitis,AETNA,1
+Albuterol And Ipratropium,Emphysema,AETNA,1
+Albuterol And Ipratropium,Chronic Respiratory Condition,AETNA,1
+Aldactone,Cardiomyopathy,AETNA,1
+Aldactone,Cirrhosis,AETNA,1
+Aldactone,Congestive Heart Failure,AETNA,1
+Aldactone,Liver Disease,AETNA,1
+Aldactone,Kidney Disease,AETNA,1
+Alefacept,Any Condition,AETNA,0
+Alefacept,Lymphoma,AETNA,0
+Alemtuzumab,Any Condition,AETNA,0
+Alemtuzumab,Cancer,AETNA,0
+Alferon N,Any Condition,AETNA,0
+Alferon N,Cancer,AETNA,0
+Alkeran,Any Condition,AETNA,0
+Altace,Congestive Heart Failure,AETNA,0
+Amantadine,Parkinson's Disease,AETNA,0
+Ambenonium,Any Condition,AETNA,0
+Amevive,Any Condition,AETNA,0
+Amevive,Lymphoma,AETNA,0
+Aminosalicylic Acid,Any Condition,AETNA,1
+Amiodarone,Any Condition,AETNA,0
+Amlodipine,Angina,AETNA,1
+Ampyra,Any Condition,AETNA,0
+Anagrelide,Any Condition,AETNA,0
+Anakinra,Any Condition,AETNA,0
+Anandron,Any Condition,AETNA,0
+Anastrozole,Any Condition,AETNA,0
+Anoro Elipta,COPD,AETNA,1
+Anoro Elipta,Chronic Bronchitis,AETNA,1
+Anoro Elipta,Emphysema,AETNA,1
+Anoro Elipta,Chronic Respiratory Condition,AETNA,1
+Antabuse,Any Condition,AETNA,0
+Apalutamide,Any Condition,AETNA,0
+Apixaban,Atrial Fibrillation,AETNA,0
+Apixaban,Arrhythmia,AETNA,0
+Apixaban,Irregular Heartbeat,AETNA,0
+Apokyn,Any Condition,AETNA,0
+Apomorphine,Any Condition,AETNA,0
+Apremilast,Any Condition,AETNA,0
+Arabinosylcytosine,Any Condition,AETNA,0
+Aranesp,Any Condition,AETNA,0
+Arava,Any Condition,AETNA,0
+Aredia,Any Condition,AETNA,0
+Aricept,Any Condition,AETNA,0
+Arimidex,Any Condition,AETNA,0
+Aripiprazole,Any Condition,AETNA,0
+Aromasin,Any Condition,AETNA,0
+Artane,Parkinson's Disease,AETNA,0
+Aspirin,Angina,AETNA,1
+Astagraf Xl,Any Condition,AETNA,0
+Astagraf Xl,Organ Transplant,AETNA,0
+Atacand,Congestive Heart Failure,AETNA,0
+Atamet,Parkinson's Disease,AETNA,0
+Atenolol,Angina,AETNA,1
+Atenolol + Blood Thinner,Atrial Fibrillation,AETNA,0
+Atenolol + Blood Thinner,Arrhythmia,AETNA,0
+Atenolol + Blood Thinner,Irregular Heartbeat,AETNA,0
+Atezolizumab,Any Condition,AETNA,0
+Atripla,Any Condition,AETNA,0
+Atrovent,COPD,AETNA,1
+Atrovent,Chronic Bronchitis,AETNA,1
+Atrovent,Emphysema,AETNA,1
+Atrovent,Chronic Respiratory Condition,AETNA,1
+Aubagio,Any Condition,AETNA,0
+Auranofin,Any Condition,AETNA,0
+Aurolate,Any Condition,AETNA,0
+Auryxia,Any Condition,AETNA,0
+Austedo,Any Condition,AETNA,0
+Avastin,Any Condition,AETNA,0
+Avinza,Any Condition,AETNA,0
+Avonex,Any Condition,AETNA,0
+Axona,Any Condition,AETNA,0
+Azapin,Any Condition,AETNA,0
+Azapin,Organ Transplant,AETNA,0
+Azapin,Systemic Lupus (SLE),AETNA,0
+Azasan,Any Condition,AETNA,0
+Azasan,Organ Transplant,AETNA,0
+Azasan,Systemic Lupus (SLE),AETNA,0
+Azathioprine,Any Condition,AETNA,0
+Azathioprine,Organ Transplant,AETNA,0
+Azathioprine,Systemic Lupus (SLE),AETNA,0
+Azidothymidine (Azt),Any Condition,AETNA,0
+Azilect,Parkinson's Disease,AETNA,0
+Baclofen,Multiple Sclerosis,AETNA,0
+Balversa,Any Condition,AETNA,0
+Baraclude,Any Condition,AETNA,0
+Bcg (Bacillus Calmette And Gu?Rin),Any Condition,AETNA,1
+Bcg (Bacillus Calmette And Gu?Rin),Any Condition,AETNA,0
+Bedaquiline,Any Condition,AETNA,1
+Belimumab,Any Condition,AETNA,0
+Benlysta,Any Condition,AETNA,0
+Benztropine,Parkinson's Disease,AETNA,0
+Betapace,Any Condition,AETNA,0
+Betaseron,Any Condition,AETNA,0
+Bethanechol,Any Condition,AETNA,0
+Bevacizumab,Any Condition,AETNA,0
+Bexarotene,Any Condition,AETNA,0
+Bexxar,Any Condition,AETNA,0
+Bicalutamide,Any Condition,AETNA,0
+Bidil,Any Condition,AETNA,0
+Biktarvy,Any Condition,AETNA,0
+Biperiden,Parkinson's Disease,AETNA,0
+Bisoprolol,Congestive Heart Failure,AETNA,0
+Blenoxane,Any Condition,AETNA,0
+Bleomycin,Any Condition,AETNA,0
+Bloxiverz,Any Condition,AETNA,0
+Brentuximab Vedotin,Any Condition,AETNA,0
+Breo Elipta,COPD,AETNA,1
+Breo Elipta,Chronic Bronchitis,AETNA,1
+Breo Elipta,Emphysema,AETNA,1
+Breo Elipta,Chronic Respiratory Condition,AETNA,1
+Bricanyl,COPD,AETNA,1
+Bricanyl,Chronic Bronchitis,AETNA,1
+Bricanyl,Emphysema,AETNA,1
+Bricanyl,Chronic Respiratory Condition,AETNA,1
+Brilinta,Angina,AETNA,0
+Brilinta,Any Condition,AETNA,0
+Bromocriptine,Parkinson's Disease,AETNA,0
+Bromocriptine,Pituitary Tumor,AETNA,0
+Budesonide And Formoterol,COPD,AETNA,1
+Budesonide And Formoterol,Chronic Bronchitis,AETNA,1
+Budesonide And Formoterol,Emphysema,AETNA,1
+Budesonide And Formoterol,Chronic Respiratory Condition,AETNA,1
+Bumetanide (Any Amount),Cirrhosis,AETNA,1
+Bumetanide (Any Amount),Congestive Heart Failure,AETNA,0
+Bumetanide (Any Amount),Kidney Disease,AETNA,0
+Bumetanide (Any Amount),Liver Disease,AETNA,0
+Bumetanide (More Than 1 Mg),Any Condition,AETNA,0
+Bumex (Any Amount),Cirrhosis,AETNA,1
+Bumex (Any Amount),Congestive Heart Failure,AETNA,0
+Bumex (Any Amount),Kidney Disease,AETNA,0
+Bumex (Any Amount),Liver Disease,AETNA,0
+Bumex (More Than 1 Mg),Any Condition,AETNA,0
+Bunavail,Any Condition,AETNA,0
+Buprenorphine,Any Condition,AETNA,0
+Buprenorphine And Naloxone,Any Condition,AETNA,0
+Busulfan,Any Condition,AETNA,0
+Busulfex,Any Condition,AETNA,0
+Cablivi,Any Condition,AETNA,0
+Calan,Angina,AETNA,1
+Calan,Cardiomyopathy,AETNA,0
+Calan,Congestive Heart Failure,AETNA,0
+Calan + Blood Thinner,Atrial Fibrillation,AETNA,0
+Calan + Blood Thinner,Arrhythmia,AETNA,0
+Calan + Blood Thinner,Irregular Heartbeat,AETNA,0
+Calcifediol,Any Condition,AETNA,1
+Calcifediol,CKD,AETNA,0
+Calcifediol,Kidney Failure,AETNA,0
+Calcifediol,Renal Insufficiency,AETNA,0
+Calcifediol,Kidney Disease,AETNA,0
+Calcijex,Any Condition,AETNA,0
+Calcitriol,Any Condition,AETNA,1
+Calcitriol,CKD,AETNA,0
+Calcitriol,Kidney Failure,AETNA,0
+Calcitriol,Renal Insufficiency,AETNA,0
+Calcitriol,Kidney Disease,AETNA,0
+Calcium Acetate,Any Condition,AETNA,0
+Campath,Any Condition,AETNA,0
+Campath,Cancer,AETNA,0
+Campral,Any Condition,AETNA,0
+Candesartan,Congestive Heart Failure,AETNA,0
+Cannabis,Any Condition,AETNA,0
+Capastat Sulfate,Any Condition,AETNA,1
+Capecitabine,Any Condition,AETNA,0
+Capoten,Kidney Disease,AETNA,0
+Capoten,Congestive Heart Failure,AETNA,0
+Capoten,Kidney Disease,AETNA,1
+Capreomycin,Any Condition,AETNA,1
+Caprylic Triglyceride,Any Condition,AETNA,0
+Caprylidene,Any Condition,AETNA,0
+Captopril,Kidney Disease,AETNA,0
+Captopril,Congestive Heart Failure,AETNA,0
+Captopril,Kidney Disease,AETNA,1
+Carbamazepine,Bipolar Disorder,AETNA,0
+Carbatrol,Bipolar Disorder,AETNA,0
+Carbidopa,Parkinson's Disease,AETNA,0
+"Carbidopa, Entacopone, Levodopa",Any Condition,AETNA,0
+"Carbidopa, Levodopa",Any Condition,AETNA,0
+Cardioquin + Blood Thinner,Atrial Fibrillation,AETNA,0
+Cardioquin + Blood Thinner,Arrhythmia,AETNA,0
+Cardioquin + Blood Thinner,Irregular Heartbeat,AETNA,0
+Cardizem,Angina,AETNA,1
+Cardoxin,Congestive Heart Failure,AETNA,0
+Carimune,Any Condition,AETNA,0
+Cariprazine,Any Condition,AETNA,0
+Carospir,Cirrhosis,AETNA,1
+Carospir,Congestive Heart Failure,AETNA,0
+Carospir,Liver Disease,AETNA,1
+Carospir,Kidney Disease,AETNA,1
+Cartia,Angina,AETNA,1
+Carvedilol,Cardiomyopathy,AETNA,0
+Carvedilol,Congestive Heart Failure,AETNA,0
+Carvedilol,Heart Disorder,AETNA,0
+Casodex,Any Condition,AETNA,0
+Ceenu,Any Condition,AETNA,0
+Cellcept,Any Condition,AETNA,0
+Cellcept,Organ Transplant,AETNA,0
+Cellcept,Systemic Lupus (SLE),AETNA,0
+Cerespan,Angina,AETNA,1
+Cerespan,Parkinson's Disease,AETNA,0
+Certolizumab,Any Condition,AETNA,0
+Cerubidine,Any Condition,AETNA,0
+Cevimeline,Any Condition,AETNA,0
+Chlorambucil,Any Condition,AETNA,0
+Chlorpromazine,Any Condition,AETNA,0
+Cilostazol,Any Condition,AETNA,0
+Cimzia,Any Condition,AETNA,0
+Cinacalcet,Any Condition,AETNA,1
+Cinacalcet,CKD,AETNA,0
+Cinacalcet,Kidney Failure,AETNA,0
+Cinacalcet,Renal Insufficiency,AETNA,0
+Cinacalcet,Dialysis May Also Treat Cancer,AETNA,0
+Cisplatin,Any Condition,AETNA,0
+Cladribine,Any Condition,AETNA,0
+Cladribine,Cancer,AETNA,0
+Clopidogrel,Angina,AETNA,1
+Clopidogrel,PVD/PAD,AETNA,0
+Clozapine,Any Condition,AETNA,0
+Clozaril,Any Condition,AETNA,0
+Cobicistat,Any Condition,AETNA,0
+"Cobicistat, Elvitegravir, Emtricitabine, And Tenofovir",Any Condition,AETNA,0
+Cogentin,Parkinson's Disease,AETNA,0
+Cognex,Any Condition,AETNA,0
+Combivent,COPD,AETNA,1
+Combivent,Chronic Bronchitis,AETNA,1
+Combivent,Emphysema,AETNA,1
+Combivent,Chronic Respiratory Condition,AETNA,1
+Combivir,Any Condition,AETNA,0
+Compazine,Any Condition,AETNA,0
+Comtan,Parkinson's Disease,AETNA,0
+Copaxone,Any Condition,AETNA,0
+Copegus,Any Condition,AETNA,0
+Cordarone,Any Condition,AETNA,0
+Coreg,Cardiomyopathy,AETNA,0
+Coreg,Congestive Heart Failure,AETNA,0
+Coreg,Heart Disorder,AETNA,0
+Corlanor,Any Condition,AETNA,0
+Cosmegen,Any Condition,AETNA,0
+Cotazym,Any Condition,AETNA,0
+Cotazym,Cystic Fibrosis,AETNA,0
+Coumadin,Atrial Fibrillation,AETNA,0
+Coumadin,Arrhythmia,AETNA,0
+Coumadin,Irregular Heartbeat,AETNA,0
+Coumadin,Congestive Heart Failure,AETNA,0
+Covera,Angina,AETNA,1
+Covera + Blood Thinner,Atrial Fibrillation,AETNA,0
+Covera + Blood Thinner,Arrhythmia,AETNA,0
+Covera + Blood Thinner,Irregular Heartbeat,AETNA,0
+Cozaar,Congestive Heart Failure,AETNA,0
+Cozaar,Kidney Disease,AETNA,0
+Creon,Any Condition,AETNA,0
+Creon,Cystic Fibrosis,AETNA,0
+Crixivan,Any Condition,AETNA,0
+Crizanlizumab,Any Condition,AETNA,0
+Cyclophosphamide,Any Condition,AETNA,0
+Cycloserine,Any Condition,AETNA,1
+Cycloset,Any Condition,AETNA,0
+Cyclosporine,Any Condition,AETNA,0
+Cytarabine,Any Condition,AETNA,0
+Cytosar,Any Condition,AETNA,0
+Cytosar-U,Any Condition,AETNA,0
+Cytoxan,Any Condition,AETNA,0
+Dabigatran,Any Condition,AETNA,0
+Daclatasvir,Any Condition,AETNA,0
+Dactinomycin,Any Condition,AETNA,0
+Dalfampridine,Any Condition,AETNA,0
+Dantrium,Any Condition,AETNA,0
+Dantrolene,Any Condition,AETNA,0
+Darbepoetin Alfa,Any Condition,AETNA,0
+Darunavir,Any Condition,AETNA,0
+Dasabuvir,Any Condition,AETNA,0
+"Dasabuvir, Ombitasvir, Paritaprevir, And Ritonavir",Any Condition,AETNA,0
+Daunorubicin,Any Condition,AETNA,0
+Dazidox,Any Condition,AETNA,0
+Decadron,Any Condition,AETNA,0
+Demadex (Any Amount),Cirrhosis,AETNA,1
+Demadex (Any Amount),Congestive Heart Failure,AETNA,0
+Demadex (Any Amount),Kidney Disease,AETNA,0
+Demadex (Any Amount),Liver Disease,AETNA,0
+Demadex (More Than 10 Mg),Any Condition,AETNA,0
+Demerol,Any Condition,AETNA,0
+Depacon,Bipolar Disorder,AETNA,0
+Depade,Any Condition,AETNA,0
+Depakote,Bipolar Disorder,AETNA,0
+Descovy,Any Condition,AETNA,0
+Deutetrabenzine,Any Condition,AETNA,0
+Didanosine,Any Condition,AETNA,0
+Dideoxyinosine,Any Condition,AETNA,0
+Didronel,Any Condition,AETNA,0
+Digitek,Atrial Fibrillation,AETNA,0
+Digitek,Arrhythmia,AETNA,0
+Digitek,Irregular Heartbeat,AETNA,0
+Digitek,Cardiomyopathy,AETNA,0
+Digitek,Congestive Heart Failure,AETNA,0
+Digox,Atrial Fibrillation,AETNA,0
+Digox,Arrhythmia,AETNA,0
+Digox,Irregular Heartbeat,AETNA,0
+Digox,Cardiomyopathy,AETNA,0
+Digox,Congestive Heart Failure,AETNA,0
+Digoxin,Atrial Fibrillation,AETNA,0
+Digoxin,Arrhythmia,AETNA,0
+Digoxin,Irregular Heartbeat,AETNA,0
+Digoxin,Cardiomyopathy,AETNA,0
+Digoxin,Congestive Heart Failure,AETNA,0
+Dilaudid,Any Condition,AETNA,0
+Diltiazem,Angina,AETNA,1
+Dimethyl Fumarate,Any Condition,AETNA,0
+Diovan,Congestive Heart Failure,AETNA,0
+Diroximel Fumarate,Any Condition,AETNA,0
+Disipal,Any Condition,AETNA,0
+Diskets,Any Condition,AETNA,0
+Disopyramide,Any Condition,AETNA,0
+Disopyramide,Cardiomyopathy,AETNA,0
+Disulfiram,Any Condition,AETNA,0
+Divalproex,Bipolar Disorder,AETNA,0
+Docefrez,Any Condition,AETNA,0
+Docetaxel,Any Condition,AETNA,0
+Dofetilide,Any Condition,AETNA,0
+Dolophine,Any Condition,AETNA,0
+Dolutegravir,Any Condition,AETNA,0
+Donepezil,Any Condition,AETNA,0
+Donepezil And Memantine,Any Condition,AETNA,0
+Dopar,Parkinson's Disease,AETNA,0
+Dovato,Any Condition,AETNA,0
+Doxercalciferol,Cirrhosis,AETNA,1
+Doxercalciferol,CKD,AETNA,0
+Doxercalciferol,Kidney Failure Requiring Dialysis,AETNA,0
+Doxercalciferol,Kidney Disease,AETNA,0
+Doxercalciferol,Congestive Heart Failure,AETNA,1
+Doxercalciferol,Liver Disease,AETNA,1
+Doxercalciferol,Kidney Disease,AETNA,1
+Doxorubicin,Any Condition,AETNA,0
+Dronabinol,Any Condition,AETNA,0
+Dronabinol,Cancer,AETNA,0
+Dronedarone,Any Condition,AETNA,0
+Droxia,Any Condition,AETNA,0
+Duopa,Any Condition,AETNA,0
+Duragesic,Any Condition,AETNA,0
+Dutoprol + Blood Thinner,Atrial Fibrillation,AETNA,0
+Dutoprol + Blood Thinner,Arrhythmia,AETNA,0
+Dutoprol + Blood Thinner,Irregular Heartbeat,AETNA,0
+Duvoid,Any Condition,AETNA,0
+Dygase,Any Condition,AETNA,0
+Dygase,Cystic Fibrosis,AETNA,0
+Edaravone,Any Condition,AETNA,0
+Edecrin (Any Amount),Cirrhosis,AETNA,1
+Edecrin (Any Amount),Congestive Heart Failure,AETNA,0
+Edecrin (Any Amount),Kidney Disease,AETNA,0
+Edecrin (Any Amount),Liver Disease,AETNA,0
+Edecrin (More Than 50 Mg),Any Condition,AETNA,0
+Edoxaban,Atrial Fibrillation,AETNA,0
+Edrophonium,Any Condition,AETNA,0
+Efavirenz,Any Condition,AETNA,0
+"Efavirenz, Emtricitabine, And Tenofovir",Any Condition,AETNA,0
+Effient,Angina,AETNA,1
+Effient,PVD/PAD,AETNA,0
+Efudex,Any Condition,AETNA,0
+Elbasvir,Any Condition,AETNA,0
+Elbasvir And Grazoprevir,Any Condition,AETNA,0
+Eldepryl,Parkinson's Disease,AETNA,0
+Eligard,Any Condition,AETNA,0
+Eliphos,Any Condition,AETNA,0
+Eliquis,Atrial Fibrillation,AETNA,0
+Eliquis,Arrhythmia,AETNA,0
+Eliquis,Irregular Heartbeat,AETNA,0
+Eloxatin,Any Condition,AETNA,0
+Embeda,Any Condition,AETNA,0
+Emcyt,Any Condition,AETNA,0
+Emtricitabine (Alone And In Combination),Any Condition,AETNA,0
+Emtriva,Any Condition,AETNA,0
+Enalapril,Congestive Heart Failure,AETNA,0
+Enbrel,Any Condition,AETNA,0
+Encron-10,Any Condition,AETNA,0
+Encron-10,Cystic Fibrosis,AETNA,0
+Endari,Any Condition,AETNA,0
+Endocet,Any Condition,AETNA,0
+Enlon,Any Condition,AETNA,0
+Enoxaparin,Angina,AETNA,1
+Entacapone,Parkinson's Disease,AETNA,0
+Entecavir,Any Condition,AETNA,0
+Entresto,Any Condition,AETNA,0
+Entresto,Congestive Heart Failure,AETNA,0
+Envarsus,Any Condition,AETNA,0
+Enzalutamide,Any Condition,AETNA,0
+Epclusa,Any Condition,AETNA,0
+Epitol,Bipolar Disorder,AETNA,0
+Epival,Bipolar Disorder,AETNA,0
+Epivir,Any Condition,AETNA,0
+Eplerenone,Cardiomyopathy,AETNA,0
+Eplerenone,Congestive Heart Failure,AETNA,0
+Epoetin Alfa,Any Condition,AETNA,0
+Epogen,Any Condition,AETNA,0
+Epzicom,Any Condition,AETNA,0
+Erdafitinib,Any Condition,AETNA,0
+Ergoloid Mesylates,Any Condition,AETNA,0
+Erleada,Any Condition,AETNA,0
+Erlotinib,Any Condition,AETNA,0
+Erythropoietin,Any Condition,AETNA,0
+Eskalith,Any Condition,AETNA,0
+Esperoct,Any Condition,AETNA,0
+Estramustine,Any Condition,AETNA,0
+Etanercept,Any Condition,AETNA,0
+Eth-Oxydose,Any Condition,AETNA,0
+Ethacrynic Acid (Any Amount),Cirrhosis,AETNA,1
+Ethacrynic Acid (Any Amount),Congestive Heart Failure,AETNA,0
+Ethacrynic Acid (Any Amount),Kidney Disease,AETNA,0
+Ethacrynic Acid (Any Amount),Liver Disease,AETNA,0
+Ethacrynic Acid (More Than 50 Mg),Any Condition,AETNA,0
+Ethionamide,Any Condition,AETNA,1
+Etidronate,Any Condition,AETNA,0
+Etidronic Acid,Any Condition,AETNA,0
+Etopophos,Any Condition,AETNA,0
+Etoposide,Any Condition,AETNA,0
+Etrafon Forte,Any Condition,AETNA,0
+Eulexin,Any Condition,AETNA,0
+Everolimus,Any Condition,AETNA,0
+Evoxac,Any Condition,AETNA,0
+Exelon,Alzheimer Disease,AETNA,0
+Exelon,Dementia,AETNA,0
+Exelon,Any Condition,AETNA,0
+Exemestane,Any Condition,AETNA,0
+Exservan,Any Condition,AETNA,0
+Extavia,Any Condition,AETNA,0
+Fareston,Any Condition,AETNA,0
+Faslodex,Any Condition,AETNA,0
+Femara,Any Condition,AETNA,0
+Fentanyl,Any Condition,AETNA,0
+Fentanyl,Cancer,AETNA,0
+Fentora,Any Condition,AETNA,0
+Fentora,Cancer,AETNA,0
+Ferric Citrate,Any Condition,AETNA,0
+Filgrastim,Any Condition,AETNA,0
+Fingolimod,Any Condition,AETNA,0
+Flecainide,Any Condition,AETNA,0
+Floxuridine,Any Condition,AETNA,0
+Fluorouracil,Any Condition,AETNA,0
+Fluoxetine,Bipolar Disorder,AETNA,0
+Fluphenazine,Any Condition,AETNA,0
+Flutamide,Any Condition,AETNA,0
+Fluticasone And Salmeterol,COPD,AETNA,1
+Fluticasone And Salmeterol,Chronic Bronchitis,AETNA,1
+Fluticasone And Salmeterol,Emphysema,AETNA,1
+Fluticasone And Salmeterol,Chronic Respiratory Condition,AETNA,1
+Fluticasone And Vilanterol,COPD,AETNA,1
+Fluticasone And Vilanterol,Chronic Bronchitis,AETNA,1
+Fluticasone And Vilanterol,Emphysema,AETNA,1
+Fluticasone And Vilanterol,Chronic Respiratory Condition,AETNA,1
+"Fluticasone, Umeclidiniium And Vilanterol",COPD,AETNA,1
+"Fluticasone, Umeclidiniium And Vilanterol",Chronic Bronchitis,AETNA,1
+"Fluticasone, Umeclidiniium And Vilanterol",Emphysema,AETNA,1
+"Fluticasone, Umeclidiniium And Vilanterol",Chronic Respiratory Condition,AETNA,1
+Folex Pfs,Any Condition,AETNA,0
+Folex Pfs,Cancer,AETNA,0
+Foltx,Any Condition,AETNA,0
+Foradil,COPD,AETNA,1
+Foradil,Chronic Bronchitis,AETNA,1
+Foradil,Emphysema,AETNA,1
+Foradil,Chronic Respiratory Condition,AETNA,1
+Formoterol,COPD,AETNA,1
+Formoterol,Chronic Bronchitis,AETNA,1
+Formoterol,Emphysema,AETNA,1
+Formoterol,Chronic Respiratory Condition,AETNA,1
+Forteo,Any Condition,AETNA,0
+Foscarnet,Any Condition,AETNA,0
+Fosinopril,Congestive Heart Failure,AETNA,0
+Fosrenol,Any Condition,AETNA,0
+Fosteum,Any Condition,AETNA,0
+Fudr,Any Condition,AETNA,0
+Fulvestrant,Any Condition,AETNA,0
+Furosemide (Any Amount),Cirrhosis,AETNA,1
+Furosemide (Any Amount),Congestive Heart Failure,AETNA,0
+Furosemide (Any Amount),Kidney Disease,AETNA,0
+Furosemide (Any Amount),Liver Disease,AETNA,0
+Furosemide (More Than 40 Mg),Any Condition,AETNA,0
+Gablofen,Multiple Sclerosis,AETNA,0
+Galantamine,Any Condition,AETNA,0
+Gamastan S/D,Any Condition,AETNA,0
+Gefitinib,Any Condition,AETNA,0
+Gemtuzumab,Any Condition,AETNA,0
+Gengraf,Any Condition,AETNA,0
+Genvoya,Any Condition,AETNA,0
+Geodon,Any Condition,AETNA,0
+Gilenya,Any Condition,AETNA,0
+Glatiramer,Any Condition,AETNA,0
+Glatiramer Acetate,Any Condition,AETNA,0
+Glatopa,Any Condition,AETNA,0
+Glecaprevir And Pibrentasvir,Any Condition,AETNA,0
+Gleevec,Any Condition,AETNA,0
+Glycopyrrolate,COPD,AETNA,1
+Glycopyrrolate,Chronic Bronchitis,AETNA,1
+Glycopyrrolate,Emphysema,AETNA,1
+Glycopyrrolate,Chronic Respiratory Condition,AETNA,1
+Gocovri,Any Condition,AETNA,0
+Gold Sodium Thiomalate,Any Condition,AETNA,0
+Golimumab,Any Condition,AETNA,0
+Gonitro,Angina,AETNA,1
+Goserelin,Any Condition,AETNA,0
+Granix,Any Condition,AETNA,0
+Grazoprevir,Any Condition,AETNA,0
+Haldol,Any Condition,AETNA,0
+Haloperidol,Any Condition,AETNA,0
+Harvoni,Any Condition,AETNA,0
+Hecoria,Any Condition,AETNA,0
+Hectorol,Any Condition,AETNA,1
+Hectorol,Kidney Failure Requiring Dialysis,AETNA,0
+Herceptin,Any Condition,AETNA,0
+Histrelin,Any Condition,AETNA,0
+Hizentra,Any Condition,AETNA,0
+Humira,Any Condition,AETNA,0
+Hydergine,Any Condition,AETNA,0
+Hydralazine And Isosorbide Dinitrate,Any Condition,AETNA,0
+Hydrea,Any Condition,AETNA,0
+Hydromorphone,Chronic Pain,AETNA,0
+Hydroxychloroquine,Rheumatoid Arthritis,AETNA,0
+Hydroxychloroquine,Sjogren's Syndrome,AETNA,0
+Hydroxychloroquine,Systemic Lupus (SLE),AETNA,0
+Hydroxyurea,Any Condition,AETNA,0
+Hylan G-F 20,Any Condition,AETNA,0
+Ibrance,Any Condition,AETNA,0
+Ibrutinib,Any Condition,AETNA,0
+Ilozyme,Any Condition,AETNA,0
+Ilozyme,Cystic Fibrosis,AETNA,0
+Imatinib,Any Condition,AETNA,0
+Imbruvica,Any Condition,AETNA,0
+Imdur,Angina,AETNA,1
+Imuran,Any Condition,AETNA,0
+Imuran,Organ Transplant,AETNA,0
+Imuran,Systemic Lupus (SLE),AETNA,0
+Inbrija,Any Condition,AETNA,0
+Incruse,COPD,AETNA,1
+Incruse,Chronic Bronchitis,AETNA,1
+Incruse,Emphysema,AETNA,1
+Incruse,Chronic Respiratory Condition,AETNA,1
+Indacaterol,COPD,AETNA,1
+Indacaterol,Chronic Bronchitis,AETNA,1
+Indacaterol,Emphysema,AETNA,1
+Indacaterol,Chronic Respiratory Condition,AETNA,1
+Indapamide,Congestive Heart Failure,AETNA,1
+Inderal,Angina,AETNA,1
+Inderal + Blood Thinner,Atrial Fibrillation,AETNA,0
+Inderal + Blood Thinner,Arrhythmia,AETNA,0
+Inderal + Blood Thinner,Irregular Heartbeat,AETNA,0
+Indinavir,Any Condition,AETNA,0
+Inflectra,Any Condition,AETNA,0
+Infliximab,Any Condition,AETNA,0
+Innopran + Blood Thinner,Atrial Fibrillation,AETNA,0
+Innopran + Blood Thinner,Arrhythmia,AETNA,0
+Innopran + Blood Thinner,Irregular Heartbeat,AETNA,0
+Inspra,Cardiomyopathy,AETNA,0
+Inspra,Congestive Heart Failure,AETNA,0
+Insulin,Any Condition,AETNA,0
+Interferon Alfa-2A,Any Condition,AETNA,0
+Interferon Alfa-2A,Cancer,AETNA,0
+Interferon Alfa-2B,Any Condition,AETNA,0
+Interferon Alfa-2B,Cancer,AETNA,0
+Interferon Alfa-2B,Hepatitis,AETNA,0
+Interferon Beta (-1A Or -1B),Any Condition,AETNA,0
+Interferon Beta (-1A Or -1B),Multiple Sclerosis,AETNA,0
+Interferon Gamma,Any Condition,AETNA,0
+Intron A,Any Condition,AETNA,0
+Invega,Any Condition,AETNA,0
+Iodine L 131,Any Condition,AETNA,0
+Ipratropium,COPD,AETNA,1
+Ipratropium,Chronic Bronchitis,AETNA,1
+Ipratropium,Emphysema,AETNA,1
+Ipratropium,Chronic Respiratory Condition,AETNA,1
+Iressa,Any Condition,AETNA,0
+Isentress,Any Condition,AETNA,0
+Isoptin,Angina,AETNA,1
+Isoptin + Blood Thinner,Atrial Fibrillation,AETNA,0
+Isoptin + Blood Thinner,Arrhythmia,AETNA,0
+Isoptin + Blood Thinner,Irregular Heartbeat,AETNA,0
+Isosorbide,Angina,AETNA,1
+Istradefylline,Any Condition,AETNA,0
+Ivabradine,Any Condition,AETNA,0
+Ivabradine,Congestive Heart Failure,AETNA,0
+Ixazomib,Any Condition,AETNA,0
+Jakafi,Any Condition,AETNA,0
+Jantoven,Atrial Fibrillation,AETNA,0
+Jantoven,Arrhythmia,AETNA,0
+Jantoven,Irregular Heartbeat,AETNA,0
+Jantoven Lower Case: Generic Name Upper Case: Brand Name,Congestive Heart Failure Back To Top,AETNA,0
+Juluca (Dolutegravir And Rilpivirine),Any Condition,AETNA,0
+Kadian,Any Condition,AETNA,0
+Kaletra,Any Condition,AETNA,0
+Katerzia,Angina,AETNA,1
+Kemadrin,Parkinson's Disease,AETNA,0
+Keytruda,Any Condition,AETNA,0
+Kineret,Any Condition,AETNA,0
+Kisqali,Any Condition,AETNA,0
+Ku-Zyme,Any Condition,AETNA,0
+Ku-Zyme,Cystic Fibrosis,AETNA,0
+Kutrase,Any Condition,AETNA,0
+Kutrase,Cystic Fibrosis,AETNA,0
+Lamictal,Bipolar Disorder,AETNA,0
+Lamictal,Schizophrenia,AETNA,0
+Lamivudine (Alone And In Combination),Any Condition,AETNA,0
+Lamotrigine,Bipolar Disorder,AETNA,0
+Lamotrigine,Schizophrenia,AETNA,0
+Lanoxicaps,Atrial Fibrillation,AETNA,0
+Lanoxicaps,Arrhythmia,AETNA,0
+Lanoxicaps,Irregular Heartbeat,AETNA,0
+Lanoxicaps,Cardiomyopathy,AETNA,0
+Lanoxicaps,Congestive Heart Failure,AETNA,0
+Lanoxin,Atrial Fibrillation,AETNA,0
+Lanoxin,Arrhythmia,AETNA,0
+Lanoxin,Irregular Heartbeat,AETNA,0
+Lanoxin,Cardiomyopathy,AETNA,0
+Lanoxin,Congestive Heart Failure,AETNA,0
+Lanthanum Carbonate,Any Condition,AETNA,0
+Lantus,Any Condition,AETNA,0
+Lapase,Any Condition,AETNA,0
+Lapase,Cystic Fibrosis,AETNA,0
+Larodopa,Parkinson's Disease,AETNA,0
+Lasix (Any Amount),Cirrhosis,AETNA,1
+Lasix (Any Amount),Congestive Heart Failure,AETNA,0
+Lasix (Any Amount),Kidney Disease,AETNA,0
+Lasix (Any Amount),Liver Disease,AETNA,0
+Lasix (More Than 40 Mg),Any Condition,AETNA,0
+Latuda,Any Condition,AETNA,0
+Ledipasvir,Any Condition,AETNA,0
+Ledipasvir And Sofosbuvir,Any Condition,AETNA,0
+Leflunomide,Any Condition,AETNA,0
+Lemtrada,Any Condition,AETNA,0
+Lemtrada,Cancer,AETNA,0
+Lenalidomide,Any Condition,AETNA,0
+Letrozole,Any Condition,AETNA,0
+Leukeran,Any Condition,AETNA,0
+Leuprolide,Any Condition,AETNA,0
+Levodopa,Parkinson's Disease,AETNA,0
+Lioresal,Multiple Sclerosis,AETNA,0
+Lipram,Any Condition,AETNA,0
+Lipram,Cystic Fibrosis,AETNA,0
+Lisinopril,Congestive Heart Failure,AETNA,0
+Lithane,Any Condition,AETNA,0
+Lithium,Any Condition,AETNA,0
+Lithobid,Any Condition,AETNA,0
+Lodosyn,Parkinson's Disease,AETNA,0
+Lomustine,Any Condition,AETNA,0
+Lopinavir And Ritonavir,Any Condition,AETNA,0
+Lopressor,Angina,AETNA,1
+Lopressor + Blood Thinner,Atrial Fibrillation,AETNA,0
+Lopressor + Blood Thinner,Arrhythmia,AETNA,0
+Lopressor + Blood Thinner,Irregular Heartbeat,AETNA,0
+Losartan,Congestive Heart Failure,AETNA,0
+Losartan,Kidney Disease,AETNA,0
+Lovenox,Angina,AETNA,1
+Loxapine,Any Condition,AETNA,0
+Loxitane,Any Condition,AETNA,0
+Lozol,Congestive Heart Failure,AETNA,0
+Lupron,Any Condition,AETNA,0
+Lurasidone,Any Condition,AETNA,0
+Lysodren,Any Condition,AETNA,0
+M-Oxy,Any Condition,AETNA,0
+Mab Thera,Any Condition,AETNA,1
+Mabthera,Any Condition,AETNA,0
+Magnacet,Any Condition,AETNA,0
+Marijuana,Any Condition,AETNA,0
+Marinol,Any Condition,AETNA,0
+Matulane,Any Condition,AETNA,0
+Mavenclad,Any Condition,AETNA,0
+Mavenclad,Cancer,AETNA,0
+Mavik,Congestive Heart Failure,AETNA,0
+Mavyret,Any Condition,AETNA,1
+Mayzent,Any Condition,AETNA,0
+Mechlorethamine,Any Condition,AETNA,0
+Mellaril,Any Condition,AETNA,0
+Melphalan,Any Condition,AETNA,0
+Memantine,Any Condition,AETNA,0
+Mepergan,Any Condition,AETNA,0
+Meperidine,Any Condition,AETNA,0
+Mercaptopurine (6-Mp),Any Condition,AETNA,0
+Mestinon,Any Condition,AETNA,0
+Metanx,Any Condition,AETNA,0
+Methadone,Any Condition,AETNA,0
+Methadose,Any Condition,AETNA,0
+Methotrexate,Any Condition,AETNA,0
+Methotrexate,Cancer,AETNA,0
+Methotrexate,Organ Transplant,AETNA,0
+Metolazone,Any Condition,AETNA,0
+Metolazone,Congestive Heart Failure,AETNA,0
+Metoprolol,Angina,AETNA,1
+Metoprolol,Congestive Heart Failure,AETNA,0
+Metoprolol + Blood Thinner,Atrial Fibrillation,AETNA,0
+Metoprolol + Blood Thinner,Arrhythmia,AETNA,0
+Metoprolol + Blood Thinner,Irregular Heartbeat,AETNA,0
+Mirapex,Parkinson's Disease,AETNA,0
+Mithracin,Any Condition,AETNA,0
+Mitomycin,Any Condition,AETNA,0
+Mitotane,Any Condition,AETNA,0
+Mitoxantrone,Any Condition,AETNA,0
+Moban,Any Condition,AETNA,0
+Moderiba,Any Condition,AETNA,0
+Molindone,Any Condition,AETNA,0
+Monket,Angina,AETNA,1
+Monopril,Congestive Heart Failure,AETNA,0
+Morphine,Any Condition,AETNA,0
+Ms Contin,Any Condition,AETNA,0
+Multaq,Any Condition,AETNA,0
+Mustargen,Any Condition,AETNA,0
+Mutamycin,Any Condition,AETNA,0
+Mycobutin,Any Condition,AETNA,1
+Mycophenolate Mofetil,Any Condition,AETNA,0
+Mycophenolate Mofetil,Organ Transplant,AETNA,0
+Mycophenolate Mofetil,Systemic Lupus (SLE),AETNA,0
+Mykrox,Any Condition,AETNA,0
+Mykrox,Congestive Heart Failure,AETNA,0
+Myleran,Any Condition,AETNA,0
+Mylocel,Any Condition,AETNA,0
+Mylotarg,Any Condition,AETNA,0
+Myochrysine,Any Condition,AETNA,0
+Mytelase,Any Condition,AETNA,0
+Naloxone,Any Condition,AETNA,0
+Naltrexone,Any Condition,AETNA,0
+Namenda,Any Condition,AETNA,0
+Namzaric,Any Condition,AETNA,0
+Nardil,Any Condition,AETNA,0
+Natalizumab,Any Condition,AETNA,0
+Navane,Any Condition,AETNA,0
+Nebupent,Any Condition,AETNA,0
+Nebupent,Pneumocystis Pneumonia-PCP,AETNA,0
+Neoral,Any Condition,AETNA,0
+Neosar,Any Condition,AETNA,0
+Neostigmine,Any Condition,AETNA,0
+Neulasta,Any Condition,AETNA,0
+Neupogen,Any Condition,AETNA,0
+Neupro,Parkinson's Disease,AETNA,0
+Nifediac,Angina,AETNA,1
+Nifedical,Angina,AETNA,1
+Nifedipine,Angina,AETNA,1
+Nilandron,Any Condition,AETNA,0
+Nilutamide,Any Condition,AETNA,0
+Ninlaro,Any Condition,AETNA,0
+Nitro-Time,Angina,AETNA,1
+Nitroglycerin,Angina,AETNA,1
+Nitrolingual,Angina,AETNA,1
+Nitrostat,Angina,AETNA,1
+Nivestym,Any Condition,AETNA,0
+Nivolumab,Any Condition,AETNA,0
+Norpace,Cardiomyopathy,AETNA,1
+Norvasc,Angina,AETNA,1
+Norvir,Any Condition,AETNA,0
+Nourianz,Any Condition,AETNA,0
+Novantrone,Any Condition,AETNA,0
+Novolog,Any Condition,AETNA,0
+Numorphan,Any Condition,AETNA,0
+Nuplazid,Any Condition,AETNA,0
+Ocrelizumab,Any Condition,AETNA,0
+Ocrelizumab,Multiple Sclerosis,AETNA,0
+Ocrevus,Any Condition,AETNA,0
+Ocrevus,Multiple Sclerosis,AETNA,0
+Octreotide,Any Condition,AETNA,0
+Ofosbuvir And Velpatasvir,Any Condition,AETNA,1
+Olanzapine,Any Condition,AETNA,0
+Olodaterol,COPD,AETNA,1
+Olodaterol,Chronic Bronchitis,AETNA,1
+Olodaterol,Emphysema,AETNA,1
+Olodaterol,Chronic Respiratory Condition,AETNA,1
+Olysio,Any Condition,AETNA,0
+Ombitasvir,Any Condition,AETNA,0
+"Ombitasvir, Paritaprevir, And Ritonavir",Any Condition,AETNA,0
+Onbrez,COPD,AETNA,1
+Onbrez,Chronic Bronchitis,AETNA,1
+Onbrez,Emphysema,AETNA,1
+Onbrez,Chronic Respiratory Condition,AETNA,1
+Oncovin,Any Condition,AETNA,0
+Onxol,Any Condition,AETNA,0
+Opana,Any Condition,AETNA,0
+Opdivo,Any Condition,AETNA,0
+Orap,Any Condition,AETNA,0
+Orencia,Any Condition,AETNA,0
+Orphenadrine,Any Condition,AETNA,1
+Osmolex,Parkinson's Disease,AETNA,0
+Otezla,Any Condition,AETNA,0
+Oxaliplatin,Any Condition,AETNA,0
+Oxbryta,Any Condition,AETNA,0
+Oxcarbazepine,Bipolar Disorder,AETNA,0
+Oxecta,Any Condition,AETNA,0
+Oxycodone,Any Condition,AETNA,0
+Oxycontin,Any Condition,AETNA,0
+Oxygen,Any Condition,AETNA,1
+Oxymorphone,Any Condition,AETNA,0
+Pacerone,Any Condition,AETNA,0
+Paclitaxel,Any Condition,AETNA,0
+Palbociclib,Any Condition,AETNA,0
+Palcaps,Any Condition,AETNA,0
+Palcaps,Cystic Fibrosis,AETNA,0
+Paliperidone,Any Condition,AETNA,0
+Pamidronate,Any Condition,AETNA,0
+Panase,Any Condition,AETNA,0
+Panase,Cystic Fibrosis,AETNA,0
+Pancrease,Any Condition,AETNA,0
+Pancrease,Cystic Fibrosis,AETNA,0
+Pancreaze,Any Condition,AETNA,0
+Pancreaze,Cystic Fibrosis,AETNA,0
+Pancrecarb,Any Condition,AETNA,0
+Pancrecarb,Cystic Fibrosis,AETNA,0
+Pancrelipase,Any Condition,AETNA,0
+Pancrelipase,Cystic Fibrosis,AETNA,0
+Pancron D/R,Any Condition,AETNA,0
+Pancron D/R,Cystic Fibrosis,AETNA,0
+Pangestyme,Any Condition,AETNA,0
+Pangestyme,Cystic Fibrosis,AETNA,0
+Panocaps,Any Condition,AETNA,0
+Panocaps,Cystic Fibrosis,AETNA,0
+Panokase,Any Condition,AETNA,0
+Panokase,Cystic Fibrosis,AETNA,0
+Papacon,Angina,AETNA,1
+Papaverine,Angina,AETNA,0
+Papaverine,Any Condition,AETNA,0
+Parcopa,Parkinson's Disease,AETNA,0
+Paricalcitol,Any Condition,AETNA,1
+Paricalcitol,CKD,AETNA,0
+Paricalcitol,Kidney Failure,AETNA,0
+Paricalcitol,Renal Insufficiency,AETNA,0
+Paricalcitol,Dialysis/Kidney Disease,AETNA,0
+Paritaprevir,Any Condition,AETNA,0
+Parlodel,Any Condition,AETNA,0
+Paser,Any Condition,AETNA,1
+Pavabid,Angina,AETNA,0
+Pavabid,Any Condition,AETNA,0
+Pavacot,Angina,AETNA,1
+Pavagen,Angina,AETNA,1
+Pegasys,Any Condition,AETNA,0
+Pegfilgrastim,Any Condition,AETNA,0
+Peginterferon,Any Condition,AETNA,0
+Peginterferon Alfa-2A,Any Condition,AETNA,0
+Peginterferon Alfa-2B,Any Condition,AETNA,0
+Peginterferon Alfa-2B,Cancer,AETNA,0
+Peginterferon Beta-1A,Any Condition,AETNA,0
+Pegintron,Any Condition,AETNA,0
+Pembrolizumab,Any Condition,AETNA,0
+Pentam,Any Condition,AETNA,0
+Pentam,Pneumocystis Jiroveci,AETNA,0
+Pentamidine,Any Condition,AETNA,0
+Pentamidine,Pneumocystis Jiroveci,AETNA,0
+Pentopak,Angina,AETNA,0
+Pentopak,Any Condition,AETNA,0
+Pentoxifylline,Angina,AETNA,0
+Pentoxifylline,Any Condition,AETNA,0
+Pentoxil,Any Condition,AETNA,0
+Percocet,Any Condition,AETNA,0
+Perindopril,Congestive Heart Failure,AETNA,0
+Permitil,Any Condition,AETNA,0
+Perphenazine,Any Condition,AETNA,0
+Pertzye,Any Condition,AETNA,0
+Pertzye,Cystic Fibrosis,AETNA,0
+Phenelzine,Any Condition,AETNA,0
+Phoslo,Any Condition,AETNA,0
+Phoslyra,Any Condition,AETNA,0
+Pimavanserin,Any Condition,AETNA,0
+Plaquenil,Rheumatoid Arthritis,AETNA,0
+Plaquenil,Sjogren's Syndrome,AETNA,0
+Plaquenil,Systemic Lupus (SLE),AETNA,0
+Plaretase,Any Condition,AETNA,0
+Plaretase,Cystic Fibrosis,AETNA,0
+Platinol,Any Condition,AETNA,0
+Plavix,Angina,AETNA,1
+Plavix,PVD/PAD,AETNA,0
+Plegridy,Any Condition,AETNA,0
+Pletal,Any Condition,AETNA,0
+Plicamycin,Any Condition,AETNA,0
+Pradaxa,Any Condition,AETNA,0
+Pramipexole,Parkinson's Disease,AETNA,0
+Prasugrel,Angina,AETNA,1
+Prednisone,Any Condition,AETNA,0
+Prednisone,Kidney Disease,AETNA,0
+Prednisone,Systemic Lupus,AETNA,0
+Pretomanid,Any Condition,AETNA,1
+Prezista,Any Condition,AETNA,0
+Priftin,Any Condition,AETNA,1
+Primlev,Any Condition,AETNA,0
+Prinivil,Congestive Heart Failure,AETNA,0
+Procarbazine,Any Condition,AETNA,0
+Procardia,Angina,AETNA,1
+Prochlorperazine,Any Condition,AETNA,0
+Procrit,Any Condition,AETNA,0
+Procyclidine,Parkinson's Disease,AETNA,0
+Prograf,Any Condition,AETNA,0
+Prolixin,Any Condition,AETNA,0
+Promethazine Hcl (Hydrochloride),Emphysema,AETNA,1
+Promethazine Hcl (Hydrochloride),COPD,AETNA,1
+Propafenone,Any Condition,AETNA,0
+Propranolol,Angina,AETNA,1
+Propranolol + Blood Thinner,Atrial Fibrillation,AETNA,0
+Propranolol + Blood Thinner,Arrhythmia,AETNA,0
+Propranolol + Blood Thinner,Irregular Heartbeat,AETNA,0
+Prostigmin,Any Condition,AETNA,0
+Protilase,Any Condition,AETNA,0
+Protilase,Cystic Fibrosis,AETNA,0
+Prozac,Bipolar Disorder,AETNA,0
+Purinethol,Any Condition,AETNA,0
+Purixan,Any Condition,AETNA,0
+Pyridostigmine,Any Condition,AETNA,0
+Qbrelis,Congestive Heart Failure,AETNA,0
+Quetiapine,Any Condition,AETNA,0
+Quin-G + Blood Thinner,Atrial Fibrillation,AETNA,0
+Quin-G + Blood Thinner,Arrhythmia,AETNA,0
+Quin-G + Blood Thinner,Irregular Heartbeat,AETNA,0
+Quinapril,Congestive Heart Failure,AETNA,0
+Quineprox,Rheumatoid Arthritis,AETNA,0
+Quineprox,Sjogren's Syndrome,AETNA,0
+Quineprox,Systemic Lupus (SLE),AETNA,0
+Quinidex + Blood Thinner,Atrial Fibrillation,AETNA,0
+Quinidex + Blood Thinner,Arrhythmia,AETNA,0
+Quinidex + Blood Thinner,Irregular Heartbeat,AETNA,0
+Quinidine + Blood Thinner,Atrial Fibrillation,AETNA,0
+Quinidine + Blood Thinner,Arrhythmia,AETNA,0
+Quinidine + Blood Thinner,Irregular Heartbeat,AETNA,0
+Quinora + Blood Thinner,Atrial Fibrillation,AETNA,0
+Quinora + Blood Thinner,Arrhythmia,AETNA,0
+Quinora + Blood Thinner,Irregular Heartbeat,AETNA,0
+Radicava,Any Condition,AETNA,0
+Raltegravir,Any Condition,AETNA,0
+Ramipril,Congestive Heart Failure,AETNA,0
+Ranexa,Angina,AETNA,1
+Ranolazine,Angina,AETNA,1
+Rapamune,Any Condition,AETNA,0
+Rapiflux,Bipolar Disorder,AETNA,0
+Rasagiline,Parkinson's Disease,AETNA,0
+Rayaldee,Any Condition,AETNA,1
+Rayaldee,CKD,AETNA,0
+Rayaldee,Kidney Failure,AETNA,0
+Rayaldee,Renal Insufficiency,AETNA,0
+Rayaldee,Kidney Disease/Kidney Disease Requiring Dialysis,AETNA,0
+Rayos,Any Condition,AETNA,0
+Razadyne,Any Condition,AETNA,0
+Rebetol,Any Condition,AETNA,0
+Rebif,Any Condition,AETNA,0
+Reclast,Any Condition,AETNA,0
+Remicade,Any Condition,AETNA,0
+Reminyl,Any Condition,AETNA,0
+Renagel,Any Condition,AETNA,0
+Renvela,Any Condition,AETNA,0
+Requip,Parkinson's Disease,AETNA,0
+Retacrit,Any Condition,AETNA,0
+Retrovir,Any Condition,AETNA,0
+Revia,Any Condition,AETNA,0
+Revlimid,Any Condition,AETNA,0
+Ribapak,Any Condition,AETNA,0
+Ribasphere,Any Condition,AETNA,0
+Ribavirin,Any Condition,AETNA,0
+Ribociclib,Any Condition,AETNA,0
+Ridaura,Any Condition,AETNA,0
+Rifabutin,Any Condition,AETNA,1
+Rifamate,Any Condition,AETNA,1
+Rifampin And Isoniazid,Any Condition,AETNA,1
+"Rifampin, Isoniazid And Pyrazinamide",Any Condition,AETNA,1
+Rifapentine,Any Condition,AETNA,1
+Rifater,Any Condition,AETNA,1
+Rilutek,Any Condition,AETNA,0
+Riluzole,Any Condition,AETNA,0
+Risperdal,Any Condition,AETNA,0
+Risperidone,Any Condition,AETNA,0
+Ritonavir,Any Condition,AETNA,0
+Rituxan,Any Condition,AETNA,0
+Rituxan,Cancer,AETNA,0
+Rituximab,Any Condition,AETNA,0
+Rituximab,Cancer,AETNA,0
+Rivaroxaban,Any Condition,AETNA,0
+Rivastigmine,Any Condition,AETNA,0
+Rlutek,Any Condition,AETNA,1
+Rocaltrol,Any Condition,AETNA,1
+Rocaltrol,CKD,AETNA,0
+Rocaltrol,Kidney Failure,AETNA,0
+Rocaltrol,Renal Insufficiency,AETNA,0
+Rocaltrol,Kidney Disease/Kidney Disease Requiring Dialysis,AETNA,0
+Roferon-A,Any Condition,AETNA,0
+Roferon-A,Cancer,AETNA,0
+Ropinirole,Parkinson's Disease,AETNA,0
+Rotigotine,Parkinson's Disease,AETNA,0
+Roxanol,Any Condition,AETNA,0
+Roxicet,Any Condition,AETNA,0
+Roxicodone,Any Condition,AETNA,0
+Rubex,Any Condition,AETNA,0
+Ruxolitinib,Any Condition,AETNA,0
+Rytary,Any Condition,AETNA,1
+Rytary,Parkinson's Disease,AETNA,0
+Rythmol,Any Condition,AETNA,0
+Sacubitril + Valsartan,Any Condition,AETNA,0
+Sacubitril + Valsartan,Congestive Heart Failure,AETNA,0
+Safinamide,Any Condition,AETNA,0
+Salmeterol,COPD,AETNA,1
+Salmeterol,Chronic Bronchitis,AETNA,1
+Salmeterol,Emphysema,AETNA,1
+Salmeterol,Chronic Respiratory Condition,AETNA,1
+Samsca,Congestive Heart Failure,AETNA,0
+Sandimmune,Any Condition,AETNA,0
+Sandostatin,Any Condition,AETNA,0
+Sarafem,Bipolar Disorder,AETNA,0
+Savaysa,Atrial Fibrillation,AETNA,0
+Savaysa,Arrhythmia,AETNA,0
+Savaysa,Irregular Heartbeat,AETNA,0
+Savelamer,Any Condition,AETNA,1
+Seebri,COPD,AETNA,1
+Seebri,Chronic Bronchitis,AETNA,1
+Seebri,Emphysema,AETNA,1
+Seebri,Chronic Respiratory Condition,AETNA,1
+Selegiline,Parkinson's Disease,AETNA,0
+Selfemra,Bipolar Disorder,AETNA,0
+Sensipar,Any Condition,AETNA,0
+Serevent,COPD,AETNA,1
+Serevent,Chronic Bronchitis,AETNA,1
+Serevent,Emphysema,AETNA,1
+Serevent,Chronic Respiratory Condition,AETNA,1
+Seromycin,Any Condition,AETNA,1
+Seroquel,Any Condition,AETNA,0
+Sevelamer,Any Condition,AETNA,0
+Siklos,Any Condition,AETNA,0
+Simeprevir,Any Condition,AETNA,0
+Simponi Aria,Any Condition,AETNA,0
+Sinemet,Parkinson's Disease,AETNA,0
+Sinemet,Parkinsons Disease,AETNA,1
+Siponimod,Any Condition,AETNA,0
+Sirolimus,Any Condition,AETNA,0
+Sirturo,Any Condition,AETNA,1
+Sofosbuvir,Any Condition,AETNA,0
+Sofosbuvir And Velpatasvir,Any Condition,AETNA,0
+"Sofosbuvir, Velpatasvir, And Voxilaprevir",Any Condition,AETNA,0
+Soliris,Any Condition,AETNA,0
+Solriamfetol,Narcolepsy,AETNA,0
+Sotalol,Any Condition,AETNA,0
+Sovaldi,Any Condition,AETNA,0
+Spiriva,COPD,AETNA,1
+Spiriva,Chronic Bronchitis,AETNA,1
+Spiriva,Emphysema,AETNA,1
+Spiriva,Chronic Respiratory Condition,AETNA,1
+Spironolactone,Cardiomyopathy,AETNA,0
+Spironolactone,Cirrhosis,AETNA,1
+Spironolactone,Congestive Heart Failure,AETNA,0
+Spironolactone,Kidney Disease,AETNA,1
+Spironolactone,Kidney Disease,AETNA,0
+Spironolactone,Cirrhosis,AETNA,0
+Stalevo,Any Condition,AETNA,0
+Stelara,Any Condition,AETNA,0
+Stelazine,Any Condition,AETNA,0
+Sterapred,Any Condition,AETNA,1
+Stribild,Any Condition,AETNA,0
+Striverdi,COPD,AETNA,1
+Striverdi,Chronic Bronchitis,AETNA,1
+Striverdi,Emphysema,AETNA,1
+Striverdi,Chronic Respiratory Condition,AETNA,1
+Suboxone,Any Condition,AETNA,0
+Subsys,Any Condition,AETNA,0
+Subsys,Cancer,AETNA,0
+Subutex,Any Condition,AETNA,0
+Sucroferric Oxyhydroxide,Any Condition,AETNA,0
+Sunitinib,Any Condition,AETNA,0
+Sunosi,Narcolepsy,AETNA,0
+Supprelin,Any Condition,AETNA,1
+Sutent,Any Condition,AETNA,0
+Sylatron,Any Condition,AETNA,1
+Symbicort,COPD,AETNA,1
+Symbicort,Chronic Bronchitis,AETNA,1
+Symbicort,Emphysema,AETNA,1
+Symbicort,Chronic Respiratory Condition,AETNA,1
+Symbyax,Any Condition,AETNA,0
+Symmetrel,Parkinson's Disease,AETNA,0
+Symmetrel,Parkinsons Disease,AETNA,1
+Syndros,Any Condition,AETNA,0
+Synvisc,Any Condition,AETNA,0
+Tabloid,Any Condition,AETNA,0
+Tacrine,Any Condition,AETNA,1
+Tacrolimus,Any Condition,AETNA,0
+Tambocor,Any Condition,AETNA,0
+Tarabine,Any Condition,AETNA,1
+Tarabine Pfs,Any Condition,AETNA,0
+Tarceva,Any Condition,AETNA,0
+Targretin,Any Condition,AETNA,0
+Tasmar,Any Condition,AETNA,1
+Taxol,Any Condition,AETNA,0
+Taxotere,Any Condition,AETNA,0
+Tayos,Any Condition,AETNA,1
+Taztia,Angina,AETNA,1
+Tbo-Filgrastim,Any Condition,AETNA,1
+Tecentriq,Any Condition,AETNA,0
+Tecfidera,Any Condition,AETNA,0
+Technivie,Any Condition,AETNA,1
+Tegretol,Bipolar Disorder,AETNA,0
+Tegretol,Neuropathy,AETNA,0
+Tenofovir,Any Condition,AETNA,0
+Tenofovir Disoproxil Fumarate,Any Condition,AETNA,1
+Tenormin,Angina,AETNA,1
+Tenormin + Blood Thinner,Atrial Fibrillation,AETNA,0
+Tenormin + Blood Thinner,Arrhythmia,AETNA,0
+Tenormin + Blood Thinner,Irregular Heartbeat,AETNA,0
+Tensilon,Any Condition,AETNA,0
+Teriflunomide,Any Condition,AETNA,0
+Teriparatide,Any Condition,AETNA,0
+Teslac,Any Condition,AETNA,1
+Testolactone,Any Condition,AETNA,1
+Tetrabenazine,Any Condition,AETNA,0
+Thalidomide,Any Condition,AETNA,1
+Thalomid,Any Condition,AETNA,0
+Theracys,Any Condition,AETNA,0
+Thioguanine,Any Condition,AETNA,0
+Thioplex,Any Condition,AETNA,1
+Thioridazine,Any Condition,AETNA,0
+Thiotepa,Any Condition,AETNA,0
+Thiothixene,Any Condition,AETNA,0
+Thorazine,Any Condition,AETNA,0
+Tiazac,Angina,AETNA,1
+Ticagrelor,Angina,AETNA,0
+Ticagrelor,Any Condition,AETNA,0
+"Tice Bcg, Bcg Live",Any Condition,AETNA,0
+Ticlid,Any Condition,AETNA,0
+Ticlopidine,Any Condition,AETNA,0
+Tiglutik,Any Condition,AETNA,1
+Tikosyn,Any Condition,AETNA,0
+Tiotropium,COPD,AETNA,1
+Tiotropium,Chronic Bronchitis,AETNA,1
+Tiotropium,Emphysema,AETNA,1
+Tiotropium,Chronic Respiratory Condition,AETNA,1
+Tivicay,Any Condition,AETNA,1
+Tocilizumab,Any Condition,AETNA,0
+Tofacitinib,Any Condition,AETNA,0
+Tolcapone,Any Condition,AETNA,0
+Tolvaptan,Any Condition,AETNA,0
+Tolvaptan,Congestive Heart Failure,AETNA,0
+Toprol,Angina,AETNA,1
+Toprol,Congestive Heart Failure,AETNA,0
+Toprol + Blood Thinner,Atrial Fibrillation,AETNA,0
+Toprol + Blood Thinner,Arrhythmia,AETNA,0
+Toprol + Blood Thinner,Irregular Heartbeat,AETNA,0
+Toremifene,Any Condition,AETNA,0
+Torsemide (Any Amount),Cirrhosis,AETNA,1
+Torsemide (Any Amount),Congestive Heart Failure,AETNA,0
+Torsemide (Any Amount),Kidney Disease,AETNA,0
+Torsemide (Any Amount),Liver Disease,AETNA,0
+Torsemide (More Than 10 Mg),Any Condition,AETNA,0
+Tositumomab,Any Condition,AETNA,0
+Trandolapril,Congestive Heart Failure,AETNA,0
+Trastuzumab,Any Condition,AETNA,0
+Trecator,Any Condition,AETNA,1
+Trelegy,COPD,AETNA,1
+Trelegy,Chronic Bronchitis,AETNA,1
+Trelegy,Emphysema,AETNA,1
+Trelegy,Chronic Respiratory Condition,AETNA,1
+Trelstar La,Any Condition,AETNA,0
+Trental,Any Condition,AETNA,0
+Trexall,Any Condition,AETNA,0
+Trexall,Cancer,AETNA,0
+Trexall,Organ Transplant,AETNA,0
+Triavil,Any Condition,AETNA,0
+Trifluoperazine,Any Condition,AETNA,0
+Trihexane,Parkinson's Disease,AETNA,0
+Trihexane,Parkinsons Disease,AETNA,1
+Trihexyphenidyl,Parkinson's Disease,AETNA,0
+Trihexyphenidyl,Parkinsons Disease,AETNA,1
+Trilafon,Any Condition,AETNA,0
+Trileptal,Bipolar Disorder,AETNA,0
+Triptorelin Pamoate,Any Condition,AETNA,0
+Tritane,Any Condition,AETNA,0
+Triumeq,Any Condition,AETNA,0
+Truvada,Any Condition,AETNA,0
+Tudorza,COPD,AETNA,1
+Tudorza,Chronic Bronchitis,AETNA,1
+Tudorza,Emphysema,AETNA,1
+Tudorza,Chronic Respiratory Condition,AETNA,1
+Tybost,Any Condition,AETNA,0
+Tylox,Any Condition,AETNA,0
+Tysabri,Any Condition,AETNA,0
+Tyzeka,Any Condition,AETNA,0
+Ultrase,Any Condition,AETNA,0
+Ultrase,Cystic Fibrosis,AETNA,0
+Ultresa,Cystic Fibrosis,AETNA,1
+Umeclidinium,COPD,AETNA,1
+Umeclidinium,Chronic Bronchitis,AETNA,1
+Umeclidinium,Emphysema,AETNA,1
+Umeclidinium,Chronic Respiratory Condition,AETNA,1
+Umeclidinium And Vilanterol,COPD,AETNA,1
+Umeclidinium And Vilanterol,Chronic Bronchitis,AETNA,1
+Umeclidinium And Vilanterol,Emphysema,AETNA,1
+Umeclidinium And Vilanterol,Chronic Respiratory Condition,AETNA,1
+Urecholine,Any Condition,AETNA,0
+Urso,Any Condition,AETNA,0
+Ursodiol,Any Condition,AETNA,0
+Ustekinumab,Any Condition,AETNA,0
+Valcyte,Any Condition,AETNA,0
+Valganciclovir,Any Condition,AETNA,0
+Valsartan,Congestive Heart Failure,AETNA,0
+Valsartan + Sacubitril,Any Condition,AETNA,0
+Valsartan + Sacubitril,Congestive Heart Failure,AETNA,0
+Vantas,Any Condition,AETNA,0
+Vasotec,Congestive Heart Failure,AETNA,0
+Velban,Any Condition,AETNA,0
+Velphoro,Any Condition,AETNA,0
+Ventolin,COPD,AETNA,1
+Ventolin,Chronic Bronchitis,AETNA,1
+Ventolin,Emphysema,AETNA,1
+Ventolin,Chronic Respiratory Condition,AETNA,1
+Vepesid,Any Condition,AETNA,0
+Verapamil,Angina,AETNA,1
+Verapamil,Cardiomyopathy,AETNA,1
+Verapamil,Congestive Heart Failure,AETNA,1
+Verapamil + Blood Thinner,Atrial Fibrillation,AETNA,0
+Verapamil + Blood Thinner,Arrhythmia,AETNA,0
+Verapamil + Blood Thinner,Irregular Heartbeat,AETNA,0
+Verelan,Angina,AETNA,1
+Verelan,Cardiomyopathy,AETNA,1
+Verelan,Congestive Heart Failure,AETNA,1
+Verelan + Blood Thinner,Atrial Fibrillation,AETNA,0
+Verelan + Blood Thinner,Arrhythmia,AETNA,0
+Verelan + Blood Thinner,Irregular Heartbeat,AETNA,0
+Verzenio,Any Condition,AETNA,0
+Viadur,Any Condition,AETNA,0
+Videx,Any Condition,AETNA,0
+Viekira,Any Condition,AETNA,0
+Vinblastine,Any Condition,AETNA,0
+Vincasar,Any Condition,AETNA,0
+Vincristine,Any Condition,AETNA,0
+Vio-Moore,Any Condition,AETNA,0
+Vio-Moore,Cystic Fibrosis,AETNA,0
+Vio-Moore,Cancer,AETNA,0
+Viokace,Any Condition,AETNA,0
+Viokace,Cystic Fibrosis,AETNA,0
+Viokase,Any Condition,AETNA,0
+Viokase,Cystic Fibrosis,AETNA,0
+Viread,Any Condition,AETNA,0
+Vivitrol,Any Condition,AETNA,0
+Vosevi,Any Condition,AETNA,0
+Voxelotor,Any Condition,AETNA,0
+Vraylar,Any Condition,AETNA,0
+Vumerity,Any Condition,AETNA,0
+Warfarin,Atrial Fibrillation,AETNA,0
+Warfarin,Arrhythmia,AETNA,0
+Warfarin,Irregular Heartbeat,AETNA,0
+Warfarin,Congestive Heart Failure,AETNA,0
+Wellferon,Any Condition,AETNA,0
+Wellferon,Cancer,AETNA,0
+Wellferon,Cirrhosis,AETNA,0
+Wellferon,Liver Disease,AETNA,0
+Xadago,Any Condition,AETNA,0
+Xarelto,Atrial Fibrillation,AETNA,0
+Xarelto,Arrhythmia,AETNA,0
+Xarelto,Irregular Heartbeat,AETNA,0
+Xatmep,Any Condition,AETNA,0
+Xatmep,Cancer,AETNA,0
+Xatmep,Organ Transplant,AETNA,0
+Xeljanz,Any Condition,AETNA,0
+Xeloda,Any Condition,AETNA,0
+Xenazine,Any Condition,AETNA,0
+Xtandi,Any Condition,AETNA,0
+Zaroxolyn,Any Condition,AETNA,0
+Zaroxolyn,Congestive Heart Failure,AETNA,0
+Zarxio,Any Condition,AETNA,0
+Zebeta,Congestive Heart Failure,AETNA,0
+Zelapar,Parkinson's Disease,AETNA,0
+Zemplar,Any Condition,AETNA,1
+Zemplar,CKD,AETNA,0
+Zemplar,Kidney Failure,AETNA,0
+Zemplar,Renal Insufficiency,AETNA,0
+Zemplar,Dialysis/Kidney Disease,AETNA,0
+Zenpep,Any Condition,AETNA,0
+Zenpep,Cystic Fibrosis,AETNA,0
+Zepatier,Any Condition,AETNA,0
+Zestril,Congestive Heart Failure,AETNA,0
+Ziagen,Any Condition,AETNA,0
+Zidovudine,Any Condition,AETNA,1
+Zidovudine (Zdv),Any Condition,AETNA,0
+Zidovudine (Zdv) + Lamivudine,Any Condition,AETNA,0
+Ziprasidone,Any Condition,AETNA,0
+Zoladex,Any Condition,AETNA,0
+Zoledronic Acid,Any Condition,AETNA,0
+Zometa,Any Condition,AETNA,0
+Zubsolv,Any Condition,AETNA,0
+Zymase,Any Condition,AETNA,0
+Zymase,Cystic Fibrosis,AETNA,0
+Zyprexa,Any Condition,AETNA,0
+Zytiga,Any Condition,AETNA,0
+Abilify,Any Condition,BFAM,0
+Aripiprazole,Any Condition,BFAM,0
+Amantadine,Any Condition,BFAM,0
+Symmetrel,Any Condition,BFAM,0
+Anoro Ellipta,Any Condition,BFAM,0
+Atrovent,Any Condition,BFAM,0
+Ipratropium,Any Condition,BFAM,0
+Azathioprine,Any Condition,BFAM,0
+Imuran,Any Condition,BFAM,0
+Balsalazide,Any Condition,BFAM,0
+Bicalutamide,Any Condition,BFAM,0
+Casodex,Any Condition,BFAM,0
+Breo Ellipta,Asthma,BFAM,1
+Brovana,Any Condition,BFAM,0
+Calcitriol,Any Condition,BFAM,0
+Carbidopa,Any Condition,BFAM,0
+Levodopa,Any Condition,BFAM,0
+Carvedilol,Any Condition,BFAM,0
+Coreg,Any Condition,BFAM,0
+Cilostazol,Any Condition,BFAM,0
+Cogentin,Any Condition,BFAM,0
+Benztropine,Any Condition,BFAM,0
+Combivent,Any Condition,BFAM,0
+Depakote,Any Condition,BFAM,0
+Divalproex,Any Condition,BFAM,0
+Entresto,Any Condition,BFAM,0
+Fentanyl,Any Condition,BFAM,0
+Furosemide ,Any Condition,BFAM,0
+Lasix,Any Condition,BFAM,0
+Galantamine,Any Condition,BFAM,0
+Hectorol,Any Condition,BFAM,0
+Humulin R U-500,Any Condition,BFAM,0
+Hydromorphone,Any Condition,BFAM,0
+Hyroxychloroquine,Any Condition,BFAM,0
+Plaquenil,Any Condition,BFAM,0
+Hydroxyurea,Any Condition,BFAM,0
+Hydrea,Any Condition,BFAM,0
+Ibrance,Any Condition,BFAM,0
+Incruse Ellipta,Any Condition,BFAM,0
+Inspra,Any Condition,BFAM,0
+Eplerenone,Any Condition,BFAM,0
+Lamotrigine,Any Condition,BFAM,0
+Lamictal,Any Condition,BFAM,0
+Lithium,Any Condition,BFAM,0
+Lupron,Any Condition,BFAM,0
+Megestrol Acetate,Any Condition,BFAM,0
+Megace,Any Condition,BFAM,0
+Memantine,Any Condition,BFAM,0
+Namenda,Any Condition,BFAM,0
+Mesalamine,Any Condition,BFAM,0
+Asacol,Any Condition,BFAM,0
+Canasa,Any Condition,BFAM,0
+Pentasa,Any Condition,BFAM,0
+Methadone,Any Condition,BFAM,0
+Methotrexate,Any Condition,BFAM,0
+Morphine,Any Condition,BFAM,0
+Naloxone,Any Condition,BFAM,0
+Naltrexone,Any Condition,BFAM,0
+Nucynta,Any Condition,BFAM,0
+Tapentadol,Any Condition,BFAM,0
+Olanzapine,Any Condition,BFAM,0
+Dipentum,Any Condition,BFAM,0
+Oxycodone,Any Condition,BFAM,0
+Oxycontin,Any Condition,BFAM,0
+Oxymorphone,Any Condition,BFAM,0
+Paricalcitol,Any Condition,BFAM,0
+Pentoxifylline,Any Condition,BFAM,0
+Trental,Any Condition,BFAM,0
+Pramipexole,Restless Legs,BFAM,1
+Mirapex,Restless Legs,BFAM,1
+Pyridostigmine,Any Condition,BFAM,0
+Mestinon,Any Condition,BFAM,0
+Remicade,Any Condition,BFAM,0
+Reisperidone,Any Condition,BFAM,0
+Rivastigmine,Any Condition,BFAM,0
+Ropinirole,Restless Legs,BFAM,1
+Requip,Restless Legs,BFAM,1
+Seebri,Any Condition,BFAM,0
+Selegiline,Any Condition,BFAM,0
+Sensipar,Any Condition,BFAM,0
+Seroquel,Any Condition,BFAM,0
+Quetiapine,Any Condition,BFAM,0
+Simponi Aria,Any Condition,BFAM,0
+Spiriva,Any Condition,BFAM,0
+Stiolto,Any Condition,BFAM,0
+Striverdi,Any Condition,BFAM,0
+Suboxone,Any Condition,BFAM,0
+Tacrolimus,Any Condition,BFAM,0
+Prograf,Any Condition,BFAM,0
+Theophylline,Asthma,BFAM,1
+Usodiol,Any Condition,BFAM,0
+Xgeva,Any Condition,BFAM,0
+Xolair,Any Condition,BFAM,0
+Aristada,Any Condition,CIGNA-CHLIC,0
+Abacavir,Any Condition,CIGNA-CHLIC,0
+Abatacept,Any Condition,CIGNA-CHLIC,0
+Abilify,Any Condition,CIGNA-CHLIC,0
+Abiraterone Acetate,Any Condition,CIGNA-CHLIC,0
+Micronized,Any Condition,CIGNA-CHLIC,0
+Abstral,Any Condition,CIGNA-CHLIC,0
+Acamprosate,Any Condition,CIGNA-CHLIC,0
+Acetylcysteine,Any Condition,CIGNA-CHLIC,0
+Actemra Actpen,Any Condition,CIGNA-CHLIC,0
+Actiq,Any Condition,CIGNA-CHLIC,0
+Adalimumab,Any Condition,CIGNA-CHLIC,0
+Afinitor,Any Condition,CIGNA-CHLIC,0
+Agrylin,Any Condition,CIGNA-CHLIC,0
+Alkeran,Any Condition,CIGNA-CHLIC,0
+Amjevita,Any Condition,CIGNA-CHLIC,0
+Ampyra,Any Condition,CIGNA-CHLIC,0
+Anagrelide,Any Condition,CIGNA-CHLIC,0
+Anakinra,Any Condition,CIGNA-CHLIC,0
+Antabuse,Any Condition,CIGNA-CHLIC,0
+Aptivus,Any Condition,CIGNA-CHLIC,0
+Aranesp,Any Condition,CIGNA-CHLIC,0
+Arava,Any Condition,CIGNA-CHLIC,0
+Aricept,Any Condition,CIGNA-CHLIC,0
+Aripiprazole,Any Condition,CIGNA-CHLIC,0
+Aromasin,Any Condition,CIGNA-CHLIC,0
+Arymo Er,Any Condition,CIGNA-CHLIC,0
+Asceniv,Any Condition,CIGNA-CHLIC,0
+Asenapine,Any Condition,CIGNA-CHLIC,0
+Astagraf XL,Any Condition,CIGNA-CHLIC,0
+Astramorph,Any Condition,CIGNA-CHLIC,0
+Atazanavir,Any Condition,CIGNA-CHLIC,0
+Atripla,Any Condition,CIGNA-CHLIC,0
+Avinza,Any Condition,CIGNA-CHLIC,0
+Avonex,Any Condition,CIGNA-CHLIC,0
+Avsola,Any Condition,CIGNA-CHLIC,0
+Azasan,Any Condition,CIGNA-CHLIC,0
+Azathioprine,Any Condition,CIGNA-CHLIC,0
+Baraclude,Any Condition,CIGNA-CHLIC,0
+Belbuca,Any Condition,CIGNA-CHLIC,0
+Belimumab,Any Condition,CIGNA-CHLIC,0
+Benlysta,Any Condition,CIGNA-CHLIC,0
+Besremi,Any Condition,CIGNA-CHLIC,0
+Bexarotene,Any Condition,CIGNA-CHLIC,0
+Bicalutamide,Any Condition,CIGNA-CHLIC,0
+Bivigam,Any Condition,CIGNA-CHLIC,0
+Bunavail,Any Condition,CIGNA-CHLIC,0
+Buprenex,Any Condition,CIGNA-CHLIC,0
+Buprenorphine,Any Condition,CIGNA-CHLIC,0
+Butorphanol,Any Condition,CIGNA-CHLIC,0
+Butrans,Any Condition,CIGNA-CHLIC,0
+Campral,Any Condition,CIGNA-CHLIC,0
+Canakinumab,Any Condition,CIGNA-CHLIC,0
+Capecitabine,Any Condition,CIGNA-CHLIC,0
+Carbamazepine,Any Condition,CIGNA-CHLIC,0
+Carbatrol,Any Condition,CIGNA-CHLIC,0
+Carimune NF,Any Condition,CIGNA-CHLIC,0
+Cariprazine,Any Condition,CIGNA-CHLIC,0
+Casodex,Any Condition,CIGNA-CHLIC,0
+Ceenu,Any Condition,CIGNA-CHLIC,0
+Cellcept,Any Condition,CIGNA-CHLIC,0
+Cerefolin,Any Condition,CIGNA-CHLIC,0
+Certolizumab Pegol,Any Condition,CIGNA-CHLIC,0
+Chlorambucil,Any Condition,CIGNA-CHLIC,0
+Cimzia,Any Condition,CIGNA-CHLIC,0
+Clozapine,Any Condition,CIGNA-CHLIC,0
+Clozaril,Any Condition,CIGNA-CHLIC,0
+Copaxone,Any Condition,CIGNA-CHLIC,0
+Cosentyx,Any Condition,CIGNA-CHLIC,0
+Creon,Any Condition,CIGNA-CHLIC,0
+Cutaquig,Any Condition,CIGNA-CHLIC,0
+Cuvitru,Any Condition,CIGNA-CHLIC,0
+Cyclophosphamide,Any Condition,CIGNA-CHLIC,0
+Cyclosporine,Any Condition,CIGNA-CHLIC,0
+Cytoxan,Any Condition,CIGNA-CHLIC,0
+Dalfampridine,Any Condition,CIGNA-CHLIC,0
+Daratumumab,Any Condition,CIGNA-CHLIC,0
+Darbepoetin Alfa,Any Condition,CIGNA-CHLIC,0
+Darzalex Faspro,Any Condition,CIGNA-CHLIC,0
+Degarelix,Any Condition,CIGNA-CHLIC,0
+Demerol,Any Condition,CIGNA-CHLIC,0
+Depade,Any Condition,CIGNA-CHLIC,0
+Dialyvite,Any Condition,CIGNA-CHLIC,0
+Dilantin,Any Condition,CIGNA-CHLIC,0
+Dilaudid,Any Condition,CIGNA-CHLIC,0
+Disulfiram,Any Condition,CIGNA-CHLIC,0
+Dolophine,Any Condition,CIGNA-CHLIC,0
+Donepezil,Any Condition,CIGNA-CHLIC,0
+Droxia,Any Condition,CIGNA-CHLIC,0
+Dupilumab,Any Condition,CIGNA-CHLIC,0
+Dupixent,Any Condition,CIGNA-CHLIC,0
+Duramorph,Any Condition,CIGNA-CHLIC,0
+Duragesic,Any Condition,CIGNA-CHLIC,0
+Ebixa,Any Condition,CIGNA-CHLIC,0
+Efavirenz,Any Condition,CIGNA-CHLIC,0
+Eflapegrastim-XNST,Any Condition,CIGNA-CHLIC,0
+Elepsia XR,Any Condition,CIGNA-CHLIC,0
+Eligard,Any Condition,CIGNA-CHLIC,0
+Embeda,Any Condition,CIGNA-CHLIC,0
+Emcyt,Any Condition,CIGNA-CHLIC,0
+Empaveli,Any Condition,CIGNA-CHLIC,0
+Emtricitabine,Any Condition,CIGNA-CHLIC,0
+Emtriva,Any Condition,CIGNA-CHLIC,0
+Enbre,Any Condition,CIGNA-CHLIC,0
+Enbrel Mini,Any Condition,CIGNA-CHLIC,0
+Enbrel Sureclick,Any Condition,CIGNA-CHLIC,0
+Endoxan,Any Condition,CIGNA-CHLIC,0
+Enspryng,Any Condition,CIGNA-CHLIC,0
+Entecavir,Any Condition,CIGNA-CHLIC,0
+Envarsus XR,Any Condition,CIGNA-CHLIC,0
+Epitol,Any Condition,CIGNA-CHLIC,0
+Epivir,Any Condition,CIGNA-CHLIC,0
+Epoetin Alfa,Any Condition,CIGNA-CHLIC,0
+Epogen,Any Condition,CIGNA-CHLIC,0
+Equetro,Any Condition,CIGNA-CHLIC,0
+Ergoloid Mesylates,Any Condition,CIGNA-CHLIC,0
+Erlotinib,Any Condition,CIGNA-CHLIC,0
+Eskalith,Any Condition,CIGNA-CHLIC,0
+Estramustine,Any Condition,CIGNA-CHLIC,0
+Etanercept,Any Condition,CIGNA-CHLIC,0
+Etopophos,Any Condition,CIGNA-CHLIC,0
+Etoposide,Any Condition,CIGNA-CHLIC,0
+Etravirine,Any Condition,CIGNA-CHLIC,0
+Eulexin,Any Condition,CIGNA-CHLIC,0
+Everolimus,Any Condition,CIGNA-CHLIC,0
+Evomela,Any Condition,CIGNA-CHLIC,0
+Exalgo,Any Condition,CIGNA-CHLIC,0
+Exelon,Any Condition,CIGNA-CHLIC,0
+Exemestane,Any Condition,CIGNA-CHLIC,0
+Fanapt,Any Condition,CIGNA-CHLIC,0
+Fareston,Any Condition,CIGNA-CHLIC,0
+Felbamate,Any Condition,CIGNA-CHLIC,0
+Felbatol,Any Condition,CIGNA-CHLIC,0
+Fensolvi,Any Condition,CIGNA-CHLIC,0
+Fentanyl,Any Condition,CIGNA-CHLIC,0
+Fentora,Any Condition,CIGNA-CHLIC,0
+Filgrastim,Any Condition,CIGNA-CHLIC,0
+Firmagon,Any Condition,CIGNA-CHLIC,0
+Flebogamma Dif,Any Condition,CIGNA-CHLIC,0
+Flecanide,Any Condition,CIGNA-CHLIC,0
+Fluoxetine,Any Condition,CIGNA-CHLIC,0
+Fluphenazine,Any Condition,CIGNA-CHLIC,0
+Flutamide,Any Condition,CIGNA-CHLIC,0
+Forteo,Any Condition,CIGNA-CHLIC,0
+Fosamprenavir,Any Condition,CIGNA-CHLIC,0
+Fosrenol,Any Condition,CIGNA-CHLIC,0
+Fylnetra,Any Condition,CIGNA-CHLIC,0
+Galantamine,Any Condition,CIGNA-CHLIC,0
+Gamastan,Any Condition,CIGNA-CHLIC,0
+Gammagard,Any Condition,CIGNA-CHLIC,0
+Gammaked,Any Condition,CIGNA-CHLIC,0
+Gammaplex,Any Condition,CIGNA-CHLIC,0
+Gamunex-C,Any Condition,CIGNA-CHLIC,0
+Gengraf,Any Condition,CIGNA-CHLIC,0
+Geodon,Any Condition,CIGNA-CHLIC,0
+Gerimal,Any Condition,CIGNA-CHLIC,0
+Glatiramer Acetate,Any Condition,CIGNA-CHLIC,0
+Glatopa,Any Condition,CIGNA-CHLIC,0
+Gleevec,Any Condition,CIGNA-CHLIC,0
+Golimumab,Any Condition,CIGNA-CHLIC,0
+Granix,Any Condition,CIGNA-CHLIC,0
+Haldol,Any Condition,CIGNA-CHLIC,0
+Haloperidol,Any Condition,CIGNA-CHLIC,0
+Hecoria,Any Condition,CIGNA-CHLIC,0
+Hizentra,Any Condition,CIGNA-CHLIC,0
+Humira,Any Condition,CIGNA-CHLIC,0
+Hyaluronidase-fihj,Any Condition,CIGNA-CHLIC,0
+Hydergine,Any Condition,CIGNA-CHLIC,0
+Hydrea,Any Condition,CIGNA-CHLIC,0
+Hydromorphone,Any Condition,CIGNA-CHLIC,0
+Hydroxychloroquine,Any Condition,CIGNA-CHLIC,0
+Hydroxyurea,Any Condition,CIGNA-CHLIC,0
+Hyqvia,Any Condition,CIGNA-CHLIC,0
+Ibrutinib,Any Condition,CIGNA-CHLIC,0
+Ilaris,Any Condition,CIGNA-CHLIC,0
+Iloperidone,Any Condition,CIGNA-CHLIC,0
+Imatinib,Any Condition,CIGNA-CHLIC,0
+Imbruvica,Any Condition,CIGNA-CHLIC,0
+Immune Globulin,Any Condition,CIGNA-CHLIC,0
+Imuran,Any Condition,CIGNA-CHLIC,0
+Inclisiran Sodium,Any Condition,CIGNA-CHLIC,0
+Inflectra,Any Condition,CIGNA-CHLIC,0
+Infliximab,Any Condition,CIGNA-CHLIC,0
+Infumorph,Any Condition,CIGNA-CHLIC,0
+Inotersen Sodium,Any Condition,CIGNA-CHLIC,0
+Insentress,Any Condition,CIGNA-CHLIC,0
+Intelence,Any Condition,CIGNA-CHLIC,0
+Interferon Alfa-2a,Any Condition,CIGNA-CHLIC,0
+Interferon Alfa-2b,Any Condition,CIGNA-CHLIC,0
+Interferon Beta-1a,Any Condition,CIGNA-CHLIC,0
+Intron A,Any Condition,CIGNA-CHLIC,0
+Invega,Any Condition,CIGNA-CHLIC,0
+Ionsys,Any Condition,CIGNA-CHLIC,0
+Ixekizumab,Any Condition,CIGNA-CHLIC,0
+Kadian,Any Condition,CIGNA-CHLIC,0
+Keppra,Any Condition,CIGNA-CHLIC,0
+Kesimpta,Any Condition,CIGNA-CHLIC,0
+Kineret,Any Condition,CIGNA-CHLIC,0
+Lacosamide,Any Condition,CIGNA-CHLIC,0
+Lamictal,Any Condition,CIGNA-CHLIC,0
+Lamivudine,Any Condition,CIGNA-CHLIC,0
+Lamotrigine,Any Condition,CIGNA-CHLIC,0
+Lanthanum,Any Condition,CIGNA-CHLIC,0
+Latuda,Any Condition,CIGNA-CHLIC,0
+Lazanda,Any Condition,CIGNA-CHLIC,0
+Leflunomide,Any Condition,CIGNA-CHLIC,0
+Lenalidomide,Any Condition,CIGNA-CHLIC,0
+Leqvio,Any Condition,CIGNA-CHLIC,0
+Leucovorin,Any Condition,CIGNA-CHLIC,0
+Leukeran,Any Condition,CIGNA-CHLIC,0
+Leuprolide,Any Condition,CIGNA-CHLIC,0
+Leveiracetam,Any Condition,CIGNA-CHLIC,0
+Lexiva,Any Condition,CIGNA-CHLIC,0
+Lithane,Any Condition,CIGNA-CHLIC,0
+Lithium,Any Condition,CIGNA-CHLIC,0
+Lithobid,Any Condition,CIGNA-CHLIC,0
+Lithonate,Any Condition,CIGNA-CHLIC,0
+Lithotabs,Any Condition,CIGNA-CHLIC,0
+Lomustine,Any Condition,CIGNA-CHLIC,0
+Lupron,Any Condition,CIGNA-CHLIC,0
+Lurasidone,Any Condition,CIGNA-CHLIC,0
+Maraviroc,Any Condition,CIGNA-CHLIC,0
+Mecobal,Any Condition,CIGNA-CHLIC,0
+Mefolate,Any Condition,CIGNA-CHLIC,0
+Megace,Any Condition,CIGNA-CHLIC,0
+Megestrol,Any Condition,CIGNA-CHLIC,0
+Melphalan,Any Condition,CIGNA-CHLIC,0
+Memantine,Any Condition,CIGNA-CHLIC,0
+Meperidine,Any Condition,CIGNA-CHLIC,0
+Mercaptopurine,Any Condition,CIGNA-CHLIC,0
+Methadone,Any Condition,CIGNA-CHLIC,0
+Methadone HCL Intensol,Any Condition,CIGNA-CHLIC,0
+Methadose,Any Condition,CIGNA-CHLIC,0
+Methotrexate,Any Condition,CIGNA-CHLIC,0
+Mitigo,Any Condition,CIGNA-CHLIC,0
+Moban,Any Condition,CIGNA-CHLIC,0
+Molindone,Any Condition,CIGNA-CHLIC,0
+Morphabond ER,Any Condition,CIGNA-CHLIC,0
+Morphie,Any Condition,CIGNA-CHLIC,0
+Morphine,Any Condition,CIGNA-CHLIC,0
+Ms Contin,Any Condition,CIGNA-CHLIC,0
+Mycophenolate,Any Condition,CIGNA-CHLIC,0
+Myfortic,Any Condition,CIGNA-CHLIC,0
+Nalbuphine,Any Condition,CIGNA-CHLIC,0
+Naloxone,Any Condition,CIGNA-CHLIC,0
+Naltrexone,Any Condition,CIGNA-CHLIC,0
+Natrexone HCL,Any Condition,CIGNA-CHLIC,0
+Namenda,Any Condition,CIGNA-CHLIC,0
+Natalizumab,Any Condition,CIGNA-CHLIC,0
+Nefazodone,Any Condition,CIGNA-CHLIC,0
+Nelfinavir,Any Condition,CIGNA-CHLIC,0
+Neoral,Any Condition,CIGNA-CHLIC,0
+Neosar,Any Condition,CIGNA-CHLIC,0
+Neupogen,Any Condition,CIGNA-CHLIC,0
+Nexavar,Any Condition,CIGNA-CHLIC,0
+Niloric,Any Condition,CIGNA-CHLIC,0
+Nintedanib,Any Condition,CIGNA-CHLIC,0
+Nivestym,Any Condition,CIGNA-CHLIC,0
+Nolvadex,Any Condition,CIGNA-CHLIC,0
+Norvir,Any Condition,CIGNA-CHLIC,0
+Nubain,Any Condition,CIGNA-CHLIC,0
+Nucynta,Any Condition,CIGNA-CHLIC,0
+Octagam,Any Condition,CIGNA-CHLIC,0
+Ofatumumab (MS),Any Condition,CIGNA-CHLIC,0
+Ofev,Any Condition,CIGNA-CHLIC,0
+Olanzapine,Any Condition,CIGNA-CHLIC,0
+Onsolis,Any Condition,CIGNA-CHLIC,0
+Opana,Any Condition,CIGNA-CHLIC,0
+Oramorph,Any Condition,CIGNA-CHLIC,0
+Orencia,Any Condition,CIGNA-CHLIC,0
+Otrexup,Any Condition,CIGNA-CHLIC,0
+Oxcarbazepine,Any Condition,CIGNA-CHLIC,0
+Oxtellar XR,Any Condition,CIGNA-CHLIC,0
+Oxymorphone,Any Condition,CIGNA-CHLIC,0
+Paliperidone,Any Condition,CIGNA-CHLIC,0
+Pancreaze,Any Condition,CIGNA-CHLIC,0
+Pancrecarb,Any Condition,CIGNA-CHLIC,0
+Pancrelipase,Any Condition,CIGNA-CHLIC,0
+Panzyga,Any Condition,CIGNA-CHLIC,0
+Pegasys,Any Condition,CIGNA-CHLIC,0
+Pegcetacoplan,Any Condition,CIGNA-CHLIC,0
+Pegfilgrastim,Any Condition,CIGNA-CHLIC,0
+Pepaxto,Any Condition,CIGNA-CHLIC,0
+Perphenazine,Any Condition,CIGNA-CHLIC,0
+Pertuxumab-Trastuzumab-,Any Condition,CIGNA-CHLIC,0
+Hyaluronidase-ZZXF,Any Condition,CIGNA-CHLIC,0
+Pertzye,Any Condition,CIGNA-CHLIC,0
+Phenobarbital,Any Condition,CIGNA-CHLIC,0
+Phenytek,Any Condition,CIGNA-CHLIC,0
+Phenytoin,Any Condition,CIGNA-CHLIC,0
+Phenytoin Infatabs,Any Condition,CIGNA-CHLIC,0
+Phesgo,Any Condition,CIGNA-CHLIC,0
+Plaquenil,Any Condition,CIGNA-CHLIC,0
+Privigen,Any Condition,CIGNA-CHLIC,0
+Probuphine Implant Kit,Any Condition,CIGNA-CHLIC,0
+Procrit,Any Condition,CIGNA-CHLIC,0
+Procytox,Any Condition,CIGNA-CHLIC,0
+Prograf,Any Condition,CIGNA-CHLIC,0
+Propafenone,Any Condition,CIGNA-CHLIC,0
+Purinethol,Any Condition,CIGNA-CHLIC,0
+Purixan,Any Condition,CIGNA-CHLIC,0
+Quetiapine,Any Condition,CIGNA-CHLIC,0
+Raltegravir,Any Condition,CIGNA-CHLIC,0
+Rapamune,Any Condition,CIGNA-CHLIC,0
+Rasuvo,Any Condition,CIGNA-CHLIC,0
+Razadyne,Any Condition,CIGNA-CHLIC,0
+Rebif,Any Condition,CIGNA-CHLIC,0
+Reditrex,Any Condition,CIGNA-CHLIC,0
+Releuko,Any Condition,CIGNA-CHLIC,0
+Remicade,Any Condition,CIGNA-CHLIC,0
+Reminyl,Any Condition,CIGNA-CHLIC,0
+Renagel,Any Condition,CIGNA-CHLIC,0
+Renvela,Any Condition,CIGNA-CHLIC,0
+Renflexis,Any Condition,CIGNA-CHLIC,0
+Retacrit,Any Condition,CIGNA-CHLIC,0
+Revia,Any Condition,CIGNA-CHLIC,0
+Revlimid,Any Condition,CIGNA-CHLIC,0
+Reyataz,Any Condition,CIGNA-CHLIC,0
+Rheumatrex,Any Condition,CIGNA-CHLIC,0
+Rilutek,Any Condition,CIGNA-CHLIC,0
+Riluzole,Any Condition,CIGNA-CHLIC,0
+Rinvoq,Any Condition,CIGNA-CHLIC,0
+Ritonavir,Any Condition,CIGNA-CHLIC,0
+Rivastigmine,Any Condition,CIGNA-CHLIC,0
+Roferon,Any Condition,CIGNA-CHLIC,0
+Rolvedon,Any Condition,CIGNA-CHLIC,0
+Ropeginterferon,Any Condition,CIGNA-CHLIC,0
+Alfa-2b-Njft,Any Condition,CIGNA-CHLIC,0
+Roweepra,Any Condition,CIGNA-CHLIC,0
+Roxanol,Any Condition,CIGNA-CHLIC,0
+Roxicet,Any Condition,CIGNA-CHLIC,0
+Rythmol,Any Condition,CIGNA-CHLIC,0
+Sandimmune,Any Condition,CIGNA-CHLIC,0
+Saphris,Any Condition,CIGNA-CHLIC,0
+Satralizumab-Mwge,Any Condition,CIGNA-CHLIC,0
+Secuado,Any Condition,CIGNA-CHLIC,0
+Secukinumab,Any Condition,CIGNA-CHLIC,0
+Selzentry,Any Condition,CIGNA-CHLIC,0
+Seroquel,Any Condition,CIGNA-CHLIC,0
+Serzone,Any Condition,CIGNA-CHLIC,0
+Sevelamer,Any Condition,CIGNA-CHLIC,0
+Sezaby,Any Condition,CIGNA-CHLIC,0
+Siklos,Any Condition,CIGNA-CHLIC,0
+Simponi,Any Condition,CIGNA-CHLIC,0
+Sirolimus,Any Condition,CIGNA-CHLIC,0
+Sorafenib,Any Condition,CIGNA-CHLIC,0
+Spritam,Any Condition,CIGNA-CHLIC,0
+Stadol,Any Condition,CIGNA-CHLIC,0
+Stimufend,Any Condition,CIGNA-CHLIC,0
+Suboxone,Any Condition,CIGNA-CHLIC,0
+Sublocade,Any Condition,CIGNA-CHLIC,0
+Subsys,Any Condition,CIGNA-CHLIC,0
+Subutex,Any Condition,CIGNA-CHLIC,0
+Subvenite,Any Condition,CIGNA-CHLIC,0
+Sunitinib,Any Condition,CIGNA-CHLIC,0
+Sutent,Any Condition,CIGNA-CHLIC,0
+Symbyax,Any Condition,CIGNA-CHLIC,0
+Tacrolimus,Any Condition,CIGNA-CHLIC,0
+Taltz,Any Condition,CIGNA-CHLIC,0
+Tambocor,Any Condition,CIGNA-CHLIC,0
+Tapentadol,Any Condition,CIGNA-CHLIC,0
+Tarceva,Any Condition,CIGNA-CHLIC,0
+Targretin,Any Condition,CIGNA-CHLIC,0
+Tegretol,Any Condition,CIGNA-CHLIC,0
+Tegsedi,Any Condition,CIGNA-CHLIC,0
+Temodar,Any Condition,CIGNA-CHLIC,0
+Temozolomide,Any Condition,CIGNA-CHLIC,0
+Tenofovir,Any Condition,CIGNA-CHLIC,0
+Tenofovir Disoproxil,Any Condition,CIGNA-CHLIC,0
+Fumarate,Any Condition,CIGNA-CHLIC,0
+Teriparatide,Any Condition,CIGNA-CHLIC,0
+Tezepelumab,Any Condition,CIGNA-CHLIC,0
+Texspire,Any Condition,CIGNA-CHLIC,0
+Tiglutik,Any Condition,CIGNA-CHLIC,0
+Tipranavir,Any Condition,CIGNA-CHLIC,0
+Tocilizumab,Any Condition,CIGNA-CHLIC,0
+Tofacitinib,Any Condition,CIGNA-CHLIC,0
+Toposar,Any Condition,CIGNA-CHLIC,0
+Toremifene,Any Condition,CIGNA-CHLIC,0
+Trexall,Any Condition,CIGNA-CHLIC,0
+Trexan,Any Condition,CIGNA-CHLIC,0
+Trilafon,Any Condition,CIGNA-CHLIC,0
+Trileptal,Any Condition,CIGNA-CHLIC,0
+Triumeq,Any Condition,CIGNA-CHLIC,0
+Triveen-CF,Any Condition,CIGNA-CHLIC,0
+Trizivir,Any Condition,CIGNA-CHLIC,0
+Tysabri,Any Condition,CIGNA-CHLIC,0
+Usenyca,Any Condition,CIGNA-CHLIC,0
+Upadacitinib,Any Condition,CIGNA-CHLIC,0
+Vemlidy,Any Condition,CIGNA-CHLIC,0
+Versacloz,Any Condition,CIGNA-CHLIC,0
+Viibryd,Any Condition,CIGNA-CHLIC,0
+Vilazodone,Any Condition,CIGNA-CHLIC,0
+Vimpat,Any Condition,CIGNA-CHLIC,0
+Viokace,Any Condition,CIGNA-CHLIC,0
+Viracept,Any Condition,CIGNA-CHLIC,0
+Viread,Any Condition,CIGNA-CHLIC,0
+Vivotrol,Any Condition,CIGNA-CHLIC,0
+Vraylar,Any Condition,CIGNA-CHLIC,0
+Xagrid,Any Condition,CIGNA-CHLIC,0
+Xatmep,Any Condition,CIGNA-CHLIC,0
+Xeljanz,Any Condition,CIGNA-CHLIC,0
+Xeloda,Any Condition,CIGNA-CHLIC,0
+Xembify,Any Condition,CIGNA-CHLIC,0
+Yonsa,Any Condition,CIGNA-CHLIC,0
+Zarxio,Any Condition,CIGNA-CHLIC,0
+Zenpep,Any Condition,CIGNA-CHLIC,0
+Ziagen,Any Condition,CIGNA-CHLIC,0
+Ziextenzo,Any Condition,CIGNA-CHLIC,0
+Ziprasidone,Any Condition,CIGNA-CHLIC,0
+Zonegran,Any Condition,CIGNA-CHLIC,0
+Zonisade,Any Condition,CIGNA-CHLIC,0
+Zonisamide,Any Condition,CIGNA-CHLIC,0
+Zubsolv,Any Condition,CIGNA-CHLIC,0
+Zortress,Any Condition,CIGNA-CHLIC,0
+Zyprexa,Any Condition,CIGNA-CHLIC,0
+Zytiga,Any Condition,CIGNA-CHLIC,0
+3TC,Any Condition,ELIPS,0
+Abatacept,Any Condition,ELIPS,0
+Abilify,Any Condition,ELIPS,0
+Abiraterone,Any Condition,ELIPS,0
+Abstral,Any Condition,ELIPS,0
+Acamprosate,Any Condition,ELIPS,0
+Aclasta,Any Condition,ELIPS,0
+Actemra,Any Condition,ELIPS,0
+Actimmune,Any Condition,ELIPS,0
+Actiq,Any Condition,ELIPS,0
+Adalimumab,Any Condition,ELIPS,0
+Adcetris,Any Condition,ELIPS,0
+Adriamycin,Any Condition,ELIPS,0
+Afinitor,Any Condition,ELIPS,0
+Afrezza,Any Condition,ELIPS,0
+Agrylin,Any Condition,ELIPS,0
+Aldesleukin,Any Condition,ELIPS,0
+Alefacept,Any Condition,ELIPS,0
+Alemtuzumab,Any Condition,ELIPS,0
+Alferon,Any Condition,ELIPS,0
+Alkeran,Any Condition,ELIPS,0
+Amantadine,Any Condition,ELIPS,0
+Amaryl,Any Condition,ELIPS,0
+Ambenonium,Any Condition,ELIPS,0
+Amevive,Any Condition,ELIPS,0
+Amiodarone,Any Condition,ELIPS,0
+Amjevita,Any Condition,ELIPS,0
+Ampyra,Any Condition,ELIPS,0
+Anagrelide,Any Condition,ELIPS,0
+Anastrozole3,Any Condition,ELIPS,0
+Antabuse,Any Condition,ELIPS,0
+Apixaban,Any Condition,ELIPS,0
+Apokyn,Any Condition,ELIPS,0
+Apomorphine,Any Condition,ELIPS,0
+Aralast,Any Condition,ELIPS,0
+Arava,Any Condition,ELIPS,0
+Aricept,Any Condition,ELIPS,0
+Arimidex,Any Condition,ELIPS,0
+Aripiprazole,Any Condition,ELIPS,0
+Aristada,Any Condition,ELIPS,0
+Aromasin,Any Condition,ELIPS,0
+Artane,Any Condition,ELIPS,0
+Astramorph,Any Condition,ELIPS,0
+Atamet,Any Condition,ELIPS,0
+Atenolol,Any Condition,ELIPS,0
+Atrovent,Any Condition,ELIPS,0
+Auroanofin,Any Condition,ELIPS,0
+Avonex,Any Condition,ELIPS,0
+Avonexpen,Any Condition,ELIPS,0
+Azathioprine,Any Condition,ELIPS,0
+Azidothymidine,Any Condition,ELIPS,0
+Azilect,Any Condition,ELIPS,0
+AZT,Any Condition,ELIPS,0
+Baclofen,Any Condition,ELIPS,0
+Baraclude,Any Condition,ELIPS,0
+Basaglar,Any Condition,ELIPS,0
+Baycadron,Any Condition,ELIPS,0
+Benztropine,Any Condition,ELIPS,0
+Betapace,Any Condition,ELIPS,0
+Betaseron,Any Condition,ELIPS,0
+Bexxar,Any Condition,ELIPS,0
+Bicalutamide,Any Condition,ELIPS,0
+Biperiden,Any Condition,ELIPS,0
+Blenoxane,Any Condition,ELIPS,0
+Bleomycin,Any Condition,ELIPS,0
+Brentuximabvedotin,Any Condition,ELIPS,0
+Brexpiprazole,Any Condition,ELIPS,0
+Brilinta,Any Condition,ELIPS,0
+Bromocriptine,Any Condition,ELIPS,0
+Bumetanide,Any Condition,ELIPS,0
+Bumex,Any Condition,ELIPS,0
+Bunavail,Any Condition,ELIPS,0
+Buprenorphine,Any Condition,ELIPS,0
+Buprenorphine/Naloxone,Any Condition,ELIPS,0
+Burinex,Any Condition,ELIPS,0
+Busulfan,Any Condition,ELIPS,0
+Busulfex,Any Condition,ELIPS,0
+Calcijex,Any Condition,ELIPS,0
+Calcitriol,Any Condition,ELIPS,0
+Campath,Any Condition,ELIPS,0
+Campral,Any Condition,ELIPS,0
+Capecitabine,Any Condition,ELIPS,0
+Capecitabine,Any Condition,ELIPS,0
+Carac,Any Condition,ELIPS,0
+Carbidopa,Any Condition,ELIPS,0
+Carboplatin,Any Condition,ELIPS,0
+Cariprazine,Any Condition,ELIPS,0
+Carvedilol,Any Condition,ELIPS,0
+Casodex,Any Condition,ELIPS,0
+Cassipa,Any Condition,ELIPS,0
+CDDP,Any Condition,ELIPS,0
+Cell Cept,Any Condition,ELIPS,0
+Certolizumab,Any Condition,ELIPS,0
+Cerubidine,Any Condition,ELIPS,0
+Chlorambucil,Any Condition,ELIPS,0
+Chlormethine,Any Condition,ELIPS,0
+Chlorpromazine,Any Condition,ELIPS,0
+Cilostazol,Any Condition,ELIPS,0
+Cimzia,Any Condition,ELIPS,0
+Cinacalcet Hydrochloride,Any Condition,ELIPS,0
+Cisplatin,Any Condition,ELIPS,0
+Clopidogrel,Any Condition,ELIPS,0
+Clopidogrel/Bisulfate,Any Condition,ELIPS,0
+Clozapine,Any Condition,ELIPS,0
+Clozaril,Any Condition,ELIPS,0
+Cogentin,Any Condition,ELIPS,0
+Cognex,Any Condition,ELIPS,0
+Comantan,Any Condition,ELIPS,0
+Combivir,Any Condition,ELIPS,0
+Copaxone,Any Condition,ELIPS,0
+Coreg,Any Condition,ELIPS,0
+Coreg CR,Any Condition,ELIPS,0
+Cosmegen,Any Condition,ELIPS,0
+Coumadin,Any Condition,ELIPS,0
+Cozaar,Any Condition,ELIPS,0
+Crixivan,Any Condition,ELIPS,0
+CuuNu,Any Condition,ELIPS,0
+Cyclosporine,Any Condition,ELIPS,0
+Cytarabine,Any Condition,ELIPS,0
+Cytosar,Any Condition,ELIPS,0
+D4T,Any Condition,ELIPS,0
+Dabigatran,Any Condition,ELIPS,0
+Dactinomycin,Any Condition,ELIPS,0
+Dalfampridine,Any Condition,ELIPS,0
+Dapagliflozin,Any Condition,ELIPS,0
+Daunorubicin,Any Condition,ELIPS,0
+Dazidox,Any Condition,ELIPS,0
+DDC,Any Condition,ELIPS,0
+Decadron,Any Condition,ELIPS,0
+Demadex,Any Condition,ELIPS,0
+Demerol,Any Condition,ELIPS,0
+Depade,Any Condition,ELIPS,0
+Depodur,Any Condition,ELIPS,0
+DepoMedrol,Any Condition,ELIPS,0
+DES,Any Condition,ELIPS,0
+Dexamethasone Intensol,Any Condition,ELIPS,0
+Dexasone,Any Condition,ELIPS,0
+Digoxin,Any Condition,ELIPS,0
+Dilaudid,Any Condition,ELIPS,0
+Diskets,Any Condition,ELIPS,0
+Disulfiram,Any Condition,ELIPS,0
+Docefrez,Any Condition,ELIPS,0
+Docetaxel,Any Condition,ELIPS,0
+Dolophine,Any Condition,ELIPS,0
+Donepezil,Any Condition,ELIPS,0
+Dopar,Any Condition,ELIPS,0
+Doxorubicin,Any Condition,ELIPS,0
+Droxia,Any Condition,ELIPS,0
+Duragesic,Any Condition,ELIPS,0
+Duramorph,Any Condition,ELIPS,0
+Efavirenz,Any Condition,ELIPS,0
+Efudex,Any Condition,ELIPS,0
+Eldepryl,Any Condition,ELIPS,0
+Eliquis,Any Condition,ELIPS,0
+Eloxatin,Any Condition,ELIPS,0
+Embeda,Any Condition,ELIPS,0
+Emcyt,Any Condition,ELIPS,0
+Emsam,Any Condition,ELIPS,0
+EmtrivaA,Any Condition,ELIPS,0
+Enbrel,Any Condition,ELIPS,0
+Entacapone,Any Condition,ELIPS,0
+Entecavir,Any Condition,ELIPS,0
+Entresto,Any Condition,ELIPS,0
+Enulose,Any Condition,ELIPS,0
+Enzalutamide,Any Condition,ELIPS,0
+Epclusa,Any Condition,ELIPS,0
+Epogen,Any Condition,ELIPS,0
+Ergoloid,Any Condition,ELIPS,0
+Erlotinib,Any Condition,ELIPS,0
+Eskalith,Any Condition,ELIPS,0
+Estramustine,Any Condition,ELIPS,0
+Etanercept,Any Condition,ELIPS,0
+Etoposide,Any Condition,ELIPS,0
+Eulexin,Any Condition,ELIPS,0
+Everolimus,Any Condition,ELIPS,0
+Exalgo,Any Condition,ELIPS,0
+Exelon,Any Condition,ELIPS,0
+Exemestane,Any Condition,ELIPS,0
+Extavia,Any Condition,ELIPS,0
+Fareston,Any Condition,ELIPS,0
+Farxiga,Any Condition,ELIPS,0
+Faslodex,Any Condition,ELIPS,0
+Femara,Any Condition,ELIPS,0
+Fentanyl,Any Condition,ELIPS,0
+Fentora,Any Condition,ELIPS,0
+Filgrastim,Any Condition,ELIPS,0
+Floxuridine,Any Condition,ELIPS,0
+Fluoroplex,Any Condition,ELIPS,0
+Fluorouracil,Any Condition,ELIPS,0
+Fluoxetine HCI,Any Condition,ELIPS,0
+Fluphenazine,Any Condition,ELIPS,0
+Flutamide,Any Condition,ELIPS,0
+Fortovase,Any Condition,ELIPS,0
+FUDR,Any Condition,ELIPS,0
+Fulvestrant,Any Condition,ELIPS,0
+Furosemide,Any Condition,ELIPS,0
+Gablofen,Any Condition,ELIPS,0
+Galantamine,Any Condition,ELIPS,0
+Gefitinib,Any Condition,ELIPS,0
+Gengraf,Any Condition,ELIPS,0
+Geodon,Any Condition,ELIPS,0
+Gleevec,Any Condition,ELIPS,0
+Gleostine,Any Condition,ELIPS,0
+Glipizide,Any Condition,ELIPS,0
+Glucotrol,Any Condition,ELIPS,0
+Gold,Any Condition,ELIPS,0
+Golimumab,Any Condition,ELIPS,0
+Goserelin,Any Condition,ELIPS,0
+Granix,Any Condition,ELIPS,0
+Gravitor,Any Condition,ELIPS,0
+Haloperidol,Any Condition,ELIPS,0
+Harvoni,Any Condition,ELIPS,0
+Herceptin,Any Condition,ELIPS,0
+hizentra,Any Condition,ELIPS,0
+Humalog,Any Condition,ELIPS,0
+Humira,Any Condition,ELIPS,0
+Hydergine,Any Condition,ELIPS,0
+Hydrea,Any Condition,ELIPS,0
+Hydromorphone HCL,Any Condition,ELIPS,0
+Hydroquin,Any Condition,ELIPS,0
+Hydroxychloroquine,Any Condition,ELIPS,0
+Hydroxyurea,Any Condition,ELIPS,0
+HyQvia,Any Condition,ELIPS,0
+Ibrance,Any Condition,ELIPS,0
+Ibrutinib,Any Condition,ELIPS,0
+Imatinib Mesylate,Any Condition,ELIPS,0
+Imbruvica,Any Condition,ELIPS,0
+Imuran,Any Condition,ELIPS,0
+Indinavir,Any Condition,ELIPS,0
+Infliximab,Any Condition,ELIPS,0
+Infumorph,Any Condition,ELIPS,0
+Insulin Detemir,Any Condition,ELIPS,0
+Insulin Human,Any Condition,ELIPS,0
+Insulin Lispro,Any Condition,ELIPS,0
+Insulin Protamine,Any Condition,ELIPS,0
+Interferon,Any Condition,ELIPS,0
+Interferon Beta-1a,Any Condition,ELIPS,0
+Interferon gamma-1b,Any Condition,ELIPS,0
+Invirase,Any Condition,ELIPS,0
+Ipratropium,Any Condition,ELIPS,0
+Iressa,Any Condition,ELIPS,0
+Isentress,Any Condition,ELIPS,0
+Jakafi,Any Condition,ELIPS,0
+Januvia,Any Condition,ELIPS,0
+Kadian,Any Condition,ELIPS,0
+Kemadrin,Any Condition,ELIPS,0
+Lactulose,Any Condition,ELIPS,0
+Lamivudine/zidovudine,Any Condition,ELIPS,0
+Lanoxin,Any Condition,ELIPS,0
+Lantus,Any Condition,ELIPS,0
+Lasix >60mg/day,Any Condition,ELIPS,0
+Latuda,Any Condition,ELIPS,0
+L-Dopa,Any Condition,ELIPS,0
+Ledipasvir-Sofosbuvir,Any Condition,ELIPS,0
+Leflunomide,Any Condition,ELIPS,0
+Lenalidomide,Any Condition,ELIPS,0
+Letrozole3,Any Condition,ELIPS,0
+Leukeran,Any Condition,ELIPS,0
+Levemir,Any Condition,ELIPS,0
+Levodopa,Any Condition,ELIPS,0
+Lioresal,Any Condition,ELIPS,0
+Lithium,Any Condition,ELIPS,0
+Lithium Carbonate,Any Condition,ELIPS,0
+Lithobid,Any Condition,ELIPS,0
+Lodosyn,Any Condition,ELIPS,0
+Lomustine,Any Condition,ELIPS,0
+LurasidoneHCl,Any Condition,ELIPS,0
+Matulane,Any Condition,ELIPS,0
+Mechlorethamine,Any Condition,ELIPS,0
+Medrol,Any Condition,ELIPS,0
+Megace,Any Condition,ELIPS,0
+Megestrol,Any Condition,ELIPS,0
+Mellaril,Any Condition,ELIPS,0
+Melphalan,Any Condition,ELIPS,0
+Memantine HCl,Any Condition,ELIPS,0
+Memantine HCl-Donepezil HCl,Any Condition,ELIPS,0
+Mepergan,Any Condition,ELIPS,0
+Meperidine,Any Condition,ELIPS,0
+Meprozine,Any Condition,ELIPS,0
+Mercaptopurine,Any Condition,ELIPS,0
+Mestinon,Any Condition,ELIPS,0
+Metaxalone,Any Condition,ELIPS,0
+Methadone,Any Condition,ELIPS,0
+Methadose,Any Condition,ELIPS,0
+Methylprednisolone,Any Condition,ELIPS,0
+Metolazone,Any Condition,ELIPS,0
+Metrifonate,Any Condition,ELIPS,0
+Mimpara,Any Condition,ELIPS,0
+Mirapex2,Any Condition,ELIPS,0
+Mirtazapine,Any Condition,ELIPS,0
+Mithracin,Any Condition,ELIPS,0
+Mitomycins,Any Condition,ELIPS,0
+Mitosol,Any Condition,ELIPS,0
+Moban,Any Condition,ELIPS,0
+Moderiba,Any Condition,ELIPS,0
+Molindone,Any Condition,ELIPS,0
+Morphine Sulfate,Any Condition,ELIPS,0
+MSContin,Any Condition,ELIPS,0
+Mustargen,Any Condition,ELIPS,0
+Mutamycin,Any Condition,ELIPS,0
+Mycophenolatemofetil,Any Condition,ELIPS,0
+Mykrox,Any Condition,ELIPS,0
+Myleran,Any Condition,ELIPS,0
+Mylocel,Any Condition,ELIPS,0
+Mytelase,Any Condition,ELIPS,0
+Naltexone HCL,Any Condition,ELIPS,0
+Namenda,Any Condition,ELIPS,0
+Namzaric,Any Condition,ELIPS,0
+Navane,Any Condition,ELIPS,0
+Neomycin,Any Condition,ELIPS,0
+Neoral,Any Condition,ELIPS,0
+Neulasta,Any Condition,ELIPS,0
+Neupogen,Any Condition,ELIPS,0
+Neupro,Any Condition,ELIPS,0
+Nevirapine,Any Condition,ELIPS,0
+Nitroglycerin,Any Condition,ELIPS,0
+Nitrostat,Any Condition,ELIPS,0
+Nivolumab,Any Condition,ELIPS,0
+Norvir,Any Condition,ELIPS,0
+Octreotide,Any Condition,ELIPS,0
+Olanzapine,Any Condition,ELIPS,0
+Oncovin,Any Condition,ELIPS,0
+Onsolis,Any Condition,ELIPS,0
+Opana,Any Condition,ELIPS,0
+Opdivo,Any Condition,ELIPS,0
+Orap,Any Condition,ELIPS,0
+Orencia,Any Condition,ELIPS,0
+Oxaliplatin,Any Condition,ELIPS,0
+Oxaydo,Any Condition,ELIPS,0
+Palbociclib,Any Condition,ELIPS,0
+Paraplatin,Any Condition,ELIPS,0
+Parlodel,Any Condition,ELIPS,0
+Pegasys,Any Condition,ELIPS,0
+Pegfilgrastim,Any Condition,ELIPS,0
+Peginterferon,Any Condition,ELIPS,0
+Pegintron,Any Condition,ELIPS,0
+Permax,Any Condition,ELIPS,0
+Permitil,Any Condition,ELIPS,0
+Pethidine,Any Condition,ELIPS,0
+PhosLo,Any Condition,ELIPS,0
+Pimozide,Any Condition,ELIPS,0
+Plaquenil,Any Condition,ELIPS,0
+Platinol,Any Condition,ELIPS,0
+Plavix,Any Condition,ELIPS,0
+Pletal,Any Condition,ELIPS,0
+Plicamycin,Any Condition,ELIPS,0
+Pradaxa,Any Condition,ELIPS,0
+Prandin,Any Condition,ELIPS,0
+Prednisone,Any Condition,ELIPS,0
+Primasol,Any Condition,ELIPS,0
+Procarbazine,Any Condition,ELIPS,0
+Procrit,Any Condition,ELIPS,0
+Procyclidine,Any Condition,ELIPS,0
+Prograf,Any Condition,ELIPS,0
+Proleukin,Any Condition,ELIPS,0
+Prolia,Any Condition,ELIPS,0
+Prolixin,Any Condition,ELIPS,0
+Protopic,Any Condition,ELIPS,0
+Prozac,Any Condition,ELIPS,0
+Purixan,Any Condition,ELIPS,0
+Pyridostigmine Bromide,Any Condition,ELIPS,0
+Quetiapine Fumarate,Any Condition,ELIPS,0
+Raltegravir,Any Condition,ELIPS,0
+Rasagiline,Any Condition,ELIPS,0
+Razadyne,Any Condition,ELIPS,0
+Rebif,Any Condition,ELIPS,0
+Reclast,Any Condition,ELIPS,0
+Regonol,Any Condition,ELIPS,0
+Remeron,Any Condition,ELIPS,0
+Remicade,Any Condition,ELIPS,0
+Reminyl,Any Condition,ELIPS,0
+Requip2,Any Condition,ELIPS,0
+Retrovir,Any Condition,ELIPS,0
+Revatio,Any Condition,ELIPS,0
+ReVia,Any Condition,ELIPS,0
+Revlimid,Any Condition,ELIPS,0
+Rexulti,Any Condition,ELIPS,0
+Ribavirin,Any Condition,ELIPS,0
+Ridaura,Any Condition,ELIPS,0
+Rifaximin,Any Condition,ELIPS,0
+Rilutek,Any Condition,ELIPS,0
+Riluzole,Any Condition,ELIPS,0
+Risperdal,Any Condition,ELIPS,0
+Risperidone,Any Condition,ELIPS,0
+Ritonavir,Any Condition,ELIPS,0
+Rivaroxaban,Any Condition,ELIPS,0
+Rivastigmine,Any Condition,ELIPS,0
+Rivastigmine Tartrate,Any Condition,ELIPS,0
+Rocaltrol,Any Condition,ELIPS,0
+Roxanol,Any Condition,ELIPS,0
+Roxicodone,Any Condition,ELIPS,0
+Ruxolitinib,Any Condition,ELIPS,0
+Sacubitril/valsartan,Any Condition,ELIPS,0
+Salmeterol,Any Condition,ELIPS,0
+Sandimmune,Any Condition,ELIPS,0
+Sandostatin,Any Condition,ELIPS,0
+Sarafem,Any Condition,ELIPS,0
+Selegiline,Any Condition,ELIPS,0
+Sensipar,Any Condition,ELIPS,0
+Serevent,Any Condition,ELIPS,0
+Seroquel,Any Condition,ELIPS,0
+Simponi Aria,Any Condition,ELIPS,0
+Sinemet2,Any Condition,ELIPS,0
+Sitagliptin,Any Condition,ELIPS,0
+Skelaxin,Any Condition,ELIPS,0
+Sofosbuvir,Any Condition,ELIPS,0
+Sofosbuvir/Velpatasvir,Any Condition,ELIPS,0
+SoluMedrol,Any Condition,ELIPS,0
+Solurex,Any Condition,ELIPS,0
+Sorine,Any Condition,ELIPS,0
+Sotylize,Any Condition,ELIPS,0
+Sovaldi,Any Condition,ELIPS,0
+Spiriva,Any Condition,ELIPS,0
+Stalevo,Any Condition,ELIPS,0
+Stelazine,Any Condition,ELIPS,0
+Sublimaze,Any Condition,ELIPS,0
+Suboxone,Any Condition,ELIPS,0
+Sustiva,Any Condition,ELIPS,0
+Sylatron,Any Condition,ELIPS,0
+Symmetrel,Any Condition,ELIPS,0
+Tabloid,Any Condition,ELIPS,0
+Tacrine,Any Condition,ELIPS,0
+Tacrolimus,Any Condition,ELIPS,0
+Tarabine,Any Condition,ELIPS,0
+Tarceva,Any Condition,ELIPS,0
+Tasmar,Any Condition,ELIPS,0
+Tenormin,Any Condition,ELIPS,0
+Teslac,Any Condition,ELIPS,0
+Testolactone,Any Condition,ELIPS,0
+Thioplex,Any Condition,ELIPS,0
+Thioridazine,Any Condition,ELIPS,0
+Thiotepa,Any Condition,ELIPS,0
+Thiothixene,Any Condition,ELIPS,0
+Thorazine,Any Condition,ELIPS,0
+Ticagrelor,Any Condition,ELIPS,0
+Tioguanine,Any Condition,ELIPS,0
+Tocilizumab,Any Condition,ELIPS,0
+Tolak,Any Condition,ELIPS,0
+Tolcapone,Any Condition,ELIPS,0
+Toremifene,Any Condition,ELIPS,0
+Torsemide,Any Condition,ELIPS,0
+Tositumomab,Any Condition,ELIPS,0
+Toujeo,Any Condition,ELIPS,0
+Trastuzumab,Any Condition,ELIPS,0
+Trihexyphenidyl,Any Condition,ELIPS,0
+Truvada,Any Condition,ELIPS,0
+Tysabri,Any Condition,ELIPS,0
+Valchlor,Any Condition,ELIPS,0
+Velban,Any Condition,ELIPS,0
+VePesid,Any Condition,ELIPS,0
+Vinblastine,Any Condition,ELIPS,0
+Vincristine,Any Condition,ELIPS,0
+Viracept,Any Condition,ELIPS,0
+ViraferonPeg,Any Condition,ELIPS,0
+Viramune,Any Condition,ELIPS,0
+Virazole,Any Condition,ELIPS,0
+Vivitrol,Any Condition,ELIPS,0
+Vraylar,Any Condition,ELIPS,0
+Warfarin,Any Condition,ELIPS,0
+Xarelto,Any Condition,ELIPS,0
+Xeloda,Any Condition,ELIPS,0
+Xifaxin,Any Condition,ELIPS,0
+Xtandi,Any Condition,ELIPS,0
+Zanosar,Any Condition,ELIPS,0
+Zarxio,Any Condition,ELIPS,0
+Zelapar,Any Condition,ELIPS,0
+Zidovudine,Any Condition,ELIPS,0
+Ziprasidone,Any Condition,ELIPS,0
+Zoladex,Any Condition,ELIPS,0
+Zubsolv,Any Condition,ELIPS,0
+Zyprexa,Any Condition,ELIPS,0
+Zytiga,Any Condition,ELIPS,0
+3TC,Any Condition,LUMICO,0
+Abatacept,Any Condition,LUMICO,0
+Abilify,Any Condition,LUMICO,0
+Abiraterone,Any Condition,LUMICO,0
+Abstral,Any Condition,LUMICO,0
+Acamprosate,Any Condition,LUMICO,0
+Aclasta,Any Condition,LUMICO,0
+Actemra,Any Condition,LUMICO,0
+Actimmune,Any Condition,LUMICO,0
+Actiq,Any Condition,LUMICO,0
+Adalimumab,Any Condition,LUMICO,0
+Adcetris,Any Condition,LUMICO,0
+Adriamycin,Any Condition,LUMICO,0
+Afinitor,Any Condition,LUMICO,0
+Afrezza,Any Condition,LUMICO,0
+Agrylin,Any Condition,LUMICO,0
+Aldesleukin,Any Condition,LUMICO,0
+Alefacept,Any Condition,LUMICO,0
+Alemtuzumab,Any Condition,LUMICO,0
+Alferon,Any Condition,LUMICO,0
+Alkeran,Any Condition,LUMICO,0
+Amantadine,Any Condition,LUMICO,0
+Amaryl,Any Condition,LUMICO,0
+Ambenonium,Any Condition,LUMICO,0
+Amevive,Any Condition,LUMICO,0
+Amiodarone,Any Condition,LUMICO,0
+Amjevita,Any Condition,LUMICO,0
+Ampyra,Any Condition,LUMICO,0
+Anagrelide,Any Condition,LUMICO,0
+Anastrozole3,Any Condition,LUMICO,0
+Antabuse,Any Condition,LUMICO,0
+Apixaban,Any Condition,LUMICO,0
+Apokyn,Any Condition,LUMICO,0
+Apomorphine,Any Condition,LUMICO,0
+Aralast,Any Condition,LUMICO,0
+Arava,Any Condition,LUMICO,0
+Aricept,Any Condition,LUMICO,0
+Arimidex,Any Condition,LUMICO,0
+Aripiprazole,Any Condition,LUMICO,0
+Aristada,Any Condition,LUMICO,0
+Aromasin,Any Condition,LUMICO,0
+Artane,Any Condition,LUMICO,0
+Astramorph,Any Condition,LUMICO,0
+Atamet,Any Condition,LUMICO,0
+Atenolol,Any Condition,LUMICO,0
+Atrovent,Any Condition,LUMICO,0
+Auroanofin,Any Condition,LUMICO,0
+Avonex,Any Condition,LUMICO,0
+Avonexpen,Any Condition,LUMICO,0
+Azathioprine,Any Condition,LUMICO,0
+Azidothymidine,Any Condition,LUMICO,0
+Azilect,Any Condition,LUMICO,0
+AZT,Any Condition,LUMICO,0
+Baclofen,Any Condition,LUMICO,0
+Baraclude,Any Condition,LUMICO,0
+Basaglar,Any Condition,LUMICO,0
+Baycadron,Any Condition,LUMICO,0
+Benztropine,Any Condition,LUMICO,0
+Betapace,Any Condition,LUMICO,0
+Betaseron,Any Condition,LUMICO,0
+Bexxar,Any Condition,LUMICO,0
+Bicalutamide,Any Condition,LUMICO,0
+Biperiden,Any Condition,LUMICO,0
+Blenoxane,Any Condition,LUMICO,0
+Bleomycin,Any Condition,LUMICO,0
+Brentuximabvedotin,Any Condition,LUMICO,0
+Brexpiprazole,Any Condition,LUMICO,0
+Brilinta,Any Condition,LUMICO,0
+Bromocriptine,Any Condition,LUMICO,0
+Bumetanide,Any Condition,LUMICO,0
+Bumex,Any Condition,LUMICO,0
+Bunavail,Any Condition,LUMICO,0
+Buprenorphine,Any Condition,LUMICO,0
+Buprenorphine/Naloxone,Any Condition,LUMICO,0
+Burinex,Any Condition,LUMICO,0
+Busulfan,Any Condition,LUMICO,0
+Busulfex,Any Condition,LUMICO,0
+Calcijex,Any Condition,LUMICO,0
+Calcitriol,Any Condition,LUMICO,0
+Campath,Any Condition,LUMICO,0
+Campral,Any Condition,LUMICO,0
+Capecitabine,Any Condition,LUMICO,0
+Capecitabine,Any Condition,LUMICO,0
+Carac,Any Condition,LUMICO,0
+Carbidopa,Any Condition,LUMICO,0
+Carboplatin,Any Condition,LUMICO,0
+Cariprazine,Any Condition,LUMICO,0
+Carvedilol,Any Condition,LUMICO,0
+Casodex,Any Condition,LUMICO,0
+Cassipa,Any Condition,LUMICO,0
+CDDP,Any Condition,LUMICO,0
+Cell Cept,Any Condition,LUMICO,0
+Certolizumab,Any Condition,LUMICO,0
+Cerubidine,Any Condition,LUMICO,0
+Chlorambucil,Any Condition,LUMICO,0
+Chlormethine,Any Condition,LUMICO,0
+Chlorpromazine,Any Condition,LUMICO,0
+Cilostazol,Any Condition,LUMICO,0
+Cimzia,Any Condition,LUMICO,0
+Cinacalcet Hydrochloride,Any Condition,LUMICO,0
+Cisplatin,Any Condition,LUMICO,0
+Clopidogrel,Any Condition,LUMICO,0
+Clopidogrel/Bisulfate,Any Condition,LUMICO,0
+Clozapine,Any Condition,LUMICO,0
+Clozaril,Any Condition,LUMICO,0
+Cogentin,Any Condition,LUMICO,0
+Cognex,Any Condition,LUMICO,0
+Comantan,Any Condition,LUMICO,0
+Combivir,Any Condition,LUMICO,0
+Copaxone,Any Condition,LUMICO,0
+Coreg,Any Condition,LUMICO,0
+Coreg CR,Any Condition,LUMICO,0
+Cosmegen,Any Condition,LUMICO,0
+Coumadin,Any Condition,LUMICO,0
+Cozaar,Any Condition,LUMICO,0
+Crixivan,Any Condition,LUMICO,0
+CuuNu,Any Condition,LUMICO,0
+Cyclosporine,Any Condition,LUMICO,0
+Cytarabine,Any Condition,LUMICO,0
+Cytosar,Any Condition,LUMICO,0
+D4T,Any Condition,LUMICO,0
+Dabigatran,Any Condition,LUMICO,0
+Dactinomycin,Any Condition,LUMICO,0
+Dalfampridine,Any Condition,LUMICO,0
+Dapagliflozin,Any Condition,LUMICO,0
+Daunorubicin,Any Condition,LUMICO,0
+Dazidox,Any Condition,LUMICO,0
+DDC,Any Condition,LUMICO,0
+Decadron,Any Condition,LUMICO,0
+Demadex,Any Condition,LUMICO,0
+Demerol,Any Condition,LUMICO,0
+Depade,Any Condition,LUMICO,0
+Depodur,Any Condition,LUMICO,0
+DepoMedrol,Any Condition,LUMICO,0
+DES,Any Condition,LUMICO,0
+Dexamethasone Intensol,Any Condition,LUMICO,0
+Dexasone,Any Condition,LUMICO,0
+Digoxin,Any Condition,LUMICO,0
+Dilaudid,Any Condition,LUMICO,0
+Diskets,Any Condition,LUMICO,0
+Disulfiram,Any Condition,LUMICO,0
+Docefrez,Any Condition,LUMICO,0
+Docetaxel,Any Condition,LUMICO,0
+Dolophine,Any Condition,LUMICO,0
+Donepezil,Any Condition,LUMICO,0
+Dopar,Any Condition,LUMICO,0
+Doxorubicin,Any Condition,LUMICO,0
+Droxia,Any Condition,LUMICO,0
+Duragesic,Any Condition,LUMICO,0
+Duramorph,Any Condition,LUMICO,0
+Efavirenz,Any Condition,LUMICO,0
+Efudex,Any Condition,LUMICO,0
+Eldepryl,Any Condition,LUMICO,0
+Eliquis,Any Condition,LUMICO,0
+Eloxatin,Any Condition,LUMICO,0
+Embeda,Any Condition,LUMICO,0
+Emcyt,Any Condition,LUMICO,0
+Emsam,Any Condition,LUMICO,0
+EmtrivaA,Any Condition,LUMICO,0
+Enbrel,Any Condition,LUMICO,0
+Entacapone,Any Condition,LUMICO,0
+Entecavir,Any Condition,LUMICO,0
+Entresto,Any Condition,LUMICO,0
+Enulose,Any Condition,LUMICO,0
+Enzalutamide,Any Condition,LUMICO,0
+Epclusa,Any Condition,LUMICO,0
+Epogen,Any Condition,LUMICO,0
+Ergoloid,Any Condition,LUMICO,0
+Erlotinib,Any Condition,LUMICO,0
+Eskalith,Any Condition,LUMICO,0
+Estramustine,Any Condition,LUMICO,0
+Etanercept,Any Condition,LUMICO,0
+Etoposide,Any Condition,LUMICO,0
+Eulexin,Any Condition,LUMICO,0
+Everolimus,Any Condition,LUMICO,0
+Exalgo,Any Condition,LUMICO,0
+Exelon,Any Condition,LUMICO,0
+Exemestane,Any Condition,LUMICO,0
+Extavia,Any Condition,LUMICO,0
+Fareston,Any Condition,LUMICO,0
+Farxiga,Any Condition,LUMICO,0
+Faslodex,Any Condition,LUMICO,0
+Femara,Any Condition,LUMICO,0
+Fentanyl,Any Condition,LUMICO,0
+Fentora,Any Condition,LUMICO,0
+Filgrastim,Any Condition,LUMICO,0
+Floxuridine,Any Condition,LUMICO,0
+Fluoroplex,Any Condition,LUMICO,0
+Fluorouracil,Any Condition,LUMICO,0
+Fluoxetine HCI,Any Condition,LUMICO,0
+Fluphenazine,Any Condition,LUMICO,0
+Flutamide,Any Condition,LUMICO,0
+Fortovase,Any Condition,LUMICO,0
+FUDR,Any Condition,LUMICO,0
+Fulvestrant,Any Condition,LUMICO,0
+Furosemide,Any Condition,LUMICO,0
+Gablofen,Any Condition,LUMICO,0
+Galantamine,Any Condition,LUMICO,0
+Gefitinib,Any Condition,LUMICO,0
+Gengraf,Any Condition,LUMICO,0
+Geodon,Any Condition,LUMICO,0
+Gleevec,Any Condition,LUMICO,0
+Gleostine,Any Condition,LUMICO,0
+Glipizide,Any Condition,LUMICO,0
+Glucotrol,Any Condition,LUMICO,0
+Gold,Any Condition,LUMICO,0
+Golimumab,Any Condition,LUMICO,0
+Goserelin,Any Condition,LUMICO,0
+Granix,Any Condition,LUMICO,0
+Gravitor,Any Condition,LUMICO,0
+Haloperidol,Any Condition,LUMICO,0
+Harvoni,Any Condition,LUMICO,0
+Herceptin,Any Condition,LUMICO,0
+hizentra,Any Condition,LUMICO,0
+Humalog,Any Condition,LUMICO,0
+Humira,Any Condition,LUMICO,0
+Hydergine,Any Condition,LUMICO,0
+Hydrea,Any Condition,LUMICO,0
+Hydromorphone HCL,Any Condition,LUMICO,0
+Hydroquin,Any Condition,LUMICO,0
+Hydroxychloroquine,Any Condition,LUMICO,0
+Hydroxyurea,Any Condition,LUMICO,0
+HyQvia,Any Condition,LUMICO,0
+Ibrance,Any Condition,LUMICO,0
+Ibrutinib,Any Condition,LUMICO,0
+Imatinib Mesylate,Any Condition,LUMICO,0
+Imbruvica,Any Condition,LUMICO,0
+Imuran,Any Condition,LUMICO,0
+Indinavir,Any Condition,LUMICO,0
+Infliximab,Any Condition,LUMICO,0
+Infumorph,Any Condition,LUMICO,0
+Insulin Detemir,Any Condition,LUMICO,0
+Insulin Human,Any Condition,LUMICO,0
+Insulin Lispro,Any Condition,LUMICO,0
+Insulin Protamine,Any Condition,LUMICO,0
+Interferon,Any Condition,LUMICO,0
+Interferon Beta-1a,Any Condition,LUMICO,0
+Interferon gamma-1b,Any Condition,LUMICO,0
+Invirase,Any Condition,LUMICO,0
+Ipratropium,Any Condition,LUMICO,0
+Iressa,Any Condition,LUMICO,0
+Isentress,Any Condition,LUMICO,0
+Jakafi,Any Condition,LUMICO,0
+Januvia,Any Condition,LUMICO,0
+Kadian,Any Condition,LUMICO,0
+Kemadrin,Any Condition,LUMICO,0
+Lactulose,Any Condition,LUMICO,0
+Lamivudine/zidovudine,Any Condition,LUMICO,0
+Lanoxin,Any Condition,LUMICO,0
+Lantus,Any Condition,LUMICO,0
+Lasix >60mg/day,Any Condition,LUMICO,0
+Latuda,Any Condition,LUMICO,0
+L-Dopa,Any Condition,LUMICO,0
+Ledipasvir-Sofosbuvir,Any Condition,LUMICO,0
+Leflunomide,Any Condition,LUMICO,0
+Lenalidomide,Any Condition,LUMICO,0
+Letrozole3,Any Condition,LUMICO,0
+Leukeran,Any Condition,LUMICO,0
+Levemir,Any Condition,LUMICO,0
+Levodopa,Any Condition,LUMICO,0
+Lioresal,Any Condition,LUMICO,0
+Lithium,Any Condition,LUMICO,0
+Lithium Carbonate,Any Condition,LUMICO,0
+Lithobid,Any Condition,LUMICO,0
+Lodosyn,Any Condition,LUMICO,0
+Lomustine,Any Condition,LUMICO,0
+LurasidoneHCl,Any Condition,LUMICO,0
+Matulane,Any Condition,LUMICO,0
+Mechlorethamine,Any Condition,LUMICO,0
+Medrol,Any Condition,LUMICO,0
+Megace,Any Condition,LUMICO,0
+Megestrol,Any Condition,LUMICO,0
+Mellaril,Any Condition,LUMICO,0
+Melphalan,Any Condition,LUMICO,0
+Memantine HCl,Any Condition,LUMICO,0
+Memantine HCl-Donepezil HCl,Any Condition,LUMICO,0
+Mepergan,Any Condition,LUMICO,0
+Meperidine,Any Condition,LUMICO,0
+Meprozine,Any Condition,LUMICO,0
+Mercaptopurine,Any Condition,LUMICO,0
+Mestinon,Any Condition,LUMICO,0
+Metaxalone,Any Condition,LUMICO,0
+Methadone,Any Condition,LUMICO,0
+Methadose,Any Condition,LUMICO,0
+Methylprednisolone,Any Condition,LUMICO,0
+Metolazone,Any Condition,LUMICO,0
+Metrifonate,Any Condition,LUMICO,0
+Mimpara,Any Condition,LUMICO,0
+Mirapex2,Any Condition,LUMICO,0
+Mirtazapine,Any Condition,LUMICO,0
+Mithracin,Any Condition,LUMICO,0
+Mitomycins,Any Condition,LUMICO,0
+Mitosol,Any Condition,LUMICO,0
+Moban,Any Condition,LUMICO,0
+Moderiba,Any Condition,LUMICO,0
+Molindone,Any Condition,LUMICO,0
+Morphine Sulfate,Any Condition,LUMICO,0
+MSContin,Any Condition,LUMICO,0
+Mustargen,Any Condition,LUMICO,0
+Mutamycin,Any Condition,LUMICO,0
+Mycophenolatemofetil,Any Condition,LUMICO,0
+Mykrox,Any Condition,LUMICO,0
+Myleran,Any Condition,LUMICO,0
+Mylocel,Any Condition,LUMICO,0
+Mytelase,Any Condition,LUMICO,0
+Naltexone HCL,Any Condition,LUMICO,0
+Namenda,Any Condition,LUMICO,0
+Namzaric,Any Condition,LUMICO,0
+Navane,Any Condition,LUMICO,0
+Neomycin,Any Condition,LUMICO,0
+Neoral,Any Condition,LUMICO,0
+Neulasta,Any Condition,LUMICO,0
+Neupogen,Any Condition,LUMICO,0
+Neupro,Any Condition,LUMICO,0
+Nevirapine,Any Condition,LUMICO,0
+Nitroglycerin,Any Condition,LUMICO,0
+Nitrostat,Any Condition,LUMICO,0
+Nivolumab,Any Condition,LUMICO,0
+Norvir,Any Condition,LUMICO,0
+Octreotide,Any Condition,LUMICO,0
+Olanzapine,Any Condition,LUMICO,0
+Oncovin,Any Condition,LUMICO,0
+Onsolis,Any Condition,LUMICO,0
+Opana,Any Condition,LUMICO,0
+Opdivo,Any Condition,LUMICO,0
+Orap,Any Condition,LUMICO,0
+Orencia,Any Condition,LUMICO,0
+Oxaliplatin,Any Condition,LUMICO,0
+Oxaydo,Any Condition,LUMICO,0
+Palbociclib,Any Condition,LUMICO,0
+Paraplatin,Any Condition,LUMICO,0
+Parlodel,Any Condition,LUMICO,0
+Pegasys,Any Condition,LUMICO,0
+Pegfilgrastim,Any Condition,LUMICO,0
+Peginterferon,Any Condition,LUMICO,0
+Pegintron,Any Condition,LUMICO,0
+Permax,Any Condition,LUMICO,0
+Permitil,Any Condition,LUMICO,0
+Pethidine,Any Condition,LUMICO,0
+PhosLo,Any Condition,LUMICO,0
+Pimozide,Any Condition,LUMICO,0
+Plaquenil,Any Condition,LUMICO,0
+Platinol,Any Condition,LUMICO,0
+Plavix,Any Condition,LUMICO,0
+Pletal,Any Condition,LUMICO,0
+Plicamycin,Any Condition,LUMICO,0
+Pradaxa,Any Condition,LUMICO,0
+Prandin,Any Condition,LUMICO,0
+Prednisone,Any Condition,LUMICO,0
+Primasol,Any Condition,LUMICO,0
+Procarbazine,Any Condition,LUMICO,0
+Procrit,Any Condition,LUMICO,0
+Procyclidine,Any Condition,LUMICO,0
+Prograf,Any Condition,LUMICO,0
+Proleukin,Any Condition,LUMICO,0
+Prolia,Any Condition,LUMICO,0
+Prolixin,Any Condition,LUMICO,0
+Protopic,Any Condition,LUMICO,0
+Prozac,Any Condition,LUMICO,0
+Purixan,Any Condition,LUMICO,0
+Pyridostigmine Bromide,Any Condition,LUMICO,0
+Quetiapine Fumarate,Any Condition,LUMICO,0
+Raltegravir,Any Condition,LUMICO,0
+Rasagiline,Any Condition,LUMICO,0
+Razadyne,Any Condition,LUMICO,0
+Rebif,Any Condition,LUMICO,0
+Reclast,Any Condition,LUMICO,0
+Regonol,Any Condition,LUMICO,0
+Remeron,Any Condition,LUMICO,0
+Remicade,Any Condition,LUMICO,0
+Reminyl,Any Condition,LUMICO,0
+Requip2,Any Condition,LUMICO,0
+Retrovir,Any Condition,LUMICO,0
+Revatio,Any Condition,LUMICO,0
+ReVia,Any Condition,LUMICO,0
+Revlimid,Any Condition,LUMICO,0
+Rexulti,Any Condition,LUMICO,0
+Ribavirin,Any Condition,LUMICO,0
+Ridaura,Any Condition,LUMICO,0
+Rifaximin,Any Condition,LUMICO,0
+Rilutek,Any Condition,LUMICO,0
+Riluzole,Any Condition,LUMICO,0
+Risperdal,Any Condition,LUMICO,0
+Risperidone,Any Condition,LUMICO,0
+Ritonavir,Any Condition,LUMICO,0
+Rivaroxaban,Any Condition,LUMICO,0
+Rivastigmine,Any Condition,LUMICO,0
+Rivastigmine Tartrate,Any Condition,LUMICO,0
+Rocaltrol,Any Condition,LUMICO,0
+Roxanol,Any Condition,LUMICO,0
+Roxicodone,Any Condition,LUMICO,0
+Ruxolitinib,Any Condition,LUMICO,0
+Sacubitril/valsartan,Any Condition,LUMICO,0
+Salmeterol,Any Condition,LUMICO,0
+Sandimmune,Any Condition,LUMICO,0
+Sandostatin,Any Condition,LUMICO,0
+Sarafem,Any Condition,LUMICO,0
+Selegiline,Any Condition,LUMICO,0
+Sensipar,Any Condition,LUMICO,0
+Serevent,Any Condition,LUMICO,0
+Seroquel,Any Condition,LUMICO,0
+Simponi Aria,Any Condition,LUMICO,0
+Sinemet2,Any Condition,LUMICO,0
+Sitagliptin,Any Condition,LUMICO,0
+Skelaxin,Any Condition,LUMICO,0
+Sofosbuvir,Any Condition,LUMICO,0
+Sofosbuvir/Velpatasvir,Any Condition,LUMICO,0
+SoluMedrol,Any Condition,LUMICO,0
+Solurex,Any Condition,LUMICO,0
+Sorine,Any Condition,LUMICO,0
+Sotylize,Any Condition,LUMICO,0
+Sovaldi,Any Condition,LUMICO,0
+Spiriva,Any Condition,LUMICO,0
+Stalevo,Any Condition,LUMICO,0
+Stelazine,Any Condition,LUMICO,0
+Sublimaze,Any Condition,LUMICO,0
+Suboxone,Any Condition,LUMICO,0
+Sustiva,Any Condition,LUMICO,0
+Sylatron,Any Condition,LUMICO,0
+Symmetrel,Any Condition,LUMICO,0
+Tabloid,Any Condition,LUMICO,0
+Tacrine,Any Condition,LUMICO,0
+Tacrolimus,Any Condition,LUMICO,0
+Tarabine,Any Condition,LUMICO,0
+Tarceva,Any Condition,LUMICO,0
+Tasmar,Any Condition,LUMICO,0
+Tenormin,Any Condition,LUMICO,0
+Teslac,Any Condition,LUMICO,0
+Testolactone,Any Condition,LUMICO,0
+Thioplex,Any Condition,LUMICO,0
+Thioridazine,Any Condition,LUMICO,0
+Thiotepa,Any Condition,LUMICO,0
+Thiothixene,Any Condition,LUMICO,0
+Thorazine,Any Condition,LUMICO,0
+Ticagrelor,Any Condition,LUMICO,0
+Tioguanine,Any Condition,LUMICO,0
+Tocilizumab,Any Condition,LUMICO,0
+Tolak,Any Condition,LUMICO,0
+Tolcapone,Any Condition,LUMICO,0
+Toremifene,Any Condition,LUMICO,0
+Torsemide,Any Condition,LUMICO,0
+Tositumomab,Any Condition,LUMICO,0
+Toujeo,Any Condition,LUMICO,0
+Trastuzumab,Any Condition,LUMICO,0
+Trihexyphenidyl,Any Condition,LUMICO,0
+Truvada,Any Condition,LUMICO,0
+Tysabri,Any Condition,LUMICO,0
+Valchlor,Any Condition,LUMICO,0
+Velban,Any Condition,LUMICO,0
+VePesid,Any Condition,LUMICO,0
+Vinblastine,Any Condition,LUMICO,0
+Vincristine,Any Condition,LUMICO,0
+Viracept,Any Condition,LUMICO,0
+ViraferonPeg,Any Condition,LUMICO,0
+Viramune,Any Condition,LUMICO,0
+Virazole,Any Condition,LUMICO,0
+Vivitrol,Any Condition,LUMICO,0
+Vraylar,Any Condition,LUMICO,0
+Warfarin,Any Condition,LUMICO,0
+Xarelto,Any Condition,LUMICO,0
+Xeloda,Any Condition,LUMICO,0
+Xifaxin,Any Condition,LUMICO,0
+Xtandi,Any Condition,LUMICO,0
+Zanosar,Any Condition,LUMICO,0
+Zarxio,Any Condition,LUMICO,0
+Zelapar,Any Condition,LUMICO,0
+Zidovudine,Any Condition,LUMICO,0
+Ziprasidone,Any Condition,LUMICO,0
+Zoladex,Any Condition,LUMICO,0
+Zubsolv,Any Condition,LUMICO,0
+Zyprexa,Any Condition,LUMICO,0
+Zytiga,Any Condition,LUMICO,0
+3TC,HIV,MAN,0
+3TC,AIDS,MAN,0
+Epivir,HIV,MAN,0
+Epivir,AIDS,MAN,0
+Lamivudine,HIV,MAN,0
+Lamivudine,AIDS,MAN,0
+Acetate,Prostate Cancer,MAN,0
+Actemra,Rheumatoid Arthritis,MAN,0
+Tocilizumab,Rheumatoid Arthritis,MAN,0
+Alkeran,Cancer,MAN,0
+Melphalan,Cancer,MAN,0
+Apokyn,Parkinson's Disease,MAN,0
+Apomorphine,Parkinson's Disease,MAN,0
+Aptivus,HIV,MAN,0
+Aptivus,AIDS,MAN,0
+Tipranivir,HIV,MAN,0
+Tipranivir,AIDS,MAN,0
+Arava,Rheumatoid Arthritis,MAN,0
+Leflunomide,Rheumatoid Arthritis,MAN,0
+Aricept ODT,Dementia,MAN,0
+Donepezil,Dementia,MAN,0
+Artane,Parkinson's Disease,MAN,0
+Trihexyphenidyl,Parkinson's Disease,MAN,0
+Atripla,HIV,MAN,0
+Atripla,AIDS,MAN,0
+Avonex,Multiple Sclerosis,MAN,0
+Interferon beta-1a,Multiple Sclerosis,MAN,0
+Azilect,Parkinson's Disease,MAN,0
+Rasagiline,Parkinson's Disease,MAN,0
+AZT,HIV,MAN,0
+AZT,AIDS,MAN,0
+Zidovudine,HIV,MAN,0
+Zidovudine,AIDS,MAN,0
+Baclofen,Multiple Sclerosis,MAN,0
+Lioresal,Multiple Sclerosis,MAN,0
+BCG,Bladder Cancer,MAN,0
+Benlysta,Rheumatoid Arthritis,MAN,0
+Belimumab,Rheumatoid Arthritis,MAN,0
+Beraseron,Multiple Sclerosis,MAN,0
+Interferon beta-1b,Multiple Sclerosis,MAN,0
+Brovana,COPD,MAN,0
+Inhaler,COPD,MAN,0
+Bumentanide > 1.5mv QD,Congestive Heart Failure,MAN,0
+Carbidopa,Parkinson's Disease,MAN,0
+Casodex,Prostate Cancer,MAN,0
+Bicalutamide,Prostate Cancer,MAN,0
+Cellcept,Prevent Organ Rejection,MAN,0
+Mycophenolate,Prevent Organ Rejection,MAN,0
+Cerefolin,Dementia,MAN,0
+Cimzia,Rheumatoid Arthritis,MAN,0
+Certlizumab Pegol,Rheumatoid Arthritis,MAN,0
+Cogentin,Parkinson's Disease,MAN,0
+Benztropine,Parkinson's Disease,MAN,0
+Cognex,Dementia,MAN,0
+Tacrine,Dementia,MAN,0
+Combivir,HIV,MAN,0
+Combivir,AIDS,MAN,0
+Comtan,Parkinson's Disease,MAN,0
+Entacapone,Parkinson's Disease,MAN,0
+Copaxine,Multiple Sclerosis,MAN,0
+Glatiramer,Multiple Sclerosis,MAN,0
+Crixivan,HIV,MAN,0
+Indinavir,HIV,MAN,0
+Cytoxan,Cancer And Severe Arthritis,MAN,0
+Cyclophosphamide,Cancer And Severe Arthritis,MAN,0
+Daliresp,COPD,MAN,0
+Roflumilast,COPD,MAN,0
+D4T,AIDS,MAN,0
+Zerit,AIDS,MAN,0
+Stavudine,AIDS,MAN,0
+DDC,AIDS,MAN,0
+Zalcitabine,AIDS,MAN,0
+DDI,AIDS,MAN,0
+Videx,AIDS,MAN,0
+Didanosine,AIDS,MAN,0
+DES,Breast Cancer,MAN,0
+Diethylstilbestrol,Breast Cancer,MAN,0
+DuoNeb,COPD,MAN,0
+Nebulizer Solution,COPD,MAN,0
+Eldepryl,Parkinson's Disease,MAN,0
+Selegiline HCL,Parkinson's Disease,MAN,0
+Eligard,Prostate Cancer,MAN,0
+Luprolide,Prostate Cancer,MAN,0
+Enbrel,Rheumatoid Arthritis,MAN,0
+Emtriva,HIV,MAN,0
+Emtriva,AIDS,MAN,0
+Emtricitabine,HIV,MAN,0
+Emtricitabine,AIDS,MAN,0
+Epivir,HIV,MAN,0
+Epivir,AIDS,MAN,0
+Epogen,Kidney Failure,MAN,0
+Epogen,AIDS,MAN,0
+Epoetin Alfa,Kidney Failure,MAN,0
+Epoetin Alfa,AIDS,MAN,0
+Ergoloid,Dementia,MAN,0
+Exelon,Dementia,MAN,0
+Rivastigmine,Dementia,MAN,0
+Fuzeon,HIV,MAN,0
+Fuzeon,AIDS,MAN,0
+Enfuvirtide,HIV,MAN,0
+Enfuvirtide,AIDS,MAN,0
+Gleostine,Hodgkin's Disease,MAN,0
+Gleostine,Cancer,MAN,0
+Lomustine,Hodgkin's Disease,MAN,0
+Lomustine,Cancer,MAN,0
+Gold,Rheumatoid Arthritis,MAN,0
+Haldol,Psychosis,MAN,0
+Haloperidol,Psychosis,MAN,0
+Herceptin,Cancer,MAN,0
+Trastuzumab,Cancer,MAN,0
+Humira,Rheumatoid Arthritis,MAN,0
+Adalimumab,Rheumatoid Arthritis,MAN,0
+Hydergine,Dementia,MAN,0
+Ergoloid,Dementia,MAN,0
+Hydrea,Leukemia And Head/Neck Cancer,MAN,0
+Hydroxyurea,Leukemia And Head/Neck Cancer,MAN,0
+Rilutek,Amyotrophic Lateral Sclerosis (ALS),MAN,0
+Rilutek,Lou Gehrig's Disease,MAN,0
+Ritonavir,HIV,MAN,0
+Ritonavir,AIDS,MAN,0
+Novir,HIV,MAN,0
+Novir,AIDS,MAN,0
+Rituxan,Rheumatoid Arthritis,MAN,0
+Rituximab,Rheumatoid Arthritis,MAN,0
+Sandimmune,Prevent Organ Rejection,MAN,0
+Sandimmune,Rheumatoid Arthritis,MAN,0
+Cyclosporine,Prevent Organ Rejection,MAN,0
+Cyclosporine,Rheumatoid Arthritis,MAN,0
+Simponi,Psoriatic Arthritis,MAN,0
+Simponi,Rheumatoid Arthritis,MAN,0
+Golimumab,Rheumatoid Arthritis,MAN,0
+Golimumab,Psoriatic Arthritis,MAN,0
+Sinemet,Parkinson's Disease,MAN,0
+Carbi/Levodopa,Parkinson's Disease,MAN,0
+Soltamox,Cancer,MAN,0
+Tamoxifen,Cancer,MAN,0
+Stalevo,Parkinson's Disease,MAN,0
+Entacapone,Parkinson's Disease,MAN,0
+Stelazine,Psychosis,MAN,0
+Trifluoperazine,Psychosis,MAN,0
+Sustiva,HIV,MAN,0
+Sustiva,AIDS,MAN,0
+Efavirenz,HIV,MAN,0
+Efavirenz,AIDS,MAN,0
+Symmetrel,Parkinson's Disease,MAN,0
+Amantadine,Parkinson's Disease,MAN,0
+Tasmar,Parkinson's Disease,MAN,0
+Tolcapone,Parkinson's Disease,MAN,0
+Tepadina,Cancer,MAN,0
+Thiotepa,Cancer,MAN,0
+Teslac,Breast Cancer,MAN,0
+Testolactone,Breast Cancer,MAN,0
+Thorazine,Mania,MAN,0
+Thorazine,Schizophrenia,MAN,0
+Chlorpromazine,Schizophrenia,MAN,0
+Chlorpromazine,Mania,MAN,0
+Torsemide,Congestive Heart Failure,MAN,0
+Trelstar LA,Prostate Cancer,MAN,0
+Triptorelin inj ,Prostate Cancer,MAN,0
+Trizivir,HIV,MAN,0
+Trizivir,AIDS,MAN,0
+Abavavir,HIV,MAN,0
+Abavavir,AIDS,MAN,0
+Truvada,HIV,MAN,0
+Truvada,AIDS,MAN,0
+Emtricitabine,HIV,MAN,0
+Emtricitabine,AIDS,MAN,0
+Tenofovir,HIV,MAN,0
+Tenofovir,AIDS,MAN,0
+Tysabri,Multiple Sclerosis,MAN,0
+Natalizumab,Multiple Sclerosis,MAN,0
+Valcyte,Prevent CMV in Organ,MAN,0
+Valganciclovir HCL,Prevent CMV in Organ,MAN,0
+VePesid,Cancer,MAN,0
+Etoposide,Cancer,MAN,0
+Viadur,Prostate Cancer,MAN,0
+Leuprolide Acetate,Prostate Cancer,MAN,0
+Videx,HIV,MAN,0
+Videx,AIDS,MAN,0
+Didanosine,HIV,MAN,0
+Didanosine,AIDS,MAN,0
+Vincasr,Cancer,MAN,0
+Marqibo,Cancer,MAN,0
+Vincristine,Cancer,MAN,0
+Viracept,HIV,MAN,0
+Viracept,AIDS,MAN,0
+Nelfinavir,HIV,MAN,0
+Nelfinavir,AIDS,MAN,0
+Viramune,HIV,MAN,0
+Viramune,AIDS,MAN,0
+Nevirapine,HIV,MAN,0
+Nevirapine,AIDS,MAN,0
+Viread,HIV,MAN,0
+Viread,AIDS,MAN,0
+Disoproxil,HIV,MAN,0
+Disoproxil,AIDS,MAN,0
+"Imuran, Azasan","Prevent Organ Rejection, RA",MAN,0
+Azathioprine,"Prevent Organ Rejection, RA",MAN,0
+Interferon,AIDS,MAN,0
+Interferon,Cancer,MAN,0
+Invirase,HIV,MAN,0
+Saquinavir,HIV,MAN,0
+Kaletra,HIV,MAN,0
+Lopinavir,HIV,MAN,0
+Invirase,AIDS,MAN,0
+Saquinavir,AIDS,MAN,0
+Kaletra,AIDS,MAN,0
+Lopinavir,AIDS,MAN,0
+Kemadrin,Parkinson's Disease,MAN,0
+Procyclidine,Parkinson's Disease,MAN,0
+Kineret,Rheumatoid Arthritis,MAN,0
+Anakinra,Rheumatoid Arthritis,MAN,0
+Lasix >60mg QD,Heart Disease,MAN,0
+Furosemide,Heart Disease,MAN,0
+Latuda,Schizophrenia,MAN,0
+Lurasidone,Schizophrenia,MAN,0
+L-Dopa,Parkinson's Disease,MAN,0
+Levodopa,Parkinson's Disease,MAN,0
+Letairis,Pulmonary Artery HTN,MAN,0
+Ambrisentan,Pulmonary Artery HTN,MAN,0
+Leukeran,Leukemia,MAN,0
+Leukeran,Lymphoma,MAN,0
+Leukeran,Rheumatoid Arthritis,MAN,0
+Chlorambucil,Leukemia,MAN,0
+Chlorambucil,Lymphoma,MAN,0
+Chlorambucil,Rheumatoid Arthritis,MAN,0
+Lexiva,HIV,MAN,0
+Fosamprenavir,HIV,MAN,0
+Lupron,Cancer,MAN,0
+Luprolide,Cancer,MAN,0
+Megace,Cancer,MAN,0
+Megestrol Acetate,Cancer,MAN,0
+Mellaril,Schizophrenia,MAN,0
+Mellaril,Psychosis,MAN,0
+Thioridazine,Schizophrenia,MAN,0
+Thioridazine,Psychosis,MAN,0
+Methotrexate > 25mg/wk,Rheumatoid Arthritis,MAN,0
+Metrifonate,Dementia,MAN,0
+Myleran,Cancer,MAN,0
+Busulfan,Cancer,MAN,0
+Namenda,Alzheimer's Disease,MAN,0
+Namenda XR,Alzheimer's Disease,MAN,0
+Memantine,Alzheimer's Disease,MAN,0
+Namzaric,Alzheimer's Disease,MAN,0
+Memantine & Donepezil HCL,Alzheimer's Disease,MAN,0
+Natrecor,Congestive Heart Failure,MAN,0
+Nesirtide,Congestive Heart Failure,MAN,0
+Navane,Schizophrenia,MAN,0
+Navane,Psychosis,MAN,0
+Thioridazine,Schizophrenia,MAN,0
+Thioridazine,Psychosis,MAN,0
+Nelfinavir,HIV,MAN,0
+Varicept,HIV,MAN,0
+Varicept,AIDS,MAN,0
+Nelfinavir,AIDS,MAN,0
+Neoral,Prevent Organ Rejection,MAN,0
+Cyclosporine,Prevent Organ Rejection,MAN,0
+Neupro (patch),Parkinson's Disease ,MAN,0
+Rotigotin,Parkinson's Disease,MAN,0
+Neoral,Rheumatoid Arthritis,MAN,0
+Cyclosporine,Rheumatoid Arthritis,MAN,0
+Neupro (patch),HIV,MAN,0
+Rotigotin,HIV,MAN,0
+Neupro (patch),AIDS,MAN,0
+Rotigotin,AIDS,MAN,0
+Norvir,Cancer,MAN,0
+Ritonavir,Cancer,MAN,0
+Novatrone,Severe Asthma,MAN,0
+Mitoxantrone,Severe Asthma,MAN,0
+Nucula (injection),Pulm Fibrosis,MAN,0
+Nucula (injection),Lung Cancer,MAN,0
+Mepolizumab,Pulm Fibrosis,MAN,0
+Mepolizumab,Lung Cancer,MAN,0
+OFEV,Rheumatoid Arthritis,MAN,0
+Vargatef (tablet),Rheumatoid Arthritis,MAN,0
+Nintedanib,Rheumatoid Arthritis,MAN,0
+Orencia,Cancer,MAN,0
+Abatacept,Cancer,MAN,0
+Paraplatin,Parkinson's Disease,MAN,0
+Carboplatin,Parkinson's Disease,MAN,0
+Parlodel,Parkinson's Disease,MAN,0
+Bromocriptine,Parkinson's Disease,MAN,0
+Permax,Rheumatoid Arthritis,MAN,0
+Pergolide,Rheumatoid Arthritis,MAN,0
+Prednisone > 10mg QD,HIV,MAN,0
+Prednisone > 10mg QD,AIDS,MAN,0
+Prezista,Kidney Failure & HIV,MAN,0
+Darunavir,Kidney Failure & HIV,MAN,0
+Procrit,Organ Transplant,MAN,0
+EPO,Organ Transplant,MAN,0
+Prograf,Schizophrenia,MAN,0
+Prograf,Psychosis,MAN,0
+Tacrolimus,Schizophrenia,MAN,0
+Tacrolimus,Psychosis,MAN,0
+Prolixin,Prostate Cancer,MAN,0
+Fluphenazine,Prostate Cancer,MAN,0
+Provenge,Dementia,MAN,0
+Sipuleucel-T,Dementia,MAN,0
+Razadyne ER,Galantamine,MAN,0
+Reminyl,Galantamine,MAN,0
+Rebif,Rheumatoid Arthritis,MAN,0
+Interferon beta-1a,Rheumatoid Arthritis,MAN,0
+Remicade,Pulmonary Artery HTN,MAN,0
+Infliximab,Pulmonary Artery HTN,MAN,0
+Remodulin,Parkinson's Disease,MAN,0
+Treprostinil,Parkinson's Disease,MAN,0
+Rescriptor,HIV,MAN,0
+Rescriptor,AIDS,MAN,0
+Delavirdine,HIV,MAN,0
+Delavirdine,AIDS,MAN,0
+Retrovir,Schizophrenia,MAN,0
+Sidovudine,Schizophrenia,MAN,0
+Rexulti,Rheumatoid Arthritis,MAN,0
+Brexiprazole,Rheumatoid Arthritis,MAN,0
+Ridaura,Rheumatoid Arthritis,MAN,0
+Auranofin (Gold Compound),Rheumatoid Arthritis,MAN,0
+Xeljanz,Cancer,MAN,0
+Torfacitinib,Cancer,MAN,0
+Zanosar,Parkinson's Disease,MAN,0
+Streptozocin,Parkinson's Disease,MAN,0
+Zelapar,Any Condition,MAN,0
+Selegiline ,Any Condition,MAN,0
+Zerit,HIV,MAN,0
+Zerit,AIDS,MAN,0
+Stavudine,HIV,MAN,0
+Stavudine,AIDS,MAN,0
+Ziagen,HIV,MAN,0
+Ziagen,AIDS,MAN,0
+Abacavir,HIV,MAN,0
+Abacavir,AIDS,MAN,0
+Zoladex,Cancer,MAN,0
+Goserlin,Cancer,MAN,0
+Zometa,Hypercalcemia due to Cancer,MAN,0
+Zoledronic Acid,Hypercalcemia due to Cancer,MAN,0
+Abatacept (injection),Rheumatoid Arthritis,MEDICO,0
+Abilify,Schizophrenia and Bipolar Disorder,MEDICO,0
+Actemra (injection),Rheumatoid Arthritis,MEDICO,0
+Advair Diskus,Chronic Bronchitis,MEDICO,0
+Advair Diskus,COPD,MEDICO,0
+Albuterol,COPD,MEDICO,0
+Amiodarone,Ventricular Arrhythmia,MEDICO,0
+Antabuse,Alcholism,MEDICO,0
+Apriso,Ulcerative Colitis,MEDICO,0
+Arava,Rheumatoid Arthritis,MEDICO,0
+Aricept,Alzheimer's Disease,MEDICO,0
+Aricept ,Memory Loss,MEDICO,0
+Aripiprazole,Schizophrenia and Bipolar Disorder,MEDICO,0
+Asacol,Ulcerative Colitis,MEDICO,0
+Atrovent,COPD,MEDICO,0
+Anuranofin,Rheumatoid Arthritis,MEDICO,0
+Avonex,Multiple Sclerosis,MEDICO,0
+Azathioprine,Prevent Kidney Transplant Rejection,MEDICO,0
+Azathioprine,Rheumatoid Arthritis,MEDICO,0
+Azulfidine,Ulcerative Colitis,MEDICO,0
+Azulfidine,Rheumatoid Arthritis,MEDICO,0
+Balsalazide Disodium,Ulcerative Colitis,MEDICO,0
+Balsalazide Disodium,Crohn's Disease,MEDICO,0
+Benzotropine,Parkinson's Disease,MEDICO,0
+Breo,COPD,MEDICO,0
+Budesonide,Ulcerative Colitis,MEDICO,0
+Budesonide,Crohn's Disease,MEDICO,0
+Carbidopa,Parkinson's Disease,MEDICO,0
+CellCept,Transplant anti-rejection,MEDICO,0
+CellCept,Lupus,MEDICO,0
+Chlordiazepoxide,Alcholism,MEDICO,0
+Chlorpromazine,Schizophrenia,MEDICO,0
+Chlorpromazine,Manic Depression,MEDICO,0
+Cilostazol,Intermittent Claudication,MEDICO,0
+Cilostazol,Peripheral Vascular Diease,MEDICO,0
+Colazal,Ulcerative Colitis,MEDICO,0
+Colazal,Crohn's Disease,MEDICO,0
+Clozapine,Schizophrenia,MEDICO,0
+Clozaril,Schizophrenia,MEDICO,0
+Cogentin,Parkinson's Disease,MEDICO,0
+Cognex,Alzheimer's Disease,MEDICO,0
+Combivent,COPD,MEDICO,0
+Comtan,Parkinson's Disease,MEDICO,0
+Copaxone (injection),Multiple Sclerosis,MEDICO,0
+Cordarone,Venticular Arrhythmia,MEDICO,0
+Cordarone,Tachycardia,MEDICO,0
+Cosentyx (injection),Plaque Psoriasis,MEDICO,0
+Cyclosporine,Organ Transplant Rejection,MEDICO,0
+Cyclosporine,Rheumatoid Arthritis,MEDICO,0
+Cyclosporine,psoriasis,MEDICO,0
+Geodon,Schizophrenia,MEDICO,0
+Geodon,Bipolar Disorder,MEDICO,0
+Giazo,Ulcerative Colitis,MEDICO,0
+Giazo,Crohn's Disease,MEDICO,0
+Gleevec,Leukemia,MEDICO,0
+Haldol,Mood Disorders,MEDICO,0
+Haldol,Schizophrenia,MEDICO,0
+Harvoni,Hepatitis C,MEDICO,0
+Heparin (injection),Prevent Blood Clots,MEDICO,0
+Humalog (insulin),Diabetes,MEDICO,0
+Humira,Crohn's Disease,MEDICO,0
+Humira,Ulcerative Colitis,MEDICO,0
+Humira,psoriasis,MEDICO,0
+Humira (injection),Rheumatoid Arthritis,MEDICO,0
+Humulin (insulin),Diabetes,MEDICO,0
+Hydrea,Sickle Cell Anemia,MEDICO,0
+Hydrea,Cancer,MEDICO,0
+Hydrea,Blood Disorders,MEDICO,0
+Hydromorphone,Severe Pain,MEDICO,0
+Delzicol,Ulcerative Colitis,MEDICO,0
+Delzicol,Crohn's Disease,MEDICO,0
+Depakote,Bipolar Disorder,MEDICO,0
+Dilaudid,Severe Pain,MEDICO,0
+Donepezil,Alzheimer's Disease,MEDICO,0
+Donepezil,Memory Loss,MEDICO,0
+Enbrel,Rheumatoid Arthritis,MEDICO,0
+Enbrel,Plaque Psoriasis,MEDICO,0
+Enbrel (injection),Ankylosing Spondylitis,MEDICO,0
+Entacapone,Parkinson's Disease,MEDICO,0
+Entresto,Chronic Heart Failue,MEDICO,0
+Exalgo,Severe Pain,MEDICO,0
+Exelon,Dementia,MEDICO,0
+Exelon,Alzheimer's Disease,MEDICO,0
+Extavia,Multiple Sclerosis,MEDICO,0
+Fentanyl,Severe Pain,MEDICO,0
+Hydroxychloroquine,Rheumatoid Arthritis,MEDICO,0
+Hydroxychloroquine,Lupus,MEDICO,0
+Hydroxyurea,Sickle Cell Anemia,MEDICO,0
+Hydroxyurea,Cancer,MEDICO,0
+Hydroxyurea,Blood Disorders,MEDICO,0
+Imuran,Prevent Kidney Transplant Rejection,MEDICO,0
+Imuran,Rheumatoid Arthritis,MEDICO,0
+Infliximab,Rheumatoid Arthritis,MEDICO,0
+Infliximab,Ulcerative Colitis,MEDICO,0
+Infliximab,Crohn's Disease,MEDICO,0
+Interferon,Multiple Sclerosis,MEDICO,0
+Interferon,Hepatitis C,MEDICO,0
+Ipratropium,COPD,MEDICO,0
+Lamictal,Bipolar Disorder,MEDICO,0
+Lantus (insulin),Diabetes,MEDICO,0
+Latuda,Bipolar Disorder,MEDICO,0
+Latuda,Schizophrenia,MEDICO,0
+Leflunomide,Rheumatoid Arthritis,MEDICO,0
+Levermir( Insulin),Diabetes,MEDICO,0
+Levodopa,Parkinson's Disease,MEDICO,0
+Lialda,Ulcerative Colitis,MEDICO,0
+Librium,Alcholism,MEDICO,0
+Lithium,Manic Depressive Disorder,MEDICO,0
+Lithium,Bipolar Disorder,MEDICO,0
+Lodosyn,Parkinson's Disease,MEDICO,0
+Loxitane,Schizophrenia,MEDICO,0
+Lupron (injection),Prostate CA,MEDICO,0
+Lurasidone,Bipolar Disorder,MEDICO,0
+Lurasidone,Schizophrenia,MEDICO,0
+Maraviroc,HIV,MEDICO,0
+Mellaril,Schizophrenia,MEDICO,0
+Memantine,Dementia,MEDICO,0
+Memantine,Alzheimer's Disease,MEDICO,0
+Mercaptopurine,Acute Lymphocytic and Chronic Myeloid Leukemia,MEDICO,0
+Mercaptopurine,Ulcerative Colitis,MEDICO,0
+Mercaptopurine,Crohn's Disease,MEDICO,0
+Mesalamine,Ulcerative Colitis,MEDICO,0
+Methadone,Severe Pain,MEDICO,0
+Methotrexate,Cancer,MEDICO,0
+Methotrexate,Rheumatoid Arthritis,MEDICO,0
+Mirapex,Parkinson's Disease,MEDICO,0
+Morphine,Severe Pain,MEDICO,0
+Mycophenolate,Transplant anti-rejection,MEDICO,0
+Mycophenolate,Lupus,MEDICO,0
+Naloxone Buprenorphine,Opioid Addiction,MEDICO,0
+Namenda,Dementia,MEDICO,0
+Namenda,Alzheimer's Disease,MEDICO,0
+Navane,Schizophrenia,MEDICO,0
+Neoral,Prevent Organ Transplant Rejection,MEDICO,0
+Neoral,Rheumatoid Arthritis,MEDICO,0
+Nexterone,Ventricular Arrhythmia,MEDICO,0
+Nitro Patch,Angina,MEDICO,0
+Nitro Patch,Chest Pain,MEDICO,0
+Nitroglycerin,Angina,MEDICO,0
+Nitroglycerin,Chest Pain,MEDICO,0
+Nitrolingual Spray,Angina,MEDICO,0
+Nitrolingual Spray,Chest Pain,MEDICO,0
+Nitrostat,Angina,MEDICO,0
+Nitrostat,Chest Pain,MEDICO,0
+Novolin (insulin),Diabetes,MEDICO,0
+Novolog (Insulin),Diabetes,MEDICO,0
+Olanzapine,Schizophrenia,MEDICO,0
+Olanzapine,Bipolar Disorder,MEDICO,0
+Orencia (Injection),Rheumatoid Arthritis,MEDICO,0
+Otezla,Plaque Psoriasis,MEDICO,0
+Pacerone,Venticular Arrhythmia,MEDICO,0
+Palladone,Severe Pain,MEDICO,0
+Peg-Intron (injection),Hepatitis C,MEDICO,0
+Pentoxifylline,Intermittent Claudication,MEDICO,0
+Permax,Parkinson's Disease,MEDICO,0
+Perphenazine,Schizophrenia,MEDICO,0
+Plaquenil,Rheumatoid Arthritis,MEDICO,0
+Plaquenil,Lupus,MEDICO,0
+Pletal,Intermittent Claudication,MEDICO,0
+Pletal,Peripheral Vascular Diease,MEDICO,0
+Pramipexole,Parkinson's Disease,MEDICO,0
+Prednisone,Ulcerative Colitis,MEDICO,0
+Prednisone,Immune and Lung Disorders,MEDICO,0
+Proair,COPD,MEDICO,0
+Procrit,Anemia with Renal Failure,MEDICO,0
+Procrit,HIV,MEDICO,0
+Procrit,Cancer,MEDICO,0
+Prograf,Prevent Organ Transplant Rejection,MEDICO,0
+Prolixin,Schizophrenia,MEDICO,0
+Prolixin,Psychosis,MEDICO,0
+Pulmicort,COPD,MEDICO,0
+Purinethol,Acute Lymphocytic Leukemia,MEDICO,0
+Purinethol,Ulcerative Colitis,MEDICO,0
+Purinethol,Crohn's Disease,MEDICO,0
+Quetiapine,Bipolar Disorder,MEDICO,0
+Quetiapine,Schizophrenia,MEDICO,0
+Ranexa,Chronic Angina,MEDICO,0
+Ranolazine,Chronic Angina,MEDICO,0
+Razadyne,Alzheimer's Disease,MEDICO,0
+Razadyne,Dementia,MEDICO,0
+Rebif,Multiple Sclerosis,MEDICO,0
+Remicade,Rheumatoid Arthritis,MEDICO,0
+Remicade,Ulcerative Colitis,MEDICO,0
+Remicade (injection),Crohn's Disease,MEDICO,0
+Reminyl,Alzheimer's Disease,MEDICO,0
+Reminyl,Dementia,MEDICO,0
+Remodulin,Pulmonary Hypertension,MEDICO,0
+Requip,Parkinson's Disease,MEDICO,0
+Rheumatrex,Cancer,MEDICO,0
+Rheumatrex,Rheumatoid Arthritis,MEDICO,0
+Ridaura,Rheumatoid Arthritis,MEDICO,0
+Rilutek,Amyotrophic Lateral Sclerosis (ALS),MEDICO,0
+Riluzole,Amyotrophic Lateral Sclerosis (ALS),MEDICO,0
+Risperdal,Schizophrenia,MEDICO,0
+Risperdal,Bipolar Disorder,MEDICO,0
+Rivastigmine,Alzheimer's Disease,MEDICO,0
+Rivastigmine,Dementia,MEDICO,0
+Ropinirole,Parkinson's Disease,MEDICO,0
+Sacubitril,Chronic Heart Failue,MEDICO,0
+Valsartan,Chronic Heart Failue,MEDICO,0
+Secukinumab (injection),Plaque Psoriasis,MEDICO,0
+Selegiline,Depression,MEDICO,0
+Selegiline,Parkinson's Disease,MEDICO,0
+Seroquel,Schizophrenia,MEDICO,0
+Seroquel,Bipolar Disorder,MEDICO,0
+Seroquel,Major Depression,MEDICO,0
+Sinemet,Parkinson's Disease,MEDICO,0
+Spiriva,COPD,MEDICO,0
+Stelara (injection),Plaque Psoriasis,MEDICO,0
+Subocone,Opioid Addiction,MEDICO,0
+Sulfasalazine,Ulcerative Colitis,MEDICO,0
+Sulfasalazine,Rheumatoid Arthritis,MEDICO,0
+Sulfazine,Ulcerative Colitis,MEDICO,0
+Sulfazine,Rheumatoid Arthritis,MEDICO,0
+Symbicort,COPD,MEDICO,0
+Tacrine,Alzheimer's Disease,MEDICO,0
+Tacrolimus,Prevent Organ Transplant Rejection,MEDICO,0
+Tanzeum (injection/non-insulin),Diabetes,MEDICO,0
+Tasmar,Parkinson's Disease,MEDICO,0
+Tegretol,Bipolar Disorder,MEDICO,0
+Thorazine,Schizophrenia,MEDICO,0
+Thorazine,Manic Depression,MEDICO,0
+Tocilizumab (injection),Rheumatoid Arthritis,MEDICO,0
+Tolcapone,Parkinson's Disease,MEDICO,0
+Toujeo (insulin),Diabetes,MEDICO,0
+Trental,Intermittent Claudication,MEDICO,0
+Trexall,Cancer,MEDICO,0
+Trexall,Rheumatoid Arthritis,MEDICO,0
+Ustekinumab (injection),Plaque Psoriasis,MEDICO,0
+Xopenex,COPD,MEDICO,0
+Ziprasidone,Schizophrenia,MEDICO,0
+Ziprasidone,Bipolar Disorder,MEDICO,0
+Zyprexa,Schizophrenia,MEDICO,0
+Zyprexa,Bipolar Disorder,MEDICO,0
+3TC,AIDS,MOO,0
+Acetate,Prostate Cancer,MOO,0
+Accuneb,COPD,MOO,0
+Actemra,Arthritis,MOO,0
+Aducanumab,Alzheimers,MOO,0
+Aduhelm,Alzheimer’s Disease,MOO,0
+Alkeran,Cancer,MOO,0
+Amantadine,Parkinson’s Disease,MOO,0
+Ampyra,Multiple Sclerosis,MOO,0
+Anoro Ellipta,COPD,MOO,0
+Antabus,Alcoholism,MOO,0
+Antabus,Drug Abuse,MOO,0
+Antabuse,Alcoholism,MOO,0
+Antabuse,Drug Abuse,MOO,0
+Apokyn,Parkinson’s Disease,MOO,0
+Apsupartz,Arthritis,MOO,0
+Aptivus,HIV,MOO,0
+Aranesp,Chronic Kidney Disease,MOO,0
+Arava,Arthritis,MOO,0
+Aricept,Dementia,MOO,0
+Aricept ODT,Alzheimer’s Disease,MOO,0
+Artane,Parkinson’s Disease,MOO,0
+Atripla,HIV,MOO,0
+Aubagio,Multiple Sclerosis,MOO,0
+Avonex,Multiple Sclerosis,MOO,0
+Avsola,Arthritis,MOO,0
+Azasan,Immunosuppression,MOO,0
+Azasan,Severe Arthritis,MOO,0
+Azilect,Parkinson’s Disease,MOO,0
+AZT,AIDS,MOO,0
+Baclofen,Multiple Sclerosis,MOO,0
+Bafiertam,Multiple Sclerosis,MOO,0
+BCG,Bladder Cancer,MOO,0
+Belimumab,Systemic Lupus,MOO,0
+Benlysta,Arthritis,MOO,0
+Benlysta,Systemic Lupus,MOO,0
+Betaseron,Multiple Sclerosis,MOO,0
+Bevespi Aerosphere,COPD,MOO,0
+Bicalutamide,Prostate Cancer,MOO,0
+Breo,COPD,MOO,0
+Breztri Aerosphere,COPD,MOO,0
+Briumvi,Multiple Sclerosis,MOO,0
+Brovana,COPD,MOO,0
+Campral,Alcoholism,MOO,0
+Campral,Drug Abuse,MOO,0
+Carbidopa,Parkinson’s Disease,MOO,0
+Casodex,Prostate Cancer,MOO,0
+Cerefolin,Dementia,MOO,0
+Cimzia,Arthritis,MOO,0
+Cogentin,Parkinson’s Disease,MOO,0
+Cognex,Dementia,MOO,0
+Combivir,HIV,MOO,0
+Comtan,Parkinson’s Disease,MOO,0
+Copaxone,Multiple Sclerosis,MOO,0
+Cosentyx,Arthritis,MOO,0
+Crixivan,HIV,MOO,0
+Cytoxan,Cancer,MOO,0
+Cytoxan,Severe Arthritis,MOO,0
+Cytoxan,Immunosuppression,MOO,0
+D4T,AIDS,MOO,0
+DDC,AIDS,MOO,0
+Daliresp,COPD,MOO,0
+Dapagliflozin,Diabetes with Kidney Disease,MOO,0
+DDI,AIDS,MOO,0
+Depade,Alcoholism,MOO,0
+Depade,Drug Abuse,MOO,0
+DES,Cancer,MOO,0
+Donanemab,Alzheimer’s Disease,MOO,0
+Donepezil,Alzheimer’s Disease,MOO,0
+Dornase Alfa,Chronic Pulmonary Disorder,MOO,0
+DuoNeb,COPD,MOO,0
+Duvroq,Chronic Kidney Disease,MOO,0
+Ebixa,Alzheimer’s Disease,MOO,0
+Elahere,Cancer,MOO,0
+Eldepryl,Parkinson’s Disease,MOO,0
+Elexacaftor- Tezacaftor-Ivacaftor,Chronic Pulmonary Disorder,MOO,0
+Eligard,Prostate Cancer,MOO,0
+Embrel,Rheumatoid Arthritis,MOO,0
+Emtriva,HIV,MOO,0
+Enbrel,Arthritis,MOO,0
+Endoxan,Cancer,MOO,0
+Endoxan,Severe Arthritis,MOO,0
+Endoxan,Immunosuppression,MOO,0
+Enlon,Myasthenia Gravis,MOO,0
+Epivir,HIV,MOO,0
+Epogen,Kidney Failure,MOO,0
+Epogen,AIDS,MOO,0
+Ergoloid,Dementia,MOO,0
+Esbriet,Chronic Pulmonary Disorder,MOO,0
+Euflexxa,Arthritis,MOO,0
+Exelon,Dementia,MOO,0
+Extavia,Multiple Sclerosis,MOO,0
+Farxiga,Diabetes with Kidney Disease,MOO,0
+Fasenra,COPD,MOO,0
+Finerenone,Diabetes with Kidney Disease,MOO,0
+Fuzeon,HIV,MOO,0
+Galantamine,Dementia,MOO,0
+Gel One,Arthritis,MOO,0
+Geodon,Schizophrenia,MOO,0
+Gilenya,Multiple Sclerosis,MOO,0
+Glatopa,Multiple Sclerosis,MOO,0
+Gleevec,Cancer,MOO,0
+Gold,Rheumatoid Arthritis,MOO,0
+Haldol,Psychosis,MOO,0
+Herceptin,Cancer,MOO,0
+Humira,Arthritis,MOO,0
+Hyalgan,Arthritis,MOO,0
+Hyalgen LL,Arthritis,MOO,0
+Hyaluronan,Arthritis,MOO,0
+Hyaluronate,Arthritis,MOO,0
+Hydergine,Dementia,MOO,0
+Hydrea,Cancer,MOO,0
+Hydroxyurea,Melanoma,MOO,0
+Hydroxyurea,Leukemia,MOO,0
+Hydroxyurea,Cancer,MOO,0
+Hylan G-F 20,Arthritis,MOO,0
+Ibrance,Cancer,MOO,0
+Imbruvica,Cancer,MOO,0
+Imjudo,Cancer,MOO,0
+Imuran,Immunosuppression,MOO,0
+Imuran,Severe Arthritis,MOO,0
+Incruse Ellipta,COPD,MOO,0
+Indinavir,AIDS,MOO,0
+Insulin,Diabetes,MOO,0
+Interferon,AIDS,MOO,0
+Interferon,Cancer,MOO,0
+Interferon,Hepatitis,MOO,0
+Invega,Schizophrenia,MOO,0
+Invirase,AIDS,MOO,0
+Ivacaftor,Chronic Pulmonary Disorder,MOO,0
+Jaypirca,Cancer,MOO,0
+Jesduvroq,Chronic Kidney Disease,MOO,0
+Kaftrio,COPD,MOO,0
+Kaletra,HIV,MOO,0
+Kalydeco,COPD,MOO,0
+Kemadrin,Parkinson’s Disease,MOO,0
+Kerendia,Diabetes with Kidney Disease,MOO,0
+Kesimpta,Multiple Sclerosis,MOO,0
+Kimmtrak,Cancer,MOO,0
+Kineret,Arthritis,MOO,0
+Krazati,Cancer,MOO,0
+Lasix/Furosemide (>60mg/day),Heart Disease,MOO,0
+L-Dopa,Parkinson’s Disease,MOO,0
+Lemtrada,Multiple Sclerosis,MOO,0
+Leqembi,Alzheimer’s Disease,MOO,0
+Letairis,Cancer,MOO,0
+Letairis,Pulmonary Hypertension,MOO,0
+Leukeran,Arthritis,MOO,0
+Leuprolide,Prostate Cancer,MOO,0
+Leuprolide Acetate,Prostate Cancer,MOO,0
+Levodopa,Parkinson’s Disease,MOO,0
+Lexiva,HIV,MOO,0
+Lioresal,Multiple Sclerosis,MOO,0
+Lomustine,Cancer,MOO,0
+Lumacaftor-Ivacaftor,Chronic Pulmonary Disorder,MOO,0
+Lunsumio,Cancer,MOO,0
+Lupron,Cancer,MOO,0
+Lupron Depot,Prostate Cancer,MOO,0
+Lupron Depot-Ped,Prostate Cancer,MOO,0
+Lytgobi,Cancer,MOO,0
+Mavenclad,Multiple Sclerosis,MOO,0
+Mayzent,Multiple Sclerosis,MOO,0
+Megace,Cancer,MOO,0
+Megestrol,Cancer,MOO,0
+Mellaril,Psychosis,MOO,0
+Melphalan,Cancer,MOO,0
+Memantine,Alzheimer’s Disease,MOO,0
+Methotrexate (>25mg/wk),Rheumatoid Arthritis,MOO,0
+Metrifonate,Dementia,MOO,0
+Mirapex,Parkinson’s Disease,MOO,0
+Mitoxantrone,Multiple Sclerosis,MOO,0
+Monovisc,Arthritis,MOO,0
+Myleran,Cancer,MOO,0
+Mytelase,Myasthenia Gravis,MOO,0
+Nalmefene,Alcoholism,MOO,0
+Nalmefene,Drug Abuse,MOO,0
+Namenda,Alzheimer’s Disease,MOO,0
+Namenda XR,Alzheimer’s Disease,MOO,0
+Namzaric,Alzheimer’s Disease,MOO,0
+Natrecor,CHF,MOO,0
+Navane,Psychosis,MOO,0
+Nelfinavir,AIDS,MOO,0
+Neoral,Immunosuppression,MOO,0
+Neoral,Severe Arthritis,MOO,0
+Neostigmine,Myasthenia Gravis,MOO,0
+Neupro,Parkinson’s Disease,MOO,0
+Nilotinib,Cancer,MOO,0
+Nintedanib,Chronic Pulmonary Disorder,MOO,0
+Nintedanib Esylate,Chronic Pulmonary Disorder,MOO,0
+Norvir,HIV,MOO,0
+Novatrone,Multiple Sclerosis,MOO,0
+Nucala,Chronic Pulmonary Disorder,MOO,0
+Nuplazid,Parkinson's Disease,MOO,0
+Ocrevus,Multiple Sclerosis,MOO,0
+OFEV,Chronic Pulmonary Disorder,MOO,0
+Olumiant,Arthritis,MOO,0
+Opdualag,Cancer,MOO,0
+Orencia,Arthritis,MOO,0
+Orserdu,Cancer,MOO,0
+Orthovisc,Arthritis,MOO,0
+Otezla,Arthritis,MOO,0
+Paraplatin,Cancer,MOO,0
+Parlodel,Parkinson’s Disease,MOO,0
+Permax,Parkinson’s Disease,MOO,0
+Pimavanserin,Parkinson's disease,MOO,0
+Pirespa,COPD,MOO,0
+Pirfenidone,Chronic Pulmonary Disorder,MOO,0
+Plegridy,Multiple Sclerosis,MOO,0
+Pluvicto,Cancer,MOO,0
+Ponvory,Multiple Sclerosis,MOO,0
+Prezista,HIV,MOO,0
+Procrit,Kidney Failure,MOO,0
+Procrit,AIDS,MOO,0
+Prolixin,Psychosis,MOO,0
+Prostigmin,Myasthenia Gravis,MOO,0
+Provenge,Prostate Cancer,MOO,0
+Qalsody,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Radicaca,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Razadyne,Dementia,MOO,0
+Razadyne ER,Alzheimer’s Disease,MOO,0
+Rebif,Multiple Sclerosis,MOO,0
+Rebif Rebidose,Multiple Sclerosis,MOO,0
+Rebif Titraction Pack,Multiple Sclerosis,MOO,0
+Relyvrio,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Remicade,Arthritis,MOO,0
+Reminyl,Dementia,MOO,0
+Remodulin,Pulmonary Hypertension,MOO,0
+Renagel,Chronic Kidney Disease,MOO,0
+Renvela,Chronic Kidney Disease,MOO,0
+Requip,Parkinson’s Disease,MOO,0
+Rescriptor,HIV,MOO,0
+Retrovir,AIDS,MOO,0
+Revia,Alcoholism or drug abuse,MOO,0
+Reyataz,HIV,MOO,0
+Rezlidhia,Cancer,MOO,0
+Ridaura,Arthritis,MOO,0
+Rilutek,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Riluzole,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Rinvoq,Arthritis,MOO,0
+Risperdal,Psychosis,MOO,0
+Rituxan,Arthritis,MOO,0
+Rivastigmine,Dementia,MOO,0
+Sandimmune,Arthritis,MOO,0
+Saphnelo,Systemic Lupus,MOO,0
+Selzentry,HIV,MOO,0
+Simponi,Arthritis,MOO,0
+Sinemet,Parkinson’s Disease,MOO,0
+Sipartz FX,Arthritis,MOO,0
+Sotyktu,Arthritis,MOO,0
+Stalevo,Parkinson's Disease,MOO,0
+Stelazine,Psychosis,MOO,0
+Stiolto Respimat,COPD,MOO,0
+Sustiva,AIDS,MOO,0
+Symdeko,COPD,MOO,0
+Symmetrel,Parkinson's Disease,MOO,0
+Synvisc,Arthritis,MOO,0
+Tascenso ODT,Multiple Sclerosis,MOO,0
+Tasigna,Cancer,MOO,0
+Tasmar,Parkinson's Disease,MOO,0
+Tecfidera,Multiple Sclerosis,MOO,0
+Tecvayli,Cancer,MOO,0
+Teslac,Cancer,MOO,0
+Thiotepa,Cancer,MOO,0
+Thorazine,Psychosis,MOO,0
+Tiglutik,Amyotrohic Lateral Sclerosis (ALS),MOO,0
+Tregelgy Ellipta,COPD,MOO,0
+Trelstar-LA,Prostate Cancer,MOO,0
+Tremfya,Arthritis,MOO,0
+Trikafta,COPD,MOO,0
+Triptorelin,Prostate Cancer,MOO,0
+Trizivir,HIV,MOO,0
+Tudorza,COPD,MOO,0
+Tysabri,Multiple Sclerosis,MOO,0
+Valcyte,Cytomegalovirus,MOO,0
+Valcyte,HIV,MOO,0
+Vargatef,COPD,MOO,0
+VePesid,Cancer,MOO,0
+Viadur,Prostate Cancer,MOO,0
+Videx,HIV,MOO,0
+Vincristine,Cancer,MOO,0
+Viracept,HIV,MOO,0
+Viread,HIV,MOO,0
+Vivitrol,Alcoholism,MOO,0
+Vivitrol,Drug Abuse,MOO,0
+Vumerity,Multiple Sclerosis,MOO,0
+Vyvgart,Myasthenia Gravis,MOO,0
+Xeljanz,Arthritis,MOO,0
+Xtandi,Cancer,MOO,0
+Zanosar,Cancer,MOO,0
+Zelapar,Parkinson's Disease,MOO,0
+Zeposia,Multiple Sclerosis,MOO,0
+Zerit,HIV,MOO,0
+Ziagen,HIV,MOO,0
+Zinbryta,Multiple Sclerosis,MOO,0
+Ziprasidone,Schizophrenia,MOO,0
+Zolandex,Cancer,MOO,0
+Zometa,Hypercalcemia in Cancer,MOO,0
+Zytiga,Cancer,MOO,0
+Aduhelm,Dementia,NEWERA,0
+Aduhelm,Alzheimer's Disease,NEWERA,0
+Advair Diskus 250/50,COPD,NEWERA,0
+Agenerase,AIDS,NEWERA,0
+Aggrastat,Angina,NEWERA,0
+Agrylin,Blood Disorders,NEWERA,0
+Akineton,Parkinson's Disease,NEWERA,0
+Alkeran,Cancer,NEWERA,0
+Amantadine,Parkinson's Disease,NEWERA,0
+Anoro Ellipta,COPD,NEWERA,0
+Apokyn,Parkinson's Disease,NEWERA,0
+Arava,Autoimmune Disorders,NEWERA,0
+Aranesp,Chronic Renal Failure,NEWERA,0
+Aricept,Dementia,NEWERA,0
+Aricept,Alzheimer's Disease,NEWERA,0
+Azilect,Parkinson's Disease,NEWERA,0
+AZT,AIDS,NEWERA,0
+Bendopa,Parkinson's Disease,NEWERA,0
+Bevespi Aerosphere,COPD,NEWERA,0
+Biktarvy,AIDS,NEWERA,0
+Breo Ellipta,COPD,NEWERA,0
+Brovana,COPD,NEWERA,0
+Carbex,Parkinson's Disease,NEWERA,0
+Cogentin,Parkinson's Disease,NEWERA,0
+Cognex,Dementia,NEWERA,0
+Cognex,Alzheimer's Disease,NEWERA,0
+Copaxone,Multiple Sclerosis,NEWERA,0
+Consentyx,Autoimmune Disorders,NEWERA,0
+Cytoxan,Cancer,NEWERA,0
+D4T,AIDS,NEWERA,0
+Deapril-ST,Dementia,NEWERA,0
+Deapril-ST,Alzheimer's Disease,NEWERA,0
+DuoNeb,COPD,NEWERA,0
+Aducanumab,Dementia,NEWERA,0
+Aducanumab,Alzheimer's Disease,NEWERA,0
+Amprenavir,AIDS,NEWERA,0
+Tirofiban,Angina,NEWERA,0
+Anagrelide,Blood Disorders,NEWERA,0
+Biperiden,Parkinson's Disease,NEWERA,0
+Melphalan,Cancer,NEWERA,0
+Apomorphine,Parkinson's Disease,NEWERA,0
+Leflunomide,Autoimmune Disorders,NEWERA,0
+Darbepoetin Alfa,Chronic Renal Failure,NEWERA,0
+Donepezil,Dementia,NEWERA,0
+Donepezil,Alzheimer's Disease,NEWERA,0
+Trihexyphenidyl,Parkinson's Disease,NEWERA,0
+Bevacizumab,Cancer,NEWERA,0
+Betaseron,Multiple Sclerosis,NEWERA,0
+Rasagiline,Parkinson's Disease,NEWERA,0
+Levodopa,Parkinson's Disease,NEWERA,0
+Arformoterol,COPD,NEWERA,0
+Selegiline,Parkinson's Disease,NEWERA,0
+Benzatropine,Parkinson's Disease,NEWERA,0
+Tacrine,Dementia,NEWERA,0
+Tacrine,Alzheimer's Disease,NEWERA,0
+Glatopa,Multiple Sclerosis,NEWERA,0
+Eliquis ***,Blood Thinner,NEWERA,0
+Enfolast,Alzheimer's Disease,NEWERA,0
+Enfolast,Dementia,NEWERA,0
+Eulexin,Cancer,NEWERA,0
+Exelon,Dementia,NEWERA,0
+Exelon,Alzheimer's Disease,NEWERA,0
+Eylea,Diabetic Retinopathy,NEWERA,0
+Femara,Cancer,NEWERA,0
+Ferrous Sulfate,Chronic Kidney Disease,NEWERA,0
+Foscavir,AIDS,NEWERA,0
+Hexalen,Cancer,NEWERA,0
+Hivid,AIDS,NEWERA,0
+Humira,Autoimmune Disorders,NEWERA,0
+Hydrea,Blood Disorders,NEWERA,0
+Imdur***,Angina,NEWERA,0
+Incruse Ellipta,COPD,NEWERA,0
+Insulin,Diabetes,NEWERA,0
+Intelence,Alzheimer's Disease,NEWERA,0
+Intelence,Dementia,NEWERA,0
+Intron A,Cancer,NEWERA,0
+Invirase,AIDS,NEWERA,0
+Jakafi,Autoimmune Disorders,NEWERA,0
+Lemtrada,Multiple Sclerosis,NEWERA,0
+Lodosyn,Parkinson's Disease,NEWERA,0
+Lucentis,Diabetic Retinopathy,NEWERA,0
+Lupron,Cancer,NEWERA,0
+Mylotarg,Cancer,NEWERA,0
+Namenda,Dementia,NEWERA,0
+Namenda,Alzheimer's Disease,NEWERA,0
+Nitroglycerin,Angina,NEWERA,0
+Orencia,Autoimmune Disease,NEWERA,0
+Pacerone,Irregular Heartbeat,NEWERA,0
+Pagitane,Parkinson's Disease,NEWERA,0
+Parcopa,Parkinson's Disease,NEWERA,0
+Plavix,Blood Thinner,NEWERA,0
+Procrit,Renal Failure,NEWERA,0
+Ranexa,Angina,NEWERA,0
+Rebif,Multiple Sclerosis,NEWERA,0
+Remicade,Autoimmune Disorder,NEWERA,0
+Renvela,Renal Failure,NEWERA,0
+Rilutek,ALS,NEWERA,0
+Apaxiban,Blood Thinner,NEWERA,0
+Flutamide,Cancer,NEWERA,0
+Rivastigmine,Dementia,NEWERA,0
+Rivastigmine,Alzheimer's Disease,NEWERA,0
+Aflibercept,Diabetic Retinopathy,NEWERA,0
+Letrozole,Cancer,NEWERA,0
+Foscarnet,AIDS,NEWERA,0
+Altretamine,Cancer,NEWERA,0
+Zalcitabine,AIDS,NEWERA,0
+Adalimumab,Autoimmune Disorders,NEWERA,0
+Hydroxyurea,Blood Disorders,NEWERA,0
+Isosorbide,Angina,NEWERA,0
+Etravirine,Alzheimer's Disease,NEWERA,0
+Etravirine,Dementia,NEWERA,0
+Interferon alfa-2b,Cancer,NEWERA,0
+Saquinavir,AIDS,NEWERA,0
+Ruxolitinib,Autoimmune Disorders,NEWERA,0
+Alemtuzamab,Multiple Sclerosis,NEWERA,0
+Carbidopa,Parkinson's Disease,NEWERA,0
+Ranibizumab,Diabetic Retinopathy,NEWERA,0
+Leuprorelin,Cancer,NEWERA,0
+Memantine,Alzheimer's Disease,NEWERA,0
+Memantine,Dementia,NEWERA,0
+Abatacept,Autoimmune Disease,NEWERA,0
+Amiodarone,Irregular Heartbeat,NEWERA,0
+Cycrimine,Parkinson's Disease,NEWERA,0
+Carbidopa/Levodopa,Parkinson's Disease,NEWERA,0
+Clopidigrel,Blood Thinner,NEWERA,0
+Epoetin alfa,Renal Failure,NEWERA,0
+Ranolazine,Angina,NEWERA,0
+Infliximab,Autoimmune Disorder,NEWERA,0
+Sevelamer,Renal Failure,NEWERA,0
+Riluzole,ALS,NEWERA,0
+Rituxan,Autoimmune Disorders,NEWERA,0
+Roferon-A,Cancer,NEWERA,0
+Spiriva Respimat,COPD,NEWERA,0
+Stelara,Autoimmune Disorders,NEWERA,0
+Symax,Parkinson's Disease,NEWERA,0
+Tambocor,Irregular Heartbeat,NEWERA,0
+Thalomid,Cancer,NEWERA,0
+Thalomid,AIDS,NEWERA,0
+Tremin,Parkinson's Disease,NEWERA,0
+Trexall,Autoimmune Disorders,NEWERA,0
+Trisenox,Leukemia,NEWERA,0
+Turdorza,COPD,NEWERA,0
+Viracept,AIDS,NEWERA,0
+Warfarin,Blood Thinner,NEWERA,0
+Wellferon,AIDS,NEWERA,0
+Xarelto,Blood Thinner,NEWERA,0
+Xeljanz,Autoimmune Disorders,NEWERA,0
+Xeloda,Cancer,NEWERA,0
+Xolair,Asthma,NEWERA,0
+Zerit,AIDS,NEWERA,0
+Ziagen,AIDS,NEWERA,0
+Zimbryta,Multiple Sclerosis,NEWERA,0
+Zoladex,Cancer,NEWERA,0
+Rituximab,Autoimmune Disorders,NEWERA,0
+Hyoscyamine,Parkinson's Disease,NEWERA,0
+Flecainide,Irregular Heartbeat,NEWERA,0
+Thalidomide,Cancer,NEWERA,0
+Thalidomide,AIDS,NEWERA,0
+Trihexyphenidyl,Parkinson's Disease,NEWERA,0
+Methotrexate,Autoimmune Disorders,NEWERA,0
+Arsenic Trioxide,Leukemia,NEWERA,0
+Nelfinavir,AIDS,NEWERA,0
+Coumadin,Blood Thinner,NEWERA,0
+Rivaroxaban,Blood Thinner,NEWERA,0
+Tofacitinib Citrate,Autoimmune Disorders,NEWERA,0
+Capecitabine,Cancer,NEWERA,0
+Stavudine,AIDS,NEWERA,0
+Abacavir,AIDS,NEWERA,0
+Goserelin,Cancer,NEWERA,0
+Abacavir,Any Condition,CIGNA-CNHIC,0
+Abatacept,Any Condition,CIGNA-CNHIC,0
+Abilify,Any Condition,CIGNA-CNHIC,0
+Abiraterone Acetate,Any Condition,CIGNA-CNHIC,0
+Micronized,Any Condition,CIGNA-CNHIC,0
+Abstral,Any Condition,CIGNA-CNHIC,0
+Acamprosate,Any Condition,CIGNA-CNHIC,0
+Acetylcysteine,Any Condition,CIGNA-CNHIC,0
+Actemra Actpen,Any Condition,CIGNA-CNHIC,0
+Actiq,Any Condition,CIGNA-CNHIC,0
+Adalimumab,Any Condition,CIGNA-CNHIC,0
+Afinitor,Any Condition,CIGNA-CNHIC,0
+Agrylin,Any Condition,CIGNA-CNHIC,0
+Alkeran,Any Condition,CIGNA-CNHIC,0
+Amjevita,Any Condition,CIGNA-CNHIC,0
+Ampyra,Any Condition,CIGNA-CNHIC,0
+Anagrelide,Any Condition,CIGNA-CNHIC,0
+Anakinra,Any Condition,CIGNA-CNHIC,0
+Antabuse,Any Condition,CIGNA-CNHIC,0
+Aptivus,Any Condition,CIGNA-CNHIC,0
+Aranesp,Any Condition,CIGNA-CNHIC,0
+Arava,Any Condition,CIGNA-CNHIC,0
+Aricept,Any Condition,CIGNA-CNHIC,0
+Aripiprazole,Any Condition,CIGNA-CNHIC,0
+Aromasin,Any Condition,CIGNA-CNHIC,0
+Arymo Er,Any Condition,CIGNA-CNHIC,0
+Asceniv,Any Condition,CIGNA-CNHIC,0
+Asenapine,Any Condition,CIGNA-CNHIC,0
+Astagraf XL,Any Condition,CIGNA-CNHIC,0
+Astramorph,Any Condition,CIGNA-CNHIC,0
+Atazanavir,Any Condition,CIGNA-CNHIC,0
+Atripla,Any Condition,CIGNA-CNHIC,0
+Avinza,Any Condition,CIGNA-CNHIC,0
+Avonex,Any Condition,CIGNA-CNHIC,0
+Avsola,Any Condition,CIGNA-CNHIC,0
+Azasan,Any Condition,CIGNA-CNHIC,0
+Azathioprine,Any Condition,CIGNA-CNHIC,0
+Baraclude,Any Condition,CIGNA-CNHIC,0
+Belbuca,Any Condition,CIGNA-CNHIC,0
+Belimumab,Any Condition,CIGNA-CNHIC,0
+Benlysta,Any Condition,CIGNA-CNHIC,0
+Besremi,Any Condition,CIGNA-CNHIC,0
+Bexarotene,Any Condition,CIGNA-CNHIC,0
+Bicalutamide,Any Condition,CIGNA-CNHIC,0
+Bivigam,Any Condition,CIGNA-CNHIC,0
+Bunavail,Any Condition,CIGNA-CNHIC,0
+Buprenex,Any Condition,CIGNA-CNHIC,0
+Buprenorphine,Any Condition,CIGNA-CNHIC,0
+Butorphanol,Any Condition,CIGNA-CNHIC,0
+Butrans,Any Condition,CIGNA-CNHIC,0
+Campral,Any Condition,CIGNA-CNHIC,0
+Canakinumab,Any Condition,CIGNA-CNHIC,0
+Capecitabine,Any Condition,CIGNA-CNHIC,0
+Carbamazepine,Any Condition,CIGNA-CNHIC,0
+Carbatrol,Any Condition,CIGNA-CNHIC,0
+Carimune NF,Any Condition,CIGNA-CNHIC,0
+Cariprazine,Any Condition,CIGNA-CNHIC,0
+Casodex,Any Condition,CIGNA-CNHIC,0
+Ceenu,Any Condition,CIGNA-CNHIC,0
+Cellcept,Any Condition,CIGNA-CNHIC,0
+Cerefolin,Any Condition,CIGNA-CNHIC,0
+Certolizumab Pegol,Any Condition,CIGNA-CNHIC,0
+Chlorambucil,Any Condition,CIGNA-CNHIC,0
+Cimzia,Any Condition,CIGNA-CNHIC,0
+Clozapine,Any Condition,CIGNA-CNHIC,0
+Clozaril,Any Condition,CIGNA-CNHIC,0
+Copaxone,Any Condition,CIGNA-CNHIC,0
+Cosentyx,Any Condition,CIGNA-CNHIC,0
+Creon,Any Condition,CIGNA-CNHIC,0
+Cutaquig,Any Condition,CIGNA-CNHIC,0
+Cuvitru,Any Condition,CIGNA-CNHIC,0
+Cyclophosphamide,Any Condition,CIGNA-CNHIC,0
+Cyclosporine,Any Condition,CIGNA-CNHIC,0
+Cytoxan,Any Condition,CIGNA-CNHIC,0
+Dalfampridine,Any Condition,CIGNA-CNHIC,0
+Daratumumab,Any Condition,CIGNA-CNHIC,0
+Darbepoetin Alfa,Any Condition,CIGNA-CNHIC,0
+Darzalex Faspro,Any Condition,CIGNA-CNHIC,0
+Degarelix,Any Condition,CIGNA-CNHIC,0
+Demerol,Any Condition,CIGNA-CNHIC,0
+Depade,Any Condition,CIGNA-CNHIC,0
+Dialyvite,Any Condition,CIGNA-CNHIC,0
+Dilantin,Any Condition,CIGNA-CNHIC,0
+Dilaudid,Any Condition,CIGNA-CNHIC,0
+Disulfiram,Any Condition,CIGNA-CNHIC,0
+Dolophine,Any Condition,CIGNA-CNHIC,0
+Donepezil,Any Condition,CIGNA-CNHIC,0
+Droxia,Any Condition,CIGNA-CNHIC,0
+Dupilumab,Any Condition,CIGNA-CNHIC,0
+Dupixent,Any Condition,CIGNA-CNHIC,0
+Duramorph,Any Condition,CIGNA-CNHIC,0
+Duragesic,Any Condition,CIGNA-CNHIC,0
+Ebixa,Any Condition,CIGNA-CNHIC,0
+Efavirenz,Any Condition,CIGNA-CNHIC,0
+Eflapegrastim-XNST,Any Condition,CIGNA-CNHIC,0
+Elepsia XR,Any Condition,CIGNA-CNHIC,0
+Eligard,Any Condition,CIGNA-CNHIC,0
+Embeda,Any Condition,CIGNA-CNHIC,0
+Emcyt,Any Condition,CIGNA-CNHIC,0
+Empaveli,Any Condition,CIGNA-CNHIC,0
+Emtricitabine,Any Condition,CIGNA-CNHIC,0
+Emtriva,Any Condition,CIGNA-CNHIC,0
+Enbre,Any Condition,CIGNA-CNHIC,0
+Enbrel Mini,Any Condition,CIGNA-CNHIC,0
+Enbrel Sureclick,Any Condition,CIGNA-CNHIC,0
+Endoxan,Any Condition,CIGNA-CNHIC,0
+Enspryng,Any Condition,CIGNA-CNHIC,0
+Entecavir,Any Condition,CIGNA-CNHIC,0
+Envarsus XR,Any Condition,CIGNA-CNHIC,0
+Epitol,Any Condition,CIGNA-CNHIC,0
+Epivir,Any Condition,CIGNA-CNHIC,0
+Epoetin Alfa,Any Condition,CIGNA-CNHIC,0
+Epogen,Any Condition,CIGNA-CNHIC,0
+Equetro,Any Condition,CIGNA-CNHIC,0
+Ergoloid Mesylates,Any Condition,CIGNA-CNHIC,0
+Erlotinib,Any Condition,CIGNA-CNHIC,0
+Eskalith,Any Condition,CIGNA-CNHIC,0
+Estramustine,Any Condition,CIGNA-CNHIC,0
+Etanercept,Any Condition,CIGNA-CNHIC,0
+Etopophos,Any Condition,CIGNA-CNHIC,0
+Etoposide,Any Condition,CIGNA-CNHIC,0
+Etravirine,Any Condition,CIGNA-CNHIC,0
+Eulexin,Any Condition,CIGNA-CNHIC,0
+Everolimus,Any Condition,CIGNA-CNHIC,0
+Evomela,Any Condition,CIGNA-CNHIC,0
+Exalgo,Any Condition,CIGNA-CNHIC,0
+Exelon,Any Condition,CIGNA-CNHIC,0
+Exemestane,Any Condition,CIGNA-CNHIC,0
+Fanapt,Any Condition,CIGNA-CNHIC,0
+Fareston,Any Condition,CIGNA-CNHIC,0
+Felbamate,Any Condition,CIGNA-CNHIC,0
+Felbatol,Any Condition,CIGNA-CNHIC,0
+Fensolvi,Any Condition,CIGNA-CNHIC,0
+Fentanyl,Any Condition,CIGNA-CNHIC,0
+Fentora,Any Condition,CIGNA-CNHIC,0
+Filgrastim,Any Condition,CIGNA-CNHIC,0
+Firmagon,Any Condition,CIGNA-CNHIC,0
+Flebogamma Dif,Any Condition,CIGNA-CNHIC,0
+Flecanide,Any Condition,CIGNA-CNHIC,0
+Fluoxetine,Any Condition,CIGNA-CNHIC,0
+Fluphenazine,Any Condition,CIGNA-CNHIC,0
+Flutamide,Any Condition,CIGNA-CNHIC,0
+Forteo,Any Condition,CIGNA-CNHIC,0
+Fosamprenavir,Any Condition,CIGNA-CNHIC,0
+Fosrenol,Any Condition,CIGNA-CNHIC,0
+Fylnetra,Any Condition,CIGNA-CNHIC,0
+Galantamine,Any Condition,CIGNA-CNHIC,0
+Gamastan,Any Condition,CIGNA-CNHIC,0
+Gammagard,Any Condition,CIGNA-CNHIC,0
+Gammaked,Any Condition,CIGNA-CNHIC,0
+Gammaplex,Any Condition,CIGNA-CNHIC,0
+Gamunex-C,Any Condition,CIGNA-CNHIC,0
+Gengraf,Any Condition,CIGNA-CNHIC,0
+Geodon,Any Condition,CIGNA-CNHIC,0
+Gerimal,Any Condition,CIGNA-CNHIC,0
+Glatiramer Acetate,Any Condition,CIGNA-CNHIC,0
+Glatopa,Any Condition,CIGNA-CNHIC,0
+Gleevec,Any Condition,CIGNA-CNHIC,0
+Golimumab,Any Condition,CIGNA-CNHIC,0
+Granix,Any Condition,CIGNA-CNHIC,0
+Haldol,Any Condition,CIGNA-CNHIC,0
+Haloperidol,Any Condition,CIGNA-CNHIC,0
+Hecoria,Any Condition,CIGNA-CNHIC,0
+Hizentra,Any Condition,CIGNA-CNHIC,0
+Humira,Any Condition,CIGNA-CNHIC,0
+Hyaluronidase-fihj,Any Condition,CIGNA-CNHIC,0
+Hydergine,Any Condition,CIGNA-CNHIC,0
+Hydrea,Any Condition,CIGNA-CNHIC,0
+Hydromorphone,Any Condition,CIGNA-CNHIC,0
+Hydroxychloroquine,Any Condition,CIGNA-CNHIC,0
+Hydroxyurea,Any Condition,CIGNA-CNHIC,0
+Hyqvia,Any Condition,CIGNA-CNHIC,0
+Ibrutinib,Any Condition,CIGNA-CNHIC,0
+Ilaris,Any Condition,CIGNA-CNHIC,0
+Iloperidone,Any Condition,CIGNA-CNHIC,0
+Imatinib,Any Condition,CIGNA-CNHIC,0
+Imbruvica,Any Condition,CIGNA-CNHIC,0
+Immune Globulin,Any Condition,CIGNA-CNHIC,0
+Imuran,Any Condition,CIGNA-CNHIC,0
+Inclisiran Sodium,Any Condition,CIGNA-CNHIC,0
+Inflectra,Any Condition,CIGNA-CNHIC,0
+Infliximab,Any Condition,CIGNA-CNHIC,0
+Infumorph,Any Condition,CIGNA-CNHIC,0
+Inotersen Sodium,Any Condition,CIGNA-CNHIC,0
+Insentress,Any Condition,CIGNA-CNHIC,0
+Intelence,Any Condition,CIGNA-CNHIC,0
+Interferon Alfa-2a,Any Condition,CIGNA-CNHIC,0
+Interferon Alfa-2b,Any Condition,CIGNA-CNHIC,0
+Interferon Beta-1a,Any Condition,CIGNA-CNHIC,0
+Intron A,Any Condition,CIGNA-CNHIC,0
+Invega,Any Condition,CIGNA-CNHIC,0
+Ionsys,Any Condition,CIGNA-CNHIC,0
+Ixekizumab,Any Condition,CIGNA-CNHIC,0
+Kadian,Any Condition,CIGNA-CNHIC,0
+Keppra,Any Condition,CIGNA-CNHIC,0
+Kesimpta,Any Condition,CIGNA-CNHIC,0
+Kineret,Any Condition,CIGNA-CNHIC,0
+Lacosamide,Any Condition,CIGNA-CNHIC,0
+Lamictal,Any Condition,CIGNA-CNHIC,0
+Lamivudine,Any Condition,CIGNA-CNHIC,0
+Lamotrigine,Any Condition,CIGNA-CNHIC,0
+Lanthanum,Any Condition,CIGNA-CNHIC,0
+Latuda,Any Condition,CIGNA-CNHIC,0
+Lazanda,Any Condition,CIGNA-CNHIC,0
+Leflunomide,Any Condition,CIGNA-CNHIC,0
+Lenalidomide,Any Condition,CIGNA-CNHIC,0
+Leqvio,Any Condition,CIGNA-CNHIC,0
+Leucovorin,Any Condition,CIGNA-CNHIC,0
+Leukeran,Any Condition,CIGNA-CNHIC,0
+Leuprolide,Any Condition,CIGNA-CNHIC,0
+Leveiracetam,Any Condition,CIGNA-CNHIC,0
+Lexiva,Any Condition,CIGNA-CNHIC,0
+Lithane,Any Condition,CIGNA-CNHIC,0
+Lithium,Any Condition,CIGNA-CNHIC,0
+Lithobid,Any Condition,CIGNA-CNHIC,0
+Lithonate,Any Condition,CIGNA-CNHIC,0
+Lithotabs,Any Condition,CIGNA-CNHIC,0
+Lomustine,Any Condition,CIGNA-CNHIC,0
+Lupron,Any Condition,CIGNA-CNHIC,0
+Lurasidone,Any Condition,CIGNA-CNHIC,0
+Maraviroc,Any Condition,CIGNA-CNHIC,0
+Mecobal,Any Condition,CIGNA-CNHIC,0
+Mefolate,Any Condition,CIGNA-CNHIC,0
+Megace,Any Condition,CIGNA-CNHIC,0
+Megestrol,Any Condition,CIGNA-CNHIC,0
+Melphalan,Any Condition,CIGNA-CNHIC,0
+Memantine,Any Condition,CIGNA-CNHIC,0
+Meperidine,Any Condition,CIGNA-CNHIC,0
+Mercaptopurine,Any Condition,CIGNA-CNHIC,0
+Methadone,Any Condition,CIGNA-CNHIC,0
+Methadone HCL Intensol,Any Condition,CIGNA-CNHIC,0
+Methadose,Any Condition,CIGNA-CNHIC,0
+Methotrexate,Any Condition,CIGNA-CNHIC,0
+Mitigo,Any Condition,CIGNA-CNHIC,0
+Moban,Any Condition,CIGNA-CNHIC,0
+Molindone,Any Condition,CIGNA-CNHIC,0
+Morphabond ER,Any Condition,CIGNA-CNHIC,0
+Morphie,Any Condition,CIGNA-CNHIC,0
+Morphine,Any Condition,CIGNA-CNHIC,0
+Ms Contin,Any Condition,CIGNA-CNHIC,0
+Mycophenolate,Any Condition,CIGNA-CNHIC,0
+Myfortic,Any Condition,CIGNA-CNHIC,0
+Nalbuphine,Any Condition,CIGNA-CNHIC,0
+Naloxone,Any Condition,CIGNA-CNHIC,0
+Naltrexone,Any Condition,CIGNA-CNHIC,0
+Natrexone HCL,Any Condition,CIGNA-CNHIC,0
+Namenda,Any Condition,CIGNA-CNHIC,0
+Natalizumab,Any Condition,CIGNA-CNHIC,0
+Nefazodone,Any Condition,CIGNA-CNHIC,0
+Nelfinavir,Any Condition,CIGNA-CNHIC,0
+Neoral,Any Condition,CIGNA-CNHIC,0
+Neosar,Any Condition,CIGNA-CNHIC,0
+Neupogen,Any Condition,CIGNA-CNHIC,0
+Nexavar,Any Condition,CIGNA-CNHIC,0
+Niloric,Any Condition,CIGNA-CNHIC,0
+Nintedanib,Any Condition,CIGNA-CNHIC,0
+Nivestym,Any Condition,CIGNA-CNHIC,0
+Nolvadex,Any Condition,CIGNA-CNHIC,0
+Norvir,Any Condition,CIGNA-CNHIC,0
+Nubain,Any Condition,CIGNA-CNHIC,0
+Nucynta,Any Condition,CIGNA-CNHIC,0
+Octagam,Any Condition,CIGNA-CNHIC,0
+Ofatumumab (MS),Any Condition,CIGNA-CNHIC,0
+Ofev,Any Condition,CIGNA-CNHIC,0
+Olanzapine,Any Condition,CIGNA-CNHIC,0
+Onsolis,Any Condition,CIGNA-CNHIC,0
+Opana,Any Condition,CIGNA-CNHIC,0
+Oramorph,Any Condition,CIGNA-CNHIC,0
+Orencia,Any Condition,CIGNA-CNHIC,0
+Otrexup,Any Condition,CIGNA-CNHIC,0
+Oxcarbazepine,Any Condition,CIGNA-CNHIC,0
+Oxtellar XR,Any Condition,CIGNA-CNHIC,0
+Oxymorphone,Any Condition,CIGNA-CNHIC,0
+Paliperidone,Any Condition,CIGNA-CNHIC,0
+Pancreaze,Any Condition,CIGNA-CNHIC,0
+Pancrecarb,Any Condition,CIGNA-CNHIC,0
+Pancrelipase,Any Condition,CIGNA-CNHIC,0
+Panzyga,Any Condition,CIGNA-CNHIC,0
+Pegasys,Any Condition,CIGNA-CNHIC,0
+Pegcetacoplan,Any Condition,CIGNA-CNHIC,0
+Pegfilgrastim,Any Condition,CIGNA-CNHIC,0
+Pepaxto,Any Condition,CIGNA-CNHIC,0
+Perphenazine,Any Condition,CIGNA-CNHIC,0
+Pertuxumab-Trastuzumab-,Any Condition,CIGNA-CNHIC,0
+Hyaluronidase-ZZXF,Any Condition,CIGNA-CNHIC,0
+Pertzye,Any Condition,CIGNA-CNHIC,0
+Phenobarbital,Any Condition,CIGNA-CNHIC,0
+Phenytek,Any Condition,CIGNA-CNHIC,0
+Phenytoin,Any Condition,CIGNA-CNHIC,0
+Phenytoin Infatabs,Any Condition,CIGNA-CNHIC,0
+Phesgo,Any Condition,CIGNA-CNHIC,0
+Plaquenil,Any Condition,CIGNA-CNHIC,0
+Privigen,Any Condition,CIGNA-CNHIC,0
+Probuphine Implant Kit,Any Condition,CIGNA-CNHIC,0
+Procrit,Any Condition,CIGNA-CNHIC,0
+Procytox,Any Condition,CIGNA-CNHIC,0
+Prograf,Any Condition,CIGNA-CNHIC,0
+Propafenone,Any Condition,CIGNA-CNHIC,0
+Purinethol,Any Condition,CIGNA-CNHIC,0
+Purixan,Any Condition,CIGNA-CNHIC,0
+Quetiapine,Any Condition,CIGNA-CNHIC,0
+Raltegravir,Any Condition,CIGNA-CNHIC,0
+Rapamune,Any Condition,CIGNA-CNHIC,0
+Rasuvo,Any Condition,CIGNA-CNHIC,0
+Razadyne,Any Condition,CIGNA-CNHIC,0
+Rebif,Any Condition,CIGNA-CNHIC,0
+Reditrex,Any Condition,CIGNA-CNHIC,0
+Releuko,Any Condition,CIGNA-CNHIC,0
+Remicade,Any Condition,CIGNA-CNHIC,0
+Reminyl,Any Condition,CIGNA-CNHIC,0
+Renagel,Any Condition,CIGNA-CNHIC,0
+Renvela,Any Condition,CIGNA-CNHIC,0
+Renflexis,Any Condition,CIGNA-CNHIC,0
+Retacrit,Any Condition,CIGNA-CNHIC,0
+Revia,Any Condition,CIGNA-CNHIC,0
+Revlimid,Any Condition,CIGNA-CNHIC,0
+Reyataz,Any Condition,CIGNA-CNHIC,0
+Rheumatrex,Any Condition,CIGNA-CNHIC,0
+Rilutek,Any Condition,CIGNA-CNHIC,0
+Riluzole,Any Condition,CIGNA-CNHIC,0
+Rinvoq,Any Condition,CIGNA-CNHIC,0
+Ritonavir,Any Condition,CIGNA-CNHIC,0
+Rivastigmine,Any Condition,CIGNA-CNHIC,0
+Roferon,Any Condition,CIGNA-CNHIC,0
+Rolvedon,Any Condition,CIGNA-CNHIC,0
+Ropeginterferon,Any Condition,CIGNA-CNHIC,0
+Alfa-2b-Njft,Any Condition,CIGNA-CNHIC,0
+Roweepra,Any Condition,CIGNA-CNHIC,0
+Roxanol,Any Condition,CIGNA-CNHIC,0
+Roxicet,Any Condition,CIGNA-CNHIC,0
+Rythmol,Any Condition,CIGNA-CNHIC,0
+Sandimmune,Any Condition,CIGNA-CNHIC,0
+Saphris,Any Condition,CIGNA-CNHIC,0
+Satralizumab-Mwge,Any Condition,CIGNA-CNHIC,0
+Secuado,Any Condition,CIGNA-CNHIC,0
+Secukinumab,Any Condition,CIGNA-CNHIC,0
+Selzentry,Any Condition,CIGNA-CNHIC,0
+Seroquel,Any Condition,CIGNA-CNHIC,0
+Serzone,Any Condition,CIGNA-CNHIC,0
+Sevelamer,Any Condition,CIGNA-CNHIC,0
+Sezaby,Any Condition,CIGNA-CNHIC,0
+Siklos,Any Condition,CIGNA-CNHIC,0
+Simponi,Any Condition,CIGNA-CNHIC,0
+Sirolimus,Any Condition,CIGNA-CNHIC,0
+Sorafenib,Any Condition,CIGNA-CNHIC,0
+Spritam,Any Condition,CIGNA-CNHIC,0
+Stadol,Any Condition,CIGNA-CNHIC,0
+Stimufend,Any Condition,CIGNA-CNHIC,0
+Suboxone,Any Condition,CIGNA-CNHIC,0
+Sublocade,Any Condition,CIGNA-CNHIC,0
+Subsys,Any Condition,CIGNA-CNHIC,0
+Subutex,Any Condition,CIGNA-CNHIC,0
+Subvenite,Any Condition,CIGNA-CNHIC,0
+Sunitinib,Any Condition,CIGNA-CNHIC,0
+Sutent,Any Condition,CIGNA-CNHIC,0
+Symbyax,Any Condition,CIGNA-CNHIC,0
+Tacrolimus,Any Condition,CIGNA-CNHIC,0
+Taltz,Any Condition,CIGNA-CNHIC,0
+Tambocor,Any Condition,CIGNA-CNHIC,0
+Tapentadol,Any Condition,CIGNA-CNHIC,0
+Tarceva,Any Condition,CIGNA-CNHIC,0
+Targretin,Any Condition,CIGNA-CNHIC,0
+Tegretol,Any Condition,CIGNA-CNHIC,0
+Tegsedi,Any Condition,CIGNA-CNHIC,0
+Temodar,Any Condition,CIGNA-CNHIC,0
+Temozolomide,Any Condition,CIGNA-CNHIC,0
+Tenofovir,Any Condition,CIGNA-CNHIC,0
+Tenofovir Disoproxil,Any Condition,CIGNA-CNHIC,0
+Fumarate,Any Condition,CIGNA-CNHIC,0
+Teriparatide,Any Condition,CIGNA-CNHIC,0
+Tezepelumab,Any Condition,CIGNA-CNHIC,0
+Texspire,Any Condition,CIGNA-CNHIC,0
+Tiglutik,Any Condition,CIGNA-CNHIC,0
+Tipranavir,Any Condition,CIGNA-CNHIC,0
+Tocilizumab,Any Condition,CIGNA-CNHIC,0
+Tofacitinib,Any Condition,CIGNA-CNHIC,0
+Toposar,Any Condition,CIGNA-CNHIC,0
+Toremifene,Any Condition,CIGNA-CNHIC,0
+Trexall,Any Condition,CIGNA-CNHIC,0
+Trexan,Any Condition,CIGNA-CNHIC,0
+Trilafon,Any Condition,CIGNA-CNHIC,0
+Trileptal,Any Condition,CIGNA-CNHIC,0
+Triumeq,Any Condition,CIGNA-CNHIC,0
+Triveen-CF,Any Condition,CIGNA-CNHIC,0
+Trizivir,Any Condition,CIGNA-CNHIC,0
+Tysabri,Any Condition,CIGNA-CNHIC,0
+Usenyca,Any Condition,CIGNA-CNHIC,0
+Upadacitinib,Any Condition,CIGNA-CNHIC,0
+Vemlidy,Any Condition,CIGNA-CNHIC,0
+Versacloz,Any Condition,CIGNA-CNHIC,0
+Viibryd,Any Condition,CIGNA-CNHIC,0
+Vilazodone,Any Condition,CIGNA-CNHIC,0
+Vimpat,Any Condition,CIGNA-CNHIC,0
+Viokace,Any Condition,CIGNA-CNHIC,0
+Viracept,Any Condition,CIGNA-CNHIC,0
+Viread,Any Condition,CIGNA-CNHIC,0
+Vivotrol,Any Condition,CIGNA-CNHIC,0
+Vraylar,Any Condition,CIGNA-CNHIC,0
+Xagrid,Any Condition,CIGNA-CNHIC,0
+Xatmep,Any Condition,CIGNA-CNHIC,0
+Xeljanz,Any Condition,CIGNA-CNHIC,0
+Xeloda,Any Condition,CIGNA-CNHIC,0
+Xembify,Any Condition,CIGNA-CNHIC,0
+Yonsa,Any Condition,CIGNA-CNHIC,0
+Zarxio,Any Condition,CIGNA-CNHIC,0
+Zenpep,Any Condition,CIGNA-CNHIC,0
+Ziagen,Any Condition,CIGNA-CNHIC,0
+Ziextenzo,Any Condition,CIGNA-CNHIC,0
+Ziprasidone,Any Condition,CIGNA-CNHIC,0
+Zonegran,Any Condition,CIGNA-CNHIC,0
+Zonisade,Any Condition,CIGNA-CNHIC,0
+Zonisamide,Any Condition,CIGNA-CNHIC,0
+Zubsolv,Any Condition,CIGNA-CNHIC,0
+Zortress,Any Condition,CIGNA-CNHIC,0
+Zyprexa,Any Condition,CIGNA-CNHIC,0
+Zytiga,Any Condition,CIGNA-CNHIC,0
+Abacavir,Any Condition,CIGNA-LOYAL,0
+Abatacept,Any Condition,CIGNA-LOYAL,0
+Abilify,Any Condition,CIGNA-LOYAL,0
+Abiraterone Acetate,Any Condition,CIGNA-LOYAL,0
+Micronized,Any Condition,CIGNA-LOYAL,0
+Abstral,Any Condition,CIGNA-LOYAL,0
+Acamprosate,Any Condition,CIGNA-LOYAL,0
+Acetylcysteine,Any Condition,CIGNA-LOYAL,0
+Actemra Actpen,Any Condition,CIGNA-LOYAL,0
+Actiq,Any Condition,CIGNA-LOYAL,0
+Adalimumab,Any Condition,CIGNA-LOYAL,0
+Afinitor,Any Condition,CIGNA-LOYAL,0
+Agrylin,Any Condition,CIGNA-LOYAL,0
+Alkeran,Any Condition,CIGNA-LOYAL,0
+Amjevita,Any Condition,CIGNA-LOYAL,0
+Ampyra,Any Condition,CIGNA-LOYAL,0
+Anagrelide,Any Condition,CIGNA-LOYAL,0
+Anakinra,Any Condition,CIGNA-LOYAL,0
+Antabuse,Any Condition,CIGNA-LOYAL,0
+Aptivus,Any Condition,CIGNA-LOYAL,0
+Aranesp,Any Condition,CIGNA-LOYAL,0
+Arava,Any Condition,CIGNA-LOYAL,0
+Aricept,Any Condition,CIGNA-LOYAL,0
+Aripiprazole,Any Condition,CIGNA-LOYAL,0
+Aromasin,Any Condition,CIGNA-LOYAL,0
+Arymo Er,Any Condition,CIGNA-LOYAL,0
+Asceniv,Any Condition,CIGNA-LOYAL,0
+Asenapine,Any Condition,CIGNA-LOYAL,0
+Astagraf XL,Any Condition,CIGNA-LOYAL,0
+Astramorph,Any Condition,CIGNA-LOYAL,0
+Atazanavir,Any Condition,CIGNA-LOYAL,0
+Atripla,Any Condition,CIGNA-LOYAL,0
+Avinza,Any Condition,CIGNA-LOYAL,0
+Avonex,Any Condition,CIGNA-LOYAL,0
+Avsola,Any Condition,CIGNA-LOYAL,0
+Azasan,Any Condition,CIGNA-LOYAL,0
+Azathioprine,Any Condition,CIGNA-LOYAL,0
+Baraclude,Any Condition,CIGNA-LOYAL,0
+Belbuca,Any Condition,CIGNA-LOYAL,0
+Belimumab,Any Condition,CIGNA-LOYAL,0
+Benlysta,Any Condition,CIGNA-LOYAL,0
+Besremi,Any Condition,CIGNA-LOYAL,0
+Bexarotene,Any Condition,CIGNA-LOYAL,0
+Bicalutamide,Any Condition,CIGNA-LOYAL,0
+Bivigam,Any Condition,CIGNA-LOYAL,0
+Bunavail,Any Condition,CIGNA-LOYAL,0
+Buprenex,Any Condition,CIGNA-LOYAL,0
+Buprenorphine,Any Condition,CIGNA-LOYAL,0
+Butorphanol,Any Condition,CIGNA-LOYAL,0
+Butrans,Any Condition,CIGNA-LOYAL,0
+Campral,Any Condition,CIGNA-LOYAL,0
+Canakinumab,Any Condition,CIGNA-LOYAL,0
+Capecitabine,Any Condition,CIGNA-LOYAL,0
+Carbamazepine,Any Condition,CIGNA-LOYAL,0
+Carbatrol,Any Condition,CIGNA-LOYAL,0
+Carimune NF,Any Condition,CIGNA-LOYAL,0
+Cariprazine,Any Condition,CIGNA-LOYAL,0
+Casodex,Any Condition,CIGNA-LOYAL,0
+Ceenu,Any Condition,CIGNA-LOYAL,0
+Cellcept,Any Condition,CIGNA-LOYAL,0
+Cerefolin,Any Condition,CIGNA-LOYAL,0
+Certolizumab Pegol,Any Condition,CIGNA-LOYAL,0
+Chlorambucil,Any Condition,CIGNA-LOYAL,0
+Cimzia,Any Condition,CIGNA-LOYAL,0
+Clozapine,Any Condition,CIGNA-LOYAL,0
+Clozaril,Any Condition,CIGNA-LOYAL,0
+Copaxone,Any Condition,CIGNA-LOYAL,0
+Cosentyx,Any Condition,CIGNA-LOYAL,0
+Creon,Any Condition,CIGNA-LOYAL,0
+Cutaquig,Any Condition,CIGNA-LOYAL,0
+Cuvitru,Any Condition,CIGNA-LOYAL,0
+Cyclophosphamide,Any Condition,CIGNA-LOYAL,0
+Cyclosporine,Any Condition,CIGNA-LOYAL,0
+Cytoxan,Any Condition,CIGNA-LOYAL,0
+Dalfampridine,Any Condition,CIGNA-LOYAL,0
+Daratumumab,Any Condition,CIGNA-LOYAL,0
+Darbepoetin Alfa,Any Condition,CIGNA-LOYAL,0
+Darzalex Faspro,Any Condition,CIGNA-LOYAL,0
+Degarelix,Any Condition,CIGNA-LOYAL,0
+Demerol,Any Condition,CIGNA-LOYAL,0
+Depade,Any Condition,CIGNA-LOYAL,0
+Dialyvite,Any Condition,CIGNA-LOYAL,0
+Dilantin,Any Condition,CIGNA-LOYAL,0
+Dilaudid,Any Condition,CIGNA-LOYAL,0
+Disulfiram,Any Condition,CIGNA-LOYAL,0
+Dolophine,Any Condition,CIGNA-LOYAL,0
+Donepezil,Any Condition,CIGNA-LOYAL,0
+Droxia,Any Condition,CIGNA-LOYAL,0
+Dupilumab,Any Condition,CIGNA-LOYAL,0
+Dupixent,Any Condition,CIGNA-LOYAL,0
+Duramorph,Any Condition,CIGNA-LOYAL,0
+Duragesic,Any Condition,CIGNA-LOYAL,0
+Ebixa,Any Condition,CIGNA-LOYAL,0
+Efavirenz,Any Condition,CIGNA-LOYAL,0
+Eflapegrastim-XNST,Any Condition,CIGNA-LOYAL,0
+Elepsia XR,Any Condition,CIGNA-LOYAL,0
+Eligard,Any Condition,CIGNA-LOYAL,0
+Embeda,Any Condition,CIGNA-LOYAL,0
+Emcyt,Any Condition,CIGNA-LOYAL,0
+Empaveli,Any Condition,CIGNA-LOYAL,0
+Emtricitabine,Any Condition,CIGNA-LOYAL,0
+Emtriva,Any Condition,CIGNA-LOYAL,0
+Enbre,Any Condition,CIGNA-LOYAL,0
+Enbrel Mini,Any Condition,CIGNA-LOYAL,0
+Enbrel Sureclick,Any Condition,CIGNA-LOYAL,0
+Endoxan,Any Condition,CIGNA-LOYAL,0
+Enspryng,Any Condition,CIGNA-LOYAL,0
+Entecavir,Any Condition,CIGNA-LOYAL,0
+Envarsus XR,Any Condition,CIGNA-LOYAL,0
+Epitol,Any Condition,CIGNA-LOYAL,0
+Epivir,Any Condition,CIGNA-LOYAL,0
+Epoetin Alfa,Any Condition,CIGNA-LOYAL,0
+Epogen,Any Condition,CIGNA-LOYAL,0
+Equetro,Any Condition,CIGNA-LOYAL,0
+Ergoloid Mesylates,Any Condition,CIGNA-LOYAL,0
+Erlotinib,Any Condition,CIGNA-LOYAL,0
+Eskalith,Any Condition,CIGNA-LOYAL,0
+Estramustine,Any Condition,CIGNA-LOYAL,0
+Etanercept,Any Condition,CIGNA-LOYAL,0
+Etopophos,Any Condition,CIGNA-LOYAL,0
+Etoposide,Any Condition,CIGNA-LOYAL,0
+Etravirine,Any Condition,CIGNA-LOYAL,0
+Eulexin,Any Condition,CIGNA-LOYAL,0
+Everolimus,Any Condition,CIGNA-LOYAL,0
+Evomela,Any Condition,CIGNA-LOYAL,0
+Exalgo,Any Condition,CIGNA-LOYAL,0
+Exelon,Any Condition,CIGNA-LOYAL,0
+Exemestane,Any Condition,CIGNA-LOYAL,0
+Fanapt,Any Condition,CIGNA-LOYAL,0
+Fareston,Any Condition,CIGNA-LOYAL,0
+Felbamate,Any Condition,CIGNA-LOYAL,0
+Felbatol,Any Condition,CIGNA-LOYAL,0
+Fensolvi,Any Condition,CIGNA-LOYAL,0
+Fentanyl,Any Condition,CIGNA-LOYAL,0
+Fentora,Any Condition,CIGNA-LOYAL,0
+Filgrastim,Any Condition,CIGNA-LOYAL,0
+Firmagon,Any Condition,CIGNA-LOYAL,0
+Flebogamma Dif,Any Condition,CIGNA-LOYAL,0
+Flecanide,Any Condition,CIGNA-LOYAL,0
+Fluoxetine,Any Condition,CIGNA-LOYAL,0
+Fluphenazine,Any Condition,CIGNA-LOYAL,0
+Flutamide,Any Condition,CIGNA-LOYAL,0
+Forteo,Any Condition,CIGNA-LOYAL,0
+Fosamprenavir,Any Condition,CIGNA-LOYAL,0
+Fosrenol,Any Condition,CIGNA-LOYAL,0
+Fylnetra,Any Condition,CIGNA-LOYAL,0
+Galantamine,Any Condition,CIGNA-LOYAL,0
+Gamastan,Any Condition,CIGNA-LOYAL,0
+Gammagard,Any Condition,CIGNA-LOYAL,0
+Gammaked,Any Condition,CIGNA-LOYAL,0
+Gammaplex,Any Condition,CIGNA-LOYAL,0
+Gamunex-C,Any Condition,CIGNA-LOYAL,0
+Gengraf,Any Condition,CIGNA-LOYAL,0
+Geodon,Any Condition,CIGNA-LOYAL,0
+Gerimal,Any Condition,CIGNA-LOYAL,0
+Glatiramer Acetate,Any Condition,CIGNA-LOYAL,0
+Glatopa,Any Condition,CIGNA-LOYAL,0
+Gleevec,Any Condition,CIGNA-LOYAL,0
+Golimumab,Any Condition,CIGNA-LOYAL,0
+Granix,Any Condition,CIGNA-LOYAL,0
+Haldol,Any Condition,CIGNA-LOYAL,0
+Haloperidol,Any Condition,CIGNA-LOYAL,0
+Hecoria,Any Condition,CIGNA-LOYAL,0
+Hizentra,Any Condition,CIGNA-LOYAL,0
+Humira,Any Condition,CIGNA-LOYAL,0
+Hyaluronidase-fihj,Any Condition,CIGNA-LOYAL,0
+Hydergine,Any Condition,CIGNA-LOYAL,0
+Hydrea,Any Condition,CIGNA-LOYAL,0
+Hydromorphone,Any Condition,CIGNA-LOYAL,0
+Hydroxychloroquine,Any Condition,CIGNA-LOYAL,0
+Hydroxyurea,Any Condition,CIGNA-LOYAL,0
+Hyqvia,Any Condition,CIGNA-LOYAL,0
+Ibrutinib,Any Condition,CIGNA-LOYAL,0
+Ilaris,Any Condition,CIGNA-LOYAL,0
+Iloperidone,Any Condition,CIGNA-LOYAL,0
+Imatinib,Any Condition,CIGNA-LOYAL,0
+Imbruvica,Any Condition,CIGNA-LOYAL,0
+Immune Globulin,Any Condition,CIGNA-LOYAL,0
+Imuran,Any Condition,CIGNA-LOYAL,0
+Inclisiran Sodium,Any Condition,CIGNA-LOYAL,0
+Inflectra,Any Condition,CIGNA-LOYAL,0
+Infliximab,Any Condition,CIGNA-LOYAL,0
+Infumorph,Any Condition,CIGNA-LOYAL,0
+Inotersen Sodium,Any Condition,CIGNA-LOYAL,0
+Insentress,Any Condition,CIGNA-LOYAL,0
+Intelence,Any Condition,CIGNA-LOYAL,0
+Interferon Alfa-2a,Any Condition,CIGNA-LOYAL,0
+Interferon Alfa-2b,Any Condition,CIGNA-LOYAL,0
+Interferon Beta-1a,Any Condition,CIGNA-LOYAL,0
+Intron A,Any Condition,CIGNA-LOYAL,0
+Invega,Any Condition,CIGNA-LOYAL,0
+Ionsys,Any Condition,CIGNA-LOYAL,0
+Ixekizumab,Any Condition,CIGNA-LOYAL,0
+Kadian,Any Condition,CIGNA-LOYAL,0
+Keppra,Any Condition,CIGNA-LOYAL,0
+Kesimpta,Any Condition,CIGNA-LOYAL,0
+Kineret,Any Condition,CIGNA-LOYAL,0
+Lacosamide,Any Condition,CIGNA-LOYAL,0
+Lamictal,Any Condition,CIGNA-LOYAL,0
+Lamivudine,Any Condition,CIGNA-LOYAL,0
+Lamotrigine,Any Condition,CIGNA-LOYAL,0
+Lanthanum,Any Condition,CIGNA-LOYAL,0
+Latuda,Any Condition,CIGNA-LOYAL,0
+Lazanda,Any Condition,CIGNA-LOYAL,0
+Leflunomide,Any Condition,CIGNA-LOYAL,0
+Lenalidomide,Any Condition,CIGNA-LOYAL,0
+Leqvio,Any Condition,CIGNA-LOYAL,0
+Leucovorin,Any Condition,CIGNA-LOYAL,0
+Leukeran,Any Condition,CIGNA-LOYAL,0
+Leuprolide,Any Condition,CIGNA-LOYAL,0
+Leveiracetam,Any Condition,CIGNA-LOYAL,0
+Lexiva,Any Condition,CIGNA-LOYAL,0
+Lithane,Any Condition,CIGNA-LOYAL,0
+Lithium,Any Condition,CIGNA-LOYAL,0
+Lithobid,Any Condition,CIGNA-LOYAL,0
+Lithonate,Any Condition,CIGNA-LOYAL,0
+Lithotabs,Any Condition,CIGNA-LOYAL,0
+Lomustine,Any Condition,CIGNA-LOYAL,0
+Lupron,Any Condition,CIGNA-LOYAL,0
+Lurasidone,Any Condition,CIGNA-LOYAL,0
+Maraviroc,Any Condition,CIGNA-LOYAL,0
+Mecobal,Any Condition,CIGNA-LOYAL,0
+Mefolate,Any Condition,CIGNA-LOYAL,0
+Megace,Any Condition,CIGNA-LOYAL,0
+Megestrol,Any Condition,CIGNA-LOYAL,0
+Melphalan,Any Condition,CIGNA-LOYAL,0
+Memantine,Any Condition,CIGNA-LOYAL,0
+Meperidine,Any Condition,CIGNA-LOYAL,0
+Mercaptopurine,Any Condition,CIGNA-LOYAL,0
+Methadone,Any Condition,CIGNA-LOYAL,0
+Methadone HCL Intensol,Any Condition,CIGNA-LOYAL,0
+Methadose,Any Condition,CIGNA-LOYAL,0
+Methotrexate,Any Condition,CIGNA-LOYAL,0
+Mitigo,Any Condition,CIGNA-LOYAL,0
+Moban,Any Condition,CIGNA-LOYAL,0
+Molindone,Any Condition,CIGNA-LOYAL,0
+Morphabond ER,Any Condition,CIGNA-LOYAL,0
+Morphie,Any Condition,CIGNA-LOYAL,0
+Morphine,Any Condition,CIGNA-LOYAL,0
+Ms Contin,Any Condition,CIGNA-LOYAL,0
+Mycophenolate,Any Condition,CIGNA-LOYAL,0
+Myfortic,Any Condition,CIGNA-LOYAL,0
+Nalbuphine,Any Condition,CIGNA-LOYAL,0
+Naloxone,Any Condition,CIGNA-LOYAL,0
+Naltrexone,Any Condition,CIGNA-LOYAL,0
+Natrexone HCL,Any Condition,CIGNA-LOYAL,0
+Namenda,Any Condition,CIGNA-LOYAL,0
+Natalizumab,Any Condition,CIGNA-LOYAL,0
+Nefazodone,Any Condition,CIGNA-LOYAL,0
+Nelfinavir,Any Condition,CIGNA-LOYAL,0
+Neoral,Any Condition,CIGNA-LOYAL,0
+Neosar,Any Condition,CIGNA-LOYAL,0
+Neupogen,Any Condition,CIGNA-LOYAL,0
+Nexavar,Any Condition,CIGNA-LOYAL,0
+Niloric,Any Condition,CIGNA-LOYAL,0
+Nintedanib,Any Condition,CIGNA-LOYAL,0
+Nivestym,Any Condition,CIGNA-LOYAL,0
+Nolvadex,Any Condition,CIGNA-LOYAL,0
+Norvir,Any Condition,CIGNA-LOYAL,0
+Nubain,Any Condition,CIGNA-LOYAL,0
+Nucynta,Any Condition,CIGNA-LOYAL,0
+Octagam,Any Condition,CIGNA-LOYAL,0
+Ofatumumab (MS),Any Condition,CIGNA-LOYAL,0
+Ofev,Any Condition,CIGNA-LOYAL,0
+Olanzapine,Any Condition,CIGNA-LOYAL,0
+Onsolis,Any Condition,CIGNA-LOYAL,0
+Opana,Any Condition,CIGNA-LOYAL,0
+Oramorph,Any Condition,CIGNA-LOYAL,0
+Orencia,Any Condition,CIGNA-LOYAL,0
+Otrexup,Any Condition,CIGNA-LOYAL,0
+Oxcarbazepine,Any Condition,CIGNA-LOYAL,0
+Oxtellar XR,Any Condition,CIGNA-LOYAL,0
+Oxymorphone,Any Condition,CIGNA-LOYAL,0
+Paliperidone,Any Condition,CIGNA-LOYAL,0
+Pancreaze,Any Condition,CIGNA-LOYAL,0
+Pancrecarb,Any Condition,CIGNA-LOYAL,0
+Pancrelipase,Any Condition,CIGNA-LOYAL,0
+Panzyga,Any Condition,CIGNA-LOYAL,0
+Pegasys,Any Condition,CIGNA-LOYAL,0
+Pegcetacoplan,Any Condition,CIGNA-LOYAL,0
+Pegfilgrastim,Any Condition,CIGNA-LOYAL,0
+Pepaxto,Any Condition,CIGNA-LOYAL,0
+Perphenazine,Any Condition,CIGNA-LOYAL,0
+Pertuxumab-Trastuzumab-,Any Condition,CIGNA-LOYAL,0
+Hyaluronidase-ZZXF,Any Condition,CIGNA-LOYAL,0
+Pertzye,Any Condition,CIGNA-LOYAL,0
+Phenobarbital,Any Condition,CIGNA-LOYAL,0
+Phenytek,Any Condition,CIGNA-LOYAL,0
+Phenytoin,Any Condition,CIGNA-LOYAL,0
+Phenytoin Infatabs,Any Condition,CIGNA-LOYAL,0
+Phesgo,Any Condition,CIGNA-LOYAL,0
+Plaquenil,Any Condition,CIGNA-LOYAL,0
+Privigen,Any Condition,CIGNA-LOYAL,0
+Probuphine Implant Kit,Any Condition,CIGNA-LOYAL,0
+Procrit,Any Condition,CIGNA-LOYAL,0
+Procytox,Any Condition,CIGNA-LOYAL,0
+Prograf,Any Condition,CIGNA-LOYAL,0
+Propafenone,Any Condition,CIGNA-LOYAL,0
+Purinethol,Any Condition,CIGNA-LOYAL,0
+Purixan,Any Condition,CIGNA-LOYAL,0
+Quetiapine,Any Condition,CIGNA-LOYAL,0
+Raltegravir,Any Condition,CIGNA-LOYAL,0
+Rapamune,Any Condition,CIGNA-LOYAL,0
+Rasuvo,Any Condition,CIGNA-LOYAL,0
+Razadyne,Any Condition,CIGNA-LOYAL,0
+Rebif,Any Condition,CIGNA-LOYAL,0
+Reditrex,Any Condition,CIGNA-LOYAL,0
+Releuko,Any Condition,CIGNA-LOYAL,0
+Remicade,Any Condition,CIGNA-LOYAL,0
+Reminyl,Any Condition,CIGNA-LOYAL,0
+Renagel,Any Condition,CIGNA-LOYAL,0
+Renvela,Any Condition,CIGNA-LOYAL,0
+Renflexis,Any Condition,CIGNA-LOYAL,0
+Retacrit,Any Condition,CIGNA-LOYAL,0
+Revia,Any Condition,CIGNA-LOYAL,0
+Revlimid,Any Condition,CIGNA-LOYAL,0
+Reyataz,Any Condition,CIGNA-LOYAL,0
+Rheumatrex,Any Condition,CIGNA-LOYAL,0
+Rilutek,Any Condition,CIGNA-LOYAL,0
+Riluzole,Any Condition,CIGNA-LOYAL,0
+Rinvoq,Any Condition,CIGNA-LOYAL,0
+Ritonavir,Any Condition,CIGNA-LOYAL,0
+Rivastigmine,Any Condition,CIGNA-LOYAL,0
+Roferon,Any Condition,CIGNA-LOYAL,0
+Rolvedon,Any Condition,CIGNA-LOYAL,0
+Ropeginterferon,Any Condition,CIGNA-LOYAL,0
+Alfa-2b-Njft,Any Condition,CIGNA-LOYAL,0
+Roweepra,Any Condition,CIGNA-LOYAL,0
+Roxanol,Any Condition,CIGNA-LOYAL,0
+Roxicet,Any Condition,CIGNA-LOYAL,0
+Rythmol,Any Condition,CIGNA-LOYAL,0
+Sandimmune,Any Condition,CIGNA-LOYAL,0
+Saphris,Any Condition,CIGNA-LOYAL,0
+Satralizumab-Mwge,Any Condition,CIGNA-LOYAL,0
+Secuado,Any Condition,CIGNA-LOYAL,0
+Secukinumab,Any Condition,CIGNA-LOYAL,0
+Selzentry,Any Condition,CIGNA-LOYAL,0
+Seroquel,Any Condition,CIGNA-LOYAL,0
+Serzone,Any Condition,CIGNA-LOYAL,0
+Sevelamer,Any Condition,CIGNA-LOYAL,0
+Sezaby,Any Condition,CIGNA-LOYAL,0
+Siklos,Any Condition,CIGNA-LOYAL,0
+Simponi,Any Condition,CIGNA-LOYAL,0
+Sirolimus,Any Condition,CIGNA-LOYAL,0
+Sorafenib,Any Condition,CIGNA-LOYAL,0
+Spritam,Any Condition,CIGNA-LOYAL,0
+Stadol,Any Condition,CIGNA-LOYAL,0
+Stimufend,Any Condition,CIGNA-LOYAL,0
+Suboxone,Any Condition,CIGNA-LOYAL,0
+Sublocade,Any Condition,CIGNA-LOYAL,0
+Subsys,Any Condition,CIGNA-LOYAL,0
+Subutex,Any Condition,CIGNA-LOYAL,0
+Subvenite,Any Condition,CIGNA-LOYAL,0
+Sunitinib,Any Condition,CIGNA-LOYAL,0
+Sutent,Any Condition,CIGNA-LOYAL,0
+Symbyax,Any Condition,CIGNA-LOYAL,0
+Tacrolimus,Any Condition,CIGNA-LOYAL,0
+Taltz,Any Condition,CIGNA-LOYAL,0
+Tambocor,Any Condition,CIGNA-LOYAL,0
+Tapentadol,Any Condition,CIGNA-LOYAL,0
+Tarceva,Any Condition,CIGNA-LOYAL,0
+Targretin,Any Condition,CIGNA-LOYAL,0
+Tegretol,Any Condition,CIGNA-LOYAL,0
+Tegsedi,Any Condition,CIGNA-LOYAL,0
+Temodar,Any Condition,CIGNA-LOYAL,0
+Temozolomide,Any Condition,CIGNA-LOYAL,0
+Tenofovir,Any Condition,CIGNA-LOYAL,0
+Tenofovir Disoproxil,Any Condition,CIGNA-LOYAL,0
+Fumarate,Any Condition,CIGNA-LOYAL,0
+Teriparatide,Any Condition,CIGNA-LOYAL,0
+Tezepelumab,Any Condition,CIGNA-LOYAL,0
+Texspire,Any Condition,CIGNA-LOYAL,0
+Tiglutik,Any Condition,CIGNA-LOYAL,0
+Tipranavir,Any Condition,CIGNA-LOYAL,0
+Tocilizumab,Any Condition,CIGNA-LOYAL,0
+Tofacitinib,Any Condition,CIGNA-LOYAL,0
+Toposar,Any Condition,CIGNA-LOYAL,0
+Toremifene,Any Condition,CIGNA-LOYAL,0
+Trexall,Any Condition,CIGNA-LOYAL,0
+Trexan,Any Condition,CIGNA-LOYAL,0
+Trilafon,Any Condition,CIGNA-LOYAL,0
+Trileptal,Any Condition,CIGNA-LOYAL,0
+Triumeq,Any Condition,CIGNA-LOYAL,0
+Triveen-CF,Any Condition,CIGNA-LOYAL,0
+Trizivir,Any Condition,CIGNA-LOYAL,0
+Tysabri,Any Condition,CIGNA-LOYAL,0
+Usenyca,Any Condition,CIGNA-LOYAL,0
+Upadacitinib,Any Condition,CIGNA-LOYAL,0
+Vemlidy,Any Condition,CIGNA-LOYAL,0
+Versacloz,Any Condition,CIGNA-LOYAL,0
+Viibryd,Any Condition,CIGNA-LOYAL,0
+Vilazodone,Any Condition,CIGNA-LOYAL,0
+Vimpat,Any Condition,CIGNA-LOYAL,0
+Viokace,Any Condition,CIGNA-LOYAL,0
+Viracept,Any Condition,CIGNA-LOYAL,0
+Viread,Any Condition,CIGNA-LOYAL,0
+Vivotrol,Any Condition,CIGNA-LOYAL,0
+Vraylar,Any Condition,CIGNA-LOYAL,0
+Xagrid,Any Condition,CIGNA-LOYAL,0
+Xatmep,Any Condition,CIGNA-LOYAL,0
+Xeljanz,Any Condition,CIGNA-LOYAL,0
+Xeloda,Any Condition,CIGNA-LOYAL,0
+Xembify,Any Condition,CIGNA-LOYAL,0
+Yonsa,Any Condition,CIGNA-LOYAL,0
+Zarxio,Any Condition,CIGNA-LOYAL,0
+Zenpep,Any Condition,CIGNA-LOYAL,0
+Ziagen,Any Condition,CIGNA-LOYAL,0
+Ziextenzo,Any Condition,CIGNA-LOYAL,0
+Ziprasidone,Any Condition,CIGNA-LOYAL,0
+Zonegran,Any Condition,CIGNA-LOYAL,0
+Zonisade,Any Condition,CIGNA-LOYAL,0
+Zonisamide,Any Condition,CIGNA-LOYAL,0
+Zubsolv,Any Condition,CIGNA-LOYAL,0
+Zortress,Any Condition,CIGNA-LOYAL,0
+Zyprexa,Any Condition,CIGNA-LOYAL,0
+Zytiga,Any Condition,CIGNA-LOYAL,0
