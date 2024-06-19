@@ -24,7 +24,28 @@
         </form>
     </div>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Declinable Drug Search</h2>
-    {% regroup acceptanceRules by carrier as carrier_list %}
+    <!-- Drug Search Form -->
+    <form id="drug-search-form" class="drug-search-form" onsubmit="event.preventDefault(); addDrug(this.drug_name.value);">
+    {% csrf_token %}
+    <input type="text" name="drug_name" placeholder="Enter drug name" required>
+    <button type="submit">Add Drug</button>
+    <button id="clear-all" title="Clear all drugs" hx-get="declined_drugs/" hx-target="#info-box" hx-trigger="click">
+        Clear All
+    </button>
+</form>
+<div id="drug-list" class="drug-list">
+    {% for drug_name in drugs %}
+    <button 
+            id="{{ drug_name }}" 
+            class="drug-item" 
+            title="Delete {{ drug_name }} from list"
+            onclick="deleteDrug(this.id)"
+    >
+        {{ drug_name }}
+    </button>
+{% endfor %}
+</div>
+{% regroup matching_rules by carrier as carrier_list %}
     <div class="new-company-container">
         {% for carrier in carrier_list %}
             <div class="company-container" id="{{ carrier.grouper }}"
@@ -34,8 +55,157 @@
                  "
             >
                 <h3>{{ carrier.grouper }}</h3>
+                {% for rule in matching_rules %}
+                    {% if rule.carrier == carrier.grouper %}
+                    <p>{{ rule.drug.drug_name }} - {{ rule.condition.condition_name }} - {{ rule.is_accepted }}</p>
+                {% endif %}
+                {% endfor %}
             </div>
         {% endfor %}
     </div>
 </body>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+function getCookie(name) {
+    let cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        const cookies = document.cookie.split(';');
+        for (let i = 0; i < cookies.length; i++) {
+            const cookie = jQuery.trim(cookies[i]);
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+
+function addDrug(drugName) {
+    // Check if a button with the id of the drug name already exists
+    if ($('#drug-list').find('#' + drugName).length > 0) {
+        alert('This drug is already in the list.');
+        return;
+    }
+
+    const csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: '/add_drug/',
+        type: 'post',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+        data: {
+            'drug_name': drugName
+        },
+        success: function(response) {
+            console.log("Response")
+            console.log(response)
+            // Add the drug to the drug list
+            $('#drug-list').append('<button id="' + response.drug_name + '" class="drug-item" title="Delete ' + response.drug_name + ' from list" onclick="deleteDrug(this.id)">' + response.drug_name + '</button>');
+
+            // Group the matching rules by carrier
+            var groupedRules = {};
+            response.matching_rules.forEach(function(rule) {
+                if (!groupedRules[rule.carrier_name]) {
+                    groupedRules[rule.carrier_name] = [];
+                }
+                groupedRules[rule.carrier_name].push(rule);
+            });
+            console.log("Grouped Rules")
+            console.log(groupedRules);
+
+            // Add the matching rules to the company-containers
+            for (var carrierName in groupedRules) {
+                console.log("Carrier Name")
+                console.log(carrierName)
+                var container = $('#' + carrierName);
+                console.log("Container")
+                console.log(container)
+                console.log("Container Length")
+                console.log(container.length)
+                if (container.length) {
+                    console.log(container.length)
+                    // If the container exists, add the rule to it
+                    groupedRules[carrierName].forEach(function(rule) {
+                        console.log("Rule")
+                        console.log(rule)
+                        container.append('<p>' + rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted + '</p>');
+                    });
+                } else {
+                    // If the container does not exist, check if a newContainer for the carrier already exists
+                    var newContainer = $('.new-company-container').find('#' + carrierName);
+                    if (!newContainer.length) {
+                        // If the newContainer does not exist, create a new one
+                        newContainer = $('<div class="company-container" id="' + carrierName + '" style="border: 2px black solid; border-radius: 12px;"><h3>' + carrierName + '</h3></div>');
+                        $('.new-company-container').append(newContainer);
+                    }
+                    groupedRules[carrierName].forEach(function(rule) {
+                        console.log("Rule")
+                        console.log(rule)
+                        // we should check if the rule is already in the container
+                        if (newContainer.find("p").text() !== rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted) {
+                            // if the rule is not in the container, then add it
+                            newContainer.append('<p>' + rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted + '</p>');
+                        }
+                        
+                    });
+                }
+            }
+        }
+    });
+}
+
+function deleteDrug(drugName) {
+    const csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: '/delete_drug/',
+        type: 'post',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+        data: {
+            'drug_name': drugName
+        },
+        success: function(response) {
+            // Remove the drug from the drug list
+            $('#' + response.drug_name).remove();
+
+            // Remove the drug from the company-containers
+            $(".company-container").each(function() {
+                var container = $(this);
+                container.find("p").each(function() {
+                    if ($(this).text() === response.drug_name) {
+                        $(this).remove();
+                    }
+                });
+
+                // If the company-container does not contain any drugs, remove it
+                if (!container.find("p").length) {
+                    container.remove();
+                }
+            });
+        }
+    });
+}
+
+function clearDrugs() {
+    const csrftoken = getCookie('csrftoken');
+
+    $.ajax({
+        url: '/clear_drugs/',
+        type: 'post',
+        headers: {
+            'X-CSRFToken': csrftoken
+        },
+        success: function(response) {
+            // Clear the drug list and all company-containers from the page
+            $('#drug-list').empty();
+            $('.company-container').empty();
+        }
+    });
+}
+</script>
 </html>

@@ -334,6 +334,25 @@ Im bit scared of how it will react */
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
+.drug-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    padding: 1vh;
+}
+
+.drug-item {
+    border: .2vw solid oklch(0% 0 0);
+    border-radius: 1vw;
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+.drug-item:hover {
+    background-color: oklch(63.22% 0.154 243.8);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
 /* scroll bar styling */
 ::-webkit-scrollbar {
     width: 16px;

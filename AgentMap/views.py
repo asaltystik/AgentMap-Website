@@ -8,6 +8,9 @@ from django.shortcuts import get_object_or_404
 from django.shortcuts import render, redirect
 from django.utils import timezone
 from django.http import FileResponse, HttpResponse, JsonResponse
+from django.template.loader import render_to_string
+from django.template.context_processors import csrf
+from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import serializers
 from .forms import LoginForm, UserRegistrationForm
 from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount, AcceptanceRule
@@ -288,7 +291,36 @@ def declinable_drug_list(request):
     # We will need to pack the data into a context dictionary to pass to the render
     acceptanceRules = AcceptanceRule.objects.all()
     context = {
-        'acceptanceRules': acceptanceRules
+        'acceptanceRules': acceptanceRules,
     }
     return render(request, 'declinable_drug_list.html', context=context)
 
+def add_drug(request):
+    # Get the drug name from the POST parameters
+    drug_name = request.POST.get('drug_name')
+
+    # Fetch the AcceptanceRule objects that match the added drug
+    matching_rules = AcceptanceRule.objects.filter(drug__drug_name=drug_name)
+
+    # Prepare the matching rules data I want to change is_accepted True/False to be "Allowed" "Declined"
+    matching_rules_data = []
+    for rule in matching_rules:
+        matching_rules_data.append({
+            'carrier_name': rule.carrier.carrier_name,
+            'drug_name': drug_name,
+            'condition_name': rule.condition.condition_name,
+            'is_accepted': 'Allowed' if rule.is_accepted else 'Declined',
+        })
+    # Return the drug name and matching rules as JSON
+    return JsonResponse({'drug_name': drug_name, 'matching_rules': matching_rules_data})
+
+def delete_drug(request):
+    # When the user clicks on the given drug, we will remove it from that drug-list
+    drug_name = request.POST.get('drug_name')
+
+    # Return the drug name as JSON
+    return JsonResponse({'drug_name': drug_name})
+
+def clear_drugs(request):
+    # Clear the drug list
+    return JsonResponse({'status': 'success'})
