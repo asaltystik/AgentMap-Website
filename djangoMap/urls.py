@@ -35,6 +35,7 @@ urlpatterns = [
     path('add_drug/', agent_map_view.add_drug, name='Add Drug'),
     path('delete_drug/', agent_map_view.delete_drug, name='Delete Drug'),
     path('clear_drugs/', agent_map_view.clear_drugs, name='Clear Drugs'),
+    path('get_drug_names/', agent_map_view.get_drug_names, name='Get Drug Names'),
 ]
 
 # if settings.DEBUG:

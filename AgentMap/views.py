@@ -13,9 +13,11 @@ from django.template.context_processors import csrf
 from django.views.decorators.csrf import ensure_csrf_cookie
 from django.core import serializers
 from .forms import LoginForm, UserRegistrationForm
-from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount, AcceptanceRule
+from .models import Form, LicensedState, State, HouseHoldDiscountKey, HouseHoldDiscount, AcceptanceRule, Drug
 from datetime import timedelta
 import os
+from django.core.serializers.json import DjangoJSONEncoder
+import json
 
 
 # This function will render the register.html page
@@ -289,6 +291,8 @@ def client_map(request):
 @login_required
 def declinable_drug_list(request):
     # We will need to pack the data into a context dictionary to pass to the render
+    # set the session to an empty list to make sure it gets cleared out anytime declinable drugs gets loaded
+    request.session['last_response'] = []
     acceptanceRules = AcceptanceRule.objects.all()
     context = {
         'acceptanceRules': acceptanceRules,
@@ -300,7 +304,7 @@ def add_drug(request):
     drug_name = request.POST.get('drug_name')
 
     # Fetch the AcceptanceRule objects that match the added drug
-    matching_rules = AcceptanceRule.objects.filter(drug__drug_name=drug_name)
+    matching_rules = AcceptanceRule.objects.filter(drug__drug_name__iexact=drug_name)
 
     # Prepare the matching rules data I want to change is_accepted True/False to be "Allowed" "Declined"
     matching_rules_data = []
@@ -311,16 +315,59 @@ def add_drug(request):
             'condition_name': rule.condition.condition_name,
             'is_accepted': 'Allowed' if rule.is_accepted else 'Declined',
         })
-    # Return the drug name and matching rules as JSON
-    return JsonResponse({'drug_name': drug_name, 'matching_rules': matching_rules_data})
+
+    # Get the last JsonResponse from the session if it exists
+    last_response = request.session.get('last_response', [])
+    # print(last_response)
+
+    # check if the matching_rules_data contains any rows from the last_response
+    # if it does, we do not want to add it to the matching_rules_data
+    for last_row in last_response:
+        for row in matching_rules_data:
+            if last_row == row:
+                matching_rules_data.remove(row)
+
+    # Add the last response to the current matching rules data
+    matching_rules_data.extend(last_response)
+    # print(matching_rules_data)
+
+    # Store the current response in the session for use in the next request
+    request.session['last_response'] = matching_rules_data
+
+    print(request.session['last_response'])
+
+    return JsonResponse({
+        'matching_rules': matching_rules_data,
+    })
 
 def delete_drug(request):
     # When the user clicks on the given drug, we will remove it from that drug-list
     drug_name = request.POST.get('drug_name')
 
+    # Get the last_response list from the session
+    last_response = request.session.get('last_response', [])
+
+    # Filter the list to remove the rows that have the drug name
+    filtered_response = [row for row in last_response if row['drug_name'] != drug_name]
+
+    # Set the filtered list as the new last_response in the session
+    request.session['last_response'] = filtered_response
+
     # Return the drug name as JSON
     return JsonResponse({'drug_name': drug_name})
 
 def clear_drugs(request):
-    # Clear the drug list
-    return JsonResponse({'status': 'success'})
+    # Reload the session completely
+    request.session['last_response'] = []
+    # load the declined drug list page
+    return redirect('Declined Drug Search')
+
+
+def get_drug_names(request):
+    query = request.GET.get('drug_name', '')
+    # I want to query drugs that start with the query
+    # Make it uncase sensitive
+    # print(Drug.objects.filter(drug_name__istartswith=query))
+    drugs = Drug.objects.filter(drug_name__istartswith=query).values_list('drug_name', flat=True)
+    # print(drugs)
+    return JsonResponse(list(drugs), safe=False)

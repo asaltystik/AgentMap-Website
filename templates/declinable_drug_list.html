@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <title>Declinable Drug List</title>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 <body>
     <div class="logout-container">
@@ -25,187 +28,273 @@
     </div>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Declinable Drug Search</h2>
     <!-- Drug Search Form -->
-    <form id="drug-search-form" class="drug-search-form" onsubmit="event.preventDefault(); addDrug(this.drug_name.value);">
+    <form id="drug-search-form" class="drug-search-form" hx-post="add_drug/" hx-trigger="submit" hx-target="#rules-hidden" hx-swap="innerHTML">
     {% csrf_token %}
-    <input type="text" name="drug_name" placeholder="Enter drug name" required>
-    <button type="submit">Add Drug</button>
-    <button id="clear-all" title="Clear all drugs" hx-get="declined_drugs/" hx-target="#info-box" hx-trigger="click">
+    <input type="text" id="drug-name" name="drug_name" list="drug-list-autocomplete" required>
+    <datalist id="drug-list-autocomplete"></datalist>
+    <input type="hidden" id="rules-hidden" class="rules-hidden" name="rules">
+        <button type="submit">Add Drug</button>
+    <button id="clear-all" title="Clear all drugs" hx-get="clear_drugs/" hx-target="#info-box" hx-trigger="click">
         Clear All
     </button>
 </form>
-<div id="drug-list" class="drug-list">
-    {% for drug_name in drugs %}
-    <button 
-            id="{{ drug_name }}" 
-            class="drug-item" 
-            title="Delete {{ drug_name }} from list"
-            onclick="deleteDrug(this.id)"
-    >
-        {{ drug_name }}
-    </button>
-{% endfor %}
-</div>
-{% regroup matching_rules by carrier as carrier_list %}
-    <div class="new-company-container">
-        {% for carrier in carrier_list %}
-            <div class="company-container" id="{{ carrier.grouper }}"
-                 style="
-                        border: 2px black solid;
-                        border-radius: 12px;
-                 "
-            >
-                <h3>{{ carrier.grouper }}</h3>
-                {% for rule in matching_rules %}
-                    {% if rule.carrier == carrier.grouper %}
-                    <p>{{ rule.drug.drug_name }} - {{ rule.condition.condition_name }} - {{ rule.is_accepted }}</p>
-                {% endif %}
-                {% endfor %}
-            </div>
-        {% endfor %}
+<div class="rules-container">
+    <div id="drug-list" class="drug-list">
     </div>
-</body>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</div>
+    <script src="https://unpkg.com/htmx.org@1.6.1"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
-function getCookie(name) {
-    let cookieValue = null;
-    if (document.cookie && document.cookie !== '') {
-        const cookies = document.cookie.split(';');
-        for (let i = 0; i < cookies.length; i++) {
-            const cookie = jQuery.trim(cookies[i]);
-            if (cookie.substring(0, name.length + 1) === (name + '=')) {
-                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
-                break;
+    function deleteDrug(drugName) {
+    // Remove the button from the drug list
+        let drugButton = document.getElementById(drugName);
+        drugButton.parentNode.removeChild(drugButton);
+
+    // Get all new-company divs
+        let companyDivs = document.getElementsByClassName('new-company');
+
+        // Loop through each new-company div
+    for (let i = 0; i < companyDivs.length; i++) {
+        let companyDiv = companyDivs[i];
+
+        // Get all paragraph elements in the new-company div
+        let ruleParagraphs = companyDiv.getElementsByTagName('p');
+
+        // Loop through each paragraph
+        for (let j = 0; j < ruleParagraphs.length; j++) {
+            let ruleParagraph = ruleParagraphs[j];
+
+            // If the paragraph's text starts with the drug name, remove the paragraph
+            if (ruleParagraph.textContent.startsWith(drugName)) {
+                ruleParagraph.parentNode.removeChild(ruleParagraph);
+                j--; // Adjust the index to account for the removed element
             }
         }
-    }
-    return cookieValue;
-}
 
-function addDrug(drugName) {
-    // Check if a button with the id of the drug name already exists
-    if ($('#drug-list').find('#' + drugName).length > 0) {
-        alert('This drug is already in the list.');
-        return;
+        // If the new-company div has no paragraph children left (other than the header), remove the new-company div
+        if (companyDiv.getElementsByTagName('p').length === 0) {
+            companyDiv.parentNode.removeChild(companyDiv);
+            i--; // Adjust the index to account for the removed element
+        }
     }
 
-    const csrftoken = getCookie('csrftoken');
+    // Get the rules-hidden input field
+        let rulesHiddenInput = document.getElementById('rules-hidden');
 
+        // Parse its value as JSON to get the array of rules
+        let rules = rulesHiddenInput.value ? JSON.parse(rulesHiddenInput.value) : [];
+
+        // Filter the array to remove the rules that start with the drug name
+        let filteredRules = rules.filter(function (rule) {
+            return !rule.startsWith(drugName);
+        });
+
+        // Stringify the filtered array and set it as the new value of the rules-hidden input field
+    rulesHiddenInput.value = JSON.stringify(filteredRules);
+
+    // Make an AJAX call to the delete_drug endpoint
     $.ajax({
-        url: '/add_drug/',
-        type: 'post',
-        headers: {
-            'X-CSRFToken': csrftoken
-        },
+        url: 'delete_drug/',
+        type: 'POST',
         data: {
-            'drug_name': drugName
+            'drug_name': drugName,
+            'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
         },
-        success: function(response) {
-            console.log("Response")
-            console.log(response)
-            // Add the drug to the drug list
-            $('#drug-list').append('<button id="' + response.drug_name + '" class="drug-item" title="Delete ' + response.drug_name + ' from list" onclick="deleteDrug(this.id)">' + response.drug_name + '</button>');
-
-            // Group the matching rules by carrier
-            var groupedRules = {};
-            response.matching_rules.forEach(function(rule) {
-                if (!groupedRules[rule.carrier_name]) {
-                    groupedRules[rule.carrier_name] = [];
-                }
-                groupedRules[rule.carrier_name].push(rule);
-            });
-            console.log("Grouped Rules")
-            console.log(groupedRules);
-
-            // Add the matching rules to the company-containers
-            for (var carrierName in groupedRules) {
-                console.log("Carrier Name")
-                console.log(carrierName)
-                var container = $('#' + carrierName);
-                console.log("Container")
-                console.log(container)
-                console.log("Container Length")
-                console.log(container.length)
-                if (container.length) {
-                    console.log(container.length)
-                    // If the container exists, add the rule to it
-                    groupedRules[carrierName].forEach(function(rule) {
-                        console.log("Rule")
-                        console.log(rule)
-                        container.append('<p>' + rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted + '</p>');
-                    });
-                } else {
-                    // If the container does not exist, check if a newContainer for the carrier already exists
-                    var newContainer = $('.new-company-container').find('#' + carrierName);
-                    if (!newContainer.length) {
-                        // If the newContainer does not exist, create a new one
-                        newContainer = $('<div class="company-container" id="' + carrierName + '" style="border: 2px black solid; border-radius: 12px;"><h3>' + carrierName + '</h3></div>');
-                        $('.new-company-container').append(newContainer);
-                    }
-                    groupedRules[carrierName].forEach(function(rule) {
-                        console.log("Rule")
-                        console.log(rule)
-                        // we should check if the rule is already in the container
-                        if (newContainer.find("p").text() !== rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted) {
-                            // if the rule is not in the container, then add it
-                            newContainer.append('<p>' + rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted + '</p>');
-                        }
-                        
-                    });
-                }
-            }
+        dataType: 'json',
+        success: function (data) {
+            console.log('Drug deleted successfully');
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.error("AJAX call failed: " + textStatus + ', ' + errorThrown);
         }
     });
 }
+     // Function to add a drug
+    function addDrug(drugName) {
+        $.ajax({
+            url: 'add_drug/',
+            type: 'POST',
+            data: {
+                'drug_name': drugName,
+                'csrfmiddlewaretoken': $('input[name=csrfmiddlewaretoken]').val(),
+            },
+            dataType: 'json',
+            success: function (data) {
+                {#console.log('Check if the button already exists')#}
+                // Check if the button already exists
+                if (document.getElementById(drugName)) {
+                    console.log('Button already exists')
+                    return;
+                }
+                
+                {#console.log('Creating new button')#}
+                // Create a new button element
+                let newButton = document.createElement('button');
 
-function deleteDrug(drugName) {
-    const csrftoken = getCookie('csrftoken');
+                // Set the button's attributes
+                newButton.id = drugName;
+                newButton.className = 'drug-item';
+                newButton.title = 'Delete ' + drugName + ' from list';
 
-    $.ajax({
-        url: '/delete_drug/',
-        type: 'post',
-        headers: {
-            'X-CSRFToken': csrftoken
-        },
-        data: {
-            'drug_name': drugName
-        },
-        success: function(response) {
-            // Remove the drug from the drug list
-            $('#' + response.drug_name).remove();
-
-            // Remove the drug from the company-containers
-            $(".company-container").each(function() {
-                var container = $(this);
-                container.find("p").each(function() {
-                    if ($(this).text() === response.drug_name) {
-                        $(this).remove();
-                    }
+                // Set the button's text
+                newButton.textContent = drugName;
+                
+                // Add an event listener to the button that calls deleteDrug when the button is clicked
+                newButton.addEventListener('click', function() {
+                    deleteDrug(drugName);
                 });
 
-                // If the company-container does not contain any drugs, remove it
-                if (!container.find("p").length) {
-                    container.remove();
-                }
+                // Add the new button to the drug list
+                document.getElementById('drug-list').appendChild(newButton);
+                
+                htmx.onLoad(newButton);
+                
+                // Call the groupRulesByCarrier function with the new data
+                groupRulesByCarrier(data.matching_rules);
+            }
+        });
+    }
+
+// Function to remove duplicate rules from a company container
+function removeDuplicateRules(companyContainer) {
+    // Create an empty array to store unique rules
+    let uniqueRules = [];
+
+    // Get all the rule paragraphs in the company container
+    let ruleParagraphs = companyContainer.getElementsByTagName('p');
+
+    // Loop through each rule paragraph
+    for (let i = 0; i < ruleParagraphs.length; i++) {
+        // If the rule is not in the unique rules array, add it
+        if (!uniqueRules.includes(ruleParagraphs[i].textContent)) {
+            uniqueRules.push(ruleParagraphs[i].textContent);
+        } else {
+            // If the rule is already in the unique rules array, remove it
+            companyContainer.removeChild(ruleParagraphs[i]);
+            i--; // Adjust the index to account for the removed element
+        }
+    }
+}
+
+// Function to group rules by carrier
+function groupRulesByCarrier(matching_rules) {
+    // Create an empty object to store the grouped rules
+    let groupedRules = {};
+
+    // Loop through each rule
+    matching_rules.forEach(function(rule) {
+        // If the carrier name is not a key in the object, add it with an empty array as the value
+        if (!groupedRules[rule.carrier_name]) {
+            groupedRules[rule.carrier_name] = [];
+        }
+
+        // Push the rule into the array associated with the carrier name
+        groupedRules[rule.carrier_name].push(rule);
+    });
+
+    // Get the info-box element
+    let infoBox = document.getElementById('info-box');
+
+    // Check if the info-box-contents already exists
+    let infoBoxContents = document.getElementById('info-box-contents');
+
+    // If the info-box-contents does not exist, create it
+    if (!infoBoxContents) {
+        infoBoxContents = document.createElement('div');
+        infoBoxContents.id = 'info-box-contents';
+        infoBoxContents.className = 'info-box-contents';
+        infoBoxContents.style = 'height: 78%; overflow: auto;'
+
+        // Add the info box contents to the info-box
+        infoBox.appendChild(infoBoxContents);
+    }
+
+    // Check if the new-company-container already exists
+    let companyContainerParent = document.getElementById('new-company-container');
+
+    // If the new-company-container does not exist, create it
+    if (!companyContainerParent) {
+        companyContainerParent = document.createElement('div');
+        companyContainerParent.id = 'new-company-container';
+        companyContainerParent.className = 'new-company-container';
+
+        // Add the new company container parent to the info box contents
+        infoBoxContents.appendChild(companyContainerParent);
+    }
+
+    // Loop through each carrier in the grouped rules
+    for (let carrier in groupedRules) {
+        // Check if the company container already exists
+        let companyContainer = document.getElementById(carrier);
+
+        // If the company container does not exist, create it
+        if (!companyContainer) {
+            companyContainer = document.createElement('div');
+            companyContainer.className = 'new-company';
+            companyContainer.id = carrier;
+            companyContainer.style = 'border: 2px black solid; border-radius: 12px; overflow: auto; background: oklch(92% 0 0)';
+
+            // Create the carrier name header
+            let carrierNameHeader = document.createElement('h3');
+            carrierNameHeader.textContent = carrier;
+
+            // Add the carrier name header to the company container
+            companyContainer.appendChild(carrierNameHeader);
+
+            // Add the company container to the new company container parent
+            companyContainerParent.appendChild(companyContainer);
+        }
+
+        // Loop through each rule for this carrier
+        groupedRules[carrier].forEach(function(rule) {
+            // Create the rule paragraph
+            let ruleParagraph = document.createElement('p');
+            ruleParagraph.textContent = rule.drug_name + ' - ' + rule.condition_name + ' - ' + rule.is_accepted;
+            // Lets make the text red if the rule is declined and green if it is accepted
+            if (rule.is_accepted === 'Declined') {
+                ruleParagraph.style.color = 'oklch(59.5% 0.1848 21.9)';
+            } else {
+                ruleParagraph.style.color = 'oklch(74.41% 0.1667 146.88)';
+            }
+
+            // Add the rule paragraph to the company container
+            companyContainer.appendChild(ruleParagraph);
+        });
+
+        // Call removeDuplicateRules for the company container
+        removeDuplicateRules(companyContainer);
+    }
+}
+
+document.getElementById('drug-name').addEventListener('input', function() {
+    var input = this.value;
+    if (input.length < 2) return;  // Don't make a request for too short input
+
+    fetch('/get_drug_names/?drug_name=' + input)
+        .then(response => response.json())
+        .then(data => {
+            var dataList = document.getElementById('drug-list-autocomplete');
+            dataList.innerHTML = '';  // Clear the previous options
+
+            // Create a new option element for each drug name and append it to the datalist
+            data.forEach(drugName => {
+                var option = document.createElement('option');
+                option.value = drugName;
+                dataList.appendChild(option);
             });
-        }
-    });
-}
+        });
+});
 
-function clearDrugs() {
-    const csrftoken = getCookie('csrftoken');
+    // Event listener for the drug search form
+    document.getElementById('drug-search-form').addEventListener('submit', function(event) {
+        event.preventDefault();
 
-    $.ajax({
-        url: '/clear_drugs/',
-        type: 'post',
-        headers: {
-            'X-CSRFToken': csrftoken
-        },
-        success: function(response) {
-            // Clear the drug list and all company-containers from the page
-            $('#drug-list').empty();
-            $('.company-container').empty();
-        }
+        // Get the drug name from the input field
+        let drugName = event.target.elements['drug_name'].value;
+
+        // Call the addDrug function
+        addDrug(drugName);
     });
-}
 </script>
+</body>
 </html>
