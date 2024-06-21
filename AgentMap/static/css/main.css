@@ -348,7 +348,7 @@ Im bit scared of how it will react */
 }
 
 .drug-item:hover {
-    background-color: oklch(63.22% 0.154 243.8);
+    background-color: oklch(0.595 0.1848 21.9);
     color: oklch(100% 0 0);
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }

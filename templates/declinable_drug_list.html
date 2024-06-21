@@ -126,7 +126,7 @@
                     console.log('Button already exists')
                     return;
                 }
-                
+
                 {#console.log('Creating new button')#}
                 // Create a new button element
                 let newButton = document.createElement('button');
@@ -138,7 +138,7 @@
 
                 // Set the button's text
                 newButton.textContent = drugName;
-                
+
                 // Add an event listener to the button that calls deleteDrug when the button is clicked
                 newButton.addEventListener('click', function() {
                     deleteDrug(drugName);
@@ -146,9 +146,9 @@
 
                 // Add the new button to the drug list
                 document.getElementById('drug-list').appendChild(newButton);
-                
+
                 htmx.onLoad(newButton);
-                
+
                 // Call the groupRulesByCarrier function with the new data
                 groupRulesByCarrier(data.matching_rules);
             }
