@@ -31,13 +31,16 @@
     <form id="drug-search-form" class="drug-search-form" hx-post="add_drug/" hx-trigger="submit" hx-target="#rules-hidden" hx-swap="innerHTML">
     {% csrf_token %}
     <input type="text" id="drug-name" name="drug_name" list="drug-list-autocomplete" required>
-    <datalist id="drug-list-autocomplete"></datalist>
+        <!-- This is the list of drugs that will be displayed as autocomplete options -->
+        <datalist id="drug-list-autocomplete"></datalist>
+        <!-- this is some bs that will hold the rules to be deleted later -->
     <input type="hidden" id="rules-hidden" class="rules-hidden" name="rules">
         <button type="submit">Add Drug</button>
     <button id="clear-all" title="Clear all drugs" hx-get="clear_drugs/" hx-target="#info-box" hx-trigger="click">
         Clear All
     </button>
 </form>
+    <!-- This container will hold the visable buttons that represent the drugs -->
 <div class="rules-container">
     <div id="drug-list" class="drug-list">
     </div>
