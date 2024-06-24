@@ -158,7 +158,6 @@ def get_companies(request, state_code):
             is_expiring_soon = False
             days_until_expiration = 9999 # Huge number since NaN is not valid
 
-
         # Context
         context = {
             "state": state,  # packing the state name into context
@@ -232,6 +231,7 @@ def view_form(request, form_id):
     response['Content-Disposition'] = f'inline; filename="{os.path.basename(file_path)}"'
     return response
 
+
 # This function handles opening the txt file server side and sending it to the client@xframe_options_exempt
 @xframe_options_exempt
 @login_required
@@ -287,6 +287,7 @@ def birthday_rules(request, state):
 def client_map(request):
     return render(request, 'client_combined_map.html')
 
+
 # This view will send the user to the Declinable Drug List Page
 @login_required
 def declinable_drug_list(request):
@@ -299,6 +300,8 @@ def declinable_drug_list(request):
     }
     return render(request, 'declinable_drug_list.html', context=context)
 
+
+# This function will add the drug to the last response
 def add_drug(request):
     # Get the drug name from the POST parameters
     drug_name = request.POST.get('drug_name')
@@ -340,6 +343,8 @@ def add_drug(request):
         'matching_rules': matching_rules_data,
     })
 
+
+# This function will delete the drug from the last response
 def delete_drug(request):
     # When the user clicks on the given drug, we will remove it from that drug-list
     drug_name = request.POST.get('drug_name')
@@ -356,6 +361,8 @@ def delete_drug(request):
     # Return the drug name as JSON
     return JsonResponse({'drug_name': drug_name})
 
+
+# This function will clear the drugs from the last response
 def clear_drugs(request):
     # Reload the session completely
     request.session['last_response'] = []
@@ -363,11 +370,11 @@ def clear_drugs(request):
     return redirect('Declined Drug Search')
 
 
+# This function will return a list of drug names that start with the given query
 def get_drug_names(request):
+    # Get the drug name query from the GET parameter 'drug_name'
     query = request.GET.get('drug_name', '')
-    # I want to query drugs that start with the query
-    # Make it uncase sensitive
-    # print(Drug.objects.filter(drug_name__istartswith=query))
+    # Filter the drugs that start with the query
     drugs = Drug.objects.filter(drug_name__istartswith=query).values_list('drug_name', flat=True)
-    # print(drugs)
+    # Return the drugs as a JSON Response
     return JsonResponse(list(drugs), safe=False)
