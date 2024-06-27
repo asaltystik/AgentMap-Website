@@ -3,6 +3,7 @@ from AgentMap.models import HouseHoldDiscount, State, MedicareSupplementCarrier,
 import time
 
 
+# TODO: Refactor this function to use OKLCH Color space instead of hex values
 def add_color_mapping_to_model():
     colorMapping = {
         "Alabama": {
