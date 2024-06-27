@@ -2,6 +2,8 @@ import os
 import time
 import shutil
 
+
+# Function to copy and rename the files in the given directory
 def copy_and_rename(directory, file_to_copy, default_formtype='DDL'):
     # Ensure file_to_copy is a string representing a file path
     if not isinstance(file_to_copy, str):
@@ -17,7 +19,7 @@ def copy_and_rename(directory, file_to_copy, default_formtype='DDL'):
         company_state_previous = '_'.join(files[i-1].split('_')[:2])
         print(company_state_current, company_state_previous)
 
-        # If the range is 1, we should copy and rename the file so we can get the first state aswell
+        # If the range is 1, we should copy and rename the file, so we can get the first state as well
         if i == 1:
             new_filename = f"{company_state_previous}_{default_formtype}.pdf"
             print(f"Copying {file_to_copy} to {new_filename}")
