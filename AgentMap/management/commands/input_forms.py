@@ -12,6 +12,7 @@ CompanyDict = {
     agency.abbreviation: agency.carrier_name for agency in MedicareSupplementCarrier.objects.all()
 }
 
+# Dictionary to map the state abbreviation to the full state name
 state_dict = {
     state.state_code: state.full_state for state in State.objects.all()
 }
