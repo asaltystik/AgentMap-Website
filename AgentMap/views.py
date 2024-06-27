@@ -89,22 +89,28 @@ def agent_map(request):
         # Get all the states
         licenses = LicensedState.objects.all().select_related('agent', 'state')  # Include 'state' in select_related
 
+        # Create a dictionary to store the agents in each state
         agents_in_states = {}
         for license in licenses:
+            # Get the state code
             state_code = license.state.state_code  # Assuming 'name' is the field that holds the state code
+            # If the state code is not in the dictionary, add it
             if state_code not in agents_in_states:
                 agents_in_states[state_code] = []
+            # If the agent is not 'admin' and the agent is not already in the list, add the agent to the list
             if license.agent.user.username != 'admin' and license.agent not in agents_in_states[state_code]:
+                # Capitalize the first letter of the agent's name and add it to the list
                 agent_name = license.agent.user.username[0].upper() + license.agent.user.username[1:]
                 agents_in_states[state_code].append(agent_name)
             # Sort agents_in_states by alphabetical order
             agents_in_states[state_code].sort()
         # print(f'Agents in states: {agents_in_states}')  # Debugging line
 
+    # Pack the data into a context dictionary
     context = {
-        'licensed_states': licensed_states,
-        'agents_in_states': agents_in_states,
-        'discount_keys': discount_keys,
+        'licensed_states': licensed_states,  # Packing that individual's licensed states into the context
+        'agents_in_states': agents_in_states,  # Packing the agents in each state, if the user is admin else empty
+        'discount_keys': discount_keys,  # Packing the discount color codes into the context
     }
 
     return render(request, 'map.html', context=context)
@@ -130,6 +136,7 @@ def get_companies(request, state_code):
     # Get the un-abbreviated state name using the state code and the StateDict
     state = state_dictionary[state_code]
 
+    # Get all the discounts in the given state
     discounts = HouseHoldDiscount.objects.filter(state__state_code=state_code).order_by('carrier')
     # Get the current date
     current_date = timezone.now().date()
