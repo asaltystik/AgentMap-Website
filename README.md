@@ -9,3 +9,6 @@ to help the call center agents to access relevant information faster.
 ex. What Companies are available in this state? What Forms we have on file
 for that company? What are the Household Discounts for that company? Am I 
 Licensed in that State? What is the expiration date of my license?
+
+Updated on 6/28/2024
+
