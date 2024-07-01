@@ -4,6 +4,7 @@ from django.core.management.base import BaseCommand
 from AgentMap.models import Drug, MedicalCondition, MedicareSupplementCarrier, AcceptanceRule
 import pandas
 
+
 # This class will handle the command
 class Command(BaseCommand):
     help = 'Input the DDL data into the database'
@@ -36,15 +37,17 @@ class Command(BaseCommand):
             # Get the company object
             try:
                 company = MedicareSupplementCarrier.objects.get(abbreviation=row['Company'])
-            except:
+            except MedicareSupplementCarrier.DoesNotExist:
+                company = None
                 print('Error with getting the company object')
                 print(f'Company: {row["Company"]}')
             # Get the is_accepted value
             is_accepted = row['Is_Allowed']
             # Create the AcceptanceRule object
             try:
-                AcceptanceRule.objects.get_or_create(drug=drug, condition=condition, carrier=company, is_accepted=is_accepted)
-            except:
+                AcceptanceRule.objects.get_or_create(drug=drug, condition=condition, carrier=company,
+                                                     is_accepted=is_accepted)
+            except MedicareSupplementCarrier.DoesNotExist:
                 print('Error with creating the AcceptanceRule object')
                 print(f'Drug: {drug.drug_name}\n'
                       f'Condition: {condition.condition_name}\n'
@@ -53,9 +56,11 @@ class Command(BaseCommand):
 
 
 '''
-# This is some BS to copy out the information from the excel file that i do not need as those companies are not yet in the database
+# This is some BS to copy out the information from the excel file that i do not need as those companies are not yet in
+# the database
 # open the csv file with the correct columns
-data = pandas.read_excel('C:\\Users\\Noricum\\Desktop\\UnderwritingGuidelines ABBY\\Combined_DDL.xlsx', sheet_name='Sheet1', usecols=['Drug Name', 'Condition', 'Company', 'Is_Allowed'])
+data = pandas.read_excel('C:\\Users\\Noricum\\Desktop\\UnderwritingGuidelines ABBY\\Combined_DDL.xlsx',
+                         sheet_name='Sheet1', usecols=['Drug Name', 'Condition', 'Company', 'Is_Allowed'])
 data = data[data['Company'] != 'ALLSTATE']
 data = data[data['Company'] != 'FEDLIFE']
 data = data[data['Company'] != 'PhysLife']
