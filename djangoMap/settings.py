@@ -88,7 +88,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
         'NAME': 'AgentMap',
         'USER': 'doadmin',
-        'PASSWORD': 'AVNS_E2ikLlhTAgj0aw6rpI3',
+        'PASSWORD': '######AVNS_E2ikLlhTAgj0aw6rpI3',
         'HOST': 'db-postgresql-nyc3-57145-do-user-16439372-0.c.db.ondigitalocean.com',
         'PORT': '25060'
     }
