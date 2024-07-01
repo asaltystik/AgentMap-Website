@@ -2,3 +2,5 @@
 /AgentMap/migrations/*
 /.idea/*
 /static/admin/*
+/static/js/
+/static/css/
