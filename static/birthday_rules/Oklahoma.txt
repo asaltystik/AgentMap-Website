@@ -1,7 +1,7 @@
 OK-Birthday Rule
 
 A 60-day open enrollment period available, beginning on the
-individual’s birthday. The individual must currently be enrolled in
+individual's birthday. The individual must currently be enrolled in
 Medicare supplement, with no gap in coverage greater than 90 days
 since initial enrollment. The individual may replace that policy with a
 new Medicare supplement policy with equal or lesser benefits.
