@@ -18,7 +18,7 @@
 {% else %}
     <h1 style="margin-top: 1px;
                margin-bottom: 1px;
-               border-bottom: 3px #000000 solid;
+               border-bottom: 3px oklch(0% 0 0) solid;
                padding-left: 5px;
     ">
         {{ state }}
@@ -45,8 +45,8 @@
                 left: 1.65vw;
                 height: 2vh;
                 width: 8vw;
-                background-color: rgba(100,93,93,0.44);
-                border: 3px solid black;
+                background-color: oklch(48.49% 0.009 17.47 / 44%);
+                border: 3px solid oklch(0% 0 0);
                 border-radius: .4vw;
                 display: block;
              "
@@ -54,7 +54,7 @@
         >
             <!-- This is a calendar icon that will be displayed next to the health bar -->
             <!-- because the health bar is a representation of the days until expiration -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="healthbar-ico" viewBox="0 0 24 24" width="24" height="24" color="#000000" fill="none" style="position: absolute; top: -.45vh; left: calc(95% - 9.3vw);" preserveAspectRatio="xMidYMid meet">
+            <svg xmlns="http://www.w3.org/2000/svg" class="healthbar-ico" viewBox="0 0 24 24" width="24" height="24" color="oklch(0% 0 0)" fill="none" style="position: absolute; top: -.45vh; left: calc(95% - 9.3vw);" preserveAspectRatio="xMidYMid meet">
                 <path d="M18 2V4M6 2V4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
                 <path d="M11.9955 13H12.0045M11.9955 17H12.0045M15.991 13H16M8 13H8.00897M8 17H8.00897" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
                 <path d="M3.5 8H20.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" ></path>
@@ -86,11 +86,10 @@
                     right: 765px;
                     height: 20px;
                     width: 150px;
-                    background-color: rgba(100,93,93,0.44);
-                    border: 3px solid black;
+                    background-color: oklch(48.49% 0 0 / 44%);
+                    border: 3px solid oklch(0% 0 0);
                     border-radius: 8px;
                     display: none;
-                    background-color: rgb(9, 170, 8)
                  "
                  title="No License Number"
             >
@@ -115,7 +114,8 @@
         <div class="new-company-container">
             <!-- this is the loop that will display the forms for each company -->
             {% for carrier in carrier_list %}
-                <!-- Full Company Name -->
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
                 <div class="new-company" id="{{ carrier.grouper }}"
                      {% for discount in discounts %}
                         {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
@@ -137,6 +137,7 @@
                     </h2>
                     <!-- This is the button-matrix that will display the forms for the company -->
                     <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
                     {% for form in carrier.list %}
                         <div>
                             <!-- This is the button that will open the modal for the form -->
@@ -148,6 +149,7 @@
                             >
                                 <!-- This is the non-abbreviated form type -->
                                 {{ form.form_info.full_form_type }}
+                                <!-- Show off the date if it is note None -->
                                 {% if form.date != "None" %}
                                     {{ form.date }}
                                 {% endif %}
