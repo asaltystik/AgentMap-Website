@@ -232,6 +232,60 @@ Im bit scared of how it will react */
     transition: none !important;
 }
 
+/* Styling for the map-layer-container*/
+.map-layer-container {
+    width: calc(20% - 1vw);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    padding: 1vh 0;
+    margin-right: 1vw;
+}
+
+.map-layer-container .map-layer-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+
+.map-layer-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
+    row-gap: .2vh;
+    column-gap: .3vh;
+}
+
+/* Redirect button */
+.map-layer-button {
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    width: 185px;
+    height: 100px;
+    border-radius: 10px;
+    transition: 650ms ease-in-out; /* lets keep this at 650 for rn */
+}
+
+/* Redirect button hover effect */
+.map-layer-button:hover {
+    background-color: oklch(63.22% .154 243.8);
+    color: oklch(100% 0 0);
+    transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
+}
+
+/* Redirect button preload */
+.map-layer-button.preload {
+    transition: none !important;
+}
+
+
+
+/* Styling for the logout container */
 .logout-container {
     display: flex;
     flex-direction: row;
