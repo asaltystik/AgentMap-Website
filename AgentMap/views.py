@@ -163,7 +163,7 @@ def get_companies(request, state_code):
             license_number = "Corp# " + admin_license.licenseNumber if admin_license else None
             expiration = None
             is_expiring_soon = False
-            days_until_expiration = 9999 # Huge number since NaN is not valid
+            days_until_expiration = 9999  # Huge number since NaN is not valid
 
         # Context
         context = {
