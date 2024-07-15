@@ -278,6 +278,7 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
+            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
