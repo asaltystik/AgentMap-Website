@@ -29,157 +29,163 @@
         // Lerp between header colors
         function HeaderLerp(){
             // Get the days_until_expiration value from the newly loaded content
-            let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
-            console.log("Expiration Timer: :" + daysUntilExpiration) // Log this shit quay
+            try {
+                let daysUntilExpiration = parseInt(document.querySelector('#days-until-expiration').textContent);
+                console.log("Expiration Timer: :" + daysUntilExpiration) // Log this shit quay
 
-            // Get the last Color of the health bar from the .LastHPColor class
-            // if it isnt empty, else dfault should be green [7, 170, 8]
-            let lastColor = document.querySelector('.LastHPColor').textContent;
-            console.log("Last Color: " + lastColor)
-            // Check if lastColor string is correctly formatted
-            // Regex Magicka
-            if (/[^0-9.,]/.test(lastColor)) {
-                // If lastColor contains non-numeric characters (other than commas and periods), remove them
-                lastColor = lastColor.replace(/[^0-9.,]/g, ''); // Regex Magicka
-            }
-
-            // If the last color is empty use the default green color I like, else format the lastColor
-            lastColor = lastColor === '' ? [43, 177, 100] : lastColor.split(',').map(Number);
-
-            //Get the last width of the health bar from the .LastHPWidth class
-            let lastWidthText = document.querySelector('.LastHPWidth').textContent;
-
-            // If lastColor is not empty, immediately set the background color of the health bar
-            if (lastColor !== '') {
-                document.querySelector('.health-bar').style.backgroundColor = 'rgb(' + lastColor.join(',') + ')';
-                // console.log("last Color is not empty " + lastColor)
-            }
-            if (lastWidthText.trim() === '') {
-                document.querySelector('.health-bar').style.width = '100%';
-            }
-
-            // Set the lastWidth from the lastWidthText and clamp it between 0 and 100
-            let lastWidth = parseFloat(lastWidthText);
-            lastWidth = Math.max(0, Math.min(lastWidth, 100));
-
-            // timeout to delay the lerp to look clean
-            setTimeout(function() {
-                // console.log("Delay the lerp to look clean")
-            }, 80);
-
-            let colorString = ''
-            if(daysUntilExpiration === 9999) {
-                colorString = 'rgb(43, 177, 100)' // default to green if maxed out
-            } else if (daysUntilExpiration > 31 && daysUntilExpiration !== 9999) {
-                colorString = 'rgb(43, 177, 100)' // Default to black since no date
-            } else if(!isNaN(daysUntilExpiration)) {
-                // Clamp DaysUntilExpiration between 0 and 31
-                daysUntilExpiration = Math.max(0, Math.min(daysUntilExpiration, 31))
-                // Calculate lerp Percentage
-                let lerpPercentage = ((daysUntilExpiration) % 4) /4; // Cap it off at a month
-                let index = Math.floor((daysUntilExpiration) / 4); // Get the index of the color point
-
-                // Define Colors
-                let colorPoints = [
-                    [255, 38, 38], // red
-                    [255, 92, 48], // orange kinda red
-                    [255, 142, 57], //orange
-                    [255, 192, 62], // yellow kinda orange
-                    [255, 246, 76], // yellow
-                    [200, 228, 82], // Yellow kinda green
-                    [178, 222, 85], // Green more yellowish
-                    [94, 194, 94], // green kinda yellow
-                    [43, 177, 100], // green
-                ]
-                let colorInterpolated = []; // Empty array to store the interpolated color
-
-                colorInterpolated = colorPoints[index].map(function (channel, channelIndex) {
-                    return channel + (colorPoints[index + 1][channelIndex] - channel) * lerpPercentage;
-                });
-
-                colorString = 'rgb(' + colorInterpolated.join(',') + ')'; // format from bits to string
-
-                // Apply the color to the h1 if the lerpPercentage is 0
-                if(lerpPercentage === 0 && index === 0) {
-                    document.querySelector('h1').style.color = colorString;
+                // Get the last Color of the health bar from the .LastHPColor class
+                // if it isnt empty, else dfault should be green [7, 170, 8]
+                let lastColor = document.querySelector('.LastHPColor').textContent;
+                console.log("Last Color: " + lastColor)
+                // Check if lastColor string is correctly formatted
+                // Regex Magicka
+                if (/[^0-9.,]/.test(lastColor)) {
+                    // If lastColor contains non-numeric characters (other than commas and periods), remove them
+                    lastColor = lastColor.replace(/[^0-9.,]/g, ''); // Regex Magicka
                 }
-            } else {
-                colorString = 'oklch(0% 0 0)' // Default to black
-            }
 
-            // Get the health bar element
-            let healthBar = document.querySelector('.health-bar');
+                // If the last color is empty use the default green color I like, else format the lastColor
+                lastColor = lastColor === '' ? [43, 177, 100] : lastColor.split(',').map(Number);
 
-            // Calculate the health bar width
-            let healthBarWidth = (daysUntilExpiration / 31) * 100;
+                //Get the last width of the health bar from the .LastHPWidth class
+                let lastWidthText = document.querySelector('.LastHPWidth').textContent;
 
-            // Clamp the health bar width between 0 and 100
-            healthBarWidth = Math.max(0, Math.min(healthBarWidth, 100));
-
-            // Get the current color of the health bar
-            let currentColor = colorString.slice(4, -1).split(',').map(Number);
-
-            // The difference between the current color and the last color
-            let colorDiff = [
-                currentColor[0] - lastColor[0], // Red channel
-                currentColor[1] - lastColor[1], // Green channel
-                currentColor[2] - lastColor[2] // Blue channel
-            ];
-
-            function calculateColor(percentage) {
-                return 'rgb(' + lastColor.map(function (channel, index) {
-                    return Math.round(channel + colorDiff[index] * percentage);
-                }).join(',') + ')';
-            }
-
-            // create a dynamic animation
-            let animName = 'HealthBar-Width';
-            let animDuration = 1;
-
-            // Create the keyframes for the animation
-            let keyframes = `@keyframes ${animName} {
-                from { width: ${lastWidth}%; background-color: ${lastColor};}
-                to { width: ${healthBarWidth}%; background-color: ${colorString};
-            }`;
-
-            // Use requestAnimationFrame to update the color of the health bar at each frame
-            let start;
-            function frame(time){
-                if(!start) start = time; // set the start time
-                let progress = Math.min((time - start) / 1000, 1); // Calculate the progress between frames
-                healthBar.style.background = calculateColor(progress); // Calculate the color
-                if(progress < 1) {
-                    requestAnimationFrame(frame); // Continue the animation
+                // If lastColor is not empty, immediately set the background color of the health bar
+                if (lastColor !== '') {
+                    document.querySelector('.health-bar').style.backgroundColor = 'rgb(' + lastColor.join(',') + ')';
+                    // console.log("last Color is not empty " + lastColor)
                 }
-            }
-            requestAnimationFrame(frame) // Start the animation
+                if (lastWidthText.trim() === '') {
+                    document.querySelector('.health-bar').style.width = '100%';
+                }
 
-            // Create a style element
-            let style = document.createElement('style');
+                // Set the lastWidth from the lastWidthText and clamp it between 0 and 100
+                let lastWidth = parseFloat(lastWidthText);
+                lastWidth = Math.max(0, Math.min(lastWidth, 100));
 
-            // Set the style element text to the keyframes
-            style.textContent = keyframes; // Put it as the text content for the style element for whatever reason
+                // timeout to delay the lerp to look clean
+                setTimeout(function () {
+                    // console.log("Delay the lerp to look clean")
+                }, 80);
 
-            document.head.appendChild(style); // Append the style element to the head
+                let colorString = ''
+                if (daysUntilExpiration === 9999) {
+                    colorString = 'rgb(43, 177, 100)' // default to green if maxed out
+                } else if (daysUntilExpiration > 31 && daysUntilExpiration !== 9999) {
+                    colorString = 'rgb(43, 177, 100)' // Default to black since no date
+                } else if (!isNaN(daysUntilExpiration)) {
+                    // Clamp DaysUntilExpiration between 0 and 31
+                    daysUntilExpiration = Math.max(0, Math.min(daysUntilExpiration, 31))
+                    // Calculate lerp Percentage
+                    let lerpPercentage = ((daysUntilExpiration) % 4) / 4; // Cap it off at a month
+                    let index = Math.floor((daysUntilExpiration) / 4); // Get the index of the color point
 
-            // Apply the animation to the health bar
-            // delay the animation by 30ms to look smoother
-            healthBar.style.animation = `${animName} ${animDuration}s 1  ease-in-out forwards`;
+                    // Define Colors
+                    let colorPoints = [
+                        [255, 38, 38], // red
+                        [255, 92, 48], // orange kinda red
+                        [255, 142, 57], //orange
+                        [255, 192, 62], // yellow kinda orange
+                        [255, 246, 76], // yellow
+                        [200, 228, 82], // Yellow kinda green
+                        [178, 222, 85], // Green more yellowish
+                        [94, 194, 94], // green kinda yellow
+                        [43, 177, 100], // green
+                    ]
+                    let colorInterpolated = []; // Empty array to store the interpolated color
 
-            // document the width amount to the .LastHPWidth class
-            document.querySelector('.LastHPWidth').textContent = healthBarWidth.toString();
+                    colorInterpolated = colorPoints[index].map(function (channel, channelIndex) {
+                        return channel + (colorPoints[index + 1][channelIndex] - channel) * lerpPercentage;
+                    });
 
-            // document the color to the .LastHPColor class
-            document.querySelector('.LastHPColor').textContent = colorString;
+                    colorString = 'rgb(' + colorInterpolated.join(',') + ')'; // format from bits to string
 
-            // Set Timeout to hide the health bar if daysUntilExpiration is 0
-            setTimeout(function() {
-                if (daysUntilExpiration === 0) {
-                    healthBar.style.display = 'none'; // Hide the health bar
+                    // Apply the color to the h1 if the lerpPercentage is 0
+                    if (lerpPercentage === 0 && index === 0) {
+                        document.querySelector('h1').style.color = colorString;
+                    }
                 } else {
-                    healthBar.style.display = 'block'; // Show the health bar
+                    colorString = 'oklch(0% 0 0)' // Default to black
                 }
-            }, 800);
+
+                // Get the health bar element
+                let healthBar = document.querySelector('.health-bar');
+
+                // Calculate the health bar width
+                let healthBarWidth = (daysUntilExpiration / 31) * 100;
+
+                // Clamp the health bar width between 0 and 100
+                healthBarWidth = Math.max(0, Math.min(healthBarWidth, 100));
+
+                // Get the current color of the health bar
+                let currentColor = colorString.slice(4, -1).split(',').map(Number);
+
+                // The difference between the current color and the last color
+                let colorDiff = [
+                    currentColor[0] - lastColor[0], // Red channel
+                    currentColor[1] - lastColor[1], // Green channel
+                    currentColor[2] - lastColor[2] // Blue channel
+                ];
+
+                function calculateColor(percentage) {
+                    return 'rgb(' + lastColor.map(function (channel, index) {
+                        return Math.round(channel + colorDiff[index] * percentage);
+                    }).join(',') + ')';
+                }
+
+                // create a dynamic animation
+                let animName = 'HealthBar-Width';
+                let animDuration = 1;
+
+                // Create the keyframes for the animation
+                let keyframes = `@keyframes ${animName} {
+                    from { width: ${lastWidth}%; background-color: ${lastColor};}
+                    to { width: ${healthBarWidth}%; background-color: ${colorString};
+                }`;
+
+                // Use requestAnimationFrame to update the color of the health bar at each frame
+                let start;
+
+                function frame(time) {
+                    if (!start) start = time; // set the start time
+                    let progress = Math.min((time - start) / 1000, 1); // Calculate the progress between frames
+                    healthBar.style.background = calculateColor(progress); // Calculate the color
+                    if (progress < 1) {
+                        requestAnimationFrame(frame); // Continue the animation
+                    }
+                }
+
+                requestAnimationFrame(frame) // Start the animation
+
+                // Create a style element
+                let style = document.createElement('style');
+
+                // Set the style element text to the keyframes
+                style.textContent = keyframes; // Put it as the text content for the style element for whatever reason
+
+                document.head.appendChild(style); // Append the style element to the head
+
+                // Apply the animation to the health bar
+                // delay the animation by 30ms to look smoother
+                healthBar.style.animation = `${animName} ${animDuration}s 1  ease-in-out forwards`;
+
+                // document the width amount to the .LastHPWidth class
+                document.querySelector('.LastHPWidth').textContent = healthBarWidth.toString();
+
+                // document the color to the .LastHPColor class
+                document.querySelector('.LastHPColor').textContent = colorString;
+
+                // Set Timeout to hide the health bar if daysUntilExpiration is 0
+                setTimeout(function () {
+                    if (daysUntilExpiration === 0) {
+                        healthBar.style.display = 'none'; // Hide the health bar
+                    } else {
+                        healthBar.style.display = 'block'; // Show the health bar
+                    }
+                }, 800);
+            } catch (error) {
+                console.log('skipping header lerp, it is not loaded into the page yet')
+                }
         }
 
         // add an event listener for the htmx:afterSwap event
