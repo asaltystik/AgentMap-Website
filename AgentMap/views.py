@@ -130,11 +130,10 @@ def agent_map_ms(request):
     context = {
         'all_licenses': all_licenses,
         'licensed_states': licensed_states,
-        'map_layer': map_layer,
         'discount_keys': discount_keys
         }
     print(context)
-    return render(request, context=context)
+    return render(request, map_layer, context=context)
 
 
 # This view will render the Medicare Get_Companies
