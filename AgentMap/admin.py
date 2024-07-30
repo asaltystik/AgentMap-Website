@@ -1,70 +1,61 @@
 from django.contrib import admin
-
-from AgentMap.models import (Agent, Form, LicensedState,
-                             MedicareSupplementCarrier,
-                             Drug, MedicalCondition,
-                             FormType, State,
-                             HouseHoldDiscountKey,
-                             HouseHoldDiscount,
-                             AcceptanceRule
-                             )
+from AgentMap.models import (State, Carrier, FormType, PDF,
+                             Agent, AgentLicensedState, Drug, MedicalCondition,
+                             AcceptanceRule, HouseHoldDiscountKey,
+                             HouseHoldDiscount)
 
 
-# Registration of the Form model in the admin site
-@admin.register(Form)
-class FormAdmin(admin.ModelAdmin):
-    pass
-
-
-# Registration of the Agent model in the admin site
-@admin.register(Agent)
-class AgentAdmin(admin.ModelAdmin):
-    pass
-
-
-# Registration of the LicensedState model in the admin site
-@admin.register(LicensedState)
-class LicensedStateAdmin(admin.ModelAdmin):
-    pass
-
-
-# Registration of the MedicareSupplementAgencies model in the admin site
-@admin.register(MedicareSupplementCarrier)
-class MedicareSupplementCarriersAdmin(admin.ModelAdmin):
-    pass
-
-
-# Registration of the Drugs model in the admin site
-@admin.register(Drug)
-class DrugsAdmin(admin.ModelAdmin):
-    pass
-
-
-# Registration of the MedicalConditions model in the admin site
-@admin.register(MedicalCondition)
-class MedicalConditionsAdmin(admin.ModelAdmin):
-    pass
-
-
-@admin.register(FormType)
-class FormTypesAdmin(admin.ModelAdmin):
-    pass
-
-
+# Register your models here.
 @admin.register(State)
 class StateAdmin(admin.ModelAdmin):
     pass
 
 
+@admin.register(Carrier)
+class MedicareSupplementCarrierAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(FormType)
+class FormTypeAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(PDF)
+class PDFAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Agent)
+class AgentAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AgentLicensedState)
+class AgentLicensedStateAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(Drug)
+class DrugAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(MedicalCondition)
+class MedicalConditionAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AcceptanceRule)
+class AcceptanceRuleAdmin(admin.ModelAdmin):
+    pass
+
+
 @admin.register(HouseHoldDiscountKey)
-class HouseholdDiscountKeysAdmin(admin.ModelAdmin):
+class HouseHoldDiscountKeyAdmin(admin.ModelAdmin):
     pass
 
 
 @admin.register(HouseHoldDiscount)
-class HouseholdDiscountsAdmin(admin.ModelAdmin):
-    pass
-
-@admin.register(AcceptanceRule)
-class AcceptanceRulesAdmin(admin.ModelAdmin):
+class HouseHoldDiscountAdmin(admin.ModelAdmin):
     pass

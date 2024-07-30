@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import HouseHoldDiscount, State, MedicareSupplementCarrier, HouseHoldDiscountKey
+from AgentMap.models import HouseHoldDiscount, State, Carrier, HouseHoldDiscountKey
 import time
 
 
@@ -173,7 +173,6 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "RM",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
@@ -189,7 +188,6 @@ def add_color_mapping_to_model():
             "Aetna": "SPOUSAL",
             "Aflac": "RM",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna Health and Life Insurance": "SPOUSAL",
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
@@ -241,7 +239,6 @@ def add_color_mapping_to_model():
             "Aetna": "SPOUSAL",
             "Aflac": "SPOUSAL",
             "American Financial Security": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "Elips Life Insurance": "RM",
             "LifeShield National Insurance": "RM",
@@ -281,7 +278,6 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
@@ -409,7 +405,6 @@ def add_color_mapping_to_model():
             "Ace Chubb": "SPOUSAL",
             "Aetna": "SPOUSAL",
             "Aflac": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna Health and Life Insurance": "SPOUSAL",
             "Cigna National Health Insurance": "RM",
             "Lumico": "SPOUSAL",
@@ -481,7 +476,6 @@ def add_color_mapping_to_model():
             "Aflac": "SPOUSAL",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "SPOUSAL",
             "Elips Life Insurance": "SPOUSAL",
             "LifeShield National Insurance": "SPOUSAL",
@@ -500,7 +494,6 @@ def add_color_mapping_to_model():
             "Aflac": "SPOUSAL",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "SPOUSAL",
             "LifeShield National Insurance": "SPOUSAL",
             "New Era": "SPOUSAL",
@@ -588,7 +581,6 @@ def add_color_mapping_to_model():
             "Aetna": "SPOUSAL",
             "Aflac": "RM",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "Elips Life Insurance": "RM",
             "LifeShield National Insurance": "RM",
@@ -626,7 +618,6 @@ def add_color_mapping_to_model():
             "Aetna": "SPOUSAL",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna National Health Insurance": "RM",
             "Elips Life Insurance": "RM",
             "LifeShield National Insurance": "RM",
@@ -651,7 +642,6 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "American Financial Security": "SPOUSAL",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna Health and Life Insurance": "SPOUSAL",
             "Elips Life Insurance": "RM",
             "LifeShield National Insurance": "RM",
@@ -675,7 +665,6 @@ def add_color_mapping_to_model():
             "Aetna": "SPOUSAL",
             "Aflac": "RM",
             "American Home Life": "SPOUSAL",
-            "Bankers Fidelity Atlantic American": "RM",
             "Cigna Health and Life Insurance": "RM",
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
@@ -725,8 +714,8 @@ def add_color_mapping_to_model():
         for carrier, color in companies.items():
             # Get the company object
             try:
-                carrier_id = MedicareSupplementCarrier.objects.get(carrier_name=carrier)
-            except MedicareSupplementCarrier.DoesNotExist:
+                carrier_id = Carrier.objects.get(carrier_name=carrier)
+            except Carrier.DoesNotExist:
                 print(f"Company {carrier} does not exist in the database.")
                 carrier_id = None
                 time.sleep(50)

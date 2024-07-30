@@ -1,7 +1,7 @@
 # This script will add in the data for the DDL table in the database
 
 from django.core.management.base import BaseCommand
-from AgentMap.models import Drug, MedicalCondition, MedicareSupplementCarrier, AcceptanceRule
+from AgentMap.models import Drug, MedicalCondition, Carrier, AcceptanceRule
 import pandas
 
 
@@ -36,8 +36,8 @@ class Command(BaseCommand):
             condition = MedicalCondition.objects.get(condition_name=row['Condition'])
             # Get the company object
             try:
-                company = MedicareSupplementCarrier.objects.get(abbreviation=row['Company'])
-            except MedicareSupplementCarrier.DoesNotExist:
+                company = Carrier.objects.get(abbreviation=row['Company'])
+            except Carrier.DoesNotExist:
                 company = None
                 print('Error with getting the company object')
                 print(f'Company: {row["Company"]}')
@@ -47,7 +47,7 @@ class Command(BaseCommand):
             try:
                 AcceptanceRule.objects.get_or_create(drug=drug, condition=condition, carrier=company,
                                                      is_accepted=is_accepted)
-            except MedicareSupplementCarrier.DoesNotExist:
+            except Carrier.DoesNotExist:
                 print('Error with creating the AcceptanceRule object')
                 print(f'Drug: {drug.drug_name}\n'
                       f'Condition: {condition.condition_name}\n'

@@ -1,5 +1,5 @@
 """
-URL configuration for djangoMap project.
+URL configuration for AgentMap_MultiLayer project.
 
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/5.0/topics/http/urls/
@@ -17,18 +17,20 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from AgentMap import views as agent_map_view
-from django.conf import settings
-from django.conf.urls.static import static
 
 urlpatterns = [
-    path('AgentMap/', include('AgentMap.urls')),  # Include the urls found in AgentMap.urls
-    path('get_companies/<str:state_code>/', agent_map_view.get_companies, name='get_companies'),
-    path('view_form/<int:form_id>/', agent_map_view.view_form, name='view_form'),
     path('admin/', admin.site.urls),
-    path('', agent_map_view.agent_map, name='AgentMap'),
-    path('login/', agent_map_view.login_view, name='Login'),
-    path('logout/', agent_map_view.logout_view, name='Logout'),
-    path('register/', agent_map_view.register_view, name='Register'),
+    path('', agent_map_view.agent_map_ms, name='AgentMapLayer'),
+    path('DVH/', agent_map_view.agent_map_dvh, name='DVHLayer'),
+    path('HHC/', agent_map_view.agent_map_hhc, name='HHCLayer',),
+    path('Cancer/', agent_map_view.agent_map_cancer, name='CancerLayer'),
+    path('FE/', agent_map_view.agent_map_fe, name='FELayer'),
+    path('get_companies/<str:state_code>/', agent_map_view.get_companies_ms, name='get_companies'),
+    path('get_companies_dvh/<str:state_code>/', agent_map_view.get_companies_dvh, name='get_companies_dvh'),
+    path('get_companies_hhc/<str:state_code>/', agent_map_view.get_companies_hhc, name='get_companies_hhc'),
+    path('get_companies_cancer/<str:state_code>/', agent_map_view.get_companies_cancer, name='get_companies_cancer'),
+    path('get_companies_fe/<str:state_code>/', agent_map_view.get_companies_fe, name='get_companies_fe'),
+    path('view_pdf/<int:pdf_id>/', agent_map_view.view_pdf, name='view_pdf'),
     path('birthday_rules/<str:state>', agent_map_view.birthday_rules, name='birthday_rules'),
     path('clientMap/', agent_map_view.client_map, name='ClientMap'),
     path('declined_drugs/', agent_map_view.declinable_drug_list, name='Declined Drug Search'),
@@ -36,8 +38,6 @@ urlpatterns = [
     path('delete_drug/', agent_map_view.delete_drug, name='Delete Drug'),
     path('clear_drugs/', agent_map_view.clear_drugs, name='Clear Drugs'),
     path('get_drug_names/', agent_map_view.get_drug_names, name='Get Drug Names'),
+    path('login/', agent_map_view.login_view, name='Login'),
+    path('logout/', agent_map_view.logout_view, name='Logout'),
 ]
-
-# if settings.DEBUG:
-    # urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-    # urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="UTF-8" name="Agent Map" content="This is an internal tool for SecureCare65.com, It is a simple svg map
+        that lets agents see what companies exist in which states and what forms we have stored for that state. Also 
+        includes things like License Number and Expiration Date, and color coding for HHD">
+    <!-- Weird meta tag for phone stuff, don't really need this, but it's here for Google ranking -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Map</title> <!-- Title of the page -->
+    <link rel="shortcut icon" href="https://securecare65.com/wp-content/uploads/2018/06/favicon.ico">
+    <!-- Got the static files to work, so now we moved the 100's of lines of css to a separate file -->
+    <!-- and use the django templater to load the css in on page load -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+</head>
+<body>
+<div class="main-container">
+    <div class="horizontal-container">
+        <div class="map-container">
+            <!-- Include the Medicare Supplements Map at MedicareSupplementalLayer.html -->
+            {% include map_layer %}
+        </div>
+        <div id="info-box" class="info-box-container">
+            <!-- The Company Information will be loaded here when a user clicks a state -->
+            <div class="logout-container">
+                {{ user.first_name }} {{ user.last_name }}
+                <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
+                      method="POST" hx-trigger="click" title="Sign Out">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-button preload" title="Sign Out">
+                        <!-- Logout icon from hugeicons.com -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
+                             color="oklch(0% 0 0)" fill="none">
+                            <path d="M11 3L10.3374 3.23384C7.75867 4.144 6.46928 4.59908 5.73464 5.63742C5 6.67576 5 8.0431 5 10.7778V13.2222C5 15.9569 5 17.3242 5.73464 18.3626C6.46928 19.4009 7.75867 19.856 10.3374 20.7662L11 21"
+                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"></path>
+                            <path d="M21 12L11 12M21 12C21 11.2998 19.0057 9.99153 18.5 9.5M21 12C21 12.7002 19.0057 14.0085 18.5 14.5"
+                                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                  stroke-linejoin="round"></path>
+                        </svg>
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!-- This holds any extra information that needs to be displayed such as the color key and redirect buttons -->
+    <div class="extras-container">
+        <div class="color-key-container">
+            <h2 class="color-key-header">Household Discount Key</h2>
+                <div class="color-keys">
+                    {% for key in discount_keys %}
+                        <p id="{{ key.discount_type }}" class="color-key" style="background-color: {{ key.color }};">
+                            {{ key.discount_type }} - {{ key.description }}
+                        </p>
+                {% endfor %}
+                </div>
+        </div>
+        <div class="redirect-button-container">
+            <button
+                    id="quoting-engine-button"
+                    class="redirect-button preload"
+                    onclick="window.open('https://www.insurancetoolsportal.com/securecare65/auth/signin', '_blank')"
+                    Title="Start Quote: https://www.insurancetoolsportal.com/securecare65/auth/signin"
+            >
+                Start Quote
+            </button>
+            <!-- we might delete this button -->
+            <!-- only keeping this here for now if the quoting engine is a different url -->
+            <!-- This button is probably useless since the agents all know the radius bob website lmao -->
+            <!-- Gonna keep this in here for the new hires and people who forget the url -->
+            <button
+                    id="radiusbob-button"
+                    class="redirect-button preload"
+                    onclick="window.open('https://securecare65.radiusbob.com', '_blank')"
+                    Title="RadiusBob: https://securecare65.radiusbob.com"
+            >
+                RadiusBob
+            </button>
+            <!-- This is the button to redirect to Sircon -->
+            <!-- At some point we will need to grab this url for a scraping bot -->
+            <!-- This bot will need to be able to log in to Sircon and scrape the agent licenses -->
+            <!-- Be cool if I can create a new agent if they are not in this backend yet -->
+            <button
+                    id="sircon-button"
+                    class="redirect-button preload"
+                    onclick="window.open('https://www.sircon.com/login.jsp', '_blank')"
+                    Title="Sircon: https://www.sircon.com/login.jsp"
+            >
+                Sircon
+            </button>
+            <button
+                    id="declinables-button"
+                    class="redirect-button preload"
+                    hx-get="declined_drugs/"
+                    hx-target="#info-box"
+                    hx-trigger="click"
+            >
+                Declinable Drugs
+            </button>
+            <!-- if the user is an admin show the admin button -->
+            {% if user.is_staff %}
+                <button
+                        id="admin-button"
+                        class="redirect-button preload"
+                        onclick="window.open('/admin', '_blank')"
+                        Title="Admin: http://agent.securecare65.com/admin"
+                >
+                    Admin
+                </button>
+                <!-- button that will open the client_map view in the pdf modal -->
+                <button
+                        id="client-map-button"
+                        class="redirect-button preload"
+                        _="on click call openModal('/clientMap/')"
+                        Title="Client Map"
+                        >
+                    Client Map
+                </button>
+            {% endif %}
+        </div>
+        <div class="map-layer-container">
+            <h2 class="map-layer-header">Map Layers</h2>
+            <div class="map-layer-buttons-container">
+                <button class="map-layer-button preload" title="Swap to Medicare Supplements Map" hx-get="/" hx-target="body" hx-swap="outerHTML" onclick="window.location.reload();">
+                    MS
+                </button>
+                <button class="map-layer-button preload" title="Swap to Dental Vision Hearing product Map" hx-get="/DVH" hx-target=".map-container">
+                    DVH
+                </button>
+                <button class="map-layer-button preload" title="Swap to Home Health Care product map" hx-get="/HHC" hx-target=".map-container">
+                    HHC
+                </button>
+                <button class="map-layer-button preload" title="Swap to Final Expense product map" hx-get="/FE" hx-target=".map-container">
+                    Final Exp
+                </button>
+                <button class="map-layer-button preload" title="Swap to Cancer product map" hx-get="/Cancer" hx-target=".map-container">
+                    Cancer
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- PDF Model -->
+<div id="PDFModal" class="modal">
+    <!-- PDFModal content -->
+    <div class="modal-content">
+        <!-- close button -->
+        <span class="close" onclick="closeModal()">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="oklch(0% 0 0)"
+                 fill="none">
+                <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="currentColor"
+                      stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+        </span>
+        <!-- PDF iframe -->
+        <!-- The src of the iframe will be set by the openModal function -->
+        <iframe id="pdfIframe" style="will-change: transform; box-shadow: 0 0 20px oklch(0% 0 0);" src=""
+                width="100%" height="800px"></iframe>
+    </div>
+</div>
+<!-- This is some hidden divs that will be used to store the last states HPColor and HPWidth -->
+<div class="LastHPWidth" style="display: none"></div>
+<div class="LastHPColor" style="display: none"></div>
+<!-- This is the script that handles the modal for PDFS, and the color mapping for the companies -->
+<script type="text/javascript">
+    // Convert the licensed_states to a dictionary for faster lookup
+    // This exists here by itself because I have moved the behemoth of a js block to a separate file.
+    // We need to make sure that the licensed_states are available to the main.js file tho so this must stay
+    let licensedStates = {};
+    {% for license in licensed_states %}
+        licensedStates["{{ license.state }}"] = "oklch(65.8% 0.17 253.64)"; // #0692e1 is the default color for licensed states
+        console.log("Adding {{ license.state }} to licensedStates");                                                                    
+    {% endfor %}
+
+    // Select all MEP layer buttons
+    const mepLayerButtons = document.querySelectorAll('.map-layer-button');
+
+    // Function to "delete" the licensed_states variable
+    function deleteLicensedStates() {
+        // If licensed_states is a property of an object, you could use delete instead
+        delete licensedStates;
+        console.log("Deleting licensed_states");
+        console.log(licensedStates); // undefined
+        // we want to remove the #states path, #states circle, #states text's from the js memory
+        // so that we can re-add them with the new color
+        document.getElementById('states').remove();
+        {#document.getElementById('states').remove();#}
+        {#document.getElementById('states').remove();#}
+        // lets set a timeout to wait for the above to finish
+        setTimeout(() => {
+            console.log("Delayed for 100ms");
+        }, "100");
+    }
+
+    // Attach event listeners to each button
+    mepLayerButtons.forEach(button => {
+        button.addEventListener('click', deleteLicensedStates);
+    });
+</script>
+<script src="{% static 'js/main.js' %}"></script>
+<script src="https://unpkg.com/htmx.org@1.6.1"></script>
+<script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+</body>
+</html>

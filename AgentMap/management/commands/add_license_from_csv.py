@@ -1,6 +1,6 @@
 # import base command from django
 from django.core.management.base import BaseCommand
-from AgentMap.models import LicensedState, Agent, State
+from AgentMap.models import AgentLicensedState, Agent, State
 import pandas as pd
 
 
@@ -38,7 +38,7 @@ class Command(BaseCommand):
             # Get the state object
             state = State.objects.get(state_code=row['State'])
             # Create or get the LicensedState object
-            LicensedState.objects.get_or_create(
+            AgentLicensedState.objects.get_or_create(
                 agent=Agent.objects.get(user__username=row['Agent']),
                 state=state,
                 licenseNumber=row['License Number'],

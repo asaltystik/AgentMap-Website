@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.db.models import Count
 from django.utils import timezone
 from datetime import timedelta
-from AgentMap.models import LicensedState, Agent
+from AgentMap.models import AgentLicensedState, Agent
 
 
 # This is a custom django management command that sends warning emails to agents
@@ -23,7 +23,7 @@ class Command(BaseCommand):
         # Ignoring the case of a leap year cause the next one is 4 years away.
 
         # Query the LicensedState model for any licenses expiring within the current month
-        expiring_licenses = LicensedState.objects.filter(expiration__range=(current_date, end_date))
+        expiring_licenses = AgentLicensedState.objects.filter(expiration__range=(current_date, end_date))
 
         # Group the results by agent and count the number of expiring licenses for each agent
         agents = expiring_licenses.values('agent').annotate(num_expiring=Count('id'))

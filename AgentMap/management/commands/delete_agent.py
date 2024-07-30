@@ -1,6 +1,6 @@
 from django.core.management.base import BaseCommand
 from django.contrib.auth.models import User
-from AgentMap.models import LicensedState
+from AgentMap.models import AgentLicensedState
 
 
 # Creates a custom Django management command
@@ -26,7 +26,7 @@ class Command(BaseCommand):
             return 1  # Return 1 to indicate an error
 
         # Query the LicensedState model for any licenses for the agent
-        agent_licenses = LicensedState.objects.filter(agent=user.agent)
+        agent_licenses = AgentLicensedState.objects.filter(agent=user.agent)
 
         # Iterate over the licenses and delete them
         for agent_license in agent_licenses:

@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import Form, MedicareSupplementCarrier, FormType, State
+from AgentMap.models import PDF, Carrier, FormType, State
 import os
 
 # Dictionary to map the form type abbreviation to the full form type
@@ -9,7 +9,7 @@ FORM_TYPE_DICT = {
 
 # Dictionary to map the company abbreviation to the full company name
 CompanyDict = {
-    agency.abbreviation: agency.carrier_name for agency in MedicareSupplementCarrier.objects.all()
+    agency.abbreviation: agency.carrier_name for agency in Carrier.objects.all()
 }
 
 # Dictionary to map the state abbreviation to the full state name
@@ -47,9 +47,10 @@ def parse_filenames(directory):
                     # Get the relative path of the file
                     # This is a temporary implementation for my local machine
                     # Server is going to be running on linux so this will need to be changed closer to prod
-                    start_dir: str = 'C:\\Users\\Noricum\\Desktop\\WebApps\\djangoMap\\static\\Companies'
+                    start_dir: str = ('C:\\Users\\Noricum\\Desktop\\WebApps\\AgentMap_MultiLayer')
                     file_path = os.path.relpath(str(file_path), start_dir)
                     file_path = file_path.replace('\\', '/')  # replace backslashes with forward slashes
+                    print(file_path)
                     # Cut off up until the static directory
                     index = file_path.index('static')  # No clue why my small changed required this to be added in
                     file_path = file_path[index:]  # Cut off up until the static dir, the ../../ will cause issues
@@ -64,12 +65,12 @@ def parse_filenames(directory):
                         form_type = None
 
                     # Get the MedicareSupplementAgencies object for the company
-                    carrier = MedicareSupplementCarrier.objects.filter(abbreviation=company).first()
+                    carrier = Carrier.objects.filter(abbreviation=company).first()
 
                     state = State.objects.filter(state_code=state).first()
 
-                    # Ccreate or retrieve the database object
-                    form, created = Form.objects.get_or_create(
+                    # Create or retrieve the database object
+                    form, created = PDF.objects.get_or_create(
                         carrier=carrier,  # Get the company name
                         # full_company=CompanyDict[company],  # Get the full company name
                         state=state,  # Get the state abbreviation
@@ -90,7 +91,7 @@ def parse_filenames(directory):
                     print(f"Skipping {file} because it doesn't have enough parts")
                     print(f"Number of parts: {len(parts)}")
     print(f"Total files: {total}")  # Print the total number of files
-    print(f"Total forms Parsed: {Form.objects.count()}")  # Print the total number of forms in the database
+    print(f"Total forms Parsed: {PDF.objects.count()}")  # Print the total number of forms in the database
 
 
 # Command to parse the filenames in a given directory and add to the database.

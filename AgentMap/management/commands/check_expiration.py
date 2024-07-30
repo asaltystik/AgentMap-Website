@@ -1,7 +1,7 @@
 from django.core.management.base import BaseCommand
 from django.core.mail import send_mail
 from django.utils import timezone
-from AgentMap.models import LicensedState
+from AgentMap.models import AgentLicensedState
 
 
 # Creates a custom Django management command to check the LicensedState model
@@ -19,7 +19,7 @@ class Command(BaseCommand):
         current_date = timezone.now().date()
 
         # Query the LicensedState model for any licenses past their expiration date
-        expired_licenses = LicensedState.objects.filter(expiration__lt=current_date)
+        expired_licenses = AgentLicensedState.objects.filter(expiration__lt=current_date)
 
         # Dictionary to store the licenses that will be deleted
         agent_licenses = {}  # This is empty for now
