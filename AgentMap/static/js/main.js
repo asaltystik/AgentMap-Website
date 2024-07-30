@@ -188,20 +188,6 @@
                 }
         }
 
-        // add an event listener for the htmx:afterSwap event
-        // Basically whenever we pull up the company information, Mainly used for the color coding for HouseHold Discounts
-        document.body.addEventListener('htmx:afterSwap', function(event) {
-
-            // Reset the scroll position to the top of the container
-            resetScroll();
-
-            // Lerp the header color
-            setTimeout(HeaderLerp, 80);
-
-            console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
-        });
-
-
         // Function to darken a color
         // Uses some bitwise operations to darken the color by a percentage.
         // Gotta review this later cause i have zero clue how bit-shifting changes the color.
@@ -275,9 +261,8 @@ function updateTimeZones() {
     pacificTime.textContent = getTimeInTimeZone(-11);
 }
 
-
-        // on window load, update the state colors
-        window.onload = function () {
+// Update the time zones every second
+function updateStateColorsAndTimeZones() {
             // Grabs all elements with the class tag "preload" and removes that extra tag
             document.querySelectorAll('.preload').forEach(function(element) {
                 element.classList.remove('preload'); // Remove the preload class
@@ -290,6 +275,9 @@ function updateTimeZones() {
             elements.forEach(function(element) {
                 let state = element.id;
                 let color = licensedStates[state];
+                // console.log("Element: " + element) // Log this
+                // console.log("State: " + state) // Log this
+                // console.log("Color: " + color) // Log this
 
 
                 // Check if the state is in the list of licensed states
@@ -454,4 +442,24 @@ function updateTimeZones() {
                 // Set an interval to update the time zones every second
                 setInterval(updateTimeZones, 1000);
             });
-        };
+}
+
+// on window load, update the state colors
+window.onload = updateStateColorsAndTimeZones;
+
+// add an event listener for the htmx:afterSwap event
+// Basically whenever we pull up the company information, Mainly used for the color coding for HouseHold Discounts
+document.body.addEventListener('htmx:afterSwap', function(event) {
+
+    // Reset the scroll position to the top of the container
+    resetScroll();
+
+    // Update the state colors and time zones
+    console.log("updating state colors and time zones")
+    updateStateColorsAndTimeZones();
+
+    // Lerp the header color
+    setTimeout(HeaderLerp, 80);
+
+    console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
+});
