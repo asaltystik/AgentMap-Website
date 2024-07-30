@@ -20,7 +20,8 @@ from AgentMap import views as agent_map_view
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', agent_map_view.agent_map_ms, name='AgentMapLayer'),
+    path('', agent_map_view.home, name='Home'),
+    path('MS/', agent_map_view.agent_map_ms, name='AgentMapLayer'),
     path('DVH/', agent_map_view.agent_map_dvh, name='DVHLayer'),
     path('HHC/', agent_map_view.agent_map_hhc, name='HHCLayer',),
     path('Cancer/', agent_map_view.agent_map_cancer, name='CancerLayer'),

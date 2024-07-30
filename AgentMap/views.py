@@ -15,7 +15,7 @@ import os
 def login_view(request):
     # If the user is already logged in, redirect them to the agent map page
     if request.user.is_authenticated:
-        return redirect('AgentMapLayer')
+        return redirect('Home')
 
     # if the request is a POST request, check if the form is valid
     if request.method == 'POST':
@@ -28,7 +28,7 @@ def login_view(request):
             # if the user is not None, log them in
             if user is not None:
                 login(request, user)
-                return redirect('AgentMapLayer')  # redirect the user to the agent map page
+                return redirect('Home')  # redirect the user to the agent map page
     else:
         # if the request is not a POST request, create a new login form
         form = LoginForm()
@@ -41,6 +41,52 @@ def logout_view(request):
     logout(request)  # log the user out
     return redirect('Login')  # redirect the user to the login page
 
+# This view will open the home page for the AgentMap project
+@login_required(login_url='/login/')
+def home(request):
+    # We want to get the current agent based on the user
+    agent = request.user.agent
+    # print(f'Agent: {agent}')
+
+    # We want to get the states that the agent is licensed in
+    licensed_states = agent.licensed_states.all()
+    print(f'Licensed States: {licensed_states}')
+
+    # Get the discount Keys
+    discount_keys = HouseHoldDiscountKey.objects.all()
+
+    if agent.user.is_superuser:
+        # print(f'{agent} is a superuser, Loading all agents licensed states')
+        all_licenses = {}  # Initialize as a dictionary
+        for current_agent in Agent.objects.all():
+            if current_agent.user.username == 'admin':
+                continue
+            for agent_license in current_agent.licensed_states.all():
+                agent_name = agent_license.agent.user.username[0].upper() + agent_license.agent.user.username[1:]
+                state_code = agent_license.state.state_code
+                if state_code not in all_licenses:
+                    all_licenses[state_code] = []  # Initialize as a list
+                all_licenses[state_code].append(agent_name)  # Append agent_name to the list
+        # print(f'All Licenses: {all_licenses}')
+    else:
+        # print(f'{agent} is not a superuser, Loading only their licensed states')
+        all_licenses = {}
+
+    # Get the Discount Key Legend
+    discount_keys = HouseHoldDiscountKey.objects.all()
+
+    # Set the MapLayer template variable to the MedicareSupplement Layer
+    map_layer = 'MedicareSupplementMapLayer.html'
+
+    # pack the variables into the context dictionary
+    context = {
+        'all_licenses': all_licenses,
+        'licensed_states': licensed_states,
+        'map_layer': map_layer,
+        'discount_keys': discount_keys
+    }
+    print(context)
+    return render(request, 'home.html', context=context)
 
 # This view is the main view for the AgentMap project.
 @login_required(login_url='/login/')
@@ -88,7 +134,7 @@ def agent_map_ms(request):
         'discount_keys': discount_keys
         }
     print(context)
-    return render(request, 'home.html', context=context)
+    return render(request, context=context)
 
 
 # This view will render the Medicare Get_Companies
