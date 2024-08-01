@@ -46,11 +46,6 @@ class MedicalConditionAdmin(admin.ModelAdmin):
     pass
 
 
-@admin.register(AcceptanceRule)
-class AcceptanceRuleAdmin(admin.ModelAdmin):
-    pass
-
-
 @admin.register(HouseHoldDiscountKey)
 class HouseHoldDiscountKeyAdmin(admin.ModelAdmin):
     pass
@@ -58,4 +53,9 @@ class HouseHoldDiscountKeyAdmin(admin.ModelAdmin):
 
 @admin.register(HouseHoldDiscount)
 class HouseHoldDiscountAdmin(admin.ModelAdmin):
+    pass
+
+
+@admin.register(AcceptanceRule)
+class AcceptanceRuleAdmin(admin.ModelAdmin):
     pass

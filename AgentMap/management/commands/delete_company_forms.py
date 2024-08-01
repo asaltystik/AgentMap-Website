@@ -14,6 +14,6 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         companies = options['companies']  # Get the companies to delete forms for
         for company in companies:
-            PDF.objects.filter(company=company).delete()  # Delete all forms for the given company
+            PDF.objects.filter(carrier_id=company).delete()  # Delete all forms for the given company
             self.stdout.write(f"Deleted all forms for {company}")  # Print that shit quay
         return 0
