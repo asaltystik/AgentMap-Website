@@ -30,7 +30,7 @@
                             {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
                         </button>
                     {% if "Vantage Care" in carrier.grouper.carrier_name %}
-                            <button onclick="window.open('https://docs.google.com/spreadsheets/d/1oadA4PpmSRCnlbmq06XtNURD56PZx3gd/edit?usp=sharing&ouid=108348743824232117908&rtpof=true&sd=true', '_blank')"
+                                <button onclick="window.open('{% static 'csv/VantageCare.xlsx' %}', '_blank')"
                                 title="Vantage Care Quote Tool"
                                 class="company-app-redirect" style="margin-top: .5vh"
                             >
