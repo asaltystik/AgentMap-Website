@@ -41,5 +41,4 @@ urlpatterns = [
     path('get_drug_names/', agent_map_view.get_drug_names, name='Get Drug Names'),
     path('login/', agent_map_view.login_view, name='Login'),
     path('logout/', agent_map_view.logout_view, name='Logout'),
-    path('vantage_care', agent_map_view.vantage_care, name='Vantage Care'),
 ]
