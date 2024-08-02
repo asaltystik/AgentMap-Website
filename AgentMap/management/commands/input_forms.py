@@ -26,7 +26,7 @@ def parse_filenames(directory):
         total = total + len(files)  # Get the total number of files
         for file in files:  # iterate over the files
             print(file)
-            if file.endswith('.pdf'):  # Check if the file is a pdf file
+            if file.endswith('.pdf'):  # check if the file is a pdf
                 parts = file.split('_', 2)  # Split the filename at the first underscore
                 print("Parts: ", parts)  # Print the parts of the filename
                 if len(parts) == 3:  # if we have 3 parts we smovin and can parse the data and input it into database
