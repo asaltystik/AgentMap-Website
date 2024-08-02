@@ -713,6 +713,23 @@ def birthday_rules(request, state):
     return response
 
 
+# This view will bring up the vantageCare.xlsx in a modal just like the birthday rules and the client_map
+@xframe_options_exempt
+@login_required
+def vantage_care(request):
+    # Define the path to the Excel file
+    file_path = 'static/csv/vantageCare.xlsx'
+
+    # Open the file and read its content
+    with open(file_path, 'rb') as file:
+        file_content = file.read()
+
+    # Create a response with the excel content
+    response = HttpResponse(file_content, content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+
+    return response
+
+
 # This view will return a interactive map of the US with the clients coordinates are marked on the map
 @login_required
 @xframe_options_exempt

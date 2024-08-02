@@ -30,8 +30,8 @@
                             {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
                         </button>
                     {% if "Vantage Care" in carrier.grouper.carrier_name %}
-                            <button onclick="window.open('{% static 'csv/VantageCare.xlsx' %}', '_blank')"
-                                title="LifeShield Dental Website"
+                            <button _="on click call openModal('{% url 'vantage_care' %}')"
+                                title="Vantage Care Quote Tool"
                                 class="company-app-redirect" style="margin-top: .5vh"
                             >
                                 Vantage Care Quote Tool
