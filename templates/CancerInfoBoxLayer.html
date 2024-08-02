@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Info Box</title>
+    {% load static %}
 </head>
 <body>
 <h2 style="margin-top: 1px; margin-bottom: 1px;">Cancer Plans: </h2>
@@ -28,6 +29,14 @@
                         >
                             {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
                         </button>
+                    {% if "Vantage Care" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('{% static 'csv/VantageCare.xlsx' %}', '_blank')"
+                                title="LifeShield Dental Website"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                Vantage Care Quote Tool
+                            </button>
+                        {% endif %}
                     </h2>             
                     <!-- This is the button-matrix that will display the forms for the company -->
                     <div class="button-matrix">
