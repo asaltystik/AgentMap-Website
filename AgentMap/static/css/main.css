@@ -59,6 +59,7 @@
 
 /* Styling for the info-box */
 .info-box-contents {
+    /* i want the padding to just be on the sides */
     padding: 1vw;
     overflow-y: auto;
     overflow-x: hidden;
