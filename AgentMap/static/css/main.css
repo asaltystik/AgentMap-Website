@@ -172,12 +172,14 @@ Im bit scared of how it will react */
     margin-right: 1vw;
 }
 
+/* Styling for the .color-key-header */
 .color-key-container .color-key-header {
     width: 100%;
     text-align: center;
     margin: 0 0 0 0;
 }
 
+/* Styling for the .color-keys */
 .color-key-container .color-keys {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -248,12 +250,14 @@ Im bit scared of how it will react */
 
 }
 
+/* Styling for the map-layer-header */
 .map-layer-container .map-layer-header {
     width: 100%;
     text-align: center;
     margin: 0 0 0 0;
 }
 
+/* Styling for the map-layer-buttons-container */
 .map-layer-buttons-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -392,6 +396,7 @@ Im bit scared of how it will react */
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
+/* Drug List */
 .drug-list {
     display: flex;
     flex-direction: row;
@@ -399,12 +404,14 @@ Im bit scared of how it will react */
     padding: 1vh;
 }
 
+/* Drug Item */
 .drug-item {
     border: .2vw solid oklch(0% 0 0);
     border-radius: 1vw;
     transition: 450ms ease-in-out; /* Trying out 450 rn */
 }
 
+/* Drug Item Hover Effect */
 .drug-item:hover {
     background-color: oklch(0.595 0.1848 21.9);
     color: oklch(100% 0 0);
@@ -509,6 +516,7 @@ select::-webkit-scrollbar-track {
     }
 }
 
+/* weird inbetween screens */
 @media (min-width:1001px) and (max-width: 1200px) {
     .info-box-contents {
         height: calc(84% - 1vw);
