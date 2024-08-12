@@ -532,6 +532,7 @@ select::-webkit-scrollbar-track {
     }
 }
 
+/* This is because marcelo likes to be weird and only have 80% of his window */
 @media (min-width: 1201px) and (max-width: 1800px) {
     .info-box-contents {
         height: calc(84% - 1vw);
