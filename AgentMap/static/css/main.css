@@ -532,6 +532,40 @@ select::-webkit-scrollbar-track {
     }
 }
 
+@media (min-width: 1201px) and (max-width: 1800px) {
+    .info-box-contents {
+        height: calc(84% - 1vw);
+    }
+    .new-company {
+        width: 24vw;
+        height: 24vh;
+    }
+    .button-matrix{
+        grid-template-columns: repeat(3, 1fr);
+        height: calc(88% - 2.45vw);
+    }
+    .redirect-button {
+        width: 180px;
+        height: 100px;
+    }
+    .map-layer-container {
+        width: calc(1vw + 20%);
+        margin-right: 0;
+        margin-left: 5vw;
+    }
+    .map-layer-header {
+        width: 80%;
+    }
+    .map-layer-buttons-container {
+        width: 80%;
+        column-gap: .01vw;
+    }
+    .map-layer-button {
+        width: 120px;
+        font-size: 24px;
+    }
+}
+
 /* Media queries for screen heights */
 
 /* Short screens */
