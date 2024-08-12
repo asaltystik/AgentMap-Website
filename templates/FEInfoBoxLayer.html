@@ -33,7 +33,7 @@
                     <div class="button-matrix">
                     <!-- loop through the forms for the company -->
                     {% for pdf in carrier.list %}
-                        {% if "FINAL" in pdf.form_info.form_type %}
+                        {% if "FIN" in pdf.form_info.form_type %}
                         <div>
                             <button 
                                 id="{{ pdf.form_info.full_form_type }}"
