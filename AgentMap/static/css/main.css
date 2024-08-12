@@ -111,6 +111,7 @@ Im bit scared of how it will react */
 /* Styling for the buttons */
 .button-matrix button {
     min-height: 7.5vh;
+    min-width: 8vw;
     text-align: center;
     background-color: oklch(74% .134 253.71);
     border: .15vw solid oklch(0% 0 0);

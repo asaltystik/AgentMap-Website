@@ -50,7 +50,7 @@
                                 onclick="openModal('{% url 'view_pdf' pdf.id %}')"
                                 title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
                             >
-                            {{ pdf.form_info.full_form_type }}
+                                {{ pdf.form_info.full_form_type }}
                             {% if pdf.date != "None" %}
                                 {{ pdf.date }}
                             {% endif %}
