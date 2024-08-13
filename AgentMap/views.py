@@ -401,94 +401,8 @@ def get_companies_hhc(request, state_code):
     print(agent_license_num)
     return render(request, 'Infobox.html', context=context)
 
-# this view will render the HHC Map
-@login_required(login_url='/login/')
-def agent_map_hhc(request):
-    # Example of retrieving the current user's agent and their licensed states
-    agent = request.user.agent
-    licensed_states = agent.licensed_states.all()
 
-    # Set the map_layer variable to the DVHMapLayer template
-    map_layer = 'HHCMapLayer.html'
-
-    # Example of additional data you might want to pass to the template
-    # discount_keys = []  # Assume this is fetched from your database
-
-    # Prepare the context with the map_layer and any other data
-    context = {
-        'agent': agent,
-        'licensed_states': licensed_states,
-        # 'discount_keys': discount_keys,
-    }
-    print(context)
-
-    # Render home.html with the context
-    return render(request, map_layer, context)
-
-
-# This view will render the HHC get_companies view
-@login_required(login_url='/login/')
-def get_companies_hhc(request, state_code):
-    # Birthday Rule States
-    birthday_rule_states = [
-        "California", "Idaho", "Kentucky", "Maryland", "Missouri",
-        "Nevada", "Oklahoma", "Oregon", "Washington"
-    ]
-
-    state_dictionary = {
-        state_obj.state_code: state_obj.full_state for state_obj in State.objects.all()
-    }
-
-    info_box_layer = 'HHCInfoBoxLayer.html'
-
-    # Get all the pdf's for the state
-    pdfs = PDF.objects.filter(state__state_code=state_code).order_by('carrier')
-    # for pdf in pdfs:
-    #     print(pdf.id)
-
-    state = state_dictionary[state_code]
-
-    discounts = HouseHoldDiscount.objects.filter(state__state_code=state_code).order_by('carrier')
-
-    current_date = timezone.now().date()
-
-    # Get the Agents License Number and Expiration date for the given state
-    agent = request.user.agent
-    print(f'Agent: {agent}')
-    # Get the most up to date license for the agent in the given state
-    agent_license = agent.licensed_states.filter(state__state_code=state_code).order_by('expiration').last()
-    print(f'Agent License: {agent_license}')
-    if agent_license is not None:
-        agent_license_num = agent_license.licenseNumber
-        expiration = agent_license.expiration
-        is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
-            if expiration else False
-        days_until_expiration = (expiration - current_date).days \
-            if expiration else 9999  # Set to huge number since NaN is not valid
-    else:
-        admin_acc = Agent.objects.filter(user__username='admin').first()
-        print(f'Admin Account: {admin_acc}')
-        admin_license = admin_acc.licensed_states.filter(state__state_code=state_code).order_by('expiration').last()
-        agent_license_num = "Corp# " + admin_license.licenseNumber if admin_license else None
-        expiration = None
-        is_expiring_soon = False
-        days_until_expiration = 9999  # Set to huge number since NaN is not valid
-
-    context = {
-        'state': state,
-        'pdfs': pdfs,
-        'discounts': discounts,
-        'agent_license_num': agent_license_num,
-        'expiration': expiration,
-        'is_expiring_soon': is_expiring_soon,
-        'days_until_expiration': days_until_expiration,
-        'birthday_rule_states': birthday_rule_states,
-        'info_box_layer': info_box_layer,
-    }
-    print(agent_license_num)
-    return render(request, 'Infobox.html', context=context)
-
-# this view will render the HHC Map
+# this view will render the Cancer Map
 @login_required(login_url='/login/')
 def agent_map_cancer(request):
     # Example of retrieving the current user's agent and their licensed states
@@ -513,7 +427,7 @@ def agent_map_cancer(request):
     return render(request, map_layer, context)
 
 
-# This view will render the HHC get_companies view
+# This view will render the Cancer get_companies view
 @login_required(login_url='/login/')
 def get_companies_cancer(request, state_code):
     # Birthday Rule States
@@ -576,7 +490,7 @@ def get_companies_cancer(request, state_code):
     return render(request, 'Infobox.html', context=context)
 
 
-# this view will render the HHC Map
+# this view will render the Final expense Map
 @login_required(login_url='/login/')
 def agent_map_fe(request):
     # Example of retrieving the current user's agent and their licensed states
@@ -601,7 +515,7 @@ def agent_map_fe(request):
     return render(request, map_layer, context)
 
 
-# This view will render the HHC get_companies view
+# This view will render the Final Expense get_companies view
 @login_required(login_url='/login/')
 def get_companies_fe(request, state_code):
     # Birthday Rule States
@@ -615,6 +529,94 @@ def get_companies_fe(request, state_code):
     }
 
     info_box_layer = 'FEInfoBoxLayer.html'
+
+    # Get all the pdf's for the state
+    pdfs = PDF.objects.filter(state__state_code=state_code).order_by('carrier')
+    # for pdf in pdfs:
+    #     print(pdf.id)
+
+    state = state_dictionary[state_code]
+
+    discounts = HouseHoldDiscount.objects.filter(state__state_code=state_code).order_by('carrier')
+
+    current_date = timezone.now().date()
+
+    # Get the Agents License Number and Expiration date for the given state
+    agent = request.user.agent
+    print(f'Agent: {agent}')
+    # Get the most up to date license for the agent in the given state
+    agent_license = agent.licensed_states.filter(state__state_code=state_code).order_by('expiration').last()
+    print(f'Agent License: {agent_license}')
+    if agent_license is not None:
+        agent_license_num = agent_license.licenseNumber
+        expiration = agent_license.expiration
+        is_expiring_soon = (expiration - current_date <= timedelta(days=31)) \
+            if expiration else False
+        days_until_expiration = (expiration - current_date).days \
+            if expiration else 9999  # Set to huge number since NaN is not valid
+    else:
+        admin_acc = Agent.objects.filter(user__username='admin').first()
+        print(f'Admin Account: {admin_acc}')
+        admin_license = admin_acc.licensed_states.filter(state__state_code=state_code).order_by('expiration').last()
+        agent_license_num = "Corp# " + admin_license.licenseNumber if admin_license else None
+        expiration = None
+        is_expiring_soon = False
+        days_until_expiration = 9999  # Set to huge number since NaN is not valid
+
+    context = {
+        'state': state,
+        'pdfs': pdfs,
+        'discounts': discounts,
+        'agent_license_num': agent_license_num,
+        'expiration': expiration,
+        'is_expiring_soon': is_expiring_soon,
+        'days_until_expiration': days_until_expiration,
+        'birthday_rule_states': birthday_rule_states,
+        'info_box_layer': info_box_layer,
+    }
+    print(agent_license_num)
+    return render(request, 'Infobox.html', context=context)
+
+
+# this view will render the Final Expense Map
+@login_required(login_url='/login/')
+def agent_map_ha(request):
+    # Example of retrieving the current user's agent and their licensed states
+    agent = request.user.agent
+    licensed_states = agent.licensed_states.all()
+
+    # Set the map_layer variable to the DVHMapLayer template
+    map_layer = 'HAMapLayer.html'
+
+    # Example of additional data you might want to pass to the template
+    # discount_keys = []  # Assume this is fetched from your database
+
+    # Prepare the context with the map_layer and any other data
+    context = {
+        'agent': agent,
+        'licensed_states': licensed_states,
+        # 'discount_keys': discount_keys,
+    }
+    print(context)
+
+    # Render home.html with the context
+    return render(request, map_layer, context)
+
+
+# This view will render the Cancer get_companies view
+@login_required(login_url='/login/')
+def get_companies_ha(request, state_code):
+    # Birthday Rule States
+    birthday_rule_states = [
+        "California", "Idaho", "Kentucky", "Maryland", "Missouri",
+        "Nevada", "Oklahoma", "Oregon", "Washington"
+    ]
+
+    state_dictionary = {
+        state_obj.state_code: state_obj.full_state for state_obj in State.objects.all()
+    }
+
+    info_box_layer = 'HAInfoBoxLayer.html'
 
     # Get all the pdf's for the state
     pdfs = PDF.objects.filter(state__state_code=state_code).order_by('carrier')
