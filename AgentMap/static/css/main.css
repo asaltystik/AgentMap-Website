@@ -545,6 +545,8 @@ select::-webkit-scrollbar-track {
         grid-template-columns: repeat(3, 1fr);
         height: calc(88% - 2.45vw);
     }
+    /* Have i ever mentioned how much i hate this css shit */
+    /* Need to account for marcelos weird window resolution */
     .redirect-button {
         width: 180px;
         height: 100px;
