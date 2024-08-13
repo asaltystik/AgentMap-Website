@@ -472,6 +472,7 @@ select::-webkit-scrollbar-track {
 }
 
 /* Media Queries */
+/* Need to figure out how to properly serve multiple media sizings because this seems too messy /
 
 /* Small screens */
 @media (max-width: 1000px) {
