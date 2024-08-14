@@ -17,7 +17,7 @@ state_dict = {
     state.state_code: state.full_state for state in State.objects.all()
 }
 
-
+# TODO: refactor this to be inside of the command instead of a loose function
 # Function to parse the filenames in the given directory
 def parse_filenames(directory):
     total = 0

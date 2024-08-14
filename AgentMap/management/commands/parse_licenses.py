@@ -5,7 +5,7 @@ import pandas as pd
 import tabula
 import os
 
-
+# TODO: need to refactor this so the functions are inside of the handle function
 # This command is used to parse the licenses from the SirCon PDFs
 class Command(BaseCommand):
     # Help message

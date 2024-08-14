@@ -5,7 +5,8 @@ from AgentMap.models import Drug, MedicalCondition, Carrier, AcceptanceRule
 import pandas
 
 
-# This class will handle the command
+# This class will handle the command, which is responsible for inputting the rows
+# from the DDL csv file into the database
 class Command(BaseCommand):
     help = 'Input the DDL data into the database'
 
@@ -53,19 +54,3 @@ class Command(BaseCommand):
                       f'Condition: {condition.condition_name}\n'
                       f'Company: {company.abbreviation}\n'
                       f'Is_Accepted: {is_accepted}\n')
-
-
-'''
-# This is some BS to copy out the information from the excel file that i do not need as those companies are not yet in
-# the database
-# open the csv file with the correct columns
-data = pandas.read_excel('C:\\Users\\Noricum\\Desktop\\UnderwritingGuidelines ABBY\\Combined_DDL.xlsx',
-                         sheet_name='Sheet1', usecols=['Drug Name', 'Condition', 'Company', 'Is_Allowed'])
-data = data[data['Company'] != 'ALLSTATE']
-data = data[data['Company'] != 'FEDLIFE']
-data = data[data['Company'] != 'PhysLife']
-data = data[data['Company'] != 'LIFESHIELD']
-# Make sure the columns are correct
-data = data[['Drug Name', 'Condition', 'Company', 'Is_Allowed']]
-data.to_csv('C:\\Users\\Noricum\\Desktop\\TestingSVG\\static\\Combined_DDL.csv', index=False)
-'''
