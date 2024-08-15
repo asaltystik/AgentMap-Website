@@ -457,3 +457,57 @@ document.body.addEventListener('htmx:afterSwap', function(event) {
 
     console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
 });
+
+function updateCustomProperties() {
+    const root = document.documentElement;
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width < 600) {
+        // Small screen
+        root.style.setProperty('--base-font-size', '.5em')
+        root.style.setProperty('--base-container-height', '12.5vh');
+        root.style.setProperty('--base-container-width', '12.5vh');
+        root.style.setProperty('--base-button-height', '2.5vh');
+        root.style.setProperty('--base-button-width', '3vw');
+        root.style.setProperty('--base-border-radius', '2px');
+    } else if (width < 1200) {
+        // Medium screen
+        root.style.setProperty('--base-font-size', '.65em')
+        root.style.setProperty('--base-container-height', '18.75vh');
+        root.style.setProperty('--base-container-width', '18.75vh');
+        root.style.setProperty('--base-button-height', '5.6vh');
+        root.style.setProperty('--base-button-width', '6vw');
+        root.style.setProperty('--base-border-radius', '4px');
+        root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
+    } else {
+        // base case
+        root.style.setProperty('--base-font-size', '1em');
+        root.style.setProperty('--base-container-height', '25vh');
+        root.style.setProperty('--base-container-width', '25vh');
+        root.style.setProperty('--base-button-height', '7.5vh');
+        root.style.setProperty('--base-button-width', '8vw');
+        root.style.setProperty('--base-border-radius', '4px');
+        root.style.setProperty('--base-grid-template', 'repeat(2, 1fr)')
+    }
+
+    // Force a repaint by manipulating the DOM
+    document.body.style.display = 'none';
+    document.body.offsetHeight; // Trigger a reflow
+    document.body.style.display = '';
+
+    // Reload the DOM elements
+    // const elements = document.querySelectorAll('.main-container, .horizontal-container, .map-container, .info-box-container, .new-company-container, .button-matrix, .company-app-redirect, .extras-container, .color-key-container, .redirect-button-container, .map-layer-container, .map-layer-buttons-container .logout-container');
+    // elements.forEach(element => {
+    //     const parent = element.parentNode;
+    //     const nextSibling = element.nextSibling;
+    //     parent.removeChild(element);
+    //     parent.insertBefore(element, nextSibling);
+    // });
+}
+
+// Initial call to set properties based on current screen size
+updateCustomProperties();
+
+// Update properties on window resize
+window.addEventListener('resize', updateCustomProperties);

@@ -6,6 +6,7 @@
     --base-button-width: 8vw;
     --base-border-size: 4px;
     --base-border-radius: 4px;
+    --base-grid-template: repeat(2, 1fr);
     --border-color: oklch(0% 0 0);
     --button-color: oklch(74% .134 253.71);
     --button-color-hovered: oklch(56% .134 253.71);
@@ -74,7 +75,7 @@
 
 .info-box-contents .new-company-container {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: var(--base-grid-template);
     grid-gap: 0 .3vw;
     justify-items: center;
     align-content: center;
