@@ -463,26 +463,24 @@ function updateCustomProperties() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    if (width < 600) {
+    if (width < 900) {
         // Small screen
-        root.style.setProperty('--base-font-size', '.5em')
-        root.style.setProperty('--base-container-height', '12.5vh');
-        root.style.setProperty('--base-container-width', '12.5vh');
-        root.style.setProperty('--base-button-height', '2.5vh');
-        root.style.setProperty('--base-button-width', '3vw');
-        root.style.setProperty('--base-border-radius', '2px');
-        root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '1.9')
-    } else if (width < 1400) {
-        // Medium screen
         root.style.setProperty('--base-font-size', '.65em')
-        root.style.setProperty('--base-container-height', '18.75vh');
-        root.style.setProperty('--base-container-width', '18.75vh');
-        root.style.setProperty('--base-button-height', '5.6vh');
-        root.style.setProperty('--base-button-width', '6vw');
+        root.style.setProperty('--base-button-height', '5vh');
+        root.style.setProperty('--base-button-width', '7vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '1.9')
+        root.style.setProperty('--info-box-height-multiplier', '2.228')
+    } else if (width < 1400) {
+        // Medium screen
+        root.style.setProperty('--base-font-size', '.68em')
+        root.style.setProperty('--base-container-height', '18.75vh');
+        root.style.setProperty('--base-container-width', '18.75vh');
+        root.style.setProperty('--base-button-height', '6.2vh');
+        root.style.setProperty('--base-button-width', '8vw');
+        root.style.setProperty('--base-border-radius', '4px');
+        root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
+        root.style.setProperty('--info-box-height-multiplier', '2.16')
     } else {
         // base case
         root.style.setProperty('--base-font-size', '1em');
