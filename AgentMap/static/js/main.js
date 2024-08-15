@@ -471,7 +471,9 @@ function updateCustomProperties() {
         root.style.setProperty('--base-button-height', '2.5vh');
         root.style.setProperty('--base-button-width', '3vw');
         root.style.setProperty('--base-border-radius', '2px');
-    } else if (width < 1200) {
+        root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
+        root.style.setProperty('--info-box-height-multiplier', '1.9')
+    } else if (width < 1400) {
         // Medium screen
         root.style.setProperty('--base-font-size', '.65em')
         root.style.setProperty('--base-container-height', '18.75vh');
@@ -480,6 +482,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-button-width', '6vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
+        root.style.setProperty('--info-box-height-multiplier', '1.9')
     } else {
         // base case
         root.style.setProperty('--base-font-size', '1em');
@@ -489,6 +492,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-button-width', '8vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(2, 1fr)')
+        root.style.setProperty('--info-box-height-multiplier', '2.289')
     }
 
     // Force a repaint by manipulating the DOM

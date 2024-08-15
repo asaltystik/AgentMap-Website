@@ -13,6 +13,7 @@
     --button-color-text-hovered: oklch(100% 0 0);
     --button-transition: 450ms ease-in-out;
     --font-family: 'lucida sans unicode', 'serif';
+    --info-box-height-multiplier: 2.289;
 }
 
 .main-container {
@@ -70,7 +71,7 @@
     padding: 0 0 0 .2vw;
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(var(--base-container-height) * 2.333);
+    height: calc(var(--base-container-height) * (var(--info-box-height-multiplier)));
 }
 
 .info-box-contents .new-company-container {
