@@ -463,14 +463,14 @@ function updateCustomProperties() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    if (width < 900) {
+    if (width < 1000) {
         // Small screen
         root.style.setProperty('--base-font-size', '.65em')
         root.style.setProperty('--base-button-height', '5vh');
         root.style.setProperty('--base-button-width', '7vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '2.228')
+        root.style.setProperty('--info-box-height-multiplier', '1.9')
     } else if (width < 1400) {
         // Medium screen
         root.style.setProperty('--base-font-size', '.68em')
@@ -480,7 +480,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-button-width', '8vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '2.16')
+        root.style.setProperty('--info-box-height-multiplier', '2.18')
     } else {
         // base case
         root.style.setProperty('--base-font-size', '1em');
