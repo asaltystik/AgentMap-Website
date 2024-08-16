@@ -471,6 +471,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
         root.style.setProperty('--info-box-height-multiplier', '1.9')
+        root.style.setProperty('--base-extras-margin-top', '2.15vh');
     } else if (width < 1400) {
         // Medium screen
         root.style.setProperty('--base-font-size', '.9em')
@@ -481,6 +482,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
         root.style.setProperty('--info-box-height-multiplier', '2.18')
+        root.style.setProperty('--base-extras-margin-top', '3.5vh');
     } else {
         // base case
         root.style.setProperty('--base-font-size', '1em');
@@ -491,6 +493,7 @@ function updateCustomProperties() {
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(2, 1fr)')
         root.style.setProperty('--info-box-height-multiplier', '2.289')
+        root.style.setProperty('--base-extras-margin-top', '0vh');
     }
 
     // Force a repaint by manipulating the DOM

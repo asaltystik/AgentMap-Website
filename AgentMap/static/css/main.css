@@ -7,6 +7,7 @@
     --base-border-size: 4px;
     --base-border-radius: 4px;
     --base-grid-template: repeat(2, 1fr);
+    --base-extras-margin-top: 0vh;
     --border-color: oklch(0% 0 0);
     --button-color: oklch(74% .134 253.71);
     --button-color-hovered: oklch(56% .134 253.71);
@@ -155,6 +156,7 @@
     flex-direction: row;
     align-items: center;
     height: calc(var(--base-container-height) * 1.2);
+    margin-top: var(--base-extras-margin-top);
 }
 
 .extras-container .color-key-container {
