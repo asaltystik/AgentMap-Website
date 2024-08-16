@@ -465,7 +465,7 @@ function updateCustomProperties() {
 
     if (width < 1000) {
         // Small screen
-        root.style.setProperty('--base-font-size', '.65em')
+        root.style.setProperty('--base-font-size', '.8em')
         root.style.setProperty('--base-button-height', '5vh');
         root.style.setProperty('--base-button-width', '7vw');
         root.style.setProperty('--base-border-radius', '4px');
@@ -473,7 +473,7 @@ function updateCustomProperties() {
         root.style.setProperty('--info-box-height-multiplier', '1.9')
     } else if (width < 1400) {
         // Medium screen
-        root.style.setProperty('--base-font-size', '.68em')
+        root.style.setProperty('--base-font-size', '.9em')
         root.style.setProperty('--base-container-height', '18.75vh');
         root.style.setProperty('--base-container-width', '18.75vh');
         root.style.setProperty('--base-button-height', '6.2vh');
