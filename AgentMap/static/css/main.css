@@ -8,6 +8,8 @@
     --base-border-radius: 4px;
     --base-grid-template: repeat(2, 1fr);
     --base-extras-margin-top: 0vh;
+    --base-new-company-height-multiplier: 1;
+    --base-new-company-width-multiplier: 2;
     --border-color: oklch(0% 0 0);
     --button-color: oklch(74% .134 253.71);
     --button-color-hovered: oklch(56% .134 253.71);
@@ -84,8 +86,8 @@
 }
 
 .new-company-container .new-company {
-    height: calc(var(--base-container-height) * 1);
-    width: calc(var(--base-container-width) * 2);
+    height: calc(var(--base-container-height) * var(--base-new-company-height-multiplier));
+    width: calc(var(--base-container-width) * var(--base-new-company-width-multiplier));
     border: calc(var(--base-border-size) * .8) solid var(--border-color);
     border-radius: calc(var(--base-border-radius) * 2);
     background-color: oklch(73.74% 0 360);

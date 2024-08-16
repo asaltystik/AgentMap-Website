@@ -463,20 +463,18 @@ function updateCustomProperties() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
-    if (width < 900) {
-        root.style.setProperty('--info-box-height-multiplier', '1.9')
-    } else if (width < 1000) {
+    if (width < 1000) {
         // Small screen
         root.style.setProperty('--base-font-size', '.8em')
         root.style.setProperty('--base-button-height', '5vh');
         root.style.setProperty('--base-button-width', '7vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '2.1')
+        root.style.setProperty('--info-box-height-multiplier', '2.8')
         root.style.setProperty('--base-extras-margin-top', '2.15vh');
     } else if (width < 1400) {
         // Medium screen
-        root.style.setProperty('--base-font-size', '.9em')
+        root.style.setProperty('--base-font-size', '.77em')
         root.style.setProperty('--base-container-height', '18.75vh');
         root.style.setProperty('--base-container-width', '18.75vh');
         root.style.setProperty('--base-button-height', '6.2vh');
@@ -485,6 +483,8 @@ function updateCustomProperties() {
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
         root.style.setProperty('--info-box-height-multiplier', '2.18')
         root.style.setProperty('--base-extras-margin-top', '3.5vh');
+        root.style.setProperty('--base-new-company-height-multiplier', '1.1')
+        root.style.setProperty('--base-new-company-width-multiplier', '2.2');
     } else {
         // base case
         root.style.setProperty('--base-font-size', '1em');
@@ -496,6 +496,8 @@ function updateCustomProperties() {
         root.style.setProperty('--base-grid-template', 'repeat(2, 1fr)')
         root.style.setProperty('--info-box-height-multiplier', '2.289')
         root.style.setProperty('--base-extras-margin-top', '0vh');
+        root.style.setProperty('--base-new-company-height-multiplier', '1')
+        root.style.setProperty('--base-new-company-width-multiplier', '2');
     }
 
     // Force a repaint by manipulating the DOM
