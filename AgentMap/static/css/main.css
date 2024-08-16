@@ -77,7 +77,7 @@
 .info-box-contents .new-company-container {
     display: grid;
     grid-template-columns: var(--base-grid-template);
-    grid-gap: 0 .3vw;
+    gap: .3vw;
     justify-items: center;
     align-content: center;
 }
