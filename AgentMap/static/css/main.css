@@ -262,6 +262,7 @@
     margin: 0 0 0 0;
 }
 
+/* container to hold the map layer buttons */
 .map-layer-container .map-layer-buttons-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -291,6 +292,7 @@
     transition: none !important;
 }
 
+/* Container to hold the logout button (current user name too?) */
 .logout-container {
     display: flex;
     flex-direction: row;
@@ -321,6 +323,7 @@
     transition: none !important;
 }
 
+/* This is the container that hold tha modal that gets populated by the pdfs, and client map*/
 .modal {
     display: none;
     position: fixed;
