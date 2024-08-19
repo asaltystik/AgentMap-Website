@@ -470,9 +470,9 @@ function updateCustomProperties() {
         root.style.setProperty('--base-button-width', '7vw');
         root.style.setProperty('--base-border-radius', '4px');
         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-        root.style.setProperty('--info-box-height-multiplier', '2.8')
+        root.style.setProperty('--info-box-height-multiplier', '2.08')
         root.style.setProperty('--base-extras-margin-top', '2.15vh');
-    } else if (width < 1400) {
+    } else if (width < 1350) {
         // Medium screen
         root.style.setProperty('--base-font-size', '.77em')
         root.style.setProperty('--base-container-height', '18.75vh');
