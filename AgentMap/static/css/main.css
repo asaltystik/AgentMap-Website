@@ -336,7 +336,7 @@
     overflow: auto;
     background-color: oklch(0% 0 0 / 40%);
 }
-
+/* the content of the modal. most of the time this is just the pdf */
 .modal-content {
     position: relative;
     margin: auto;
@@ -348,6 +348,7 @@
     max-width: 1200px;
 }
 
+/* close button for the modal class */
 .close {
     color: oklch(59.12% 0.242 29.2338851923426);
     background-color: oklch(48.49% 0.009 17.47 / 82%);
@@ -373,6 +374,7 @@
     transition: var(--button-transition);
 }
 
+/* button to bring the birthday rule text files up */
 .birthday-rule-button {
     border: calc(var(--base-border-size) * .3) solid var(--border-color);
     border-radius: calc(var(--base-border-radius) * 2);
@@ -385,6 +387,7 @@
     transition: var(--button-transition);
 }
 
+/* the current list of drugs the agent is searching */
 .drug-list {
     display: flex;
     flex-direction: row;
@@ -392,6 +395,7 @@
     padding: 1vh;
 }
 
+/* Weather or not a drug is allowed by carrier */
 .drug-item {
     border: calc(var(--base-border-size) * .3) solid var(--border-color);
     border-radius: calc(var(--base-border-radius) * 2);
