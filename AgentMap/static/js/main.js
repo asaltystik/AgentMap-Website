@@ -458,6 +458,7 @@ document.body.addEventListener('htmx:afterSwap', function(event) {
     console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
 });
 
+// Function to update custom base properties based on window size.
 function updateCustomProperties() {
     const root = document.documentElement;
     const width = window.innerWidth;

@@ -1,3 +1,4 @@
+/* Holds the base custom properties that we will be using */
 :root {
     --base-font-size: 1em;
     --base-container-height: 25vh;
@@ -19,6 +20,7 @@
     --info-box-height-multiplier: 2.289;
 }
 
+/* The main container that holds all of the other content in this file */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -26,6 +28,7 @@
     font-family: var(--font-family);
 }
 
+/* This container holds the map-container and info-box-container */
 .main-container .horizontal-container {
     display: flex;
     flex-direction: row;
@@ -38,23 +41,27 @@
     width: auto;
 }
 
+/* Container object for the map */
 .horizontal-container .map-container {
     position: relative;
     width: calc(var(--base-container-width) * 3.6);
     height: auto;
 }
 
+/* this is the map */
 .map-container .map {
     flex: 1;
     width: 100%;
     height: 100%;
 }
 
+/* state outlines */
 .map-container .svg-states {
     width: 100%;
     height: 100%;
 }
 
+/* state names*/
 .map-container .stateName {
     fill: oklch(0% 0 0);
     cursor: pointer;
@@ -62,6 +69,7 @@
     font-size: calc(var(--base-font-size) * 1.2);
 }
 
+/* This hold the info-box */
 .horizontal-container .info-box-container {
     position: relative;
     width: calc(var(--base-container-width) * 4.3);
@@ -70,6 +78,7 @@
     border-left: calc(var(--base-border-size) * 1) solid var(--border-color);
 }
 
+/* This will hold the new-company objects */
 .info-box-container .info-box-contents {
     padding: 0 0 0 .2vw;
     overflow-y: auto;
@@ -77,6 +86,7 @@
     height: calc(var(--base-container-height) * (var(--info-box-height-multiplier)));
 }
 
+/* space in contents to hold the new-companys */
 .info-box-contents .new-company-container {
     display: grid;
     grid-template-columns: var(--base-grid-template);
@@ -85,6 +95,7 @@
     align-content: center;
 }
 
+/* element per company that appears in the database for this state */
 .new-company-container .new-company {
     height: calc(var(--base-container-height) * var(--base-new-company-height-multiplier));
     width: calc(var(--base-container-width) * var(--base-new-company-width-multiplier));
@@ -102,6 +113,7 @@
     border-top: calc(var(--base-border-size) * .5)
 }
 
+/* pdf form buttons */
 .new-company .button-matrix {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -112,6 +124,7 @@
     height: calc(var(--base-container-height) * .85);
 }
 
+/* button for pdf forms */
 .new-company .button-matrix button {
     min-height: var(--base-button-height);
     min-width: var(--base-button-width);
@@ -132,6 +145,7 @@
     transition: none !important;
 }
 
+/* Redirect to company page */
 .new-company .company-app-redirect {
     text-align: center;
     background-color: var(--button-color);
@@ -153,6 +167,7 @@
     transition: none !important;
 }
 
+/* This hold the misc info */
 .main-container .extras-container {
     display: flex;
     flex-direction: row;
@@ -161,6 +176,7 @@
     margin-top: var(--base-extras-margin-top);
 }
 
+/* Holds the household discount key chart */
 .extras-container .color-key-container {
     position: relative;
     width: calc(var(--base-container-width) * 3.55);
@@ -198,6 +214,7 @@
     justify-content: center;
 }
 
+/* Container that opens the misc pages */
 .extras-container .redirect-button-container {
     width: calc(var(--base-container-width) * 2.4);
     margin-top: 2%;
@@ -228,6 +245,7 @@
     transition: none !important;
 }
 
+/* Container to hold the elements to change the map layer */
 .extras-container .map-layer-container {
     width: calc(var(--base-container-width) * 1.8);
     position: relative;
