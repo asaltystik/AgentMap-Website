@@ -464,6 +464,9 @@ function updateCustomProperties() {
     const width = window.innerWidth;
     const height = window.innerHeight;
 
+    // TODO: need to also specify the height of the screen to account for those
+    // with a smaller screen height
+
     if (width < 1000) {
         // Small screen
         root.style.setProperty('--base-font-size', '.8em')
@@ -505,15 +508,6 @@ function updateCustomProperties() {
     document.body.style.display = 'none';
     document.body.offsetHeight; // Trigger a reflow
     document.body.style.display = '';
-
-    // Reload the DOM elements
-    // const elements = document.querySelectorAll('.main-container, .horizontal-container, .map-container, .info-box-container, .new-company-container, .button-matrix, .company-app-redirect, .extras-container, .color-key-container, .redirect-button-container, .map-layer-container, .map-layer-buttons-container .logout-container');
-    // elements.forEach(element => {
-    //     const parent = element.parentNode;
-    //     const nextSibling = element.nextSibling;
-    //     parent.removeChild(element);
-    //     parent.insertBefore(element, nextSibling);
-    // });
 }
 
 // Initial call to set properties based on current screen size
