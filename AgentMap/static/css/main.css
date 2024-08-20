@@ -135,12 +135,14 @@
     font-size: calc(var(--base-font-size) * .8);
 }
 
+/* Hover effect */
 .new-company .button-matrix button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
+/* dont want transition on window load */
 .new-company .button-matrix.preload {
     transition: none !important;
 }
@@ -157,12 +159,14 @@
     font-weight: bold;
 }
 
+/* Hover effect company app redirect */
 .new-company .company-app-redirect:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
+/* no transition on window load */
 .new-company .company-app-redirect.preload {
     transition: none !important;
 }
@@ -188,17 +192,20 @@
     margin-right: 1vw;
 }
 
+/* Color key header element */
 .color-key-container .color-key-header {
     text-align: center;
     margin: 0 0 0 0;
 }
 
+/* container to hold each hhd color key */
 .color-key-container .color-keys {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
 
+/* color key explanation */
 .color-keys .color-key {
     width: 95%;
     min-height: 7.5vh;
@@ -226,6 +233,7 @@
     align-items: center;
 }
 
+/* redirects to other tools */
 .redirect-button-container .redirect-button {
     position: relative;
     font-size: calc(var(--base-font-size) * 1.4);
@@ -235,12 +243,14 @@
     width: calc(var(--base-button-width) * 1.2);
 }
 
+/* Hover effect */
 .redirect-button-container .redirect-button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
+/* no transition on window load */
 .redirect-button-container .redirect-button.preload {
     transition: none !important;
 }
@@ -257,6 +267,7 @@
     margin-left: 1vw;
 }
 
+/* header for the map layer container */
 .map-layer-container .map-layer-header {
     text-align: center;
     margin: 0 0 0 0;
@@ -271,6 +282,7 @@
     column-gap: .3vh;
 }
 
+/* button to change the map layer */
 .map-layer-buttons-container .map-layer-button {
     position: relative;
     padding: 20px;
@@ -282,12 +294,14 @@
     transition: var(--button-transition);
 }
 
+/* Hover effect */
 .map-layer-button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
+/* no transition on window load */
 .map-layer-button.preload {
     transition: none !important;
 }
@@ -307,18 +321,21 @@
     gap: .5vw;
 }
 
+/* logout button */
 .logout-button {
     border-radius: calc(var(--base-border-radius) * 1.8);
     border: calc(var(--base-border-size) * .15) solid var(--border-color);
     transition: calc(var(--button-transition) * 1.5);
 }
 
+/* Hover effect */
 .logout-button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
+/* no transition on window load */
 .logout-button.preload {
     transition: none !important;
 }
@@ -366,6 +383,7 @@
     top: -5px;
 }
 
+/* Hover effect */
 .close:hover, .close:focus {
     color: oklch(0% 0 0);
     text-decoration: none;
@@ -402,17 +420,31 @@
     transition: var(--button-transition);
 }
 
+/* Hover effect */
 .drug-item:hover {
     background-color: oklch(59.5% 0.1848 21.9);
     color: oklch(100% 0 0);
     transition: var(--button-transition);
 }
 
+/* Scroll bar */
 ::-webkit-scrollbar {
     width: 16px;
     height: 16px;
 }
 
+/* Scroll bar button */
+::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Scroll bar corner piece */
+::-webkit-scrollbar-corner {
+    background: transparent;
+}
+
+
+/* Scroll bar thumb */
 ::-webkit-scrollbar-thumb {
     opacity: .15;
     background: oklch(63.22% 0.154 243.8);
@@ -423,6 +455,7 @@
     box-shadow: none;
 }
 
+/* Hover and active effects */
 ::-webkit-scrollbar-thumb:hover,
 ::-webkit-scrollbar-thumb:active {
     background: oklch(62.88% .153 243.64 / 90%);
@@ -430,24 +463,29 @@
     border: 4px solid transparent;
 }
 
+/* scrollbar track*/
 ::-webkit-scrollbar-track {
     background: transparent;
     border: none;
 }
 
+/*  hover effect */
 ::-webkit-scrollbar-track:hover {
     background: oklch(59.99% 0 0 / 15%);
 }
 
+/* hover effect */
 ::-webkit-scrollbar-track:vertical:hover,
 ::-webkit-scrollbar-track:horizontal:hover {
     background: oklch(0% 0 0 / 15%);
 }
 
+/* select effect */
 select::-webkit-scrollbar-thumb {
     border: 4px solid oklch(93.89% 0 0);
 }
 
+/* select effect */
 select::-webkit-scrollbar-track {
     background: oklch(93.89% 0 0);
 }
