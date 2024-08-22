@@ -1,5 +1,5 @@
 from django.core.management.base import BaseCommand
-from AgentMap.models import PDF
+from AgentMap.models import PDF, Carrier
 
 
 # This command deletes all forms for the given companies
@@ -14,6 +14,8 @@ class Command(BaseCommand):
     def handle(self, *args, **options):
         companies = options['companies']  # Get the companies to delete forms for
         for company in companies:
-            PDF.objects.filter(carrier_id=company).delete()  # Delete all forms for the given company
+            carrier_id = Carrier.objects.filter(abbreviation=company).first().id
+            # i need carrier_id->carrier_name
+            PDF.objects.filter(carrier_id=carrier_id).delete()  # Delete all forms for the given company
             self.stdout.write(f"Deleted all forms for {company}")  # Print that shit quay
         return 0
