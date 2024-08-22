@@ -1,0 +1,612 @@
+/* Styling for the main container / majority of the page */
+/* give me a example of how to do variables so i can change the ratios when the screen size changes */
+:root {
+    --base-font-size: 1em;
+    --base-container-height: 25vh;
+    --base-container-width: 25vh;
+    --base-button-height: 7.5vh;
+    --base-button-width: 8vw;
+    --base-border-radius: 4px;
+    --border-color: oklch(0% 0 0);
+    --button-color: oklch(74% .134 253.71);
+    --button-color-hovered: oklch(56% .134 253.71);
+    --button-color-text-hovered: oklch(100% 0 0);
+    --button-transition: 450ms ease-in-out;
+
+
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+    font-family: lucida sans unicode, serif;
+    height: 70vh;
+}
+
+/* Styling for the container that holds the map and the info-box */
+.horizontal-container {
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
+    background-clip: border-box;
+    /*change the border to oklch()*/
+    border: 4px solid oklch(0% 0 0);
+    border-radius: 20px;
+    height: calc(95% - 1vh);
+    width: auto;
+}
+
+/* Styling for the map container */
+.map-container {
+    position: relative;
+    width: 45vw;
+    height: auto;
+}
+
+/* Styling for the map */
+.map {
+    flex: 1;
+    width: 100%;
+    height: 100%;
+}
+
+.svg-states {
+    height: 100%;
+    width: 100%;
+}
+
+/* Make the letters bold and bigger */
+.stateName {
+    font-size: 1.2em;
+    font-weight: bold;
+    fill: oklch(0% 0 0);
+    cursor: pointer;
+}
+
+/* Styling for the info-box-container */
+.info-box-container {
+    position: relative;
+    width: 55vw;
+    height: calc(95% - 1vh);
+    padding: 2vh 0 2.3vh 0;
+    border-left: 4px solid oklch(0% 0 0 / 80%);
+}
+
+/* Styling for the info-box */
+.info-box-contents {
+    /* i want the padding to just be on the sides */
+    padding: 1vw;
+    overflow-y: auto;
+    overflow-x: hidden;
+    height: calc(94% - 2vw);
+}
+
+/* Container for the List of Companies */
+.new-company-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: .3vw;
+    justify-items: center;
+    align-items: center;
+}
+
+/* styling for the company div */
+.new-company {
+    width: 25vw;
+    height: 25vh;
+    border: 2px black solid;
+    border-radius: 12px;
+    background-color: oklch(73.74% 0 360);
+}
+
+/* Styling for the company name */
+.new-company h2 {
+    margin-top: .2vh;
+    margin-bottom: .2vh;
+    border-top: 2px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Styling for the button matrix */
+/* Lets not touch anything to do with the button matrix
+Im bit scared of how it will react */
+.button-matrix {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: .2vw;
+    justify-items: center;
+    align-items: center;
+    padding: 0.3vw;
+    overflow-y: auto;
+    height: calc(98% - 2.45vw);
+}
+
+/* Styling for the buttons */
+.button-matrix button {
+    min-height: 7.5vh;
+    min-width: 8vw;
+    text-align: center;
+    background-color: oklch(74% .134 253.71);
+    border: .15vw solid oklch(0% 0 0);
+    border-radius: 1vw;
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/*Styling for the buttons hover effect */
+.button-matrix button:hover {
+    background-color: oklch(56% .134 253.71);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* button-matrix preload */
+.button-matrix.preload {
+    transition: none !important;
+}
+
+/* Company EApp Redirect */
+.company-app-redirect {
+    text-align: center;
+    background-color: oklch(74% .134 253.71);
+    border: 2px solid oklch(0% 0.1 154);
+    border-radius: 10px;
+    transition: 450ms ease-in-out;
+    font-size: 18px;
+    padding: 5px;
+}
+
+/* Company EApp Redirect Hover Effect */
+.company-app-redirect:hover {
+    background-color: oklch(56% .134 253.71);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out;
+}
+
+/* Company EApp Redirect Preload */
+.company-app-redirect.preload {
+    transition: none !important;
+}
+
+/* Styling for the info-box */
+.extras-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+/* Styling for the color-key-container */
+.color-key-container {
+    width: calc(45% - 1vw);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 0;
+    margin-right: 1vw;
+}
+
+/* Styling for the .color-key-header */
+.color-key-container .color-key-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+
+/* Styling for the .color-keys */
+.color-key-container .color-keys {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
+}
+
+/* Styling for the color-key */
+.color-key {
+    width : calc(95% - .1vw);
+    min-height: 7.5vh;
+    margin: 0.5vh 0.5vh 0.1vh 0.1vh;
+    word-wrap: break-word;
+    border: 0.2vw solid oklch(0% 0 0);
+    border-radius: 0.5vw;
+    padding: 0.5vh;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for the redirect button container */
+.redirect-button-container {
+    width: calc(35% - 2vw);
+    margin-top: calc(2%);
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: .2vh;
+    column-gap: .000001vh;
+    align-items: center;
+}
+
+/* Redirect button */
+.redirect-button {
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    width: 200px;
+    height: 100px;
+    border-radius: 10px;
+    transition: 650ms ease-in-out; /* lets keep this at 650 for rn */
+}
+
+/* Redirect button hover effect */
+.redirect-button:hover {
+    background-color: oklch(63.22% .154 243.8);
+    color: oklch(100% 0 0);
+    transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
+}
+
+/* Redirect button preload */
+.redirect-button.preload {
+    transition: none !important;
+}
+
+/* Styling for the map-layer-container*/
+.map-layer-container {
+    width: calc(20% - 1vw);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    margin-right: 1vw;
+
+}
+
+/* Styling for the map-layer-header */
+.map-layer-container .map-layer-header {
+    width: 100%;
+    text-align: center;
+    margin: 0 0 0 0;
+}
+
+/* Styling for the map-layer-buttons-container */
+.map-layer-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
+    row-gap: .2vh;
+    column-gap: .3vh;
+}
+
+/* Redirect button */
+.map-layer-button {
+    position: relative;
+    padding: 20px;
+    font-size: 30px;
+    width: 185px;
+    height: 90px;
+    text-align: center;
+    border-radius: 10px;
+    transition: 650ms ease-in-out; /* lets keep this at 650 for rn */
+}
+
+/* Redirect button hover effect */
+.map-layer-button:hover {
+    background-color: oklch(63.22% .154 243.8);
+    color: oklch(100% 0 0);
+    transition: 650ms ease-in-out; /* Lets keep this at 650 for rn */
+}
+
+/* Redirect button preload */
+.map-layer-button.preload {
+    transition: none !important;
+}
+
+
+
+/* Styling for the logout container */
+.logout-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding: 1vh 0;
+    position: absolute;
+    top: -.6vh;
+    right: .6vw;
+    font-weight: bold;
+    font-size: 1.6em;
+    gap: .5vw
+}
+
+/* Styling for the logout button */
+.logout-button {
+    border-radius: 10px;
+    border: 2px solid oklch(0% 0 0);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* Styling for the logout button hover effect */
+.logout-button:hover {
+    background-color: oklch(59.12% 0.242 29.2338851923426);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out;
+}
+
+/* Styling for the logout button preload */
+.logout-button.preload {
+    transition: none !important;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 50%; /* Line up the center of the modal */
+    top: 50%; /* Line up the center of the modal */
+    transform: translate(-50%, -50%); /* Center the modal */
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: oklch(0% 0 0 / 40%); /* Black w/ opacity */
+}
+
+/* Modal Content */
+/* CSS gives me brain rot */
+.modal-content {
+    position: relative;
+    margin: auto;
+    padding: 0;
+    top: 2%;
+    width: 100%;
+    height: 100%;
+    max-width: 1200px;
+    max-height: 900px;
+}
+
+/* The Close Button */
+/* So much css, tiny little button */
+.close {
+    color: oklch(59.12% 0.242 29.2338851923426);
+    background-color: oklch(48.49% 0.009 17.47 / 82%);
+    float: right;
+    font-size: 30px;
+    font-weight: bold;
+    border: 2px solid oklch(0% 0 0);
+    padding-left: 8px;
+    padding-right: 10px;
+    padding-top: 4px;
+    border-radius: 15px;
+    top: -5px;
+    z-index: 1;
+    position: relative;
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* the Close Button Hover Effect */
+.close:hover, .close:focus {
+    color: oklch(0% 0 0);
+    text-decoration: none;
+    cursor: pointer;
+    background-color: oklch(59.12% 0.242 29.2338851923426);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* Birthday Rules */
+.birthday-rule-button {
+    border: .2vw solid oklch(0% 0 0);
+    border-radius: 1vw;
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* Birthday Rules Hover Effect */
+.birthday-rule-button:hover {
+    background-color: oklch(63.22% 0.154 243.8);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* Drug List */
+.drug-list {
+    display: flex;
+    flex-direction: row;
+    gap: 1vh;
+    padding: 1vh;
+}
+
+/* Drug Item */
+.drug-item {
+    border: .2vw solid oklch(0% 0 0);
+    border-radius: 1vw;
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* Drug Item Hover Effect */
+.drug-item:hover {
+    background-color: oklch(0.595 0.1848 21.9);
+    color: oklch(100% 0 0);
+    transition: 450ms ease-in-out; /* Trying out 450 rn */
+}
+
+/* scroll bar styling */
+::-webkit-scrollbar {
+    width: 16px;
+    height: 16px;
+}
+
+/* scroll bar thumb styling */
+::-webkit-scrollbar-thumb {
+    opacity: .15;
+    background: oklch(63.22% 0.154 243.8);
+    background-clip: content-box;
+    border: 4px solid transparent;
+    border-radius: 8px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+/* scroll bar thumb hover effect */
+::-webkit-scrollbar-thumb:hover,
+::-webkit-scrollbar-thumb:active {
+    background: oklch(62.88% 0.153 243.64 / 90%);
+    background-clip: content-box;
+    border: 4px solid transparent;
+}
+
+/* scroll bar track styling */
+::-webkit-scrollbar-track {
+    background: transparent;
+    border: none;
+}
+
+/* scroll bar track hover effect */
+::-webkit-scrollbar-track:hover {
+    background: oklch(59.99% 0 0 / 15%);
+}
+
+/* scroll bar track styling */
+::-webkit-scrollbar-track:vertical:hover,
+::-webkit-scrollbar-track:horizontal:hover {
+    background: oklch(0% 0 0 / 15%);
+}
+
+/* select scrollbar thumb */
+select::-webkit-scrollbar-thumb {
+    border: 4px solid oklch(93.89% 0 0);
+}
+
+/* select scrollbar track */
+select::-webkit-scrollbar-track {
+    background: oklch(93.89% 0 0);
+}
+
+/* Media Queries */
+/* Need to figure out how to properly serve multiple media sizings because this seems too messy */
+/* probably will be something with custom properties so i can asign variability to the base css classes */
+
+/* Small screens */
+@media (max-width: 1000px) {
+    .horizontal-container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .map-container,
+    .info-box-container {
+        width: 100%;
+        height: auto;
+    }
+
+    .new-company-container {
+        grid-template-columns: 1fr;
+    }
+
+    .new-company {
+        width: 90vw;
+        height: auto;
+    }
+}
+
+/* Large screens */
+@media (min-width: 1001px) {
+
+    .info-box-contents {
+        height: calc(84% - 1vw);
+    }
+
+    .new-company {
+        width: 26vw;
+        height: 26vh;
+    }
+
+    .button-matrix {
+        max-width(100% - 20vw);
+    }
+
+    .button-matrix button {
+        min-height: 10vh;
+    }
+}
+
+/* weird inbetween screens */
+@media (min-width:1001px) and (max-width: 1200px) {
+    .info-box-contents {
+        height: calc(84% - 1vw);
+    }
+    .new-company {
+        width: 24vw;
+        height: 24vh;
+    }
+    .button-matrix{
+        grid-template-columns: repeat(2, 1fr);
+        height: calc(88% - 2.45vw);
+    }
+}
+
+/* This is because marcelo likes to be weird and only have 80% of his window */
+@media (min-width: 1201px) and (max-width: 1800px) {
+    .info-box-contents {
+        height: calc(84% - 1vw);
+    }
+    .new-company {
+        width: 24vw;
+        height: 24vh;
+    }
+    .button-matrix{
+        grid-template-columns: repeat(3, 1fr);
+        height: calc(88% - 2.45vw);
+    }
+    /* Have i ever mentioned how much i hate this css shit */
+    /* Need to account for marcelos weird window resolution */
+    .redirect-button {
+        width: 180px;
+        height: 100px;
+    }
+    .map-layer-container {
+        width: calc(1vw + 20%);
+        margin-right: 0;
+        margin-left: 5vw;
+    }
+    .map-layer-header {
+        width: 80%;
+    }
+    .map-layer-buttons-container {
+        width: 80%;
+        column-gap: .01vw;
+    }
+    .map-layer-button {
+        width: 120px;
+        font-size: 24px;
+    }
+}
+
+/* Media queries for screen heights */
+
+/* Short screens */
+@media (max-height: 600px) {
+    .info-box-contents {
+        height: calc(80% - 2vw); /* Adjust the height for short screens */
+    }
+}
+
+/* Medium height screens */
+@media (min-height: 601px) and (max-height: 800px) {
+    .info-box-contents {
+        height: calc(90% - 2vw); /* Adjust the height for medium height screens */
+    }
+}
+
+/* Tall screens */
+@media (min-height: 801px) {
+    .info-box-contents {
+        height: calc(94% - 2vw); /* Adjust the height for tall screens */
+    }
+}
