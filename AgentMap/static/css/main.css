@@ -1,7 +1,7 @@
 /* Holds the base custom properties that we will be using */
 /* going to attempt to rewrite this one more time this week using clamps */
 :root {
-    --base-font-size: 1em;
+    --base-font-size: clamp(.8em, 1.2em, 2.2em);
     --base-container-height: 25vh;
     --base-container-width: 25vh;
     --base-button-height: 7.5vh;
@@ -67,7 +67,7 @@
     fill: oklch(0% 0 0);
     cursor: pointer;
     font-weight: bold;
-    font-size: calc(var(--base-font-size) * 1.2);
+    font-size: var(--base-font-size);
 }
 
 /* This hold the info-box */
