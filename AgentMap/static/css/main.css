@@ -1,4 +1,5 @@
 /* Holds the base custom properties that we will be using */
+/* going to attempt to rewrite this one more time this week using clamps */
 :root {
     --base-font-size: 1em;
     --base-container-height: 25vh;
