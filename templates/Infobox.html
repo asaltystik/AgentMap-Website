@@ -14,13 +14,9 @@
 <body>
 <!-- This is the Header for the info-box-container the current implementation should keep it to be on top of the info-box-contents -->
 {% if not pdfs %}
-    <h1 style="margin-top: 1px; margin-bottom: 1px;">There are no forms for {{ state }}</h1>
+        <h1>There are no forms for {{ state }}</h1>
 {% else %}
-    <h1 style="margin-top: 1px;
-               margin-bottom: 1px;
-               border-bottom: 3px oklch(0% 0 0) solid;
-               padding-left: 5px;
-    ">
+    <h1>
         {{ state }}
         {% if agent_license_num %}
         <span style="font-size: 18px;">
