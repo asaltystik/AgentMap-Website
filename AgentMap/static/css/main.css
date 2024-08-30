@@ -2,119 +2,117 @@
 /* going to attempt to rewrite this one more time this week using clamps */
 :root {
     --base-font-size: clamp(.8em, 1.2em, 2.2em);
-    --base-container-height: 25vh;
-    --base-container-width: 25vh;
-    --base-button-height: 7.5vh;
-    --base-button-width: 8vw;
-    --base-border-size: 4px;
-    --base-border-radius: 4px;
-    --base-grid-template: repeat(2, 1fr);
+    --base-container-height: clamp(5vh, 64vh, 76vh);
+    --base-container-width: clamp(10vw, 25vw, 35vw);
+    --base-button-height: clamp(2vh, 6.5vh, 10vh);
+    --base-button-width: clamp(3vw, 5vw, 14vw);
+    --base-border-size: clamp(.2vw, .25vw, .3vw);
+    --base-border-radius: clamp(15px, 20px, 30px);
+    --base-grid-template: clamp(repeat(1, 1fr), repeat(2, 1fr), repeat(3, 1fr));
     --base-extras-margin-top: 0vh;
-    --base-new-company-height-multiplier: 1;
-    --base-new-company-width-multiplier: 2;
     --border-color: oklch(0% 0 0);
     --button-color: oklch(74% .134 253.71);
     --button-color-hovered: oklch(56% .134 253.71);
     --button-color-text-hovered: oklch(100% 0 0);
     --button-transition: 450ms ease-in-out;
     --font-family: 'lucida sans unicode', 'serif';
-    --info-box-height-multiplier: 2.289;
 }
 
-/* The main container that holds all of the other content in this file */
 .main-container {
     display: flex;
     flex-direction: column;
     z-index: 1;
     font-family: var(--font-family);
+    height: 96vh;
 }
 
-/* This container holds the map-container and info-box-container */
 .main-container .horizontal-container {
     display: flex;
     flex-direction: row;
-    flex-grow: 1;
     background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
     background-clip: border-box;
-    border: calc(var(--base-border-size) * 1) solid var(--border-color);
-    border-radius: calc(var(--base-border-radius) * 5);
-    height: calc(var(--base-container-height) * 2.6);
+    border: var(--base-border-size) solid var(--border-color);
+    border-radius: var(--base-border-radius);
+    height: 100%;
     width: auto;
 }
 
-/* Container object for the map */
 .horizontal-container .map-container {
     position: relative;
-    width: calc(var(--base-container-width) * 3.6);
+    width: 40%;
     height: auto;
 }
 
-/* this is the map */
 .map-container .map {
     flex: 1;
-    width: 100%;
     height: 100%;
+    width: 100%;
+    padding-top: 10vh;
 }
 
-/* state outlines */
 .map-container .svg-states {
-    width: 100%;
-    height: 100%;
+    fill: oklch(0% 0 0);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: var(--base-font-size);
+    height: auto;
 }
 
-/* state names*/
 .map-container .stateName {
     fill: oklch(0% 0 0);
     cursor: pointer;
     font-weight: bold;
     font-size: var(--base-font-size);
+    height: auto;
 }
 
-/* This hold the info-box */
 .horizontal-container .info-box-container {
     position: relative;
-    width: calc(var(--base-container-width) * 4.3);
-    /*height: auto;*/
-    padding: 2vh 0 2.3vh 0;
-    border-left: calc(var(--base-border-size) * 1) solid var(--border-color);
+    width: 60%;
+    border-left: var(--base-border-size) solid var(--border-color);
 }
 
-/* This will hold the new-company objects */
+.horizontal-container .info-box-container h1 {
+    margin-top: 1.5%;
+    margin-bottom: 1px;
+    border-bottom: 3px solid var(--border-color);
+    padding-left: 5px;
+}
+
 .info-box-container .info-box-contents {
     padding: 0 0 0 .2vw;
     overflow-y: auto;
     overflow-x: hidden;
-    height: calc(var(--base-container-height) * (var(--info-box-height-multiplier)));
+    height: 88%;
 }
 
-/* space in contents to hold the new-companys */
+.info-box-contents h2 {
+    margin: 0 0 0 0;
+}
+
 .info-box-contents .new-company-container {
     display: grid;
-    grid-template-columns: var(--base-grid-template);
+    grid-template-columns: repeat(2, 1fr);
     gap: .3vw;
     justify-items: center;
     align-content: center;
 }
 
-/* element per company that appears in the database for this state */
 .new-company-container .new-company {
-    height: calc(var(--base-container-height) * var(--base-new-company-height-multiplier));
-    width: calc(var(--base-container-width) * var(--base-new-company-width-multiplier));
     border: calc(var(--base-border-size) * .8) solid var(--border-color);
-    border-radius: calc(var(--base-border-radius) * 2);
+    border-radius: var(--base-border-radius);
     background-color: oklch(73.74% 0 360);
+    height: 100%;
+    width: 95%
 }
 
 .new-company-container .new-company h2 {
-    font-size: calc(var(--base-font-size) * 1.2);
     font-weight: bold;
     text-align: center;
     margin-top: .2vh;
     margin-bottom: .2vh;
-    border-top: calc(var(--base-border-size) * .5)
 }
 
-/* pdf form buttons */
 .new-company .button-matrix {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -122,40 +120,37 @@
     align-items: center;
     padding: 0.3vw;
     overflow-y: auto;
-    height: calc(var(--base-container-height) * .85);
+    height: auto;
+    row-gap: .5vh;
 }
 
-/* button for pdf forms */
 .new-company .button-matrix button {
+    border: calc(var(--base-border-size) * .6) solid var(--border-color);
+    border-radius: var(--base-border-radius);
+    background-color: var(--button-color);
+    font-size: calc(var(--base-font-size)*.6);
+    transition: background-color var(--button-transition);
     min-height: var(--base-button-height);
     min-width: var(--base-button-width);
-    border: calc(var(--base-border-size) * .15) solid var(--border-color);
-    background-color: var(--button-color);
-    border-radius: calc(var(--base-border-radius) * 2);
-    transition: var(--button-transition);
-    font-size: calc(var(--base-font-size) * .8);
 }
 
-/* Hover effect */
 .new-company .button-matrix button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
-/* dont want transition on window load */
 .new-company .button-matrix.preload {
     transition: none !important;
 }
 
-/* Redirect to company page */
 .new-company .company-app-redirect {
     text-align: center;
     background-color: var(--button-color);
-    border: calc(var(--base-border-size) * .15) solid var(--border-color);
-    border-radius: calc(var(--base-border-radius) * 2);
-    transition: var(--button-transition);
-    font-size: calc(var(--base-font-size) * .85);
+    border: calc(var(--base-border-size) * .6) solid var(--border-color);
+    border-radius: var(--base-border-radius);
+    font-size: var(--base-font-size);
+    transition: background-color var(--button-transition);
     padding: 5px;
     font-weight: bold;
 }
@@ -172,100 +167,86 @@
     transition: none !important;
 }
 
-/* This hold the misc info */
 .main-container .extras-container {
     display: flex;
     flex-direction: row;
-    align-items: center;
-    height: calc(var(--base-container-height) * 1.2);
-    margin-top: var(--base-extras-margin-top);
+    height: auto;
+    justify-content: center;
 }
 
-/* Holds the household discount key chart */
 .extras-container .color-key-container {
     position: relative;
-    width: calc(var(--base-container-width) * 3.55);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 1vh 0;
     margin-right: 1vw;
+    width: 50%;
 }
 
-/* Color key header element */
 .color-key-container .color-key-header {
     text-align: center;
     margin: 0 0 0 0;
 }
 
-/* container to hold each hhd color key */
 .color-key-container .color-keys {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
 
-/* color key explanation */
 .color-keys .color-key {
-    width: 95%;
-    min-height: 7.5vh;
-    margin: 0.5vh 0.5vh 0.1vh 0.1vh;
-    word-wrap: break-word;
-    font-size: calc(var(--base-font-size) * .98);
-    border: calc(var(--base-border-size) * 1) solid var(--border-color);
-    border-radius: calc(var(--base-border-radius) * 2);
-    padding: 0.5vh;
-    text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
+    text-align: center;
+    padding: 0.5vh;
+    border-radius: var(--base-border-radius);
+    border: var(--base-border-size) solid var(--border-color);
+    font-size: calc(var(--base-font-size) * .8);
+    word-wrap: break-word;
+    margin: 0.5vh 0.5vh 0.1vh 0.1vh;
+    width: 95%
 }
 
-/* Container that opens the misc pages */
 .extras-container .redirect-button-container {
-    width: calc(var(--base-container-width) * 2.4);
-    margin-top: 2%;
+    width: 25%;
     position: relative;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    row-gap: .2vh;
-    column-gap: .000001vh;
-    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
-/* redirects to other tools */
-.redirect-button-container .redirect-button {
+.extras-container .redirect-button-container h2 {
+    margin: 0 0 0 0;
+}
+
+.extras-container .redirect-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: .2vh;
+    column-gap: 0.000001vh;
+}
+
+.redirect-buttons .redirect-button {
     position: relative;
-    font-size: calc(var(--base-font-size) * 1.4);
-    border-radius: calc(var(--base-border-radius) * 2);
+    font-size: calc(var(--base-font-size) * .8);
+    border-radius: var(--base-border-radius);
     transition: var(--button-transition);
-    height: calc(var(--base-button-height) * 1.3);
-    width: calc(var(--base-button-width) * 1.2);
+    height: clamp(8vh, 6.5vh, 10vh);
+    width: clamp(9vw, 12vw, 14vw)
 }
 
 /* Hover effect */
-.redirect-button-container .redirect-button:hover {
+.redirect-buttons .redirect-button:hover {
     background-color: var(--button-color-hovered);
     color: var(--button-color-text-hovered);
     transition: var(--button-transition);
 }
 
 /* no transition on window load */
-.redirect-button-container .redirect-button.preload {
+.redirect-buttons .redirect-button.preload {
     transition: none !important;
-}
-
-/* Container to hold the elements to change the map layer */
-.extras-container .map-layer-container {
-    width: calc(var(--base-container-width) * 1.8);
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-left: 1vw;
 }
 
 /* header for the map layer container */
@@ -283,16 +264,27 @@
     column-gap: .3vh;
 }
 
-/* button to change the map layer */
-.map-layer-buttons-container .map-layer-button {
+
+.extras-container .map-layer-container {
+    width: 25%;
     position: relative;
-    padding: 20px;
-    font-size: calc(var(--base-font-size) * 1.4);
-    width: calc(var(--base-button-width) * 1.15);
-    height: calc(var(--base-button-height) * 1.1);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     text-align: center;
-    border-radius: calc(var(--base-border-radius) * 2);
+    align-items: center;
+    margin-left: 1vw;
+}
+
+.map-layer-container .map-layer-button {
+    position: relative;
+    padding: 10px;
+    font-size: var(--base-font-size);
+    border-radius: var(--base-border-radius);
     transition: var(--button-transition);
+    height: clamp(8vh, 6.5vh, 10vh);
+    width: clamp(9vw, 12vw, 14vw)
+
 }
 
 /* Hover effect */

@@ -12,7 +12,7 @@
     <!-- Got the static files to work, so now we moved the 100's of lines of css to a separate file -->
     <!-- and use the django templater to load the css in on page load -->
     {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'css/newmain.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
 <div class="main-container">
@@ -56,14 +56,16 @@
                 </div>
         </div>
         <div class="redirect-button-container">
-            <button
+            <h2 class="redirect-button-header">Secondary Tools</h2>
+                <div class="redirect-buttons">
+                <button
                     id="quoting-engine-button"
                     class="redirect-button preload"
                     onclick="window.open('https://www.insurancetoolsportal.com/securecare65/auth/signin', '_blank')"
                     Title="Start Quote: https://www.insurancetoolsportal.com/securecare65/auth/signin"
-            >
-                Start Quote
-            </button>
+                >
+                    Start Quote
+                </button>
             <!-- we might delete this button -->
             <!-- only keeping this here for now if the quoting engine is a different url -->
             <!-- This button is probably useless since the agents all know the radius bob website lmao -->
@@ -117,6 +119,7 @@
                     Client Map
                 </button>
             {% endif %}
+                </div>
         </div>
         <div class="map-layer-container">
             <h2 class="map-layer-header">Map Layers</h2>
