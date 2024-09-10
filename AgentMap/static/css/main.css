@@ -204,7 +204,7 @@
     padding: 0.5vh;
     border-radius: var(--base-border-radius);
     border: var(--base-border-size) solid var(--border-color);
-    font-size: calc(var(--base-font-size) * .8);
+    font-size: calc(var(--base-font-size) * .85);
     word-wrap: break-word;
     margin: 0.5vh 0.5vh 0.1vh 0.1vh;
     width: 95%
