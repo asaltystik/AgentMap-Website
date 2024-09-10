@@ -213,8 +213,11 @@
 .extras-container .redirect-button-container {
     width: 25%;
     position: relative;
+    display: flex;
+    flex-direction: column;
     justify-content: center;
     text-align: center;
+    align-items: center;
 }
 
 .extras-container .redirect-button-container h2 {
