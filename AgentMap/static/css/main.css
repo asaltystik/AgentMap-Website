@@ -1,7 +1,7 @@
 /* Holds the base custom properties that we will be using */
 /* going to attempt to rewrite this one more time this week using clamps */
 :root {
-    --base-font-size: clamp(.8em, 1.2em, 2.2em);
+    --base-font-size: clamp(.9em, 1.2em, 2.0em);
     --base-container-height: clamp(5vh, 64vh, 76vh);
     --base-container-width: clamp(10vw, 25vw, 35vw);
     --base-button-height: clamp(2vh, 6.5vh, 10vh);
@@ -83,7 +83,7 @@
     padding: 0 0 0 .2vw;
     overflow-y: auto;
     overflow-x: hidden;
-    height: 87%;
+    height: 84%;
 }
 
 .info-box-contents h2 {
