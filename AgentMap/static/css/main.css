@@ -8,6 +8,7 @@
     --base-button-width: clamp(3vw, 5vw, 14vw);
     --base-border-size: clamp(.2vw, .25vw, .3vw);
     --base-border-radius: clamp(15px, 20px, 30px);
+    /* Should experiment with some js magickas to get this working probably rewrite once again funnnn */
     --base-grid-template: clamp(repeat(1, 1fr), repeat(2, 1fr), repeat(3, 1fr));
     --base-extras-margin-top: 0vh;
     --border-color: oklch(0% 0 0);
@@ -18,6 +19,7 @@
     --font-family: 'lucida sans unicode', 'serif';
 }
 
+/* This is the root container for all of the websites css */
 .main-container {
     display: flex;
     flex-direction: column;
@@ -26,6 +28,7 @@
     height: 62vh;
 }
 
+/* Holds the map svg + infobox stuff */
 .main-container .horizontal-container {
     display: flex;
     flex-direction: row;
@@ -37,12 +40,14 @@
     width: auto;
 }
 
+/* Holds the map of the United States of America */
 .horizontal-container .map-container {
     position: relative;
     width: 40%;
     height: auto;
 }
 
+/* This is the styling of the map */
 .map-container .map {
     flex: 1;
     height: 100%;
@@ -50,6 +55,7 @@
     padding-top: 10vh;
 }
 
+/* styling of the individual states */
 .map-container .svg-states {
     fill: oklch(0% 0 0);
     cursor: pointer;
@@ -58,6 +64,7 @@
     height: auto;
 }
 
+/* state name labels */
 .map-container .stateName {
     fill: oklch(0% 0 0);
     cursor: pointer;
@@ -66,6 +73,7 @@
     height: auto;
 }
 
+/* this is to hold the company data after we select a map layer + state */
 .horizontal-container .info-box-container {
     position: relative;
     width: 60%;
@@ -79,6 +87,7 @@
     padding-left: 5px;
 }
 
+/* this is going to hold the the drug-info + company info */
 .info-box-container .info-box-contents {
     padding: 0 0 0 .2vw;
     overflow-y: auto;
@@ -90,6 +99,7 @@
     margin: 0 0 0 0;
 }
 
+/* holds the carriers that would be pulled up */
 .info-box-contents .new-company-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -98,6 +108,7 @@
     align-content: center;
 }
 
+/* carrier that matches our search request */
 .new-company-container .new-company {
     border: calc(var(--base-border-size) * .8) solid var(--border-color);
     border-radius: var(--base-border-radius);
@@ -113,6 +124,7 @@
     margin-bottom: .2vh;
 }
 
+/* pdf form button grid */
 .new-company .button-matrix {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -124,6 +136,7 @@
     row-gap: .5vh;
 }
 
+/* button to navigate to pdf form */
 .new-company .button-matrix button {
     border: calc(var(--base-border-size) * .6) solid var(--border-color);
     border-radius: var(--base-border-radius);
@@ -167,6 +180,7 @@
     transition: none !important;
 }
 
+/* This holds all of the extra information + tools to be displayed underneath the map */
 .main-container .extras-container {
     display: flex;
     flex-direction: row;
@@ -174,6 +188,7 @@
     justify-content: center;
 }
 
+/* container to hold all of the house hold discount key information */
 .extras-container .color-key-container {
     position: relative;
     display: flex;
@@ -190,12 +205,14 @@
     margin: 0 0 0 0;
 }
 
+/* Color key grid */
 .color-key-container .color-keys {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     justify-items: center;
 }
 
+/* individual color keys */
 .color-keys .color-key {
     display: flex;
     align-items: center;
@@ -210,6 +227,7 @@
     width: 95%
 }
 
+/* secondary tools container */
 .extras-container .redirect-button-container {
     width: 25%;
     position: relative;
@@ -224,6 +242,7 @@
     margin: 0 0 0 0;
 }
 
+/* secondary tools button grid */
 .extras-container .redirect-buttons {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -231,6 +250,7 @@
     column-gap: 0.000001vh;
 }
 
+/* secondary tools buttons */
 .redirect-buttons .redirect-button {
     position: relative;
     font-size: calc(var(--base-font-size) * .8);
@@ -258,16 +278,7 @@
     margin: 0 0 0 0;
 }
 
-/* container to hold the map layer buttons */
-.map-layer-container .map-layer-buttons-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    justify-items: center;
-    row-gap: .2vh;
-    column-gap: .3vh;
-}
-
-
+/* flex container to hold the swap layer buttons */
 .extras-container .map-layer-container {
     width: 25%;
     position: relative;
@@ -279,6 +290,16 @@
     margin-left: 1vw;
 }
 
+/* container to hold the map layer buttons */
+.map-layer-container .map-layer-buttons-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    row-gap: .2vh;
+    column-gap: .3vh;
+}
+
+/* magicka for the swap layer buttons */
 .map-layer-container .map-layer-button {
     position: relative;
     padding: 10px;
