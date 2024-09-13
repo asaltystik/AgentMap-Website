@@ -157,6 +157,7 @@
     transition: none !important;
 }
 
+/* redirect to carriers application website */
 .new-company .company-app-redirect {
     text-align: center;
     background-color: var(--button-color);
