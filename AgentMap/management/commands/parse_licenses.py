@@ -5,8 +5,8 @@ import pandas as pd
 import tabula
 import os
 
-# TODO: need to refactor this so the functions are inside of the handle function
-# This command is used to parse the licenses from the SirCon PDFs
+# This is now deprecated and will be removed in the future
+# We have the sircon scraper that will be used to get the agent license
 class Command(BaseCommand):
     # Help message
     help = 'Parse the licenses from the SirCon PDFs and add them to the database'
