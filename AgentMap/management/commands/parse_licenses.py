@@ -5,6 +5,7 @@ import pandas as pd
 import tabula
 import os
 
+
 # This is now deprecated and will be removed in the future
 # We have the sircon scraper that will be used to get the agent license
 class Command(BaseCommand):
