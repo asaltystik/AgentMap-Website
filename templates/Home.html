@@ -99,6 +99,15 @@
             >
                 Declinable Drugs
             </button>
+            <button
+                    id="Rebates-button"
+                    class="redirect-button preload"
+                    hx-get="rebate_calculator/"
+                    hx-target="#info-box"
+                    hx-trigger="click"
+            >
+                Rebate Calculator
+            </button>
             <!-- if the user is an admin show the admin button -->
             {% if user.is_staff %}
                 <button
