@@ -812,3 +812,56 @@ def get_drug_names(request):
     drugs = Drug.objects.filter(drug_name__istartswith=query).values_list('drug_name', flat=True)
     # Return the drugs as a JSON Response
     return JsonResponse(list(drugs), safe=False)
+
+
+def rebate_calculator(request):
+    if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+        # we want to go row by row and calculate the correct rebate value for each drug type + fills/month
+        # we will return the results as a JSON response
+
+        # Get the POST data from the request
+        post_data = request.POST
+        print(post_data)
+
+        drug_type = post_data.getlist('drug-type')
+        fills_per_month = post_data.getlist('fills-per-month')
+
+        # check if the last fill per month is empty, if it is we will skip over it since there wont be a drug type yet (its a blank row just added)
+        if fills_per_month[-1] == '':
+            fills_per_month.pop()
+
+        # check to make sure the drug type and fills per month are the same length
+        if len(drug_type) != len(fills_per_month):
+            return JsonResponse({'error': 'Drug Type and Fills Per Month must be the same length'})
+
+        print(f'Drug Type: {drug_type}')
+        print(f'Fills Per Month: {fills_per_month}')
+
+        results = [
+            {
+                'carrier': 'Carrier A',
+                'bronze': 100,
+                'silver': 200,
+                'gold': 300,
+            }
+        ]
+        return JsonResponse({'results': results})
+    elif request.method == 'POST':
+        # Handle form submission for non-AJAX requests
+        print('Non-AJAX POST Request')
+        results = [
+            {
+                'carrier': 'Carrier A',
+                'bronze': 100,
+                'silver': 200,
+                'gold': 300,
+            }
+        ]
+        return render(request, 'RebateCalculator.html', {'results': results})
+    return render(request, 'RebateCalculator.html')
+
+def add_rebate_row(request):
+    # Count the current number of rows
+    current_row_count = int(request.GET.get('current_row_count', 0))
+    next_row_id = current_row_count + 1
+    return render(request, 'rebate-row.html', context={'next_row_id': next_row_id})
