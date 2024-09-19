@@ -42,7 +42,6 @@ urlpatterns = [
     path('clear_drugs/', agent_map_view.clear_drugs, name='Clear Drugs'),
     path('get_drug_names/', agent_map_view.get_drug_names, name='Get Drug Names'),
     path('rebate_calculator/', agent_map_view.rebate_calculator, name='RebateCalculator'),
-    path('add_row/', agent_map_view.add_rebate_row, name='Add Rebate Row'),
     path('login/', agent_map_view.login_view, name='Login'),
     path('logout/', agent_map_view.logout_view, name='Logout'),
 ]

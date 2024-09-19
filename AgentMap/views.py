@@ -816,34 +816,80 @@ def get_drug_names(request):
 
 def rebate_calculator(request):
     if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
-        # we want to go row by row and calculate the correct rebate value for each drug type + fills/month
-        # we will return the results as a JSON response
-
         # Get the POST data from the request
         post_data = request.POST
         print(post_data)
 
         drug_type = post_data.getlist('drug-type')
-        fills_per_month = post_data.getlist('fills-per-month')
+        fills_per_year = post_data.getlist('fills-per-year')
 
-        # check if the last fill per month is empty, if it is we will skip over it since there wont be a drug type yet (its a blank row just added)
-        if fills_per_month[-1] == '':
-            fills_per_month.pop()
+        # Remove any empty strings from the end of the lists, gets added by adding a new row which is annoying
+        if fills_per_year[-1] == '':
+            fills_per_year.pop()
 
         # check to make sure the drug type and fills per month are the same length
-        if len(drug_type) != len(fills_per_month):
+        if len(drug_type) != len(fills_per_year):
             return JsonResponse({'error': 'Drug Type and Fills Per Month must be the same length'})
 
         print(f'Drug Type: {drug_type}')
-        print(f'Fills Per Month: {fills_per_month}')
+        print(f'Fills Per Month: {fills_per_year}')
+        print(f'Generic Count: {drug_type.count("generic")}')
+        print(f'Branded Count: {drug_type.count("branded")}')
+
+        # Initialize the results list
+        results = []
+        gtl_total = 0
+        hn_total = 0
+        sl_total = 0
+        unl_total = 0
+
+        for i in range(len(drug_type)):
+
+            # Get the drug type and fills per month values for the current index
+            current_drug_type = drug_type[i]
+            current_fills_per_month = fills_per_year[i]
+            if current_drug_type == 'generic':
+                gtl_total += 10 * int(current_fills_per_month)
+                hn_total += 15 * int(current_fills_per_month)
+                sl_total += 10 * int(current_fills_per_month)
+                unl_total += 10 * int(current_fills_per_month)
+            elif current_drug_type == 'branded':
+                gtl_total += 25 * int(current_fills_per_month)
+                hn_total += 30 * int(current_fills_per_month)
+                sl_total += 25 * int(current_fills_per_month)
+                unl_total += 25 * int(current_fills_per_month)
+
+        # Print the totals for each carrier + the count of each drug type
+        print(f'GTL Total: {gtl_total}')
+        print(f'HN Total: {hn_total}')
+        print(f'SL Total: {sl_total}')
+        print(f'UNL Total: {unl_total}')
 
         results = [
             {
-                'carrier': 'Carrier A',
-                'bronze': 100,
-                'silver': 200,
-                'gold': 300,
-            }
+                'carrier': 'GTL Rebate (yearly)',
+                'bronze': min(300, gtl_total),
+                'silver': min(600, gtl_total),
+                'gold': min(900, gtl_total),
+            },
+            {
+                'carrier': 'United Life Rebate (yearly)',
+                'bronze': min(300, unl_total),
+                'silver': min(600, unl_total),
+                'gold': min(900, unl_total),
+            },
+            {
+                'carrier': 'Heartland National',
+                'bronze': min(360, hn_total),
+                'silver': min(720, hn_total),
+                'gold': min(720, hn_total),
+            },
+            {
+                'carrier': 'Standard Life',
+                'bronze': min(300, sl_total),
+                'silver': min(600, sl_total),
+                'gold': min(600, sl_total),
+            },
         ]
         return JsonResponse({'results': results})
     elif request.method == 'POST':
@@ -851,17 +897,29 @@ def rebate_calculator(request):
         print('Non-AJAX POST Request')
         results = [
             {
-                'carrier': 'Carrier A',
-                'bronze': 100,
-                'silver': 200,
-                'gold': 300,
-            }
+                'carrier': 'GTL Max rebates',
+                'bronze': 300,
+                'silver': 600,
+                'gold': 900,
+            },
+            {
+                'carrier:': 'UNL Max rebates',
+                'bronze': 300,
+                'silver': 600,
+                'gold': 900,
+            },
+            {
+                'carrier': 'HN Max rebates',
+                'bronze': 360,
+                'silver': 720,
+                'gold': 720,
+            },
+            {
+                'carrier': 'SL Max rebates',
+                'bronze': 300,
+                'silver': 600,
+                'gold': 600,
+            },
         ]
         return render(request, 'RebateCalculator.html', {'results': results})
     return render(request, 'RebateCalculator.html')
-
-def add_rebate_row(request):
-    # Count the current number of rows
-    current_row_count = int(request.GET.get('current_row_count', 0))
-    next_row_id = current_row_count + 1
-    return render(request, 'rebate-row.html', context={'next_row_id': next_row_id})
