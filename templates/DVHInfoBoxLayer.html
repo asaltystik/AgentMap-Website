@@ -22,12 +22,22 @@
                     {% endfor %}
                     <h2 style="text-align: center">
                         <!-- Button that links to the company's website -->
-                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                        <!-- if the agent is daltonB + the company is Metlife, display their website -->
+                        {% if "daltonB" in user.username and "MetLife" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('https://enrollment.ncd.com/798438', '_blank')"
+                                title="MetLife  E-Application"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                {{ carrier.grouper.carrier_name }}
+                            </button>
+                        {% else %}
+                            <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
                             title="{{ carrier.grouper.carrier_name }} E-Application"
                             class="company-app-redirect" style="margin-top: .5vh"
-                        >
-                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
-                        </button>
+                            >
+                                {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                            </button>
+                        {% endif %}
                         {% if "LifeShield Dental" in carrier.grouper.carrier_name %}
                             <button onclick="window.open('https://www.lifeshield-dvh.com/', '_blank')"
                                 title="LifeShield Dental Website"

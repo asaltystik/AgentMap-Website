@@ -300,6 +300,7 @@ def get_companies_dvh(request, state_code):
         days_until_expiration = 9999  # Set to huge number since NaN is not valid
 
     context = {
+        'agent': agent,
         'state': state,
         'pdfs': pdfs,
         'discounts': discounts,
