@@ -62,7 +62,8 @@
                 </table>
             </div>
             <button type="button" class="rebate-form-button" onclick="addRow()">Add Row</button>
-            <button type="submit" class="rebate-form-button preload">Calculate Rebate</button>
+            <!-- make the submit button doesnt load a new page, should just update teh info-box -->
+            <button type="button" class="rebate-form-button" onclick="updateCalculations()">Calculate Rebate</button>
         </form>
     </div>
     <div class="results-container" style="overflow-y: auto">
@@ -74,6 +75,9 @@
                     <th>Bronze</th>
                     <th>Silver</th>
                     <th>Gold</th>
+                    <th>Select Plan</th>
+                    <th>Monthly Rate</th>
+                    <th>Updated Calculation</th>
                 </tr>
             </thead>
             <tbody id="rebate-results-body">
@@ -84,75 +88,28 @@
                             <td>{{ result.bronze }}</td>
                             <td>{{ result.silver }}</td>
                             <td>{{ result.gold }}</td>
+                            <td>
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="bronze" onchange="updateRowCalculation({{ forloop.counter }})"> Bronze
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="silver" onchange="updateRowCalculation({{ forloop.counter }})"> Silver
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="gold" onchange="updateRowCalculation({{ forloop.counter }})"> Gold
+                            </td>
+                            <td>
+                                <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateRowCalculation({{ forloop.counter }})">
+                            </td>
+                            <td id="updated-calculation-{{ forloop.counter }}"></td>
                         </tr>
                     {% endfor %}
                 {% else %}
                 {% endif %}
                     <tr>
-                        <td colspan="4">No results available</td>
+                        <td colspan="7">No results available</td>
                     </tr>
             </tbody>
         </table>
     </div>
+    <!-- Existing HTML content -->
 <script>
-    let rowCounter = 1; // Initialize the row counter
-
-    function addRow() {
-        rowCounter++; // Increment the row counter
-        const tbody = document.getElementById('rebate-form-body');
-        const newRow = document.createElement('tr');
-        newRow.className = 'rebate-form-row';
-        newRow.innerHTML = `
-            <td>${rowCounter}</td>
-            <td>
-                <input type="text" id="drug-name-${rowCounter}" name="drug-name">
-            </td>
-            <td>
-                <input type="checkbox" id="branded-${rowCounter}" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
-                <label for="branded-${rowCounter}">Branded</label>
-                <input type="checkbox" id="generic-${rowCounter}" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
-                <label for="generic-${rowCounter}">Generic</label>
-            </td>
-            <td>
-                <input type="number" id="fills-year-${rowCounter}" name="fills-per-year" style="width: 4vw" required>
-                <label for="fills-month-${rowCounter}" class="visually-hidden"></label>
-            </td>
-            <td>
-                <button type="button" onclick="removeRow(this)">Remove</button>
-            </td>
-        `;
-        tbody.appendChild(newRow);
-        updateCalculations(); // Update calculations after adding a new row
-    }
-
-    function removeRow(button) {
-        const row = button.parentNode.parentNode;
-        row.parentNode.removeChild(row);
-        renumberRows();
-        updateCalculations(); // Update calculations after removing a row
-    }
-
-    function renumberRows() {
-        const rows = document.querySelectorAll('.rebate-form-row');
-        rows.forEach((row, index) => {
-            row.querySelector('td').innerText = index + 1;
-        });
-        rowCounter = rows.length;
-    }
-
-    function toggleCheckbox(checkbox) {
-        const checkboxes = checkbox.parentNode.querySelectorAll('input[type="checkbox"]');
-        checkboxes.forEach(cb => {
-            if (cb !== checkbox) {
-                cb.checked = false;
-            }
-        });
-    }
-
-    document.getElementById('rebate-form').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent the default form submission
-        updateCalculations(); // Update calculations on form submission
-    });
+    // Existing JavaScript content
 
     function updateCalculations() {
         const form = document.getElementById('rebate-form');
@@ -170,18 +127,80 @@
             const resultsBody = document.getElementById('rebate-results-body');
             resultsBody.innerHTML = ''; // Clear existing results
 
-            data.results.forEach(result => {
+            data.results.forEach((result, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
                     <td>${result.carrier}</td>
                     <td>${result.bronze}</td>
                     <td>${result.silver}</td>
                     <td>${result.gold}</td>
+                    <td>
+                        <input type="radio" name="plan-${index + 1}" value="bronze" onchange="updateRowCalculation(${index + 1})"> Bronze
+                        <input type="radio" name="plan-${index + 1}" value="silver" onchange="updateRowCalculation(${index + 1})"> Silver
+                        <input type="radio" name="plan-${index + 1}" value="gold" onchange="updateRowCalculation(${index + 1})"> Gold
+                    </td>
+                    <td>
+                        <input type="number" name="monthly-rate-${index + 1}" required onchange="updateRowCalculation(${index + 1})">
+                    </td>
+                    <td id="updated-calculation-${index + 1}"></td>
                 `;
                 resultsBody.appendChild(row);
             });
         })
         .catch(error => console.error('Error:', error));
     }
+
+    function updateRowCalculation(rowIndex) {
+    const plan = document.querySelector(`input[name="plan-${rowIndex}"]:checked`).value;
+    const monthlyRate = document.querySelector(`input[name="monthly-rate-${rowIndex}"]`).value;
+    
+    // Get the rebate value from the corresponding column
+    const row = document.querySelector(`#rebate-results-body tr:nth-child(${rowIndex})`);
+    const rebate = row.querySelector(`td:nth-child(${plan === 'bronze' ? 2 : plan === 'silver' ? 3 : 4})`).innerText;
+    
+    // Calculate the annual cost
+    const annualCost = (monthlyRate * 12) - parseFloat(rebate);
+    // limit the decimal places to 2
+    document.getElementById(`updated-calculation-${rowIndex}`).innerText = `Annual Cost: ${annualCost.toFixed(2)}`;
+}
+
+function addRow() {
+    const tbody = document.getElementById('rebate-form-body');
+    const rowCount = tbody.rows.length + 1;
+    const newRow = document.createElement('tr');
+    newRow.className = 'rebate-form-row';
+    newRow.innerHTML = `
+        <td>${rowCount}</td>
+        <td>
+            <input type="text" id="drug-name-${rowCount}" name="drug-name">
+        </td>
+        <td>
+            <input type="checkbox" id="branded-${rowCount}" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
+            <label for="branded-${rowCount}">Branded</label>
+            <input type="checkbox" id="generic-${rowCount}" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
+            <label for="generic-${rowCount}">Generic</label>
+        </td>
+        <td>
+            <input type="number" id="fills-year-${rowCount}" name="fills-per-year" style="width: 4vw" required>
+            <label for="fills-month-${rowCount}" class="hidden"></label>
+        </td>
+        <td>
+            <button type="button" onclick="removeRow(this)">Remove</button>
+        </td>
+    `;
+    tbody.appendChild(newRow);
+}
+
+function removeRow(button) {
+    const row = button.closest('tr');
+    row.remove();
+
+    // Update row numbers
+    const rows = document.querySelectorAll('#rebate-form-body tr');
+    rows.forEach((row, index) => {
+        row.querySelector('td:first-child').innerText = index + 1;
+    });
+}
 </script>
+</body>
 </html>
