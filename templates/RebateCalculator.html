@@ -27,7 +27,7 @@
     <div class="rebate-container">
         <form id="rebate-form" class="rebate-form" action="{% url 'RebateCalculator' %}" method="POST">
             {% csrf_token %}
-            <div class="rebate-table-container" style="max-height: 25vh; overflow-y: auto">
+            <div class="rebate-table-container" style="max-height: 32vh; overflow-y: auto">
                 <table>
                     <thead>
                         <tr>
@@ -66,18 +66,18 @@
             <button type="button" class="rebate-form-button" onclick="updateCalculations()">Calculate Rebate</button>
         </form>
     </div>
-    <div class="results-container" style="overflow-y: auto">
+    <div class="results-container" style="overflow-y: auto; display: none">
         <h2 style="margin: 0 0 0 0;">Rebate Results</h2>
         <table>
             <thead>
                 <tr>
                     <th>Carrier</th>
-                    <th>Bronze</th>
-                    <th>Silver</th>
-                    <th>Gold</th>
+                    <th>Bronze Rebate</th>
+                    <th>Silver Rebate</th>
+                    <th>Gold Rebate</th>
                     <th>Select Plan</th>
                     <th>Monthly Rate</th>
-                    <th>Updated Calculation</th>
+                    <th>Annualized Cost</th>
                 </tr>
             </thead>
             <tbody id="rebate-results-body">
@@ -89,12 +89,12 @@
                             <td>{{ result.silver }}</td>
                             <td>{{ result.gold }}</td>
                             <td>
-                                <input type="radio" name="plan-{{ forloop.counter }}" value="bronze" onchange="updateRowCalculation({{ forloop.counter }})"> Bronze
-                                <input type="radio" name="plan-{{ forloop.counter }}" value="silver" onchange="updateRowCalculation({{ forloop.counter }})"> Silver
-                                <input type="radio" name="plan-{{ forloop.counter }}" value="gold" onchange="updateRowCalculation({{ forloop.counter }})"> Gold
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="bronze" onchange="updateAnnualizedCost({{ forloop.counter }})"> Bronze
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="silver" onchange="updateAnnualizedCost({{ forloop.counter }})"> Silver
+                                <input type="radio" name="plan-{{ forloop.counter }}" value="gold" onchange="updateAnnualizedCost({{ forloop.counter }})"> Gold
                             </td>
                             <td>
-                                <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateRowCalculation({{ forloop.counter }})">
+                                <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateAnnualizedCost({{ forloop.counter }})" style="width: 3vw; text-align: center" step="0.00001">
                             </td>
                             <td id="updated-calculation-{{ forloop.counter }}"></td>
                         </tr>
@@ -107,9 +107,7 @@
             </tbody>
         </table>
     </div>
-    <!-- Existing HTML content -->
 <script>
-    // Existing JavaScript content
 
     function updateCalculations() {
         const form = document.getElementById('rebate-form');
@@ -130,41 +128,64 @@
             data.results.forEach((result, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>${result.carrier}</td>
+                    <td>
+                        <button type="button" onclick="openRateSheet('${result.carrier}')">${result.carrier}</button>
+                    </td>
                     <td>${result.bronze}</td>
                     <td>${result.silver}</td>
                     <td>${result.gold}</td>
                     <td>
-                        <input type="radio" name="plan-${index + 1}" value="bronze" onchange="updateRowCalculation(${index + 1})"> Bronze
-                        <input type="radio" name="plan-${index + 1}" value="silver" onchange="updateRowCalculation(${index + 1})"> Silver
-                        <input type="radio" name="plan-${index + 1}" value="gold" onchange="updateRowCalculation(${index + 1})"> Gold
+                        <input type="radio" name="plan-${index + 1}" value="bronze" onchange="updateAnnualizedCost(${index + 1})"> Bronze
+                        <input type="radio" name="plan-${index + 1}" value="silver" onchange="updateAnnualizedCost(${index + 1})"> Silver
+                        <input type="radio" name="plan-${index + 1}" value="gold" onchange="updateAnnualizedCost(${index + 1})"> Gold
                     </td>
                     <td>
-                        <input type="number" name="monthly-rate-${index + 1}" required onchange="updateRowCalculation(${index + 1})">
+                        <input type="number" name="monthly-rate-${index + 1}" required onchange="updateAnnualizedCost(${index + 1})" style="width: 3vw; text-align: center" step="0.00001">
                     </td>
                     <td id="updated-calculation-${index + 1}"></td>
                 `;
                 resultsBody.appendChild(row);
             });
+            document.querySelector('.results-container').style.display = 'block';
         })
         .catch(error => console.error('Error:', error));
     }
 
-    function updateRowCalculation(rowIndex) {
+    function updateAnnualizedCost(rowIndex) {
     const plan = document.querySelector(`input[name="plan-${rowIndex}"]:checked`).value;
     const monthlyRate = document.querySelector(`input[name="monthly-rate-${rowIndex}"]`).value;
-    
+
     // Get the rebate value from the corresponding column
     const row = document.querySelector(`#rebate-results-body tr:nth-child(${rowIndex})`);
     const rebate = row.querySelector(`td:nth-child(${plan === 'bronze' ? 2 : plan === 'silver' ? 3 : 4})`).innerText;
-    
+
     // Calculate the annual cost
     const annualCost = (monthlyRate * 12) - parseFloat(rebate);
     // limit the decimal places to 2
-    document.getElementById(`updated-calculation-${rowIndex}`).innerText = `Annual Cost: ${annualCost.toFixed(2)}`;
+    document.getElementById(`updated-calculation-${rowIndex}`).innerText = `\$:${annualCost.toFixed(2)}`;
+    // if the annual cost is negative, we want to show it in green, otherwise red. also we want to make a dark transparent background to make it more visible
+    document.getElementById(`updated-calculation-${rowIndex}`).style.color = annualCost < 0 ? 'oklch(78.78% 0.1783 159.7)' : 'oklch(63.82% 0.2446 24.04)';;
+
 }
 
 function addRow() {
+    const lastRow = document.querySelector('#rebate-form-body tr:last-child');
+    const drugType = lastRow.querySelector('input[name="drug-type"]:checked');
+    const fillsPerYear = lastRow.querySelector('input[name="fills-per-year"]').value;
+
+    if(!drugType && !fillsPerYear) {
+        alert('Please select a drug type and enter the number of fills per year for the last row');
+        return;
+    }
+    else if (!drugType) {
+        alert('Please select a drug type for the last row');
+        return;
+    }
+    else if (!fillsPerYear) {
+        alert('Please enter the number of fills per year for the last row');
+        return;
+    }
+
     const tbody = document.getElementById('rebate-form-body');
     const rowCount = tbody.rows.length + 1;
     const newRow = document.createElement('tr');
@@ -189,9 +210,14 @@ function addRow() {
         </td>
     `;
     tbody.appendChild(newRow);
+    updateCalculations()
 }
 
 function removeRow(button) {
+    // Make sure we don't delete the last row
+    if (document.querySelectorAll('#rebate-form-body tr').length === 1) {
+        return;
+    }
     const row = button.closest('tr');
     row.remove();
 
@@ -200,6 +226,32 @@ function removeRow(button) {
     rows.forEach((row, index) => {
         row.querySelector('td:first-child').innerText = index + 1;
     });
+    updateCalculations()
+}
+
+function toggleCheckbox(checkbox) {
+    const row = checkbox.closest('tr');
+    const checkboxes = row.querySelectorAll(`input[name="${checkbox.name}"]`);
+    checkboxes.forEach((cb) => {
+        if (cb !== checkbox) {
+            cb.checked = false;
+        }
+    });
+}
+
+function openRateSheet(carrier) {
+    const rateSheetUrls = {
+        'GTL': '/view_pdf/1395',
+        'United Life': '/view_pdf/146',
+        'Heartland National': '/view_pdf/514',
+        'Standard Life': '/view_pdf/3129'
+    };
+    const url = rateSheetUrls[carrier];
+    if (url) {
+        openModal(url);
+    } else {
+        alert('Rate sheet not available for ' + carrier);
+    }
 }
 </script>
 </body>

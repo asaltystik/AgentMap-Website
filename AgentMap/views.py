@@ -868,13 +868,13 @@ def rebate_calculator(request):
 
         results = [
             {
-                'carrier': 'GTL Rebate (yearly)',
+                'carrier': 'GTL',
                 'bronze': min(300, gtl_total),
                 'silver': min(600, gtl_total),
                 'gold': min(900, gtl_total),
             },
             {
-                'carrier': 'United Life Rebate (yearly)',
+                'carrier': 'United Life',
                 'bronze': min(300, unl_total),
                 'silver': min(600, unl_total),
                 'gold': min(900, unl_total),
