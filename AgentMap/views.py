@@ -666,6 +666,7 @@ def get_companies_ha(request, state_code):
     print(agent_license_num)
     return render(request, 'Infobox.html', context=context)
 
+
 # This function handles opening the txt file server side and sending it to the client@xframe_options_exempt
 @xframe_options_exempt
 @login_required
