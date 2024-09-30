@@ -13,6 +13,10 @@ Licensed in that State? What is the expiration date of my license?
 Added in the ability to swap map layers, the options are { MS, DVH, HHC, Final Expense, Cancer },
 this allows our agents to sell ancillary products just as easily as Medicare Supplements.
 
+Rebate Calculator is a tool that allows agents to input the clients prescription drugs and get an estimate of the rebate
+they will receive from the carrier. The agent may also input the clients estimated monthly premium to get an estimate of
+the clients annual out-of-pocket cost.
+
 Still Experimental: Declinable Drugs Search
 This will allow agents to search for a drug and get the brand/generic name and check if it is on any of our medicare
 supplement carriers declinable list. This will help agents to know if that client will be declined for any prescriptions
