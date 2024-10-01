@@ -463,6 +463,9 @@
 
 .results-table-td {
     border: 1px solid var(--border-color);
+    text-align: center;
+    align-content: center;
+    align-items: center;
 }
 
 /* Scroll bar */
