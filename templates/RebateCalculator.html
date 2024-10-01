@@ -66,37 +66,37 @@
             <button type="button" class="rebate-form-button" onclick="updateCalculations()">Calculate Rebate</button>
         </form>
     </div>
-    <div class="results-container" style="overflow-y: auto; display: none">
+    <div class="results-container">
         <h2 style="margin: 0 0 0 0;">Rebate Results</h2>
-        <table>
+        <table class="results-table">
             <thead>
                 <tr>
-                    <th>Carrier</th>
-                    <th>Bronze Rebate</th>
-                    <th>Silver Rebate</th>
-                    <th>Gold Rebate</th>
-                    <th>Select Plan</th>
-                    <th>Monthly Rate</th>
-                    <th>Annualized Cost</th>
+                    <th class="results-table-col">Carrier</th>
+                    <th class="results-table-col">Bronze Rebate</th>
+                    <th class="results-table-col">Silver Rebate</th>
+                    <th class="results-table-col">Gold Rebate</th>
+                    <th class="results-table-col">Select Plan</th>
+                    <th class="results-table-col">Monthly Rate</th>
+                    <th class="results-table-col">Annualized Cost</th>
                 </tr>
             </thead>
             <tbody id="rebate-results-body">
                 {% if results %}
                     {% for result in results %}
                         <tr>
-                            <td>{{ result.carrier }}</td>
-                            <td>{{ result.bronze }}</td>
-                            <td>{{ result.silver }}</td>
-                            <td>{{ result.gold }}</td>
-                            <td>
+                            <td class="results-table-td">{{ result.carrier }}</td>
+                            <td class="results-table-td">{{ result.bronze }}</td>
+                            <td class="results-table-td">{{ result.silver }}</td>
+                            <td class="results-table-td">{{ result.gold }}</td>
+                            <td class="results-table-td">
                                 <input type="radio" name="plan-{{ forloop.counter }}" value="bronze" onchange="updateAnnualizedCost({{ forloop.counter }})"> Bronze
                                 <input type="radio" name="plan-{{ forloop.counter }}" value="silver" onchange="updateAnnualizedCost({{ forloop.counter }})"> Silver
                                 <input type="radio" name="plan-{{ forloop.counter }}" value="gold" onchange="updateAnnualizedCost({{ forloop.counter }})"> Gold
                             </td>
-                            <td>
+                            <td class="results-table-td">
                                 <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateAnnualizedCost({{ forloop.counter }})" style="width: 3vw; text-align: center" step="0.00001">
                             </td>
-                            <td id="updated-calculation-{{ forloop.counter }}"></td>
+                            <td id="updated-calculation-{{ forloop.counter }}" class="results-td"></td>
                         </tr>
                     {% endfor %}
                 {% else %}
@@ -128,21 +128,21 @@
             data.results.forEach((result, index) => {
                 const row = document.createElement('tr');
                 row.innerHTML = `
-                    <td>
+                    <td class="results-td">
                         <button type="button" onclick="openRateSheet('${result.carrier}')">${result.carrier}</button>
                     </td>
-                    <td>${result.bronze}</td>
-                    <td>${result.silver}</td>
-                    <td>${result.gold}</td>
-                    <td>
+                    <td class="results-table-td">${result.bronze}</td>
+                    <td class="results-table-td">${result.silver}</td>
+                    <td class="results-table-td">${result.gold}</td>
+                    <td class="results-table-td">
                         <input type="radio" name="plan-${index + 1}" value="bronze" onchange="updateAnnualizedCost(${index + 1})"> Bronze
                         <input type="radio" name="plan-${index + 1}" value="silver" onchange="updateAnnualizedCost(${index + 1})"> Silver
                         <input type="radio" name="plan-${index + 1}" value="gold" onchange="updateAnnualizedCost(${index + 1})"> Gold
                     </td>
-                    <td>
-                        <input type="number" name="monthly-rate-${index + 1}" required onchange="updateAnnualizedCost(${index + 1})" style="width: 3vw; text-align: center" step="0.00001">
+                    <td class="results-table-td">
+                        <input type="number" name="monthly-rate-${index + 1}" required onchange="updateAnnualizedCost(${index + 1})" step="0.00001">
                     </td>
-                    <td id="updated-calculation-${index + 1}"></td>
+                    <td id="updated-calculation-${index + 1}" class="results-table-td"></td>
                 `;
                 resultsBody.appendChild(row);
             });

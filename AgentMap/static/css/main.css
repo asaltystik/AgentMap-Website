@@ -445,6 +445,26 @@
     transition: var(--button-transition);
 }
 
+.results-container {
+    align-content: center;
+    overflow-y: auto;
+    display: none;
+    margin-left: 1vw;
+}
+
+.results-table {
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+}
+
+.results-table-col {
+    border: 1px solid var(--border-color);
+}
+
+.results-table-td {
+    border: 1px solid var(--border-color);
+}
+
 /* Scroll bar */
 ::-webkit-scrollbar {
     width: 16px;
