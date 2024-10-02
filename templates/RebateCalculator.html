@@ -24,37 +24,37 @@
         </form>
     </div>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Home Health Care Drug Fill Rebate</h2>
-    <div class="rebate-container">
+    <div class="rebate-container" style="margin-left: 1.5vw;">
         <form id="rebate-form" class="rebate-form" action="{% url 'RebateCalculator' %}" method="POST">
             {% csrf_token %}
-            <div class="rebate-table-container" style="max-height: 32vh; overflow-y: auto">
-                <table>
+            <div class="rebate-table-container" style="max-height: 32vh; overflow-y: auto;">
+                <table class="results-table">
                     <thead>
                         <tr>
-                            <th>#</th>
-                            <th>Drug Name</th>
-                            <th>Drug Type</th>
-                            <th>Fills/Year</th>
-                            <th>Action</th>
+                            <th class="results-table-col">#</th>
+                            <th class="results-table-col">Drug Name</th>
+                            <th class="results-table-col">Drug Type</th>
+                            <th class="results-table-col">Fills/Year</th>
+                            <th class="results-table-col">Action</th>
                         </tr>
                     </thead>
                     <tbody id="rebate-form-body">
                         <tr class="rebate-form-row">
                             <td>1</td>
-                            <td>
+                            <td class="results-table-td">
                                 <input type="text" id="drug-name-1" name="drug-name">
                             </td>
-                            <td>
+                            <td class="results-table-td">
                                 <input type="checkbox" id="branded-1" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
                                 <label for="branded-1">Branded</label>
                                 <input type="checkbox" id="generic-1" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
                                 <label for="generic-1">Generic</label>
                             </td>
-                            <td>
+                            <td class="results-table-td">
                                 <input type="number" id="fills-year-1" name="fills-per-year" style="width: 4vw" required>
                                 <label for="fills-month-1" class="hidden"></label>
                             </td>
-                            <td>
+                            <td class="results-table-td">
                                 <button type="button" onclick="removeRow(this)">Remove</button>
                             </td>
                         </tr>
@@ -191,21 +191,21 @@ function addRow() {
     const newRow = document.createElement('tr');
     newRow.className = 'rebate-form-row';
     newRow.innerHTML = `
-        <td>${rowCount}</td>
+        <td class="results-table-td">${rowCount}</td>
         <td>
             <input type="text" id="drug-name-${rowCount}" name="drug-name">
         </td>
-        <td>
+        <td class="results-table-td">
             <input type="checkbox" id="branded-${rowCount}" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
             <label for="branded-${rowCount}">Branded</label>
             <input type="checkbox" id="generic-${rowCount}" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
             <label for="generic-${rowCount}">Generic</label>
         </td>
-        <td>
+        <td class="results-table-td">
             <input type="number" id="fills-year-${rowCount}" name="fills-per-year" style="width: 4vw" required>
             <label for="fills-month-${rowCount}" class="hidden"></label>
         </td>
-        <td>
+        <td class="results-table-td">
             <button type="button" onclick="removeRow(this)">Remove</button>
         </td>
     `;

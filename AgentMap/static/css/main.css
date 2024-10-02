@@ -445,6 +445,7 @@
     transition: var(--button-transition);
 }
 
+/* container to hold the rebate-results */
 .results-container {
     align-content: center;
     overflow-y: auto;
@@ -452,15 +453,18 @@
     margin-left: 1vw;
 }
 
+/* rebate results table */
 .results-table {
     border: 1px solid var(--border-color);
     border-collapse: collapse;
 }
 
+/* rebate results table header */
 .results-table-col {
     border: 1px solid var(--border-color);
 }
 
+/* rebate results table data */
 .results-table-td {
     border: 1px solid var(--border-color);
     text-align: center;
