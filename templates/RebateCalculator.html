@@ -96,7 +96,7 @@
                             <td class="results-table-td">
                                 <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateAnnualizedCost({{ forloop.counter }})" style="width: 3vw; text-align: center" step="0.00001">
                             </td>
-                            <td id="updated-calculation-{{ forloop.counter }}" class="results-td"></td>
+                            <td id="updated-calculation-{{ forloop.counter }}" class="results-td" style='background: oklch(37.91% 0 0 / 25%)'></td>
                         </tr>
                     {% endfor %}
                 {% else %}
@@ -142,7 +142,7 @@
                     <td class="results-table-td">
                         <input type="number" name="monthly-rate-${index + 1}" required onchange="updateAnnualizedCost(${index + 1})" style="width: 2.5vw;" step="0.00001">
                     </td>
-                    <td id="updated-calculation-${index + 1}" class="results-table-td"></td>
+                    <td id="updated-calculation-${index + 1}" class="results-table-td" style='background: oklch(37.91% 0 0 / 25%)'></td>
                 `;
                 resultsBody.appendChild(row);
             });
@@ -164,7 +164,7 @@
     // limit the decimal places to 2
     document.getElementById(`updated-calculation-${rowIndex}`).innerText = `\$:${annualCost.toFixed(2)}`;
     // if the annual cost is negative, we want to show it in green, otherwise red. also we want to make a dark transparent background to make it more visible
-    document.getElementById(`updated-calculation-${rowIndex}`).style.color = annualCost < 0 ? 'oklch(78.78% 0.1783 159.7)' : 'oklch(63.82% 0.2446 24.04)';;
+    document.getElementById(`updated-calculation-${rowIndex}`).style.color = annualCost < 0 ? 'oklch(91.17% 0.1345 172.68)' : 'oklch(67.86% 0.209 24.66)';
 
 }
 
