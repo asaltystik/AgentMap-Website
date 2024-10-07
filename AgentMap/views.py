@@ -815,7 +815,7 @@ def get_drug_names(request):
     # Return the drugs as a JSON Response
     return JsonResponse(list(drugs), safe=False)
 
-
+# Todo: we want to have more elements be saved in the session so that we can keep track of the last response
 def rebate_calculator(request):
     if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         # Get the POST data from the request
