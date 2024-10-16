@@ -186,6 +186,29 @@
         licensedStates["{{ license.state }}"] = "oklch(65.8% 0.17 253.64)"; // #0692e1 is the default color for licensed states
         console.log("Adding {{ license.state }} to licensedStates");                                                                    
     {% endfor %}
+    // Update licensedStates based on aep_sets
+    {% if aep_sets %}
+        console.log("Updating licensedStates based on aep_sets");
+        {% for agent, states in aep_sets.items %}
+            console.log("Agent: {{ agent }}");
+            {% if agent == 'rhondaL' %}
+                {% for state in states %}
+                    console.log("State: {{ state }}");
+                    licensedStates["{{ state }}"] = "oklch(89.7% 0.196 144.75)"; // #0692e1 is the default color for licensed states
+                {% endfor %}
+            {% elif agent == 'kristinD' %}
+                {% for state in states %}
+                    console.log("State: {{ state }}");
+                    licensedStates["{{ state }}"] = "oklch(77.05% 0.1444 55.01)"; // #0692e1 is the default color for licensed states
+                {% endfor %}
+            {% elif agent == 'Both' %}
+                {% for state in states %}
+                    console.log("State: {{ state }}");
+                    licensedStates["{{ state }}"] = "oklch(67.21% 0.1444 303.89)"; // #0692e1 is the default color for licensed states
+                {% endfor %}
+            {% endif %}
+        {% endfor %}
+    {% endif %}
 
     // Select all MEP layer buttons
     const mepLayerButtons = document.querySelectorAll('.map-layer-button');

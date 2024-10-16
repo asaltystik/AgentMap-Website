@@ -78,12 +78,30 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MedicareSupplementMapLayer.html'
 
+    aep_sets = {
+        'kristinD': (
+            'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
+            'OH', 'SD', 'UT', 'VA', 'WY'
+        ),
+        'rhondaL': (
+            'CO', 'GA', 'ID', 'NC', 'NM', 'NV', 'PA', 'VT', 'FL',
+            'KS', 'KY', 'LA', 'MD', 'MO', 'MS', 'NE', 'OK', 'OR',
+            'SC', 'TN', 'TX', 'WA',
+        ),
+        'Both': (
+            'CA', 'TX', 'OR'
+        )
+    }
+
+
+
     # pack the variables into the context dictionary
     context = {
         'all_licenses': all_licenses,
         'licensed_states': licensed_states,
         'map_layer': map_layer,
-        'discount_keys': discount_keys
+        'discount_keys': discount_keys,
+        'aep_sets': aep_sets
     }
     print(context)
     return render(request, 'home.html', context=context)
