@@ -78,20 +78,23 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MedicareSupplementMapLayer.html'
 
-    aep_sets = {
-        'kristinD': (
-            'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
-            'OH', 'SD', 'UT', 'VA', 'WY'
-        ),
-        'rhondaL': (
-            'CO', 'GA', 'ID', 'NC', 'NM', 'NV', 'PA', 'VT', 'FL',
-            'KS', 'KY', 'LA', 'MD', 'MO', 'MS', 'NE', 'OK', 'OR',
-            'SC', 'TN', 'TX', 'WA',
-        ),
-        'Both': (
-            'CA', 'TX', 'OR'
-        )
-    }
+    if agent.user.Username != 'daltonB':
+        aep_sets = {
+            'kristinD': (
+                'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
+                'OH', 'SD', 'UT', 'VA', 'WY'
+            ),
+            'rhondaL': (
+                'CO', 'GA', 'ID', 'NC', 'NM', 'NV', 'PA', 'VT', 'FL',
+                'KS', 'KY', 'LA', 'MD', 'MO', 'MS', 'NE', 'OK', 'OR',
+                'SC', 'TN', 'TX', 'WA',
+            ),
+            'Both': (
+                'CA', 'TX', 'OR'
+            )
+        }
+    else:
+        aep_sets = {}
 
     # pack the variables into the context dictionary
     context = {
