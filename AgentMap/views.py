@@ -48,6 +48,7 @@ def home(request):
     agent = request.user.agent
     username = request.user.username
     print(f'Agent: {agent}')
+    print(f'Username: {username}')
 
     # We want to get the states that the agent is licensed in
     licensed_states = agent.licensed_states.all()
