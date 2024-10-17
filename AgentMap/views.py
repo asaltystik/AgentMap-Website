@@ -78,7 +78,7 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MedicareSupplementMapLayer.html'
 
-    if agent.user.Username != 'daltonB':
+    if agent.user.agent != 'daltonB':
         aep_sets = {
             'kristinD': (
                 'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
