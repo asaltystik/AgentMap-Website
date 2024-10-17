@@ -46,7 +46,8 @@ def logout_view(request):
 def home(request):
     # We want to get the current agent based on the user
     agent = request.user.agent
-    # print(f'Agent: {agent}')
+    username = request.user.username
+    print(f'Agent: {agent}')
 
     # We want to get the states that the agent is licensed in
     licensed_states = agent.licensed_states.all()
@@ -78,7 +79,9 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MedicareSupplementMapLayer.html'
 
-    if agent.user.agent != 'daltonB':
+    if username == 'daltonB':
+        aep_sets = {}
+    else:
         aep_sets = {
             'kristinD': (
                 'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
@@ -93,8 +96,7 @@ def home(request):
                 'CA', 'TX', 'OR'
             )
         }
-    else:
-        aep_sets = {}
+
 
     # pack the variables into the context dictionary
     context = {
