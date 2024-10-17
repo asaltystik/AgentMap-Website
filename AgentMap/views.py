@@ -93,15 +93,14 @@ def home(request):
         )
     }
 
-
-
     # pack the variables into the context dictionary
     context = {
         'all_licenses': all_licenses,
         'licensed_states': licensed_states,
         'map_layer': map_layer,
         'discount_keys': discount_keys,
-        'aep_sets': aep_sets
+        'aep_sets': aep_sets,
+        'all_states': State.objects.all()
     }
     print(context)
     return render(request, 'home.html', context=context)
