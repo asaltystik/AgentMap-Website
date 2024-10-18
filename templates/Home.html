@@ -178,7 +178,6 @@
 <div class="LastHPColor" style="display: none"></div>
 <!-- This is the script that handles the modal for PDFS, and the color mapping for the companies -->
 <script type="text/javascript">
-    
 
     let licensedStates = {};
     let colors = {
@@ -188,12 +187,12 @@
         licensed: "oklch(65.8% 0.17 253.64)", // Default color for licensed states
         unlicensed: "oklch(84.52% 0 0)"  // Default color for unlicensed states
     };
-    
+
     {% for license in licensed_states %}
         licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
-        console.log("Adding {{ license.state }} to licensedStates");                                                                    
+        console.log("Adding {{ license.state }} to licensedStates");
     {% endfor %}
-    
+
     // Loop through all_states and add them to licensedStates if not already stored
     {% for state in all_states %}
         if (!licensedStates["{{ state }}"]) {
@@ -201,7 +200,7 @@
             console.log("Adding {{ state }} to licensedStates");
         }
     {% endfor %}
-    
+
     // Store original colors
     let originalColors = {};
     function storeOriginalColor() {
@@ -220,13 +219,13 @@
             }
         }
     }
-    
+
     storeOriginalColor();
-    
+
     function displayAEPStates() {
         {% if aep_sets %}
         console.log("Updating licensedStates based on aep_sets");
-        
+
         {% for aep_agent, aep_states in aep_sets.items %}
             {% for aep_state in aep_states %}
                 {% if aep_agent == 'rhondaL' %}
@@ -244,7 +243,7 @@
                 {% endif %}
             {% endfor %}
         {% endfor %}
-        
+
         // Update the SVG elements' styles
         for (const [state, color] of Object.entries(licensedStates)) {
             const stateElement = document.getElementById(state);
@@ -256,12 +255,12 @@
         }
 
         // Revert colors back after a few seconds
-        // setTimeout(() => { 
+        // setTimeout(() => {
         //   resetOriginalColor()
         // }, 5000); // Change 5000 to the desired duration in milliseconds
         {% endif %}
     }
-    
+
     // keypress m to display the AEP states
     document.addEventListener('keydown', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
@@ -269,7 +268,7 @@
             console.log("Displaying AEP States");
         }
     });
-    
+
     //keyup event listener to remove the color change
     document.addEventListener('keyup', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
