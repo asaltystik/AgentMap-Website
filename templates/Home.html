@@ -191,13 +191,13 @@
         console.log(licensedStates);
         {% for license in licensed_states %}
             licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
-            console.log("Adding {{ license.state }} to licensedStates with color {{ colors.licensed }}");
+            // console.log("Adding {{ license.state }} to licensedStates");
         {% endfor %}
         // Loop through all_states and add them to licensedStates if not already stored
         {% for state in all_states %}
             if (!licensedStates["{{ state }}"]) {
                 licensedStates["{{ state }}"] = colors.unlicensed;
-                console.log("Adding {{ state }} to licensedStates with color {{ colors.unlicensed }}");
+               //  console.log("Adding {{ state }} to licensedStates");
             }
         {% endfor %}
         return licensedStates;
@@ -219,6 +219,7 @@
                 stateElement.style.fill = color;
                 stateElement.style.transition = "fill 1s";
                 licensedStates[state] = color;
+                console.log(licensedStates[state]);
                 console.log(`Reverted ${state} to original color ${color}`);
             }
         }
@@ -228,6 +229,7 @@
     resetOriginalColor();
 
     function displayAEPStates() {
+        {% if 'MedicareSupplementMapLayer.html' in map_layer %}
         {% if aep_sets %}
         console.log("Updating licensedStates based on aep_sets");
 
@@ -264,6 +266,9 @@
         //   resetOriginalColor()
         // }, 5000); // Change 5000 to the desired duration in milliseconds
         {% endif %}
+            {% else %}
+            resetOriginalColor();
+        {% endif %}
     }
 
     // keypress m to display the AEP states
@@ -296,6 +301,7 @@
         document.getElementById('states').remove();
         // lets set a timeout to wait for the above to finish
         setTimeout(() => {
+            resetOriginalColor();
             console.log("Delayed for 20ms");
         }, "20");
     }
