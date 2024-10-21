@@ -233,7 +233,7 @@
         {% if 'MedicareSupplementMapLayer.html' in map_layer %}
             {% if aep_sets %}
             console.log("Updating licensedStates based on aep_sets");
-    
+
             {% for aep_agent, aep_states in aep_sets.items %}
                 {% for aep_state in aep_states %}
                     {% if aep_agent == 'rhondaL' %}
@@ -259,7 +259,7 @@
                 if (stateElement) {
                     stateElement.style.fill = color;
                     stateElement.style.transition = "fill 1s";
-                    
+
                 }
             }
 
@@ -276,14 +276,13 @@
     // keypress m to display the AEP states
     document.addEventListener('keydown', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
-            displayAEPStates();
-            console.log("Displaying AEP States");
-            
             // Disable map-layer-button buttons
-            const mepLayerButtons = document.querySelectorAll('.map-layer-button');
-            mepLayerButtons.forEach(button => {
+            const mapLayerButtons = document.querySelectorAll('.map-layer-button');
+            mapLayerButtons.forEach(button => {
                 button.disabled = true;
             });
+            displayAEPStates();
+            console.log("Displaying AEP States");
         }
     });
 
@@ -295,8 +294,8 @@
             
             // Enable map-layer-button buttons
             setTimeout(() => {
-                const mepLayerButtons = document.querySelectorAll('.map-layer-button');
-                mepLayerButtons.forEach(button => {
+                const mapLayerButtons = document.querySelectorAll('.map-layer-button');
+                mapLayerButtons.forEach(button => {
                     button.disabled = false;
                 });
             }, "1200");
