@@ -315,11 +315,7 @@
         // we want to remove the #states path, #states circle, #states text's from the js memory
         // so that we can re-add them with the new color
         document.getElementById('states').remove();
-        // lets set a timeout to wait for the above to finish
-        setTimeout(() => {
-            resetOriginalColor();
-            console.log("Delayed for 20ms");
-        }, "20");
+        resetOriginalColor()
     }
     // Attach event listeners to each button
     mepLayerButtons.forEach(button => {
