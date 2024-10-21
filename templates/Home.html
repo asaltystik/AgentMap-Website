@@ -276,6 +276,12 @@
         if (e.key === 'q' || e.key === 'Q') {
             displayAEPStates();
             console.log("Displaying AEP States");
+            
+            // Disable map-layer-button buttons
+            const mepLayerButtons = document.querySelectorAll('.map-layer-button');
+            mepLayerButtons.forEach(button => {
+                button.disabled = true;
+            });
         }
     });
 
@@ -284,6 +290,14 @@
         if (e.key === 'q' || e.key === 'Q') {
             resetOriginalColor();
             console.log("Removing AEP States");
+            
+            // Enable map-layer-button buttons
+            setTimeout(() => {
+                const mepLayerButtons = document.querySelectorAll('.map-layer-button');
+                mepLayerButtons.forEach(button => {
+                    button.disabled = false;
+                });
+            }, "800");
         }
     });
 
