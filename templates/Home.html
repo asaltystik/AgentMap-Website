@@ -187,19 +187,22 @@
         licensed: "oklch(65.8% 0.17 253.64)", // Default color for licensed states
         unlicensed: "oklch(84.52% 0 0)"  // Default color for unlicensed states
     };
-
-    {% for license in licensed_states %}
-        licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
-        console.log("Adding {{ license.state }} to licensedStates");
-    {% endfor %}
-
-    // Loop through all_states and add them to licensedStates if not already stored
-    {% for state in all_states %}
-        if (!licensedStates["{{ state }}"]) {
-            licensedStates["{{ state }}"] = colors.unlicensed;
-            console.log("Adding {{ state }} to licensedStates");
-        }
-    {% endfor %}
+    function getLicensedStates(){
+        console.log(licensedStates);
+        {% for license in licensed_states %}
+            licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
+            console.log("Adding {{ license.state }} to licensedStates with color {{ colors.licensed }}");
+        {% endfor %}
+        // Loop through all_states and add them to licensedStates if not already stored
+        {% for state in all_states %}
+            if (!licensedStates["{{ state }}"]) {
+                licensedStates["{{ state }}"] = colors.unlicensed;
+                console.log("Adding {{ state }} to licensedStates with color {{ colors.unlicensed }}");
+            }
+        {% endfor %}
+        return licensedStates;
+    }
+    getLicensedStates();
 
     // Store original colors
     let originalColors = {};
@@ -215,12 +218,14 @@
             if (stateElement) {
                 stateElement.style.fill = color;
                 stateElement.style.transition = "fill 1s";
+                licensedStates[state] = color;
                 console.log(`Reverted ${state} to original color ${color}`);
             }
         }
     }
 
     storeOriginalColor();
+    resetOriginalColor();
 
     function displayAEPStates() {
         {% if aep_sets %}
@@ -229,17 +234,17 @@
         {% for aep_agent, aep_states in aep_sets.items %}
             {% for aep_state in aep_states %}
                 {% if aep_agent == 'rhondaL' %}
-                    console.log("State: {{ aep_state }}");
+                    // console.log("State: {{ aep_state }}");
                     licensedStates["{{ aep_state }}"] = colors.aepRhondaL; // Default color for AEP states
-                    console.log(`Adding {{ aep_state }} to licensedStates`);
+                    // console.log(`Adding {{ aep_state }} to licensedStates`);
                 {% elif aep_agent == 'kristinD' %}
-                    console.log("State: {{ aep_state }}");
+                    // console.log("State: {{ aep_state }}");
                     licensedStates["{{ aep_state }}"] = colors.aepKristinD; // Default color for AEP states
-                    console.log(`Adding {{ aep_state }} to licensedStates`);
+                    // console.log(`Adding {{ aep_state }} to licensedStates`);
                 {% elif aep_agent == 'Both' %}
-                    console.log("State: {{ aep_state }}");
+                    // console.log("State: {{ aep_state }}");
                     licensedStates["{{ aep_state }}"] = colors.aepBoth; // Default color for AEP states
-                    console.log(`Adding {{ aep_state }} to licensedStates`);
+                    // console.log(`Adding {{ aep_state }} to licensedStates`);
                 {% endif %}
             {% endfor %}
         {% endfor %}
@@ -250,7 +255,7 @@
             if (stateElement) {
                 stateElement.style.fill = color;
                 stateElement.style.transition = "fill 1s";
-                console.log(`Updated ${state} to color ${color}`);
+                // console.log(`Updated ${state} to color ${color}`);
             }
         }
 
@@ -289,18 +294,16 @@
         // we want to remove the #states path, #states circle, #states text's from the js memory
         // so that we can re-add them with the new color
         document.getElementById('states').remove();
-        {#document.getElementById('states').remove();#}
-        {#document.getElementById('states').remove();#}
         // lets set a timeout to wait for the above to finish
         setTimeout(() => {
-            console.log("Delayed for 100ms");
-        }, "100");
+            console.log("Delayed for 20ms");
+        }, "20");
     }
-
     // Attach event listeners to each button
     mepLayerButtons.forEach(button => {
         button.addEventListener('click', deleteLicensedStates);
     });
+
 </script>
 <script src="{% static 'js/main.js' %}"></script>
 <script src="https://unpkg.com/htmx.org@1.6.1"></script>
