@@ -187,6 +187,7 @@
         licensed: "oklch(65.8% 0.17 253.64)", // Default color for licensed states
         unlicensed: "oklch(84.52% 0 0)"  // Default color for unlicensed states
     };
+    
     function getLicensedStates(){
         {% for license in licensed_states %}
             licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
@@ -213,6 +214,7 @@
             originalColors[state] = color;
         }
     }
+    
     function resetOriginalColor() {
         console.log("Resetting original colors");
         for (const [state, color] of Object.entries(originalColors)) {
@@ -228,6 +230,18 @@
 
     storeOriginalColor();
     resetOriginalColor();
+    
+    function handleMouseOver(event) {
+        const stateElement = event.currentTarget;
+        const color = licensedStates[stateElement.id];
+        stateElement.style.fill = darkenOKLCH(color, 20);
+    }
+
+    function handleMouseOut(event) {
+        const stateElement = event.currentTarget;
+        const color = licensedStates[stateElement.id];
+        stateElement.style.fill = color;
+    }
 
     function displayAEPStates() {
         {% if 'MedicareSupplementMapLayer.html' in map_layer %}
@@ -259,10 +273,11 @@
                 if (stateElement) {
                     stateElement.style.fill = color;
                     stateElement.style.transition = "fill 1s";
-
+                    // add event listener to darken the current color on hoverq
+                    stateElement.addEventListener('mouseover', handleMouseOver);
+                    stateElement.addEventListener('mouseout', handleMouseOut);
                 }
             }
-
         // Revert colors back after a few seconds
         // setTimeout(() => {
         //   resetOriginalColor()
@@ -273,22 +288,37 @@
         {% endif %}
     }
 
+    function darkenOKLCH(color, percent) {
+        let colorArray = color.split(' ');
+        let L = parseFloat(colorArray[0].replace('oklch(', ''));
+        let C = parseFloat(colorArray[1]);
+        let H = parseFloat(colorArray[2]);
+        let newL = L - (L * (percent / 100));
+        return 'oklch(' + newL + '% ' + C + ' ' + H + ')';
+    }
+    
+    let isKeyPressed = false;
     // keypress m to display the AEP states
     document.addEventListener('keydown', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
             // Disable map-layer-button buttons
-            const mapLayerButtons = document.querySelectorAll('.map-layer-button');
-            mapLayerButtons.forEach(button => {
-                button.disabled = true;
-            });
-            displayAEPStates();
-            console.log("Displaying AEP States");
+            if (!isKeyPressed) {
+                const mapLayerButtons = document.querySelectorAll('.map-layer-button');
+                mapLayerButtons.forEach(button => {
+                    button.disabled = true;
+                });
+                displayAEPStates();
+
+                console.log("Displaying AEP States");
+                isKeyPressed = true;
+            }
         }
     });
 
     //keyup event listener to remove the color change
     document.addEventListener('keyup', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
+            getLicensedStates();
             resetOriginalColor();
             console.log("Removing AEP States");
             
@@ -299,11 +329,13 @@
                     button.disabled = false;
                 });
             }, "1200");
+            
+            isKeyPressed = false;
         }
     });
 
     // Select all MAP layer buttons
-    const mepLayerButtons = document.querySelectorAll('.map-layer-button');
+    const mapLayerButtons = document.querySelectorAll('.map-layer-button');
 
     // Function to "delete" the licensed_states variable
     function deleteLicensedStates() {
@@ -317,7 +349,7 @@
         resetOriginalColor()
     }
     // Attach event listeners to each button
-    mepLayerButtons.forEach(button => {
+    mapLayerButtons.forEach(button => {
         button.addEventListener('click', deleteLicensedStates);
     });
 
