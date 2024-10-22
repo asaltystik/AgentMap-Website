@@ -178,7 +178,7 @@
 <div class="LastHPColor" style="display: none"></div>
 <!-- This is the script that handles the modal for PDFS, and the color mapping for the companies -->
 <script type="text/javascript">
-
+    // will attempt to merge this with the rest of main.js tomorrow
     let licensedStates = {};
     let colors = {
         aepBoth: "oklch(67.21% 0.1444 345.58)", // Both AEP Color
@@ -187,7 +187,7 @@
         licensed: "oklch(65.8% 0.17 253.64)", // Default color for licensed states
         unlicensed: "oklch(84.52% 0 0)"  // Default color for unlicensed states
     };
-    
+
     function getLicensedStates(){
         {% for license in licensed_states %}
             licensedStates["{{ license.state }}"] = colors.licensed; // #0692e1 is the default color for licensed states
@@ -214,7 +214,7 @@
             originalColors[state] = color;
         }
     }
-    
+
     function resetOriginalColor() {
         console.log("Resetting original colors");
         for (const [state, color] of Object.entries(originalColors)) {
@@ -230,7 +230,7 @@
 
     storeOriginalColor();
     resetOriginalColor();
-    
+
     function handleMouseOver(event) {
         const stateElement = event.currentTarget;
         const color = licensedStates[stateElement.id];
@@ -251,17 +251,11 @@
             {% for aep_agent, aep_states in aep_sets.items %}
                 {% for aep_state in aep_states %}
                     {% if aep_agent == 'rhondaL' %}
-                        // console.log("State: {{ aep_state }}");
                         licensedStates["{{ aep_state }}"] = colors.aepRhondaL; // Default color for AEP states
-                        // console.log(`Adding {{ aep_state }} to licensedStates`);
                     {% elif aep_agent == 'kristinD' %}
-                        // console.log("State: {{ aep_state }}");
                         licensedStates["{{ aep_state }}"] = colors.aepKristinD; // Default color for AEP states
-                        // console.log(`Adding {{ aep_state }} to licensedStates`);
                     {% elif aep_agent == 'Both' %}
-                        // console.log("State: {{ aep_state }}");
                         licensedStates["{{ aep_state }}"] = colors.aepBoth; // Default color for AEP states
-                        // console.log(`Adding {{ aep_state }} to licensedStates`);
                     {% endif %}
                 {% endfor %}
             {% endfor %}
@@ -278,12 +272,8 @@
                     stateElement.addEventListener('mouseout', handleMouseOut);
                 }
             }
-        // Revert colors back after a few seconds
-        // setTimeout(() => {
-        //   resetOriginalColor()
-        // }, 5000); // Change 5000 to the desired duration in milliseconds
-        {% endif %}
-            {% else %}
+            {% endif %}
+        {% else %}
             resetOriginalColor();
         {% endif %}
     }
@@ -297,8 +287,8 @@
         return 'oklch(' + newL + '% ' + C + ' ' + H + ')';
     }
     
+    // keypress q to display the AEP states
     let isKeyPressed = false;
-    // keypress m to display the AEP states
     document.addEventListener('keydown', function (e) {
         if (e.key === 'q' || e.key === 'Q') {
             // Disable map-layer-button buttons
@@ -329,13 +319,10 @@
                     button.disabled = false;
                 });
             }, "1200");
-            
+
             isKeyPressed = false;
         }
     });
-
-    // Select all MAP layer buttons
-    const mapLayerButtons = document.querySelectorAll('.map-layer-button');
 
     // Function to "delete" the licensed_states variable
     function deleteLicensedStates() {
@@ -348,6 +335,10 @@
         document.getElementById('states').remove();
         resetOriginalColor()
     }
+    
+    // Select all MAP layer buttons
+    const mapLayerButtons = document.querySelectorAll('.map-layer-button');
+    
     // Attach event listeners to each button
     mapLayerButtons.forEach(button => {
         button.addEventListener('click', deleteLicensedStates);

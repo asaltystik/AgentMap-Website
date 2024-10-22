@@ -33,7 +33,7 @@
             console.log("Expiration Timer: :" + daysUntilExpiration) // Log this shit quay
 
             // Get the last Color of the health bar from the .LastHPColor class
-            // if it isnt empty, else dfault should be green [7, 170, 8]
+            // if it isn't empty, else default should be green [7, 170, 8]
             let lastColor = document.querySelector('.LastHPColor').textContent;
             console.log("Last Color: " + lastColor)
             // Check if lastColor string is correctly formatted
@@ -458,65 +458,6 @@ document.body.addEventListener('htmx:afterSwap', function(event) {
     console.log("htmx:afterSwap event:" + event.detail.elt.id + " loaded");
 });
 
-// Function to update custom base properties based on window size.
-// function updateCustomProperties() {
-//     const root = document.documentElement;
-//     const width = window.innerWidth;
-//     const height = window.innerHeight;
-//
-//     // TODO: need to also specify the height of the screen to account for those
-//     // with a smaller screen height
-//
-//     if (width < 1000) {
-//         // Small screen
-//         root.style.setProperty('--base-font-size', '.8em')
-//         root.style.setProperty('--base-button-height', '5vh');
-//         root.style.setProperty('--base-button-width', '7vw');
-//         root.style.setProperty('--base-border-radius', '4px');
-//         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-//         root.style.setProperty('--info-box-height-multiplier', '2.08')
-//         root.style.setProperty('--base-extras-margin-top', '2.15vh');
-//     } else if (width < 1350) {
-//         // Medium screen
-//         root.style.setProperty('--base-font-size', '.77em')
-//         root.style.setProperty('--base-container-height', '18.75vh');
-//         root.style.setProperty('--base-container-width', '18.75vh');
-//         root.style.setProperty('--base-button-height', '6.2vh');
-//         root.style.setProperty('--base-button-width', '8vw');
-//         root.style.setProperty('--base-border-radius', '4px');
-//         root.style.setProperty('--base-grid-template', 'repeat(1, 1fr)')
-//         root.style.setProperty('--info-box-height-multiplier', '2.18')
-//         root.style.setProperty('--base-extras-margin-top', '3.5vh');
-//         root.style.setProperty('--base-new-company-height-multiplier', '1.1')
-//         root.style.setProperty('--base-new-company-width-multiplier', '2.2');
-//     } else {
-//         // base case
-//         root.style.setProperty('--base-font-size', '1em');
-//         root.style.setProperty('--base-container-height', '25vh');
-//         root.style.setProperty('--base-container-width', '25vh');
-//         root.style.setProperty('--base-button-height', '7.5vh');
-//         root.style.setProperty('--base-button-width', '8vw');
-//         root.style.setProperty('--base-border-radius', '4px');
-//         root.style.setProperty('--base-grid-template', 'repeat(2, 1fr)')
-//         root.style.setProperty('--info-box-height-multiplier', '2.289')
-//         root.style.setProperty('--base-extras-margin-top', '0vh');
-//         root.style.setProperty('--base-new-company-height-multiplier', '1')
-//         root.style.setProperty('--base-new-company-width-multiplier', '2');
-//     }
-//
-//     // Force a repaint by manipulating the DOM
-//     document.body.style.display = 'none';
-//     document.body.offsetHeight; // Trigger a reflow
-//     document.body.style.display = '';
-// }
-
-// Initial call to set properties based on current screen size
-// updateCustomProperties();
-
-// Update properties on window resize
-// window.addEventListener('resize', updateCustomProperties);
-
-// Function to log the specific computed value of a CSS property using clamp
 function logComputedClampValue(selector, property) {
     // Select the element you want to inspect
     const element = document.querySelector(selector);
