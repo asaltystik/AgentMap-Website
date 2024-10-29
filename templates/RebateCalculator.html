@@ -69,13 +69,14 @@
         <table class="results-table">
             <thead>
                 <tr>
-                    <th class="results-table-col">Carrier</th>
-                    <th class="results-table-col" style="color: oklch(59.79% 0.1389 58.23)">Bronze Rebate</th>
-                    <th class="results-table-col" style="color: oklch(52.97% 0.0016 58.23)">Silver Rebate</th>
-                    <th class="results-table-col" style="color: oklch(75.82% 0.149 73.18)">Gold Rebate</th>
-                    <th class="results-table-col">Select Plan</th>
-                    <th class="results-table-col">Monthly Rate</th>
-                    <th class="results-table-col">Annualized Cost</th>
+                    <th class="results-table-col" style="width: 2%">Carrier</th>
+                    <th class="results-table-col" style="color: oklch(59.79% 0.1389 58.23); width:2%">Bronze Rebate</th>
+                    <th class="results-table-col" style="color: oklch(52.97% 0.0016 58.23); width:2%">Silver Rebate</th>
+                    <th class="results-table-col" style="color: oklch(75.82% 0.149 73.18); width:2%">Gold Rebate</th>
+                    <th class="results-table-col" style="width: 10%">Select Plan</th>
+                    <th class="results-table-col" style="width: 2%">Monthly Rate</th>
+                    <th class="results-table-col" style="width: 2%">Annualized Cost Pre-Rebate</th>
+                    <th class="results-table-col" style="width: 2%">Annualized Cost Post-Rebate</th>
                 </tr>
             </thead>
             <tbody id="rebate-results-body">
@@ -94,6 +95,7 @@
                             <td class="results-table-td">
                                 <input type="number" name="monthly-rate-{{ forloop.counter }}" required onchange="updateAnnualizedCost({{ forloop.counter }})" style="width: 3vw; text-align: center" step="0.01" min="0">
                             </td>
+                            <td id="annualCostPreRebate-{{ forloop.counter }}" class="results-table-td" style='background: oklch(37.91% 0 0 / 25%); color: oklch(67.86% 0.209 24.66)'></td>
                             <td id="updated-calculation-{{ forloop.counter }}" class="results-td" style='background: oklch(37.91% 0 0 / 25%)'></td>
                         </tr>
                     {% endfor %}
@@ -143,28 +145,29 @@
                 <td class="results-table-td">
                     <input type="number" name="monthly-rate-${index + 1}" required onchange="updateAnnualizedCost(${index + 1})" style="width: 2.5vw;" step="0.01" min="0">
                 </td>
+                <td id="annualCostPreRebate-${index + 1}" class="results-table-td" style='background: oklch(37.91% 0 0 / 25%); color: oklch(67.86% 0.209 24.66)'></td>
                 <td id="updated-calculation-${index + 1}" class="results-table-td" style='background: oklch(37.91% 0 0 / 25%)'></td>
             `;
             resultsBody.appendChild(row);
             
             // if there selectedPlans is not empty, we want to set the selected plan and monthly rate
-            
+            console.log('monthlyRates', monthlyRates);
            
-            if(selectedPlans[index] && monthlyRates[index]) {
+            if(selectedPlans[index] || monthlyRates[index]) {
                 row.querySelector(`input[name="plan-${index + 1}"][value="${selectedPlans[index]}"]`).checked = true;
                 row.querySelector(`input[name="monthly-rate-${index + 1}"]`).value = monthlyRates[index];
-                console.log('updating annualized cost');
                 updateAnnualizedCost(index + 1);
             }
         });
         document.querySelector('.results-container').style.display = 'block';
     })
     .catch(error => console.error('Error:', error));
-}
+    }
 
     function updateAnnualizedCost(rowIndex) {
+        const monthlyRate = document.querySelector(`input[name="monthly-rate-${rowIndex}"]`).value;
+        document.getElementById(`annualCostPreRebate-${rowIndex}`).innerText = `\$${(monthlyRate * 12).toFixed(2)}`;
     const plan = document.querySelector(`input[name="plan-${rowIndex}"]:checked`).value;
-    const monthlyRate = document.querySelector(`input[name="monthly-rate-${rowIndex}"]`).value;
     
     // Store the selected plan and monthly rate
     selectedPlans[rowIndex - 1] = plan;
