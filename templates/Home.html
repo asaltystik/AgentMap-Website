@@ -286,7 +286,7 @@
         let newL = L - (L * (percent / 100));
         return 'oklch(' + newL + '% ' + C + ' ' + H + ')';
     }
-    
+
     // keypress q to display the AEP states
     let isKeyPressed = false;
     document.addEventListener('keydown', function (e) {
@@ -335,10 +335,10 @@
         document.getElementById('states').remove();
         resetOriginalColor()
     }
-    
+
     // Select all MAP layer buttons
     const mapLayerButtons = document.querySelectorAll('.map-layer-button');
-    
+
     // Attach event listeners to each button
     mapLayerButtons.forEach(button => {
         button.addEventListener('click', deleteLicensedStates);

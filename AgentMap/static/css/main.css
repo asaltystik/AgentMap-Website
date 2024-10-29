@@ -454,6 +454,25 @@
 }
 
 /* rebate results table */
+.rebate-table {
+    border: 1px solid var(--border-color);
+    border-collapse: collapse;
+}
+
+/* rebate results table header */
+.rebate-table-col {
+    border: 1px solid var(--border-color);
+}
+
+/* rebate results table data */
+.rebate-table-td {
+    border: 1px solid var(--border-color);
+    text-align: center;
+    align-content: center;
+    align-items: center;
+}
+
+/* rebate results table */
 .results-table {
     border: 1px solid var(--border-color);
     border-collapse: collapse;
