@@ -162,117 +162,117 @@
         document.querySelector('.results-container').style.display = 'block';
     })
     .catch(error => console.error('Error:', error));
-    }
+    }  
 
     function updateAnnualizedCost(rowIndex) {
         const monthlyRate = document.querySelector(`input[name="monthly-rate-${rowIndex}"]`).value;
         document.getElementById(`annualCostPreRebate-${rowIndex}`).innerText = `\$${(monthlyRate * 12).toFixed(2)}`;
-    const plan = document.querySelector(`input[name="plan-${rowIndex}"]:checked`).value;
+        const plan = document.querySelector(`input[name="plan-${rowIndex}"]:checked`).value;
     
-    // Store the selected plan and monthly rate
-    selectedPlans[rowIndex - 1] = plan;
-    monthlyRates[rowIndex - 1] = monthlyRate;
+        // Store the selected plan and monthly rate
+        selectedPlans[rowIndex - 1] = plan;
+        monthlyRates[rowIndex - 1] = monthlyRate;
         
 
         // Get the rebate value from the corresponding column
-    const row = document.querySelector(`#rebate-results-body tr:nth-child(${rowIndex})`);
-    const rebate = row.querySelector(`td:nth-child(${plan === 'bronze' ? 2 : plan === 'silver' ? 3 : 4})`).innerText;
+        const row = document.querySelector(`#rebate-results-body tr:nth-child(${rowIndex})`);
+        const rebate = row.querySelector(`td:nth-child(${plan === 'bronze' ? 2 : plan === 'silver' ? 3 : 4})`).innerText;
 
-    // Calculate the annual cost
-    const annualCost = (monthlyRate * 12) - parseFloat(rebate);
-    // limit the decimal places to 2
-    document.getElementById(`updated-calculation-${rowIndex}`).innerText = `\$:${annualCost.toFixed(2)}`;
-    // if the annual cost is negative, we want to show it in green, otherwise red. also we want to make a dark transparent background to make it more visible
-    document.getElementById(`updated-calculation-${rowIndex}`).style.color = annualCost < 0 ? 'oklch(58.83% 0.1654 149.02)' : 'oklch(67.86% 0.209 24.66)';
+        // Calculate the annual cost
+        const annualCost = (monthlyRate * 12) - parseFloat(rebate);
+        // limit the decimal places to 2
+        document.getElementById(`updated-calculation-${rowIndex}`).innerText = `\$:${annualCost.toFixed(2)}`;
+        // if the annual cost is negative, we want to show it in green, otherwise red. also we want to make a dark transparent background to make it more visible
+        document.getElementById(`updated-calculation-${rowIndex}`).style.color = annualCost < 0 ? 'oklch(58.83% 0.1654 149.02)' : 'oklch(67.86% 0.209 24.66)';
 
-}
-
-function addRow() {
-    const lastRow = document.querySelector('#rebate-form-body tr:last-child');
-    const drugType = lastRow.querySelector('input[name="drug-type"]:checked');
-    const fillsPerYear = lastRow.querySelector('input[name="fills-per-year"]').value;
-
-    if(!drugType && !fillsPerYear) {
-        alert('Please select a drug type and enter the number of fills per year for the last row');
-        return;
-    }
-    else if (!drugType) {
-        alert('Please select a drug type for the last row');
-        return;
-    }
-    else if (!fillsPerYear) {
-        alert('Please enter the number of fills per year for the last row');
-        return;
     }
 
-    const tbody = document.getElementById('rebate-form-body');
-    const rowCount = tbody.rows.length + 1;
-    const newRow = document.createElement('tr');
-    newRow.className = 'rebate-form-row';
-    newRow.innerHTML = `
-        <td class="rebate-table-td">${rowCount}</td>
-        <td>
-            <input type="text" id="drug-name-${rowCount}" name="drug-name">
-        </td>
-        <td class="rebate-table-td">
-            <input type="checkbox" id="branded-${rowCount}" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
-            <label for="branded-${rowCount}">Branded</label>
-            <input type="checkbox" id="generic-${rowCount}" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
-            <label for="generic-${rowCount}">Generic</label>
-        </td>
-        <td class="rebate-table-td">
-            <input type="number" id="fills-year-${rowCount}" name="fills-per-year" style="width: 4vw" required onchange=updateCalculations()>
-            <label for="fills-month-${rowCount}" class="hidden"></label>
-        </td>
-        <td class="rebate-table-td">
-            <button type="button" onclick="removeRow(this)">Delete Row</button>
-        </td>
-    `;
-    tbody.appendChild(newRow);
-    updateCalculations()
-}
+    function addRow() {
+        const lastRow = document.querySelector('#rebate-form-body tr:last-child');
+        const drugType = lastRow.querySelector('input[name="drug-type"]:checked');
+        const fillsPerYear = lastRow.querySelector('input[name="fills-per-year"]').value;
 
-function removeRow(button) {
-    // Make sure we don't delete the last row
-    if (document.querySelectorAll('#rebate-form-body tr').length === 1) {
-        return;
-    }
-    const row = button.closest('tr');
-    row.remove();
-
-    // Update row numbers
-    const rows = document.querySelectorAll('#rebate-form-body tr');
-    rows.forEach((row, index) => {
-        row.querySelector('td:first-child').innerText = index + 1;
-    });
-    updateCalculations()
-}
-
-function toggleCheckbox(checkbox) {
-    const row = checkbox.closest('tr');
-    const checkboxes = row.querySelectorAll(`input[name="${checkbox.name}"]`);
-    checkboxes.forEach((cb) => {
-        if (cb !== checkbox) {
-            cb.checked = false;
+        if(!drugType && !fillsPerYear) {
+            alert('Please select a drug type and enter the number of fills per year for the last row');
+            return;
         }
-    });
-    updateCalculations()
-}
+        else if (!drugType) {
+            alert('Please select a drug type for the last row');
+            return;
+        }
+        else if (!fillsPerYear) {
+            alert('Please enter the number of fills per year for the last row');
+            return;
+        }
 
-function openRateSheet(carrier) {
-    const rateSheetUrls = {
-        'GTL': '/view_pdf/1422/',
-        'United Life': '/view_pdf/51',
-        'Heartland National': '/view_pdf/514',
-        'Standard Life': '/view_pdf/3129'
-    };
-    const url = rateSheetUrls[carrier];
-    if (url) {
-        openModal(url);
-    } else {
-        alert('Rate sheet not available for ' + carrier);
+        const tbody = document.getElementById('rebate-form-body');
+        const rowCount = tbody.rows.length + 1;
+        const newRow = document.createElement('tr');
+        newRow.className = 'rebate-form-row';
+        newRow.innerHTML = `
+            <td class="rebate-table-td">${rowCount}</td>
+            <td>
+                <input type="text" id="drug-name-${rowCount}" name="drug-name">
+            </td>
+            <td class="rebate-table-td">
+                <input type="checkbox" id="branded-${rowCount}" name="drug-type" value="branded" onclick="toggleCheckbox(this)">
+                <label for="branded-${rowCount}">Branded</label>
+                <input type="checkbox" id="generic-${rowCount}" name="drug-type" value="generic" onclick="toggleCheckbox(this)">
+                <label for="generic-${rowCount}">Generic</label>
+            </td>
+            <td class="rebate-table-td">
+                <input type="number" id="fills-year-${rowCount}" name="fills-per-year" style="width: 4vw" required onchange=updateCalculations()>
+                <label for="fills-month-${rowCount}" class="hidden"></label>
+            </td>
+            <td class="rebate-table-td">
+                <button type="button" onclick="removeRow(this)">Delete Row</button>
+            </td>
+        `;
+        tbody.appendChild(newRow);
+        updateCalculations()
     }
-}
+
+    function removeRow(button) {
+        // Make sure we don't delete the last row
+        if (document.querySelectorAll('#rebate-form-body tr').length === 1) {
+            return;
+        }
+        const row = button.closest('tr');
+        row.remove();
+    
+        // Update row numbers
+        const rows = document.querySelectorAll('#rebate-form-body tr');
+        rows.forEach((row, index) => {
+            row.querySelector('td:first-child').innerText = index + 1;
+        });
+        updateCalculations()
+    }
+    
+    function toggleCheckbox(checkbox) {
+        const row = checkbox.closest('tr');
+        const checkboxes = row.querySelectorAll(`input[name="${checkbox.name}"]`);
+        checkboxes.forEach((cb) => {
+            if (cb !== checkbox) {
+                cb.checked = false;
+            }
+        });
+        updateCalculations()
+    }
+    
+    function openRateSheet(carrier) {
+        const rateSheetUrls = {
+            'GTL': '/view_pdf/1422/',
+            'United Life': '/view_pdf/51',
+            'Heartland National': '/view_pdf/514',
+            'Standard Life': '/view_pdf/3129'
+        };
+        const url = rateSheetUrls[carrier];
+        if (url) {
+            openModal(url);
+        } else {
+            alert('Rate sheet not available for ' + carrier);
+        }
+    }
 </script>
 </body>
 </html>
