@@ -451,7 +451,9 @@
     overflow-y: auto;
     display: none;
     margin-left: 1vw;
+    font-family: var(--font-family);
 }
+
 
 /* rebate results table */
 .rebate-table {
@@ -476,6 +478,7 @@
 .results-table {
     border: 1px solid var(--border-color);
     border-collapse: collapse;
+    width: 60%;
 }
 
 /* rebate results table header */

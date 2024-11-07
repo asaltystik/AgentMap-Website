@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Home Health Care Rebate Calculator</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
 </head>
 <body>
     <div class="logout-container">
@@ -24,7 +26,7 @@
         </form>
     </div>
     <h2 style="margin-top: 1px; margin-bottom: 1px;">Home Health Care Drug Fill Rebate</h2>
-    <div class="rebate-container" style="margin-left: 1.5vw;">
+    <div class="rebate-container" style="margin-left: 1.5vw; font-family: var(--font-family);">
         <form id="rebate-form" class="rebate-form" action="{% url 'RebateCalculator' %}" method="POST">
             {% csrf_token %}
             <div class="rebate-table-container" style="max-height: 32vh; overflow-y: auto;">
@@ -107,6 +109,25 @@
             </tbody>
         </table>
     </div>
+        <!-- PDF Model -->
+    <div id="PDFModal" class="modal">
+        <!-- PDFModal content -->
+        <div class="modal-content">
+            <!-- close button -->
+            <span class="close" onclick="closeModal()">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24" color="oklch(0% 0 0)"
+                     fill="none">
+                    <path d="M19.0005 4.99988L5.00045 18.9999M5.00045 4.99988L19.0005 18.9999" stroke="currentColor"
+                          stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </span>
+            <!-- PDF iframe -->
+            <!-- The src of the iframe will be set by the openModal function -->
+            <iframe id="pdfIframe" style="will-change: transform; box-shadow: 0 0 20px oklch(0% 0 0);" src=""
+                    width="100%" height="800px"></iframe>
+        </div>
+    </div>
+    
 <script>
     
     let selectedPlans = {};
@@ -273,5 +294,6 @@
         }
     }
 </script>
+<script src="{% static 'js/main.js' %}"></script>
 </body>
 </html>
