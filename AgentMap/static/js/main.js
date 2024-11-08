@@ -249,10 +249,10 @@ function updateTimeZones() {
     let pacificTime = document.querySelector("#Pacific");
 
     // Update the text content with the current time in the respective time zone
-    easternTime.textContent = getTimeInTimeZone(-8);
-    centralTime.textContent = getTimeInTimeZone(-9);
-    mountainTime.textContent = getTimeInTimeZone(-10);
-    pacificTime.textContent = getTimeInTimeZone(-11);
+    easternTime.textContent = getTimeInTimeZone(-10);
+    centralTime.textContent = getTimeInTimeZone(-11);
+    mountainTime.textContent = getTimeInTimeZone(-12);
+    pacificTime.textContent = getTimeInTimeZone(-13);
 }
 
 // Update the time zones every second
