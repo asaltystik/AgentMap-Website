@@ -5,8 +5,14 @@
     <title>Home Health Care Rebate Calculator</title>
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <style>
+        body {
+            background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
+        }
+    </style>
 </head>
 <body>
+<div class="container">
     <div class="logout-container">
         {{ user.first_name }} {{ user.last_name }}
         <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
@@ -127,7 +133,6 @@
                     width="100%" height="800px"></iframe>
         </div>
     </div>
-    
 <script>
     
     let selectedPlans = {};
