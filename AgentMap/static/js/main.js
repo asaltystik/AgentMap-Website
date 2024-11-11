@@ -247,12 +247,16 @@ function updateTimeZones() {
     let centralTime = document.querySelector("#Central");
     let mountainTime = document.querySelector("#Mountain");
     let pacificTime = document.querySelector("#Pacific");
+    let alaskaTime = document.querySelector("#Alaskan");
+    let hawaiiTime = document.querySelector("#Hawaiian");
 
     // Update the text content with the current time in the respective time zone
     easternTime.textContent = getTimeInTimeZone(-10);
     centralTime.textContent = getTimeInTimeZone(-11);
     mountainTime.textContent = getTimeInTimeZone(-12);
     pacificTime.textContent = getTimeInTimeZone(-13);
+    alaskaTime.textContent = getTimeInTimeZone(-14);
+    hawaiiTime.textContent = getTimeInTimeZone(-15);
 }
 
 // Update the time zones every second
