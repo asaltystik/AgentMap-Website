@@ -99,7 +99,6 @@ def home(request):
             )
         }
 
-
     # pack the variables into the context dictionary
     context = {
         'all_licenses': all_licenses,
