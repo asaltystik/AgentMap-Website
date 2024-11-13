@@ -108,7 +108,8 @@ def home(request):
         'discount_keys': discount_keys,
         'aep_sets': aep_sets,
         'all_states': State.objects.all(),
-        'product_type': product_type
+        'product_type': product_type,
+        'full_product_type': 'Medicare Supplement'
     }
     print(context)
     return render(request, 'home.html', context=context)
@@ -157,7 +158,6 @@ def agent_map(request, product_type):
         'HHC': 'Home Health Care',
         'Cancer': 'Cancer'
     }
-
 
     # pack the variables into the context dictionary
     context = {
