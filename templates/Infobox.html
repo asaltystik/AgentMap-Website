@@ -8,6 +8,7 @@
     <!-- Whatever gets the SEO Score up IDC -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Info-Box</title>
+    {% load static %}
 </head>
 <style>
 </style>
@@ -103,7 +104,355 @@
     </h1>
     <!-- This is the information we were able to pull up for the selected state -->
     <div id="{{ state }}" class="info-box-contents" style="font-family: lucida sans unicode,serif;">
-        {% include info_box_layer %}
+    {% if product_type == "MS" %}
+        <h2>Medicare Supplements: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list|dictsort:"grouper.carrier_name" %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="
+                                   border: 2px black solid;
+                                   border-radius: 12px;
+                                   background-color: {{ discount.discount.color }};
+                            ">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect"
+                        >
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                        </button>
+                    </h2>
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list|dictsort:"form_info.form_type" %}
+                        {% if "MS" in pdf.form_info.form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if product_type == "DVH" %}
+        <h2>Dental Plans: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list|dictsort:"grouper.carrier_name" %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="background-color: {{ discount.discount.color }};">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <!-- if the agent is daltonB + the company is Metlife, display their website -->
+                        {% if "daltonB" in user.username and "MetLife" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('https://enrollment.ncd.com/798438', '_blank')"
+                                title="MetLife  E-Application"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                {{ carrier.grouper.carrier_name }}
+                            </button>
+                        {% else %}
+                            <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                            </button>
+                        {% endif %}
+                        {% if "LifeShield Dental" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('https://www.lifeshield-dvh.com/', '_blank')"
+                                title="LifeShield Dental Website"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                LifeShield Dental Consumer Website
+                            </button>
+                        {% elif "MetLife" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('https://www.canva.com/design/DAGOmAEPouA/G_4EvkEIoOk0z8SzECYhng/view', '_blank')"
+                                title="MetLife Website"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                Metlife Training Powerpoint
+                            </button>
+                        {% elif "Aetna" in carrier.grouper.carrier_name %}
+                            <button onclick="window.open('https://www.aetna.com/dsepublic/#/contentPage?page=providerSearchLanding&site_id=ivl&language=en/', '_blank')"
+                                title="Aetna Dental Website"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                Aetna Dental Portal
+                            </button>
+                        {% endif %}
+                    </h2>
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list|dictsort:"form_info.form_type" %}
+                        {% if "DVH" in pdf.form_info.form_type or "DVH+" in pdf.form_info.form_type or "DENTAL" in pdf.form_info.form_type or "VISION_RIDER" in pdf.form_info.form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if product_type == "FE" %}
+        <h2>Final Expense Plans: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="background-color: {{ discount.discount.color }};">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect" style="margin-top: .5vh"
+                        >
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                        </button>
+                    </h2>             
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list %}
+                        {% if "FIN" in pdf.form_info.form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if product_type == "HA" %}
+        <h2>Hospital Annuity Plans: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list|dictsort:"grouper.carrier_name" %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="background-color: {{ discount.discount.color }};">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect" style="margin-top: .5vh"
+                        >
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                        </button>
+                    </h2>             
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list|dictsort:"form_info.form_type"|upper %}
+                        {% if "HA_" in pdf.form_info.full_form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            <!-- Might need to add some if statements to add in a line break if the form type is too short -->
+                            <!-- too short = small button need it to be a little bit standardized for my ocd -->
+                                {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if product_type == "HHC" %}
+        <h2>Home HealthCare: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list|dictsort:"grouper.carrier_name" %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="background-color: {{ discount.discount.color }};">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect" style="margin-top: .5vh"
+                        >
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                        </button>
+                        
+                    </h2>
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list|dictsort:"form_info.form_type" %}
+                        {% if "HHC" in pdf.form_info.form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+    {% if product_type == "Cancer" %}
+        <h2>Cancer Plans: </h2>
+        <!-- groups the forms by full_company and stores them in company_list -->
+        {% regroup pdfs by carrier as carrier_list %}
+        <!-- This is the container for the filtered company forms -->
+        <div class="new-company-container">
+            <!-- this is the loop that will display the forms for each company -->
+            {% for carrier in carrier_list|dictsort:"grouper.carrier_name" %}
+                <!-- Label the company with the name as the id, we then want to loop through the discounts finding our match -->
+                <!-- We then want to apply the discount color to the company -->
+                <div class="new-company" id="{{ carrier.grouper }}"
+                     {% for discount in discounts %}
+                        {% if discount.carrier.carrier_name == carrier.grouper.carrier_name %}
+                            style="background-color: {{ discount.discount.color }};">
+                        {% endif %}
+                    {% endfor %}
+                    <h2 style="text-align: center">
+                        <!-- Button that links to the company's website -->
+                        <button onclick="window.open('https://{{ carrier.grouper.app_url }}', '_blank')"
+                            title="{{ carrier.grouper.carrier_name }} E-Application"
+                            class="company-app-redirect" style="margin-top: .5vh"
+                        >
+                            {{ carrier.grouper.carrier_name }}  <!-- Displays the company name -->
+                        </button>
+                    {% if "Vantage Care" in carrier.grouper.carrier_name %}
+                                <button onclick="window.open('{% static 'csv/VantageCare.xlsx' %}', '_blank')"
+                                title="Vantage Care Quote Tool"
+                                class="company-app-redirect" style="margin-top: .5vh"
+                            >
+                                Vantage Care Quote Tool
+                            </button>
+                        {% endif %}
+                    </h2>             
+                    <!-- This is the button-matrix that will display the forms for the company -->
+                    <div class="button-matrix">
+                    <!-- loop through the forms for the company -->
+                    {% for pdf in carrier.list|dictsort:"form_info.form_type" %}
+                        {% if "CANCER" in pdf.form_info.form_type %}
+                        <div>
+                            <button 
+                                id="{{ pdf.form_info.full_form_type }}"
+                                style="font-family: 'lucida sans unicode','serif';"
+                                onclick="openModal('{% url 'view_pdf' pdf.id %}')"
+                                title="{{ carrier.grouper.carrier_name }}&#013;{{ pdf.form_info.full_form_type }}&#013;{% if pdf.date != "None" %}{{ pdf.date }}{% endif %}"
+                            >
+                            <!-- Might need to add some if statements to add in a line break if the form type is too short -->
+                            <!-- too short = small button need it to be a little bit standardized for my ocd -->
+                                {{ pdf.form_info.full_form_type }}
+                            {% if pdf.date != "None" %}
+                                {{ pdf.date }}
+                            {% endif %}
+                            </button>
+                        </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    {% endif %}
 {% endif %}
 </div>
     <!-- Logout button -->
@@ -139,5 +488,16 @@
     </div>
 <!-- this is literally just a hidden div that will store that state's license days till expiration -->
 <div id="days-until-expiration" style="display: none;">{{ days_until_expiration }}</div>
+<script>
+setTimeout(function() {
+        const companies = document.querySelectorAll('.new-company');
+        companies.forEach(company => {
+            const buttonMatrix = company.querySelector('.button-matrix');
+            if (!buttonMatrix || buttonMatrix.querySelectorAll('button').length === 0) {
+                company.style.display = 'none';
+            }
+        });
+    }, 50); 
+</script>
 </body>
 </html>
