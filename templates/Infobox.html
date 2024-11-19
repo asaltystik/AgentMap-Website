@@ -474,8 +474,7 @@
         <div class="birthday_rule_container" style="display: none"></div>
     {% endif %}
         {{ user.first_name }} {{ user.last_name }}
-    <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}"
-          method="POST" hx-trigger="click" title="Sign Out">
+    <form id="logout-form" class="logout-button-form" action="{% url 'Logout' %}" method="POST" title="Sign Out">
         {% csrf_token %}
         <button type="submit" class="logout-button preload" title="Sign Out">
             <!-- Logout icon from hugeicons.com -->
