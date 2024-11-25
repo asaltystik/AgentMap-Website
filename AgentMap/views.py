@@ -153,7 +153,7 @@ def agent_map(request, product_type):
         'MS': 'Medicare Supplement',
         'DVH': 'Dental Vision Hearing',
         'FE': 'Final Expense',
-        'HA': 'Hospital Annunity',
+        'HI': 'Hospital Indemnity',
         'HHC': 'Home Health Care',
         'Cancer': 'Cancer'
     }

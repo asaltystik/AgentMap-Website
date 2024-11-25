@@ -290,8 +290,8 @@
         {% endfor %}
     </div>
     {% endif %}
-    {% if product_type == "HA" %}
-        <h2>Hospital Annuity Plans: </h2>
+    {% if product_type == "HI" %}
+        <h2>Hospital Indemnity Plans: </h2>
         <!-- groups the forms by full_company and stores them in company_list -->
         {% regroup pdfs by carrier as carrier_list %}
         <!-- This is the container for the filtered company forms -->
