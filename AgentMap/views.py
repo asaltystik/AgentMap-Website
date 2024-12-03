@@ -87,7 +87,7 @@ def home(request):
         aep_sets = {
             'kristinD': (
                 'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
-                'OH', 'SD', 'UT', 'VA', 'WY'
+                'OH', 'SD', 'UT', 'VA', 'WY', 'WV'
             ),
             'rhondaL': (
                 'CO', 'GA', 'ID', 'NC', 'NM', 'NV', 'PA', 'VT', 'FL',
