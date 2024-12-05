@@ -32,7 +32,7 @@
 .main-container .horizontal-container {
     display: flex;
     flex-direction: row;
-    background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png);
+    background: url('inverted_securecare-logos.png');
     background-clip: border-box;
     border: var(--base-border-size) solid var(--border-color);
     border-radius: var(--base-border-radius);
