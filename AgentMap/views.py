@@ -8,6 +8,7 @@ from datetime import timedelta
 from django.views.decorators.clickjacking import xframe_options_exempt
 from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule
 from .forms import LoginForm
+from django.middleware.csrf import get_token
 import os
 
 
@@ -108,8 +109,10 @@ def home(request):
         'aep_sets': aep_sets,
         'all_states': State.objects.all(),
         'product_type': product_type,
-        'full_product_type': 'Medicare Supplement'
+        'full_product_type': 'Medicare Supplement',
+        'theme': request.session.get('theme', 'light')
     }
+    context.update({'theme': request.session.get('theme', 'light')})
     print(context)
     return render(request, 'home.html', context=context)
 
@@ -517,3 +520,22 @@ def rebate_calculator(request):
         ]
         return render(request, 'RebateCalculator.html', {'results': results})
     return render(request, 'RebateCalculator.html')
+
+
+@login_required
+def toggle_theme(request):
+    # Get current theme from session or default to 'light'
+    current_theme = request.session.get('theme', 'light')
+    # Toggle theme
+    new_theme = 'dark' if current_theme == 'light' else 'light'
+    # Save to session
+    request.session['theme'] = new_theme
+
+    csrf_token = get_token(request)
+
+    return HttpResponse(f"""
+            <script>
+                document.cookie = "csrftoken={csrf_token}; path=/";
+                window.location.reload();
+            </script>
+        """)

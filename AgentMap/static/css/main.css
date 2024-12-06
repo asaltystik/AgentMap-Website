@@ -17,6 +17,9 @@
     --button-color-text-hovered: oklch(100% 0 0);
     --button-transition: 450ms ease-in-out;
     --font-family: 'lucida sans unicode', 'serif';
+    --bg-color: #ffffff;
+    --text-color: #000000;;
+    --horizontal-container-background: url(https://securecare65.com/wp-content/uploads/2019/06/securecare-logos.png)
 }
 
 /* This is the root container for all of the websites css */
@@ -32,7 +35,7 @@
 .main-container .horizontal-container {
     display: flex;
     flex-direction: row;
-    background: url('inverted_securecare-logos.png');
+    background: var(--horizontal-container-background);
     background-clip: border-box;
     border: var(--base-border-size) solid var(--border-color);
     border-radius: var(--base-border-radius);
@@ -224,6 +227,7 @@
     border: var(--base-border-size) solid var(--border-color);
     font-size: calc(var(--base-font-size) * .85);
     word-wrap: break-word;
+    color: oklch(0% 0 0);
     margin: 0.5vh 0.5vh 0.1vh 0.1vh;
     width: 95%
 }
@@ -555,4 +559,41 @@ select::-webkit-scrollbar-thumb {
 /* select effect */
 select::-webkit-scrollbar-track {
     background: oklch(93.89% 0 0);
+}
+
+/* Theme toggle button styles */
+.theme-toggle {
+    position: fixed;
+    border-radius: 50%;
+    border: 2px solid var(--border-color);
+    background-color: var(--bg-color);
+    cursor: pointer;
+    font-size: 1.25rem;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+.theme-toggle.dark-mode {
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.theme-toggle.light-mode {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+    /* Dark mode variables */
+    --bg-color: oklch(45.32% 0 0);
+    --text-color: oklch(100% 0 0 / 70%);
+    --horizontal-container-background: url('inverted_securecare-logos.png');
+}
+
+/* Apply variables to elements */
+body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s ease, color 0.3s ease;
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="{{ theme }}">
 <head>
     <!-- Required meta tags -->
     <meta charset="UTF-8" name="Agent Map" content="This is an internal tool for SecureCare65.com, It is a simple svg map
@@ -13,10 +13,17 @@
     <!-- and use the django templater to load the css in on page load -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+    <script>
+        document.body.addEventListener('htmx:configRequest', function(evt) {
+            evt.detail.headers['X-CSRFToken'] = document.querySelector('meta[name="csrf-token"]').getAttribute('content');
+        });
+    </script>
 </head>
 <body>
 <div class="main-container">
     <div class="horizontal-container">
+
         <div class="map-container">
             <!-- Include the Medicare Supplements Map at MedicareSupplementalLayer.html -->
             {% include map_layer %}
@@ -42,6 +49,12 @@
                 </form>
             </div>
         </div>
+        <button hx-post="/toggle-theme/" 
+            class="theme-toggle {% if theme == 'dark' %}dark-mode{% else %}light-mode{% endif %}" 
+            hx-swap="outerHTML"
+            hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}'>
+            {% if theme == 'dark' %}🌙{% else %}☀️{% endif %}
+        </button>
     </div>
     <!-- This holds any extra information that needs to be displayed such as the color key and redirect buttons -->
     <div class="extras-container">

@@ -34,4 +34,5 @@ urlpatterns = [
     path('rebate_calculator/', agent_map_view.rebate_calculator, name='RebateCalculator'),
     path('login/', agent_map_view.login_view, name='Login'),
     path('logout/', agent_map_view.logout_view, name='Logout'),
+    path('toggle-theme/', agent_map_view.toggle_theme, name='toggle_theme'),
 ]
