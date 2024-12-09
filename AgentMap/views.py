@@ -81,10 +81,11 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MapLayer.html'
     product_type = 'MS'
+    AEP = False
 
     if username == 'daltonB':
         aep_sets = {}
-    else:
+    elif AEP:
         aep_sets = {
             'kristinD': (
                 'AL', 'AR', 'AZ', 'IA', 'IL', 'IN', 'MT', 'ND', 'NJ',
@@ -99,6 +100,8 @@ def home(request):
                 'CA', 'TX', 'OR'
             )
         }
+    else:
+        aep_sets = {}
 
     # pack the variables into the context dictionary
     context = {
