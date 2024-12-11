@@ -81,7 +81,7 @@ def home(request):
     # Set the MapLayer template variable to the MedicareSupplement Layer
     map_layer = 'MapLayer.html'
     product_type = 'MS'
-    AEP = False
+    AEP = True
 
     if username == 'daltonB':
         aep_sets = {}
