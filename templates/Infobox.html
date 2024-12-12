@@ -319,7 +319,7 @@
                     <div class="button-matrix">
                     <!-- loop through the forms for the company -->
                     {% for pdf in carrier.list|dictsort:"form_info.form_type"|upper %}
-                        {% if "HA_" in pdf.form_info.full_form_type %}
+                        {% if "HI_" in pdf.form_info.full_form_type %}
                         <div>
                             <button 
                                 id="{{ pdf.form_info.full_form_type }}"
