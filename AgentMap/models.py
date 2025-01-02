@@ -138,3 +138,16 @@ class HouseHoldDiscount(models.Model):
     def __str__(self):
         return self.carrier.carrier_name + " - " + self.state.state_code + " - " + self.discount.discount_type
 
+
+class AgentActivity(models.Model):
+    agent = models.ForeignKey(Agent, related_name='activities', on_delete=models.CASCADE)
+    action = models.CharField(max_length=255)
+    details = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name_plural = "Agent Activities"
+
+    def __str__(self):
+        return (self.agent.user.username + " - " + self.action + " - " +
+                self.details + " - " + self.timestamp.strftime('%Y-%m-%d %H:%M:%S'))

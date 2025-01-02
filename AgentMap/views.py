@@ -6,7 +6,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
 from datetime import timedelta
 from django.views.decorators.clickjacking import xframe_options_exempt
-from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule
+from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule, AgentActivity
 from .forms import LoginForm
 from django.middleware.csrf import get_token
 import os
@@ -235,6 +235,13 @@ def get_companies(request, product_type, state_code):
         'birthday_rule_states': birthday_rule_states,
     }
     print(agent_license_num)
+
+    AgentActivity.objects.create(
+        agent=agent,
+        action='get_companies',
+        details=f'Product Type: {product_type}, State: {state_code}'
+    )
+
     return render(request, 'Infobox.html', context=context)
 
 
@@ -243,6 +250,7 @@ def get_companies(request, product_type, state_code):
 def view_pdf(request, pdf_id):
     print(f'PDF ID: {pdf_id}')
     pdf = get_object_or_404(PDF, id=pdf_id)
+    print(f'PDF: {pdf}')
 
     file_path = pdf.file_path
 
@@ -259,6 +267,14 @@ def view_pdf(request, pdf_id):
 
     if not file_path.startswith('static/'):
         raise SuspiciousOperation("Attempted Directory Traversal")
+
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='view_pdf',
+        details=f'Carrier: {pdf.carrier.carrier_name},'
+                f' State: {pdf.state.state_code},'
+                f' Form Type: {pdf.form_info.form_type}'
+    )
 
     response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
     response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
@@ -309,6 +325,12 @@ def birthday_rules(request, state):
     </html>
     """
 
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='birthday_rules',
+        details=f'State: {state}'
+    )
+
     # Create a response with the HTML content
     response = HttpResponse(html_content, content_type='text/html')
 
@@ -332,6 +354,11 @@ def declinable_drug_list(request):
     context = {
         'acceptanceRules': acceptanceRules,
     }
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='declinable_drug_list',
+        details=f'Loaded Declinable Drug List'
+    )
     return render(request, 'declinable_drug_list.html', context=context)
 
 

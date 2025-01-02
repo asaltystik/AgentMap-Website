@@ -2,7 +2,7 @@ from django.contrib import admin
 from AgentMap.models import (State, Carrier, FormType, PDF,
                              Agent, AgentLicensedState, Drug, MedicalCondition,
                              AcceptanceRule, HouseHoldDiscountKey,
-                             HouseHoldDiscount)
+                             HouseHoldDiscount, AgentActivity)
 
 
 # Register your models here.
@@ -59,3 +59,8 @@ class HouseHoldDiscountAdmin(admin.ModelAdmin):
 @admin.register(AcceptanceRule)
 class AcceptanceRuleAdmin(admin.ModelAdmin):
     pass
+
+@admin.register(AgentActivity)
+class AgentActivityAdmin(admin.ModelAdmin):
+    list_display = ('agent', 'action', 'details', 'timestamp')
+    readonly_fields = ('agent', 'action', 'details', 'timestamp')
