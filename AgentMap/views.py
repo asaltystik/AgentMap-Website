@@ -16,6 +16,11 @@ import os
 def login_view(request):
     # If the user is already logged in, redirect them to the agent map page
     if request.user.is_authenticated:
+        AgentActivity.objects.create(
+            agent=request.user.agent,
+            action='login',
+            details='User Logged In'
+        )
         return redirect('Home')
 
     # if the request is a POST request, check if the form is valid
@@ -29,6 +34,11 @@ def login_view(request):
             # if the user is not None, log them in
             if user is not None:
                 login(request, user)
+                AgentActivity.objects.create(
+                    agent=user.agent,
+                    action='login',
+                    details='User Logged In'
+                )
                 return redirect('Home')  # redirect the user to the agent map page
     else:
         # if the request is not a POST request, create a new login form
@@ -40,6 +50,11 @@ def login_view(request):
 # This view will log the user out of the system
 def logout_view(request):
     logout(request)  # log the user out
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='logout',
+        details='User Logged Out'
+    )
     return redirect('Login')  # redirect the user to the login page
 
 # This view will open the home page for the AgentMap project
@@ -442,6 +457,11 @@ def get_drug_names(request):
 
 
 def rebate_calculator(request):
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='rebate_calculator',
+        details='Using Rebate Calculator'
+    )
     if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         # Get the POST data from the request
         post_data = request.POST
@@ -562,6 +582,12 @@ def toggle_theme(request):
     request.session['theme'] = new_theme
 
     csrf_token = get_token(request)
+
+    AgentActivity.objects.create(
+        agent=request.user.agent,
+        action='toggle_theme',
+        details=f'Theme: {new_theme}'
+    )
 
     return HttpResponse(f"""
             <script>
