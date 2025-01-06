@@ -29,23 +29,23 @@ class Command(BaseCommand):
         agents = expiring_licenses.values('agent').annotate(num_expiring=Count('id'))
 
         # For each unique agent, gather all their upcoming expirations and send an email
-        for agent in agents:
-            agent_obj = Agent.objects.get(id=agent['agent'])  # Create an agent object from the agent id
-            # Filter the expiring licenses for the current agent
-            agent_expirations = expiring_licenses.filter(agent=agent_obj)  # This is a queryset of all expiring licenses
-            # Create a string of all upcoming expirations for the agent
-            expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"  # This is the license number
-                                         f" in state {expiring_license.state}"  # This is the state abbreviation
-                                         f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"  # Date
-                                         for expiring_license in agent_expirations])  # Loops through expiring licenses
-            send_mail(
-                'License Expiration Notice',  # This is the subject of the email
-                f'You have {agent["num_expiring"]} license(s) expiring'  # agent["num_expiring"] returns the count
-                f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
-                'carick@securecare65.com',  # We are sending this from my personal work email
-                [agent_obj.user.email],  # This is the agents email address
-                fail_silently=False,  # This will raise an exception if the email fails to send
-            )
+        # for agent in agents:
+        #     agent_obj = Agent.objects.get(id=agent['agent'])  # Create an agent object from the agent id
+        #     # Filter the expiring licenses for the current agent
+        #     agent_expirations = expiring_licenses.filter(agent=agent_obj)  # This is a queryset of all expiring licenses
+        #     # Create a string of all upcoming expirations for the agent
+        #     expirations_str = "\n".join([f"License {expiring_license.licenseNumber}"  # This is the license number
+        #                                  f" in state {expiring_license.state}"  # This is the state abbreviation
+        #                                  f" expires on {expiring_license.expiration.strftime('%m/%d/%Y')}"  # Date
+        #                                  for expiring_license in agent_expirations])  # Loops through expiring licenses
+        #     send_mail(
+        #         'License Expiration Notice',  # This is the subject of the email
+        #         f'You have {agent["num_expiring"]} license(s) expiring'  # agent["num_expiring"] returns the count
+        #         f' this month:\n{expirations_str}',  # This is the string of all upcoming expirations
+        #         'carick@securecare65.com',  # We are sending this from my personal work email
+        #         [agent_obj.user.email],  # This is the agents email address
+        #         fail_silently=False,  # This will raise an exception if the email fails to send
+        #     )
 
         # Get the date and time of the email
         date = timezone.now().strftime('%m/%d/%Y %H:%M:%S')
