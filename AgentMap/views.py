@@ -4,9 +4,10 @@ from django.core.exceptions import SuspiciousOperation
 from django.http import FileResponse, JsonResponse, HttpResponse
 from django.shortcuts import render, redirect, get_object_or_404
 from django.utils import timezone
-from datetime import timedelta
+from django.db.models import Count
+from datetime import timedelta, datetime
 from django.views.decorators.clickjacking import xframe_options_exempt
-from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule, AgentActivity
+from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule, AgentActivity, Carrier
 from .forms import LoginForm
 from django.middleware.csrf import get_token
 import os
@@ -19,7 +20,7 @@ def login_view(request):
         AgentActivity.objects.create(
             agent=request.user.agent,
             action='login',
-            details='User Logged In'
+            details={}
         )
         return redirect('Home')
 
@@ -37,7 +38,7 @@ def login_view(request):
                 AgentActivity.objects.create(
                     agent=user.agent,
                     action='login',
-                    details='User Logged In'
+                    details={}
                 )
                 return redirect('Home')  # redirect the user to the agent map page
     else:
@@ -53,7 +54,7 @@ def logout_view(request):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='logout',
-        details='User Logged Out'
+        details={}
     )
     return redirect('Login')  # redirect the user to the login page
 
@@ -254,7 +255,10 @@ def get_companies(request, product_type, state_code):
     AgentActivity.objects.create(
         agent=agent,
         action='get_companies',
-        details=f'Product Type: {product_type}, State: {state_code}'
+        details={
+            "Product Type": product_type,
+            "State": state_code
+        }
     )
 
     return render(request, 'Infobox.html', context=context)
@@ -286,9 +290,11 @@ def view_pdf(request, pdf_id):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='view_pdf',
-        details=f'Carrier: {pdf.carrier.carrier_name},'
-                f' State: {pdf.state.state_code},'
-                f' Form Type: {pdf.form_info.form_type}'
+        details={
+            "Carrier": pdf.carrier.carrier_name,
+            "State": pdf.state.state_code,
+            "Form Type": pdf.form_info.form_type
+        }
     )
 
     response = FileResponse(open(file_path, 'rb'), content_type='application/pdf')
@@ -343,7 +349,9 @@ def birthday_rules(request, state):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='birthday_rules',
-        details=f'State: {state}'
+        details={
+            "State": state
+        }
     )
 
     # Create a response with the HTML content
@@ -372,7 +380,7 @@ def declinable_drug_list(request):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='declinable_drug_list',
-        details=f'Loaded Declinable Drug List'
+        details={}
     )
     return render(request, 'declinable_drug_list.html', context=context)
 
@@ -460,7 +468,7 @@ def rebate_calculator(request):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='rebate_calculator',
-        details='Using Rebate Calculator'
+        details={}
     )
     if request.method == 'POST' and request.headers.get('X-Requested-With') == 'XMLHttpRequest':
         # Get the POST data from the request
@@ -586,7 +594,9 @@ def toggle_theme(request):
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='toggle_theme',
-        details=f'Theme: {new_theme}'
+        details={
+            "current_theme": current_theme,
+        }
     )
 
     return HttpResponse(f"""
