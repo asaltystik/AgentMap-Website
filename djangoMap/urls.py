@@ -35,4 +35,6 @@ urlpatterns = [
     path('login/', agent_map_view.login_view, name='Login'),
     path('logout/', agent_map_view.logout_view, name='Logout'),
     path('toggle-theme/', agent_map_view.toggle_theme, name='toggle_theme'),
+    path('analytics/', agent_map_view.analytics_view, name='Analytics'),
+    path('get_filtered_data/', agent_map_view.get_filtered_data, name='Get Analytics'),
 ]

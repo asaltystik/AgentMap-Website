@@ -7,9 +7,11 @@ from django.utils import timezone
 from django.db.models import Count
 from datetime import timedelta, datetime
 from django.views.decorators.clickjacking import xframe_options_exempt
-from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule, AgentActivity, Carrier
+from django.views.decorators.http import require_GET
+from .models import Agent, HouseHoldDiscountKey, HouseHoldDiscount, State, PDF, Drug, AcceptanceRule, AgentActivity, Carrier, FormType
 from .forms import LoginForm
 from django.middleware.csrf import get_token
+import json
 import os
 
 
@@ -50,12 +52,12 @@ def login_view(request):
 
 # This view will log the user out of the system
 def logout_view(request):
-    logout(request)  # log the user out
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='logout',
         details={}
     )
+    logout(request)  # log the user out
     return redirect('Login')  # redirect the user to the login page
 
 # This view will open the home page for the AgentMap project
@@ -346,11 +348,14 @@ def birthday_rules(request, state):
     </html>
     """
 
+    # translate the full staten name to the state code
+    state_code = State.objects.get(full_state=state).state_code
+
     AgentActivity.objects.create(
         agent=request.user.agent,
         action='birthday_rules',
         details={
-            "State": state
+            "State": state_code
         }
     )
 
@@ -605,3 +610,127 @@ def toggle_theme(request):
                 window.location.reload();
             </script>
         """)
+
+
+# This function will handle the analytics for the agentMap
+def analytics_view(request):
+    agents = Agent.objects.all()
+    actions = AgentActivity.objects.values_list('action', flat=True).distinct()
+    states = State.objects.all()
+    product_types = ['MS', 'DVH', 'FE', 'HI', 'HHC', 'Cancer']
+    form_types = FormType.objects.all()
+
+    context = {
+        'agents': agents,
+        'actions': actions,
+        'states': states,
+        'product_types': product_types,
+        'form_types': form_types,
+    }
+    return render(request, 'analytics.html', context)
+
+def get_filtered_data(request):
+    agent_id = request.GET.get('agent_id')
+    action = request.GET.get('action')
+    state = request.GET.get('state')
+    product_type = request.GET.get('product_type')
+    form_type = request.GET.get('form_type')
+    time_period = request.GET.get('time_period')
+
+    activities = AgentActivity.objects.all()
+
+    activities = activities.order_by('timestamp')
+
+    # we want to remove any activities that contain the action 'toggle_theme' since it is not relevant to the analytics
+    activities = activities.exclude(action='toggle_theme')
+    activities = activities.exclude(action='login')
+    activities = activities.exclude(action='logout')
+
+    if agent_id:
+        activities = activities.filter(agent_id=agent_id)
+    if action:
+        activities = activities.filter(action=action)
+    if state:
+        activities = activities.filter(details__icontains=f'"state": "{state}"')
+    if product_type:
+        activities = activities.filter(details__icontains=f'"Product Type": "{product_type}"')
+    if form_type:
+        activities = activities.filter(details__icontains=f'"Form Type": "{form_type}"')
+
+    if time_period:
+        now = timezone.now()
+        if time_period == 'hour':
+            start_time = now - timedelta(hours=1)
+        elif time_period == 'day':
+            start_time = now - timedelta(days=1)
+        elif time_period == 'week':
+            start_time = now - timedelta(weeks=1)
+        elif time_period == 'month':
+            start_time = now - timedelta(days=30)
+        elif time_period == '3months':
+            start_time = now - timedelta(days=90)
+        elif time_period == '12months':
+            start_time = now - timedelta(days=365)
+        activities = activities.filter(timestamp__gte=start_time)
+
+    data = {
+        'datasets': []
+    }
+
+    agent_datasets = {}
+    agent_count = 0
+    action_counts = {}
+
+
+    # Color Palette for the datasets
+    colors = [
+        'oklch(65.11% 0.1457 267.31)',
+        'oklch(56.48% 0.1726 4.56)',
+        'oklch(65.44% 0.1043 183.49)',
+        'oklch(56.19% 0.1787 298.1)',
+        'oklch(68.21% 0.1459 47.26)',
+        'oklch(50.94% 0.1852 267.15)',
+        'oklch(45.27% 0.153 5.92)',
+        'oklch(48.74% 0.0847 182.85)',
+        'oklch(45.2% 0.1707 296.57)',
+        'oklch(51.4% 0.1464 45.03)',
+        'oklch(41.51% 0.1676 268.26)',
+        'oklch(37.49% 0.14 6.37)',
+        'oklch(39.45% 0.069 183.53)',
+        'oklch(37.49% 0.1605 294.44)',
+        'oklch(41.67% 0.1182 44.38)',
+        'oklch(34.6% 0.1548 268.7)',
+        'oklch(61.67% 0.1558 3.02)',
+        'oklch(32.7% 0.0578 184.21)',
+        'oklch(61.32% 0.1626 299.83)',
+        'oklch(34.43% 0.0975 45.53)',
+        'oklch(55.2% 0.1895 266.84)',
+        'oklch(48.46% 0.1598 5.39)',
+        'oklch(53.05% 0.0923 182.1)',
+        'oklch(48.31% 0.1727 296.76)'
+    ]
+
+    for activity in activities:
+        agent = activity.agent.user.username
+        action_counts[agent] = action_counts.get(agent, 0) + 1
+        print(f'Action Counts: {action_counts}')
+        if agent not in agent_datasets:
+            agent_count += 1
+            agent_datasets[agent] = {
+                'label': agent,
+                'data': [],
+                'backgroundColor': colors[agent_count % len(colors)],
+                'borderColor': colors[agent_count % len(colors)],
+                'borderWidth': 1,
+            }
+        agent_datasets[agent]['data'].append({
+            'x': activity.timestamp,
+            'y': action_counts[agent],
+            'action': activity.action,
+            'state': activity.details.get('State', ''),
+            'product_type': activity.details.get('Product Type', ''),
+            'form_type': activity.details.get('Form Type', '')
+        })
+
+    data['datasets'] = list(agent_datasets.values())
+    return JsonResponse(data)

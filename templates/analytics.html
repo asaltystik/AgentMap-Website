@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Analytics</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+</head>
+<body>
+  <h1>Agent Analytics</h1>
+  <div>
+    <label for="agent-select">Agent:</label>
+    <select id="agent-select">
+      <option value="">All</option>
+      {% for agent in agents %}
+        <option value="{{ agent.id }}">{{ agent.user }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="action-select">Action:</label>
+    <select id="action-select">
+      <option value="">All</option>
+      {% for action in actions %}
+          {% if not 'toggle_theme' in action and not 'login' in action %}
+            <option value="{{ action }}">{{ action }}</option>
+          {% endif %}
+      {% endfor %}
+    </select>
+
+    <label for="state-select">State:</label>
+    <select id="state-select">
+      <option value="">All</option>
+      {% for state in states %}
+        <option value="{{ state }}">{{ state }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="product-type-select">Product Type:</label>
+    <select id="product-type-select">
+      <option value="">All</option>
+      {% for product_type in product_types %}
+        <option value="{{ product_type }}">{{ product_type }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="form-type-select">Form Type:</label>
+    <select id="form-type-select">
+      <option value="">All</option>
+      {% for form_type in form_types %}
+        <option value="{{ form_type }}">{{ form_type }}</option>
+      {% endfor %}
+    </select>
+
+    <label for="time-period-select">Time Period:</label>
+    <select id="time-period-select">
+      <option value="hour">Last Hour</option>
+      <option value="day">Last Day</option>
+      <option value="week">Last Week</option>
+      <option value="month">Last Month</option>
+      <option value="3months">Last 3 Months</option>
+      <option value="12months">Last 12 Months</option>
+    </select>
+  </div>
+
+  <div id="timeline-chart-container" style="width: 95%; border-style: solid; border-color: oklch(0 0 0)">
+    <canvas id="timeline-chart" ></canvas>
+  </div>
+
+  <script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const ctxTimeline = document.getElementById('timeline-chart').getContext('2d');
+
+    const timelineChart = new Chart(ctxTimeline, {
+      type: 'line',
+      data: {
+        labels: [],
+        datasets: []
+      },
+      options: {
+        scales: {
+          x: {
+            display: true,
+            title: {
+              display: true,
+              text: 'Time'
+            },
+            type: 'time',
+            time: {
+              unit: 'minute',
+              displayFormats: {
+                minute: 'MM dd hh:mm a'
+              },
+                unit: 'day',
+                displayFormats: {
+                  day: 'MM dd hh:mm a'
+                },
+                unit: 'week',
+                displayFormats: {
+                  week: 'MM dd hh:mm a'
+                },
+                unit: 'month',
+                displayFormats: {
+                  month: 'MM dd hh:mm a'
+                },
+              minUnit: 'minute'
+            },
+            ticks: {
+              maxTicksLimit: 5,
+              includeBounds: true,
+              beginAtZero: true,
+              callback: function(value, index, values) {
+                const date = new Date(value);
+                return date.toLocaleString('en-US', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true });
+              }
+            }
+          },
+          y: {
+            beginAtZero: true
+          }
+        },
+        plugins: {
+          tooltip: {
+            callbacks: {
+              label: function(context) {
+                const dataPoint = context.raw;
+                return [
+                  `Count: ${dataPoint.y}`,
+                  `Action: ${dataPoint.action}`,
+                  `State: ${dataPoint.state}`,
+                  `Product Type: ${dataPoint.product_type}`,
+                  `Form Type: ${dataPoint.form_type}`
+                ];
+              }
+            }
+          },
+          annotation: {
+            annotations: {}
+          }
+        }
+      }
+    });
+
+    function getMaxTicksLimit(timePeriod) {
+      switch (timePeriod) {
+        case 'hour':
+          return 3; // Show more ticks for shorter periods
+        case 'day':
+          return 4;
+        case 'week':
+          return 7;
+        case 'month':
+          return 4;
+        case '3months':
+          return 12;
+        case '12months':
+          return 12;
+        default:
+          return 2;
+      }
+    }
+
+    function updateCharts() {
+      const agentId = document.getElementById('agent-select').value;
+      const action = document.getElementById('action-select').value;
+      const state = document.getElementById('state-select').value;
+      const productType = document.getElementById('product-type-select').value;
+      const formType = document.getElementById('form-type-select').value;
+      const timePeriod = document.getElementById('time-period-select').value;
+
+      fetch(`/get_filtered_data?agent_id=${agentId}&action=${action}&state=${state}&product_type=${productType}&form_type=${formType}&time_period=${timePeriod}`)
+        .then(response => response.json())
+        .then(data => {
+          timelineChart.data.datasets = data.datasets;
+
+          let minY = Infinity;
+          let maxY = 0;
+          data.datasets.forEach(dataset => {
+            dataset.data.forEach(dataPoint => {
+              minY = Math.min(minY, dataPoint.y);
+              maxY = Math.max(maxY, dataPoint.y);
+            });
+          });
+
+          timelineChart.options.scales.y.min = minY;
+          timelineChart.options.scales.y.max = maxY;
+
+          const now = new Date();
+          let startTime;
+          switch (timePeriod) {
+            case 'hour':
+              startTime = new Date(now.getTime() - 60 * 60 * 1000);
+              break;
+            case 'day':
+              startTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+              break;
+            case 'week':
+              startTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+              break;
+            case 'month':
+              startTime = new Date(now.getTime() - 31 * 24 * 60 * 60 * 1000);
+              break;
+            case '3months':
+              startTime = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+              break;
+            case '12months':
+              startTime = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+              break;
+            default:
+              startTime = new Date(now.getTime() - 60 * 60 * 1000);
+          }
+
+          timelineChart.options.scales.x.min = startTime;
+          timelineChart.options.scales.x.max = now;
+          timelineChart.options.scales.x.ticks.maxTicksLimit = getMaxTicksLimit(timePeriod);
+
+          timelineChart.update();
+        });
+    }
+
+    document.getElementById('agent-select').addEventListener('change', updateCharts);
+    document.getElementById('action-select').addEventListener('change', updateCharts);
+    document.getElementById('state-select').addEventListener('change', updateCharts);
+    document.getElementById('product-type-select').addEventListener('change', updateCharts);
+    document.getElementById('form-type-select').addEventListener('change', updateCharts);
+    document.getElementById('time-period-select').addEventListener('change', updateCharts);
+
+    updateCharts();
+    setInterval(updateCharts, 30000);
+  });
+  </script>
+</body>
+</html>
