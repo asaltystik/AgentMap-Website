@@ -632,7 +632,7 @@ def analytics_view(request):
 def get_filtered_data(request):
     agent_id = request.GET.get('agent_id')
     action = request.GET.get('action')
-    state = request.GET.get('state')
+    state = request.GET.get('State')
     product_type = request.GET.get('product_type')
     form_type = request.GET.get('form_type')
     time_period = request.GET.get('time_period')
@@ -651,7 +651,7 @@ def get_filtered_data(request):
     if action:
         activities = activities.filter(action=action)
     if state:
-        activities = activities.filter(details__icontains=f'"state": "{state}"')
+        activities = activities.filter(details__icontains=f'"State": "{State}"')
     if product_type:
         activities = activities.filter(details__icontains=f'"Product Type": "{product_type}"')
     if form_type:

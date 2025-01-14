@@ -95,18 +95,9 @@
                 displayFormats: {
                   day: 'MM dd hh:mm a'
                 },
-                unit: 'week',
-                displayFormats: {
-                  week: 'MM dd hh:mm a'
-                },
-                unit: 'month',
-                displayFormats: {
-                  month: 'MM dd hh:mm a'
-                },
               minUnit: 'minute'
             },
             ticks: {
-              maxTicksLimit: 5,
               includeBounds: true,
               beginAtZero: true,
               callback: function(value, index, values) {
@@ -116,7 +107,10 @@
             }
           },
           y: {
-            beginAtZero: true
+            beginAtZero: true,
+            ticks: {
+                stepSize: 1
+            }
           }
         },
         plugins: {
@@ -146,7 +140,7 @@
         case 'hour':
           return 3; // Show more ticks for shorter periods
         case 'day':
-          return 4;
+          return 6;
         case 'week':
           return 7;
         case 'month':
@@ -188,27 +182,41 @@
           const now = new Date();
           let startTime;
           switch (timePeriod) {
-            case 'hour':
-              startTime = new Date(now.getTime() - 60 * 60 * 1000);
-              break;
-            case 'day':
-              startTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-              break;
-            case 'week':
-              startTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-              break;
-            case 'month':
-              startTime = new Date(now.getTime() - 31 * 24 * 60 * 60 * 1000);
-              break;
-            case '3months':
-              startTime = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
-              break;
-            case '12months':
-              startTime = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
-              break;
-            default:
-              startTime = new Date(now.getTime() - 60 * 60 * 1000);
-          }
+  case 'hour':
+    startTime = new Date(now.getTime() - 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'minute';
+    timelineChart.options.scales.x.time.stepSize = 15;
+    break;
+  case 'day':
+    startTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'hour';
+    timelineChart.options.scales.x.time.stepSize = 1; // Ensure stepSize is 1 hour
+    break;
+  case 'week':
+    startTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'day';
+    timelineChart.options.scales.x.time.stepSize = 1;
+    break;
+  case 'month':
+    startTime = new Date(now.getTime() - 31 * 24 * 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'day';
+    timelineChart.options.scales.x.time.stepSize = 1;
+    break;
+  case '3months':
+    startTime = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'week';
+    timelineChart.options.scales.x.time.stepSize = 1;
+    break;
+  case '12months':
+    startTime = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'month';
+    timelineChart.options.scales.x.time.stepSize = 1;
+    break;
+  default:
+    startTime = new Date(now.getTime() - 60 * 60 * 1000);
+    timelineChart.options.scales.x.time.unit = 'minute';
+    timelineChart.options.scales.x.time.stepSize = 15;
+}
 
           timelineChart.options.scales.x.min = startTime;
           timelineChart.options.scales.x.max = now;
