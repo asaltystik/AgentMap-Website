@@ -1,241 +1,379 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Analytics</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <meta charset="UTF-8">
+    <title>Analytics</title>
+    <style>
+        .line {
+            fill: none;
+            stroke-width: 2px;
+        }
+
+        .axis-label {
+            font-size: 12px;
+        }
+
+        .title {
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        #chart-container {
+            display: flex;
+            flex-direction: row;
+            height: 80vh;
+        }
+
+        #options-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 35%;
+            height: 80%;
+        }
+
+        #options-container > div {
+            flex: 1 1 50%;
+            box-sizing: border-box;
+            width: 50%;
+            height: 60%;
+            padding: 5px;
+            border: 2px solid oklch(0% 0 0);
+        }
+
+        .selections {
+            max-height: 75%;
+            overflow-y: auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .selections label {
+            flex: 1 1 50%;
+            box-sizing: border-box;
+        }
+
+        .tooltip {
+            position: absolute;
+            background-color: white;
+            border: 1px solid #ccc;
+            padding: 5px;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+
+        .stream {
+            opacity: 0.8;
+        }
+
+        .stream:hover {
+            opacity: 1;
+        }
+
+        .axis-label {
+            font-size: 1.5em;
+            fill: black;
+        }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
 </head>
 <body>
-  <h1>Agent Analytics</h1>
-  <div>
-    <label for="agent-select">Agent:</label>
-    <select id="agent-select">
-      <option value="">All</option>
-      {% for agent in agents %}
-        <option value="{{ agent.id }}">{{ agent.user }}</option>
-      {% endfor %}
-    </select>
 
-    <label for="action-select">Action:</label>
-    <select id="action-select">
-      <option value="">All</option>
-      {% for action in actions %}
-          {% if not 'toggle_theme' in action and not 'login' in action %}
-            <option value="{{ action }}">{{ action }}</option>
-          {% endif %}
-      {% endfor %}
-    </select>
+<div id="chart-container" class="container">
+    <svg id="chart"></svg>
+    <div id="options-container" class="container">
+        <div id="agent-selection-container" class="container">
+            <h3>Agents:</h3>
+            <div id="agent-selections" class="selections">
+                {% for agent in agents %}
+                <label>
+                    <input type="checkbox" value="{{ agent.user }}" checked> {{ agent.user }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="states-selection-container" class="container">
+            <h3>States:</h3>
+            <div id="states-selections" class="selections">
+                {% for state in states %}
+                    <label>
+                        <input type="checkbox" name="state" value="{{ state }}" checked> {{ state }}
+                        </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="product-type-selection-container" class="container">
+            <h3>Product Types:</h3>
+            <div id="product-type-selections" class="selections">
+                {% for product_type in product_types %}
+                <label>
+                    <input type="checkbox" value="{{ product_type }}" checked> {{ product_type }}
+                </label>
+                {% endfor %}
+            </div>
+        </div>
+        <div id="period-selection-container" class="container">
+            <h3>Periods:</h3>
+            <div id="period-selections" class="selections">
+                <label>
+                    <input type="radio" name="period" value="1" checked> 1 Hour
+                </label>
+                <label>
+                    <input type="radio" name="period" value="24"> 1 Day
+                </label>
+                <label>
+                    <input type="radio" name="period" value="168"> 1 Week
+                </label>
+                <label>
+                    <input type="radio" name="period" value="696"> 1 Month
+                </label>
+                <label>
+                    <input type="radio" name="period" value="2016"> 3 Months
+                </label>
+                <label>
+                    <input type="radio" name="period" value="8064"> 12 Months
+                </label>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="tooltip" id="tooltip"></div>
+<script>
+    let datasets = [];
 
-    <label for="state-select">State:</label>
-    <select id="state-select">
-      <option value="">All</option>
-      {% for state in states %}
-        <option value="{{ state }}">{{ state }}</option>
-      {% endfor %}
-    </select>
+    function getSelectedPeriod() {
+        const selectedPeriod = document.querySelector('#period-selections input[name="period"]:checked').value;
+        return selectedPeriod;
+    }
 
-    <label for="product-type-select">Product Type:</label>
-    <select id="product-type-select">
-      <option value="">All</option>
-      {% for product_type in product_types %}
-        <option value="{{ product_type }}">{{ product_type }}</option>
-      {% endfor %}
-    </select>
+    // Color scale for the datasets
+    const colorScale = d3.scaleOrdinal()
+        .range([
+            'oklch(54.92% 0.1238 244.6)',
+            'oklch(73.07% 0.1851 51.88)',
+            'oklch(59.58% 0.1345 306.9)'
+        ]);
 
-    <label for="form-type-select">Form Type:</label>
-    <select id="form-type-select">
-      <option value="">All</option>
-      {% for form_type in form_types %}
-        <option value="{{ form_type }}">{{ form_type }}</option>
-      {% endfor %}
-    </select>
-
-    <label for="time-period-select">Time Period:</label>
-    <select id="time-period-select">
-      <option value="hour">Last Hour</option>
-      <option value="day">Last Day</option>
-      <option value="week">Last Week</option>
-      <option value="month">Last Month</option>
-      <option value="3months">Last 3 Months</option>
-      <option value="12months">Last 12 Months</option>
-    </select>
-  </div>
-
-  <div id="timeline-chart-container" style="width: 95%; border-style: solid; border-color: oklch(0 0 0)">
-    <canvas id="timeline-chart" ></canvas>
-  </div>
-
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-    const ctxTimeline = document.getElementById('timeline-chart').getContext('2d');
-
-    const timelineChart = new Chart(ctxTimeline, {
-      type: 'line',
-      data: {
-        labels: [],
-        datasets: []
-      },
-      options: {
-        scales: {
-          x: {
-            display: true,
-            title: {
-              display: true,
-              text: 'Time'
-            },
-            type: 'time',
-            time: {
-              unit: 'minute',
-              displayFormats: {
-                minute: 'MM dd hh:mm a'
-              },
-                unit: 'day',
-                displayFormats: {
-                  day: 'MM dd hh:mm a'
-                },
-              minUnit: 'minute'
-            },
-            ticks: {
-              includeBounds: true,
-              beginAtZero: true,
-              callback: function(value, index, values) {
-                const date = new Date(value);
-                return date.toLocaleString('en-US', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit', hour12: true });
-              }
-            }
-          },
-          y: {
-            beginAtZero: true,
-            ticks: {
-                stepSize: 1
-            }
-          }
-        },
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: function(context) {
-                const dataPoint = context.raw;
-                return [
-                  `Count: ${dataPoint.y}`,
-                  `Action: ${dataPoint.action}`,
-                  `State: ${dataPoint.state}`,
-                  `Product Type: ${dataPoint.product_type}`,
-                  `Form Type: ${dataPoint.form_type}`
-                ];
-              }
-            }
-          },
-          annotation: {
-            annotations: {}
-          }
-        }
-      }
+    // Assign colors to datasets using the color scale
+    datasets.forEach((dataset, i) => {
+        dataset.color = colorScale(i);
     });
 
-    function getMaxTicksLimit(timePeriod) {
-      switch (timePeriod) {
-        case 'hour':
-          return 3; // Show more ticks for shorter periods
-        case 'day':
-          return 6;
-        case 'week':
-          return 7;
-        case 'month':
-          return 4;
-        case '3months':
-          return 12;
-        case '12months':
-          return 12;
-        default:
-          return 2;
-      }
+    // Set up dimensions
+    const container = d3.select("#chart-container");
+    const containerWidth = container.node().getBoundingClientRect().width;
+    const containerHeight = container.node().getBoundingClientRect().height;
+    const chartWidth = containerWidth * .65;
+    const margin = {top: 40, right: 120, bottom: 50, left: 50};
+    const width = chartWidth - margin.left - margin.right;
+    const height = containerHeight - margin.top - margin.bottom;
+
+    // Create SVG container
+    const svg = d3.select("#chart")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+        .append("g")
+        .attr("transform", `translate(${margin.left},${margin.top})`);
+
+    // Set up scales
+    const x = d3.scaleTime().range([0, width]);
+    const y = d3.scaleLinear().range([height, 0]).nice();
+
+    // Set up line generator
+    const line = d3.line()
+        .x(d => x(d.date))
+        .y((d, i) => y(i + 1))
+        .curve(d3.curveMonotoneX);
+
+    // function to fetch the data from the server
+    async function fetchData() {
+        const selectedAgents = Array.from(document.querySelectorAll('#agent-selections input:checked')).map(input => input.value);
+        const selectedProductTypes = Array.from(document.querySelectorAll('#product-type-selections input:checked')).map(input => input.value);
+        const selectedPeriod = document.querySelector('#period-selections input[name="period"]:checked').value;
+
+        const response = await fetch(`/get_filtered_data?agents=${selectedAgents.join(',')}&product_types=${selectedProductTypes.join(',')}&period=${selectedPeriod}`);
+        return await response.json();
     }
 
-    function updateCharts() {
-      const agentId = document.getElementById('agent-select').value;
-      const action = document.getElementById('action-select').value;
-      const state = document.getElementById('state-select').value;
-      const productType = document.getElementById('product-type-select').value;
-      const formType = document.getElementById('form-type-select').value;
-      const timePeriod = document.getElementById('time-period-select').value;
+    // Function to update the chart based on selected options
+    async function updateChart() {
+        const response = await fetchData(); // Fetch and update datasets
+        console.log('response: ', response);
+        datasets = response.datasets;
+        console.log('datasets: ', datasets);
 
-      fetch(`/get_filtered_data?agent_id=${agentId}&action=${action}&state=${state}&product_type=${productType}&form_type=${formType}&time_period=${timePeriod}`)
-        .then(response => response.json())
-        .then(data => {
-          timelineChart.data.datasets = data.datasets;
-
-          let minY = Infinity;
-          let maxY = 0;
-          data.datasets.forEach(dataset => {
-            dataset.data.forEach(dataPoint => {
-              minY = Math.min(minY, dataPoint.y);
-              maxY = Math.max(maxY, dataPoint.y);
+        // Parse dates for all datasets
+        const parseTime = d3.timeParse("%Y-%m-%d %H:%M:%S");
+        datasets.forEach(dataset => {
+            dataset.activity.forEach(d => {
+                d.date = parseTime(d.date);
+                if (isNaN(d.date)) {
+                    console.error("Invalid date:", d.date);
+                }
             });
-          });
-
-          timelineChart.options.scales.y.min = minY;
-          timelineChart.options.scales.y.max = maxY;
-
-          const now = new Date();
-          let startTime;
-          switch (timePeriod) {
-  case 'hour':
-    startTime = new Date(now.getTime() - 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'minute';
-    timelineChart.options.scales.x.time.stepSize = 15;
-    break;
-  case 'day':
-    startTime = new Date(now.getTime() - 24 * 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'hour';
-    timelineChart.options.scales.x.time.stepSize = 1; // Ensure stepSize is 1 hour
-    break;
-  case 'week':
-    startTime = new Date(now.getTime() - 7 * 24 * 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'day';
-    timelineChart.options.scales.x.time.stepSize = 1;
-    break;
-  case 'month':
-    startTime = new Date(now.getTime() - 31 * 24 * 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'day';
-    timelineChart.options.scales.x.time.stepSize = 1;
-    break;
-  case '3months':
-    startTime = new Date(now.getTime() - 90 * 24 * 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'week';
-    timelineChart.options.scales.x.time.stepSize = 1;
-    break;
-  case '12months':
-    startTime = new Date(now.getTime() - 365 * 24 * 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'month';
-    timelineChart.options.scales.x.time.stepSize = 1;
-    break;
-  default:
-    startTime = new Date(now.getTime() - 60 * 60 * 1000);
-    timelineChart.options.scales.x.time.unit = 'minute';
-    timelineChart.options.scales.x.time.stepSize = 15;
-}
-
-          timelineChart.options.scales.x.min = startTime;
-          timelineChart.options.scales.x.max = now;
-          timelineChart.options.scales.x.ticks.maxTicksLimit = getMaxTicksLimit(timePeriod);
-
-          timelineChart.update();
+            dataset.activity.sort((a, b) => a.date - b.date);
         });
+
+        // Assign colors to datasets using the color scale
+        datasets.forEach((dataset, i) => {
+            dataset.color = colorScale(i);
+        });
+
+        const x = d3.scaleTime()
+            .domain([
+                d3.min(datasets, dataset => d3.min(dataset.activity, d => d.date)),
+                d3.max(datasets, dataset => d3.max(dataset.activity, d => d.date))
+            ])
+            .range([0, width]);
+
+        const y = d3.scaleLinear()
+            .domain([0, d3.max(datasets, dataset => dataset.activity.length)])
+            .range([height, 0])
+            .nice();
+
+        const line = d3.line()
+            .x(d => x(d.date))
+            .y((d, i) => y(i + 1))
+            .curve(d3.curveMonotoneX);
+
+        const selectedAgents = Array.from(document.querySelectorAll('#agent-selections input:checked')).map(input => input.value);
+        const selectedPeriod = getSelectedPeriod();
+        console.log('selected Period: ', selectedPeriod);
+
+        const filteredDatasets = datasets.filter(dataset => selectedAgents.includes(dataset.name));
+
+        const xDomain = [
+            d3.min(filteredDatasets, dataset => d3.min(dataset.activity, d => d.date)),
+            d3.max(filteredDatasets, dataset => d3.max(dataset.activity, d => d.date))
+        ];
+        x.domain(xDomain);
+
+        console.log('domain range: ', xDomain);
+        if (xDomain.some(date => isNaN(date))) {
+            console.error("Invalid xDomain:", xDomain);
+            return;
+        }
+
+        svg.selectAll("*").remove();
+
+        svg.append("text")
+            .attr("class", "title")
+            .attr("x", width / 2)
+            .attr("y", -20)
+            .attr("text-anchor", "middle")
+            .text("Agent Activity Timeline");
+
+        svg.append("g")
+            .attr("transform", `translate(0,${height})`)
+            .call(d3.axisBottom(x))
+            .append("text")
+            .attr("class", "axis-label")
+            .attr("x", width / 2)
+            .attr("y", 40)
+            .attr("text-anchor", "middle")
+            .text("Date");
+
+        svg.append("g")
+            .call(d3.axisLeft(y))
+            .append("text")
+            .attr("class", "axis-label")
+            .attr("transform", "rotate(-90)")
+            .attr("x", -height / 2)
+            .attr("y", -40)
+            .attr('dy', "1em")
+            .attr("text-anchor", "middle")
+            .text("Activity Count");
+
+        filteredDatasets.forEach((dataset, i) => {
+            svg.append("path")
+                .datum(dataset.activity)
+                .attr("class", "line")
+                .attr("stroke", dataset.color)
+                .attr("d", line)
+                .transition()
+                .duration(1000)
+                .attrTween("d", function(d) {
+                    const previous = d3.select(this).attr("d");
+                    const current = line(d);
+                    return d3.interpolatePath(previous, current);
+                });
+        });
+
+        filteredDatasets.forEach((dataset, i) => {
+            const circles = svg.selectAll(`.dot-${i}`)
+                .data(dataset.activity);
+
+            circles.enter().append("circle")
+                .attr("class", `dot dot-${i}`)
+                .attr("cx", d => x(d.date))
+                .attr("cy", (d, i) => y(i + 1))
+                .attr("r", 4)
+                .attr("fill", dataset.color)
+                .on("mouseover", function(event, d) {
+                    d3.select(this).attr("r", 6);
+                    const tooltip = d3.select("#tooltip");
+                    tooltip.transition().duration(200).style("opacity", 1);
+                    tooltip.html(`Date: ${d3.timeFormat("%Y-%m-%d %H:%M:%S")(d.date)}<br>Activity: ${datasets[i].activity.indexOf(d) + 1}<br>Action: ${d.action}`)
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mousemove", function(event) {
+                    d3.select("#tooltip")
+                        .style("left", (event.pageX + 10) + "px")
+                        .style("top", (event.pageY - 28) + "px");
+                })
+                .on("mouseout", function() {
+                    d3.select(this).attr("r", 4);
+                    d3.select("#tooltip").transition().duration(500).style("opacity", 0);
+                });
+
+            circles.transition()
+                .duration(1000)
+                .attr("cx", d => x(d.date))
+                .attr("cy", (d, i) => y(i + 1));
+
+            circles.exit().remove();
+        });
+
+        const legend = svg.append("g")
+            .attr("class", "legend")
+            .attr("transform", `translate(${width + 10}, 0)`);
+
+        const legendItems = legend.selectAll(".legend-item")
+            .data(filteredDatasets)
+            .enter()
+            .append("g")
+            .attr("class", "legend-item")
+            .attr("transform", (d, i) => `translate(0, ${i * 20})`);
+
+        legendItems.append("line")
+            .attr("x1", 0)
+            .attr("x2", 20)
+            .attr("y1", 10)
+            .attr("y2", 10)
+            .attr("stroke", d => d.color)
+            .attr("stroke-width", 2);
+
+        legendItems.append("text")
+            .attr("x", 25)
+            .attr("y", 10)
+            .attr("dy", ".35em")
+            .text(d => d.name);
+
+        setTimeout(updateChart, 2000);
     }
 
-    document.getElementById('agent-select').addEventListener('change', updateCharts);
-    document.getElementById('action-select').addEventListener('change', updateCharts);
-    document.getElementById('state-select').addEventListener('change', updateCharts);
-    document.getElementById('product-type-select').addEventListener('change', updateCharts);
-    document.getElementById('form-type-select').addEventListener('change', updateCharts);
-    document.getElementById('time-period-select').addEventListener('change', updateCharts);
+    // Add event listeners to checkboxes and radio buttons
+    document.querySelectorAll('#agent-selections input').forEach(input => {
+        input.addEventListener('change', updateChart);
+    });
+    document.querySelectorAll('#period-selections input[name="period"]').forEach(input => {
+        input.addEventListener('change', updateChart);
+    });
 
-    updateCharts();
-    setInterval(updateCharts, 30000);
-  });
-  </script>
+    // Render the first frame
+    updateChart();
+</script>
 </body>
 </html>

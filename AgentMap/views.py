@@ -1,3 +1,4 @@
+import pytz
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.core.exceptions import SuspiciousOperation
@@ -616,7 +617,8 @@ def toggle_theme(request):
 def analytics_view(request):
     agents = Agent.objects.all()
     actions = AgentActivity.objects.values_list('action', flat=True).distinct()
-    states = State.objects.all()
+    excludedStates = ['ENT', 'PR']
+    states = State.objects.exclude(state_code__in=excludedStates)
     product_types = ['MS', 'DVH', 'FE', 'HI', 'HHC', 'Cancer']
     form_types = FormType.objects.all()
 
@@ -630,46 +632,56 @@ def analytics_view(request):
     return render(request, 'analytics.html', context)
 
 def get_filtered_data(request):
-    agent_id = request.GET.get('agent_id')
+    agent_ids = request.GET.get('agents')
     action = request.GET.get('action')
-    state = request.GET.get('State')
-    product_type = request.GET.get('product_type')
+    state = request.GET.get('state')
+    product_type = request.GET.get('product_types')
     form_type = request.GET.get('form_type')
-    time_period = request.GET.get('time_period')
+    time_period = request.GET.get('period')
+    print(f'Agent IDs: {agent_ids}')
+    print(f'States: {state}')
+    print(f'Time Period: {time_period}')
 
     activities = AgentActivity.objects.all()
-
     activities = activities.order_by('timestamp')
 
-    # we want to remove any activities that contain the action 'toggle_theme' since it is not relevant to the analytics
-    activities = activities.exclude(action='toggle_theme')
-    activities = activities.exclude(action='login')
-    activities = activities.exclude(action='logout')
+    # Exclude irrelevant actions
+    activities = activities.exclude(action__in=['toggle_theme', 'login', 'logout'])
 
-    if agent_id:
-        activities = activities.filter(agent_id=agent_id)
+    if agent_ids:
+        agent_ids_list = agent_ids.split(',')
+        print(f'Agent IDs List: {agent_ids_list}')
+        try:
+            agent_ids_list = [Agent.objects.get(user__username=agent_id).id for agent_id in agent_ids_list]
+            print(f'Agent IDs List after conversion: {agent_ids_list}')
+            activities = activities.filter(agent_id__in=agent_ids_list)
+        except Agent.DoesNotExist as e:
+            print(f'Error: {e}')
+            activities = activities.none()
     if action:
         activities = activities.filter(action=action)
-    if state:
-        activities = activities.filter(details__icontains=f'"State": "{State}"')
-    if product_type:
-        activities = activities.filter(details__icontains=f'"Product Type": "{product_type}"')
-    if form_type:
-        activities = activities.filter(details__icontains=f'"Form Type": "{form_type}"')
+    # if state:
+    #     activities = activities.filter(details__icontains=f'"State": "{state}"')
+    # if product_type:
+    #     activities = activities.filter(details__icontains=f'"Product Type": "{product_type}"')
+    # if form_type:
+    #     activities = activities.filter(details__icontains=f'"Form Type": "{form_type}"')
+
+    print(activities)
 
     if time_period:
         now = timezone.now()
-        if time_period == 'hour':
+        if time_period == '1':
             start_time = now - timedelta(hours=1)
-        elif time_period == 'day':
+        elif time_period == '24':
             start_time = now - timedelta(days=1)
-        elif time_period == 'week':
+        elif time_period == '168':
             start_time = now - timedelta(weeks=1)
-        elif time_period == 'month':
+        elif time_period == '696':
             start_time = now - timedelta(days=30)
-        elif time_period == '3months':
+        elif time_period == '2016':
             start_time = now - timedelta(days=90)
-        elif time_period == '12months':
+        elif time_period == '8064':
             start_time = now - timedelta(days=365)
         activities = activities.filter(timestamp__gte=start_time)
 
@@ -678,58 +690,19 @@ def get_filtered_data(request):
     }
 
     agent_datasets = {}
-    agent_count = 0
-    action_counts = {}
-
-
-    # Color Palette for the datasets
-    colors = [
-        'oklch(65.11% 0.1457 267.31)',
-        'oklch(56.48% 0.1726 4.56)',
-        'oklch(65.44% 0.1043 183.49)',
-        'oklch(56.19% 0.1787 298.1)',
-        'oklch(68.21% 0.1459 47.26)',
-        'oklch(50.94% 0.1852 267.15)',
-        'oklch(45.27% 0.153 5.92)',
-        'oklch(48.74% 0.0847 182.85)',
-        'oklch(45.2% 0.1707 296.57)',
-        'oklch(51.4% 0.1464 45.03)',
-        'oklch(41.51% 0.1676 268.26)',
-        'oklch(37.49% 0.14 6.37)',
-        'oklch(39.45% 0.069 183.53)',
-        'oklch(37.49% 0.1605 294.44)',
-        'oklch(41.67% 0.1182 44.38)',
-        'oklch(34.6% 0.1548 268.7)',
-        'oklch(61.67% 0.1558 3.02)',
-        'oklch(32.7% 0.0578 184.21)',
-        'oklch(61.32% 0.1626 299.83)',
-        'oklch(34.43% 0.0975 45.53)',
-        'oklch(55.2% 0.1895 266.84)',
-        'oklch(48.46% 0.1598 5.39)',
-        'oklch(53.05% 0.0923 182.1)',
-        'oklch(48.31% 0.1727 296.76)'
-    ]
+    est = pytz.timezone('US/Eastern')
 
     for activity in activities:
         agent = activity.agent.user.username
-        action_counts[agent] = action_counts.get(agent, 0) + 1
-        print(f'Action Counts: {action_counts}')
         if agent not in agent_datasets:
-            agent_count += 1
             agent_datasets[agent] = {
-                'label': agent,
-                'data': [],
-                'backgroundColor': colors[agent_count % len(colors)],
-                'borderColor': colors[agent_count % len(colors)],
-                'borderWidth': 1,
+                'name': agent,
+                'activity': []
             }
-        agent_datasets[agent]['data'].append({
-            'x': activity.timestamp,
-            'y': action_counts[agent],
-            'action': activity.action,
-            'state': activity.details.get('State', ''),
-            'product_type': activity.details.get('Product Type', ''),
-            'form_type': activity.details.get('Form Type', '')
+        est_date = activity.timestamp.astimezone(est)
+        agent_datasets[agent]['activity'].append({
+            'date': est_date.strftime('%Y-%m-%d %H:%M:%S'),
+            'action': activity.action
         })
 
     data['datasets'] = list(agent_datasets.values())
