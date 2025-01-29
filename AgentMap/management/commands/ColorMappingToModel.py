@@ -18,7 +18,10 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Alaska": {
             "AARP": "SPOUSAL",
@@ -27,7 +30,10 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "Cigna Loyal American Life Insurance": "SPOUSAL",
             "Mutual of Omaha": "NONE",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Arizona": {
             "AARP": "SPOUSAL",
@@ -47,7 +53,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Arkansas": {
             "AARP": "SPOUSAL",
@@ -64,7 +73,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "California": {
             "AARP": "SPOUSAL",
@@ -74,7 +86,10 @@ def add_color_mapping_to_model():
             "Elips Life Insurance": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Colorado": {
             "AARP": "SPOUSAL",
@@ -89,7 +104,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Connecticut": {
             "AARP": "SPOUSAL",
@@ -97,7 +115,10 @@ def add_color_mapping_to_model():
             "Aetna": "NONE",
             "Cigna National Health Insurance": "SPOUSAL",
             "Mutual of Omaha": "NONE",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Delaware": {
             "AARP": "SPOUSAL",
@@ -110,13 +131,19 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "District of Columbia": {
             "Aetna": "SPOUSAL",
             "Cigna Loyal American Life Insurance": "SPOUSAL",
             "LifeShield National Insurance": "RM",
-            "Mutual of Omaha": "NONE"
+            "Mutual of Omaha": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Florida": {
             "AARP": "SPOUSAL",
@@ -130,7 +157,10 @@ def add_color_mapping_to_model():
             "New Era": "NONE",
             "Mutual of Omaha": "NONE",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Georgia": {
             "AARP": "SPOUSAL",
@@ -147,12 +177,18 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Medico": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Hawaii": {
             "Cigna Loyal American Life Insurance": "NONE",
             "Mutual of Omaha": "NONE",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Idaho": {
             "AARP": "SPOUSAL",
@@ -162,7 +198,10 @@ def add_color_mapping_to_model():
             "Cigna Health and Life Insurance": "NONE",
             "Manhattan Life": "NONE",
             "Mutual of Omaha": "NONE",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Illinois": {
             "AARP": "SPOUSAL",
@@ -179,7 +218,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Iowa": {
             "AARP": "SPOUSAL",
@@ -194,7 +236,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Indiana": {
             "AARP": "SPOUSAL",
@@ -213,7 +258,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Kansas": {
             "AARP": "SPOUSAL",
@@ -230,7 +278,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Kentucky": {
             "AARP": "SPOUSAL",
@@ -246,7 +297,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Louisiana": {
             "AARP": "SPOUSAL",
@@ -263,12 +317,18 @@ def add_color_mapping_to_model():
             "Mutual of Omaha": "RM",
             "Philadelphia American Life Insurance": "SPOUSAL",
             "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Maine": {
             "AARP": "SPOUSAL",
             "Cigna Health and Life Insurance": "SPOUSAL",
             "Mutual of Omaha": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Maryland": {
             "AARP": "SPOUSAL",
@@ -283,7 +343,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Massachusetts": {
         },
@@ -301,7 +364,10 @@ def add_color_mapping_to_model():
             "Mutual of Omaha": "RM",
             "Philadelphia American Life Insurance": "SPOUSAL",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Minnesota": {
             "AARP": "SPOUSAL",
@@ -309,7 +375,10 @@ def add_color_mapping_to_model():
             "Cigna Health and Life Insurance": "NONE",
             "Lumico": "NONE",
             "Mutual of Omaha": "NONE",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Mississippi": {
             "AARP": "SPOUSAL",
@@ -328,7 +397,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Medico": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Missouri": {
             "AARP": "SPOUSAL",
@@ -344,7 +416,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "MARRIED",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Montana": {
             "AARP": "SPOUSAL",
@@ -357,7 +432,10 @@ def add_color_mapping_to_model():
             "Lumico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Nebraska": {
             "AARP": "SPOUSAL",
@@ -373,7 +451,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Nevada": {
             "AARP": "RM",
@@ -387,7 +468,10 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "WPS Health Insurance": "SPOUSAL"
+            "WPS Health Insurance": "SPOUSAL",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "New Hampshire": {
             "AARP": "SPOUSAL",
@@ -396,7 +480,10 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "Cigna Health and Life Insurance": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "New Jersey": {
             "AARP": "SPOUSAL",
@@ -411,7 +498,10 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "SPOUSAL",
             "Manhattan Life": "SPOUSAL",
             "Mutual of Omaha": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "New Mexico": {
             "AARP": "SPOUSAL",
@@ -427,11 +517,17 @@ def add_color_mapping_to_model():
             "Lumico": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "New York": {
             "AARP": "NONE",
-            "Mutual of Omaha": "NONE"
+            "Mutual of Omaha": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "North Carolina": {
             "AARP": "SPOUSAL",
@@ -449,7 +545,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Medico": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "North Dakota": {
             "AARP UHICA": "RM",
@@ -465,7 +564,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "SPOUSAL",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Ohio": {
             "AARP": "SPOUSAL",
@@ -483,7 +585,10 @@ def add_color_mapping_to_model():
             "Medico": "SPOUSAL",
             "Mutual of Omaha": "SPOUSAL",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Oklahoma": {
             "AARP": "SPOUSAL",
@@ -501,7 +606,10 @@ def add_color_mapping_to_model():
             "Medico": "SPOUSAL",
             "Mutual of Omaha": "SPOUSAL",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Oregon": {
             "AARP": "SPOUSAL",
@@ -512,7 +620,10 @@ def add_color_mapping_to_model():
             "Lumico": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Pennsylvania": {
             "AARP": "SPOUSAL",
@@ -529,7 +640,10 @@ def add_color_mapping_to_model():
             "Medico": "MARRIED",
             "Mutual of Omaha": "MARRIED",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Rhode Island": {
             "AARP": "SPOUSAL",
@@ -538,7 +652,10 @@ def add_color_mapping_to_model():
             "Aflac": "RM",
             "Cigna Health and Life Insurance": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "South Carolina": {
             "AARP": "SPOUSAL",
@@ -555,7 +672,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "Philadelphia American Life Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "South Dakota": {
             "AARP": "SPOUSAL",
@@ -571,7 +691,10 @@ def add_color_mapping_to_model():
             "Mutual of Omaha": "RM",
             "Philadelphia American Life Insurance": "SPOUSAL",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Tennessee": {
             "AARP": "SPOUSAL",
@@ -589,7 +712,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Texas": {
             "AARP": "SPOUSAL",
@@ -609,7 +735,10 @@ def add_color_mapping_to_model():
             "Mutual of Omaha": "RM",
             "Philadelphia American Life Insurance": "SPOUSAL",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Utah": {
             "AARP": "SPOUSAL",
@@ -623,7 +752,10 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "RM",
             "Medico": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Vermont": {
             "AARP": "NONE",
@@ -632,7 +764,10 @@ def add_color_mapping_to_model():
             "Cigna Health and Life Insurance": "NONE",
             "Mutual of Omaha": "NONE",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Virginia": {
             "AARP": "SPOUSAL",
@@ -648,7 +783,10 @@ def add_color_mapping_to_model():
             "Manhattan Life": "RM",
             "Medico": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Washington": {
             "AARP": "SPOUSAL",
@@ -656,7 +794,10 @@ def add_color_mapping_to_model():
             "Elips Life Insurance": "SPOUSAL",
             "Medico": "SPOUSAL",
             "Mutual of Omaha": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "West Virginia": {
             "AARP": "SPOUSAL",
@@ -671,7 +812,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Wisconsin": {
             "AARP": "SPOUSAL",
@@ -686,7 +830,10 @@ def add_color_mapping_to_model():
             "Medico": "RM",
             "Mutual of Omaha": "RM",
             "WPS Health Insurance": "SPOUSAL",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         },
         "Wyoming": {
             "AARP": "SPOUSAL",
@@ -698,7 +845,10 @@ def add_color_mapping_to_model():
             "LifeShield National Insurance": "RM",
             "Manhattan Life": "RM",
             "Mutual of Omaha": "RM",
-            "United American": "NONE"
+            "United American": "NONE",
+            "Atlantic Capital Life Assurance": "RM",
+            "Bankers Fidelity Assurance": "RM",
+            "Bankers Fidelity Insurance": "SPOUSAL",
         }
     }
 
