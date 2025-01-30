@@ -55,10 +55,17 @@ class PDF(models.Model):
 # This Model represents a user that is an agent
 class Agent(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
+    isManager = models.BooleanField(default=False)
+    npn = models.CharField(max_length=200, blank=True)
+    ssn = models.CharField(max_length=200, blank=True)
+    dob = models.DateField(blank=True, null=True)
+    address = models.CharField(max_length=400, blank=True)
+    phone = models.CharField(max_length=200, blank=True)
+
 
     # This function returns a string representation of the agent object
     def __str__(self):
-        return self.user.username  # This is just the username of the agent
+        return self.user.first_name + " " + self.user.last_name
 
 
 # This model represents an agents licensed state
