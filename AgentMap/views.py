@@ -700,9 +700,14 @@ def get_filtered_data(request):
                 'activity': []
             }
         est_date = activity.timestamp.astimezone(est)
+        details = activity.details
         agent_datasets[agent]['activity'].append({
             'date': est_date.strftime('%Y-%m-%d %H:%M:%S'),
-            'action': activity.action
+            'action': activity.action,
+            'product_type': details.get('Product Type', ''),
+            'state': details.get('State', ''),
+            'carrier': details.get('Carrier', ''),
+            'form_type': details.get('Form Type', '')
         })
 
     data['datasets'] = list(agent_datasets.values())
