@@ -597,3 +597,16 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
+the
+.strobe-shadow {
+    transition: box-shadow 0.5s;
+}
+.strobe-shadow.flame {
+    box-shadow:
+        0 0 10px 2px oklch(66.02% 0.2293 35.4 / 80%),  /* Outer orange */
+        0 0 20px 4px oklch(75.05% 0.1791 58.28 / 60%), /* Middle orange */
+        0 0 30px 6px oklch(88.68% 0.1821 95.33 / 40%); /* Inner yellow */
+}
+.strobe-shadow.no-flame {
+    box-shadow: none;
+}
