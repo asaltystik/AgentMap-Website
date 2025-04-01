@@ -597,7 +597,7 @@ body {
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
-the
+
 .strobe-shadow {
     transition: box-shadow 0.5s;
 }

@@ -119,15 +119,17 @@
             >
                 HHC Rebate Calculator
             </button>
-            <button
+            {% if user.is_staff %}
+                <button
                     id="Login-Sheet"
                     class="redirect-button preload"
                     onclick="window.open('https://docs.google.com/spreadsheets/d/1Tw5cnAv93uj2Wc4V4vEWkRFV7ACwofaV/edit?usp=sharing&ouid=108348743824232117908&rtpof=true&sd=true')"
-            >
-                Login Sheet
-            </button>    
+                >
+                    Login Sheet
+                </button>
+            {% endif %}
             <!-- if the user is an admin show the admin button -->
-            {% if user.is_staff %}
+            {% if user.is_superuser %}
                 <button
                         id="admin-button"
                         class="redirect-button preload"

@@ -69,7 +69,7 @@ class Command(BaseCommand):
 
                         # print("relative path: ", file_path)
 
-                        # Get the full form type from the FORM_TYPE_DICT
+
                         try:
                             form_type = FormType.objects.get(form_type=form_type)
                         except FormType.DoesNotExist:
